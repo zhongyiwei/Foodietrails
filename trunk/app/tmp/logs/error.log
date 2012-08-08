@@ -1,0 +1,3 @@
+2012-07-29 10:21:13 Error: [MissingControllerException] Controller class Index.phpController could not be found.
+#0 E:\Note2\FIT3047 Industrial Experience Project\IEProject\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
