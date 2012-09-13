@@ -16,11 +16,11 @@ App::uses('AppModel', 'Model');
 class User extends AppModel {
 
 /**
- * Primary key field
+ * Display field
  *
  * @var string
  */
-	public $primaryKey = 'y';
+	public $displayField = 'id';
 
 /**
  * Validation rules
@@ -29,8 +29,8 @@ class User extends AppModel {
  */
 	public $validate = array(
 		'id' => array(
-			'numeric' => array(
-				'rule' => array('numeric'),
+			'blank' => array(
+				'rule' => array('blank'),
 				//'message' => 'Your custom message here',
 				//'allowEmpty' => false,
 				//'required' => false,
@@ -39,8 +39,8 @@ class User extends AppModel {
 			),
 		),
 		'user_role' => array(
-			'notempty' => array(
-				'rule' => array('notempty'),
+			'blank' => array(
+				'rule' => array('blank'),
 				//'message' => 'Your custom message here',
 				//'allowEmpty' => false,
 				//'required' => false,
@@ -49,8 +49,16 @@ class User extends AppModel {
 			),
 		),
 		'user_first_name' => array(
-			'notempty' => array(
-				'rule' => array('notempty'),
+			'blank' => array(
+				'rule' => array('blank'),
+				//'message' => 'Your custom message here',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+			'alphanumeric' => array(
+				'rule' => array('alphanumeric'),
 				//'message' => 'Your custom message here',
 				//'allowEmpty' => false,
 				//'required' => false,
@@ -59,8 +67,16 @@ class User extends AppModel {
 			),
 		),
 		'user_surname' => array(
-			'notempty' => array(
-				'rule' => array('notempty'),
+			'alphanumeric' => array(
+				'rule' => array('alphanumeric'),
+				//'message' => 'Your custom message here',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+			'blank' => array(
+				'rule' => array('blank'),
 				//'message' => 'Your custom message here',
 				//'allowEmpty' => false,
 				//'required' => false,
@@ -69,8 +85,8 @@ class User extends AppModel {
 			),
 		),
 		'user_contacts' => array(
-			'notempty' => array(
-				'rule' => array('notempty'),
+			'phone' => array(
+				'rule' => array('phone'),
 				//'message' => 'Your custom message here',
 				//'allowEmpty' => false,
 				//'required' => false,
@@ -79,8 +95,8 @@ class User extends AppModel {
 			),
 		),
 		'user_email' => array(
-			'notempty' => array(
-				'rule' => array('notempty'),
+			'email' => array(
+				'rule' => array('email'),
 				//'message' => 'Your custom message here',
 				//'allowEmpty' => false,
 				//'required' => false,
@@ -89,8 +105,18 @@ class User extends AppModel {
 			),
 		),
 		'user_password' => array(
-			'notempty' => array(
-				'rule' => array('notempty'),
+			'blank' => array(
+				'rule' => array('blank'),
+				//'message' => 'Your custom message here',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),
+		'user_address' => array(
+			'blank' => array(
+				'rule' => array('blank'),
 				//'message' => 'Your custom message here',
 				//'allowEmpty' => false,
 				//'required' => false,
@@ -99,8 +125,8 @@ class User extends AppModel {
 			),
 		),
 		'country_id' => array(
-			'numeric' => array(
-				'rule' => array('numeric'),
+			'blank' => array(
+				'rule' => array('blank'),
 				//'message' => 'Your custom message here',
 				//'allowEmpty' => false,
 				//'required' => false,
