@@ -4,8 +4,10 @@
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
             <?php
             echo $this->Html->css('reset');
+			echo $this->Html->css('cake.generic.css');
             echo $this->Html->css('index');
             echo $this->Html->css('craftyslide');
+
             ?>
             <script type="text/javascript" src="js/jquery-1.6.3.min.js"></script>
             <script type="text/javascript" src="js/craftyslide.js"></script>
@@ -16,7 +18,7 @@
     <body>
         <div class="container">
             <div class="header">
-                <a href="#"><img src="img/LOGO.jpg" alt="Foodie Trails Logo" name="Foodie Trails Logo" height="90" id="Insert_logo" style="background: #FFF; display:block; float:left" /></a>
+                <a href="home"><img src="../../../img/LOGO.jpg" alt="Foodie Trails Logo" name="Foodie Trails Logo" height="90" id="Insert_logo" style="background: #FFF; display:block; float:left" /></a>
                 <div class="headerRight">
                     <p class="headerRightText">Contact Us: 0452660748<br/>
                         Taste the blend of flavours, Experience the culture, Explore the regions</p>
@@ -43,7 +45,7 @@
                             <span>Media</span>
                             <span>Deals</span>
                             <span>Events</span></td>
-                        <td style="vertical-align:middle" align="right"><img src="img/BH.png" width="60" alt="BH"></td>
+                        <td style="vertical-align:middle" align="right"><img src="../../../../../img/BH.png" width="60" alt="BH"></td>
                     </tr>
                 </table>
             </div>
