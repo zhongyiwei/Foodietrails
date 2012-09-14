@@ -1,0 +1,138 @@
+@charset "utf-8";
+/* CSS Document */
+
+.menu {
+	display:none;
+}
+.container {
+	width:100%;
+}
+.content {
+	padding:0px;
+}
+h2 {
+	background-color:transparent;
+}
+.footer {
+	display:none;
+}
+.paging {
+	background-color:transparent;
+}
+div.actions {
+	width:auto;
+}
+div.form, div.index, div.view {
+	width:1024px;
+}
+/*body{
+	background: -webkit-gradient(
+    linear,
+    left bottom,
+    left top,
+    color-stop(0.08, rgb(139,210,232)),
+    color-stop(0.65, rgb(222,255,255))
+);
+background: -moz-linear-gradient(
+    center bottom,
+    rgb(139,210,232) 8%,
+    rgb(222,255,255) 65%
+)
+}*/
+.paging .disabled {
+	background:white;
+}
+.headerRightText {
+	display: none;
+}
+.manageRightMenu {
+	zoom:1;
+	height: 70px;
+	width:1080px;
+	background: #dd6013;
+	border-radius: 2px;
+}
+.manageRightMenu ul li a {
+	display: block;
+	height: 40px;
+	padding: 5px 30px 0;
+	margin:0;
+	border-radius: 2px 2px 0 0;
+	text-decoration: none;
+	font-size: 20px;
+	color: white;
+	text-shadow: 0 1px 1px rgba(0, 0, 0, .75);
+	font-weight: 400;
+	opacity: .9;
+}
+.manageRightMenu li:first-child a {
+	margin: 4px 2px 0 0;
+}
+.manageRightMenu ul li a:hover, .manageRightMenu ul li.active a {
+	background: url(/img/color.png) center bottom;
+	display: block;
+	height: 34px;
+	margin-top: -5px;
+	padding-top: 10px;
+	color: #FFF;
+	text-shadow: 0 1px 1px rgba(255, 255, 255, .35);
+	opacity: 1;
+}
+.manageRightMenu ul li a:hover {
+	background: url(/img/color2.png) center bottom;
+}
+.manageRightMenu ul {
+	background: url(/img/nav-bg.png) repeat-x 0px 0px;
+	height: 39px;
+}
+.manageRightMenu ul li {
+	float: left;
+	list-style: none;
+}
+div.form, div.index, div.view {
+	float:none;
+}
+table tr td {
+	border-bottom: 0px solid #DDD;
+	border-right:1px solid #CCC;
+}
+div.form, div.index, div.view {
+	border-left: 0px solid #666;
+}
+input[type="submit"], .actions ul li a, .actions a {
+	background-image:none;
+	background:none;
+	border:1px solid #f9bd40;
+	text-shadow:none;
+}
+.LeftMenuActions, .actions .LeftMenuActions a {
+	background: #dd6013;
+	text-shadow:none;
+	color:#FFF;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+}
+.actions ul li a:hover {
+	background: url(/img/color2.png) center bottom;
+	color:#000;
+}
+.header{
+	margin-bottom:20px;
+}
+.mangeRightSubMenu,.selected,.unselected,.selected a,.unselected a{
+	float:left;
+	margin-right:20px;
+	color:#FFF;
+}
+.mangeRightSubMenu{
+margin-top: -25px;
+margin-left: 20px;
+}
+.unselected a{
+	text-decoration:none;
+	font-weight:normal;
+}
+.unselected a:hover{
+	text-decoration:underline;
+}
