@@ -62,12 +62,11 @@ class DATABASE_CONFIG {
 	public $default = array(
 		'datasource' => 'Database/Mysql',
 		'persistent' => false,
-		'host' => 'localhost',
-		'login' => 'meden2',
-		'password' => 'med080391',
-		'database' => 'fit-ie-s35',
-		'prefix' => '',
-		//'encoding' => 'utf8',
+		'host' => 'localhost',//130.194.7.82
+		'login' => 'root',//IEMySQL35
+		'password' => '',//6h4ekludrl
+		'database' => 'cakedb',//fit-ie-s35
+
 	);
 
 	public $test = array(
