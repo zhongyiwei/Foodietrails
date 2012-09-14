@@ -62,10 +62,10 @@ class DATABASE_CONFIG {
 	public $default = array(
 		'datasource' => 'Database/Mysql',
 		'persistent' => false,
-		'host' => 'localhost',
-		'login' => 'root',
-		'password' => '',
-		'database' => 'CakeDB',
+		'host' => '130.194.7.82',
+		'login' => 'IEMySQL35',
+		'password' => 'fit-ie-s35',
+		'database' => 'fit-ie-s35',
 		'prefix' => '',
 		//'encoding' => 'utf8',
 	);
