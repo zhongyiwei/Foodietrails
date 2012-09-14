@@ -4,10 +4,9 @@
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
             <?php
             echo $this->Html->css('reset');
-			echo $this->Html->css('cake.generic.css');
+            echo $this->Html->css('cake.generic.css');
             echo $this->Html->css('index');
             echo $this->Html->css('craftyslide');
-
             ?>
             <script type="text/javascript" src="js/jquery-1.6.3.min.js"></script>
             <script type="text/javascript" src="js/craftyslide.js"></script>
@@ -18,21 +17,39 @@
     <body>
         <div class="container">
             <div class="header">
-                <a href="home"><img src="../../../img/LOGO.jpg" alt="Foodie Trails Logo" name="Foodie Trails Logo" height="90" id="Insert_logo" style="background: #FFF; display:block; float:left" /></a>
+                <a href="home">
+                    <img src="<?php echo $this->webroot; ?>img/LOGO.jpg" alt="Foodie Trails Logo" name="Foodie Trails Logo" height="90" id="Insert_logo" style="background: #FFF; display:block; float:left" /></a>
                 <div class="headerRight">
                     <p class="headerRightText">Contact Us: 0452660748<br/>
                         Taste the blend of flavours, Experience the culture, Explore the regions</p>
                 </div>
             </div>
             <div class="menu">
-                <div class="submenu submenu_selected">Home</div>
-                <div class="submenu">International Culinary Tours </div>
-                <div class="submenu">Walking Food Tours</div>
-                <div class="submenu">Media</div>
-                <div class="submenu">Deals</div>
-                <div class="submenu">Events</div>
-                <div class="submenu">Food Tours Melbourne</div>
-                <div class="submenu">About Us</div>
+                <ul>
+                    <li class="active"><a>Home</a></li>
+                    <li class='has-sub'><a>Tours</a>
+                        <ul>
+                            <li><a href='#'><span>Indian Tours</span></a></li>
+                            <li><a href='#'><span>Africa Tours</span></a></li>
+                            <li><a href='#'><span>Private Tours</span></a></li>
+                        </ul>
+                    </li>
+                    <li class='has-sub'><a>Events</a>
+                        <ul>
+                            <li><a href='#'><span>Up Coming Events</span></a></li>
+                        </ul>
+                    </li>
+                    <li><a>Media</a></li>
+                    <li><a>Cooking Classes</a></li>
+                    <li class='has-sub'><a>About Us</a>
+                        <ul>
+                            <li><a href='#'><span>FAQ</span></a></li>
+                            <li><a href='#'><span>Feedbacks</span></a></li>
+                            <li><a href='#'><span>Contact Us</span></a></li>
+                            <li><a href='#'><span>Blogs</span></a></li>
+                        </ul>
+                    </li>
+                </ul>
             </div>
             <div class="content">
                 <?php echo $this->fetch('content'); ?>
@@ -45,7 +62,7 @@
                             <span>Media</span>
                             <span>Deals</span>
                             <span>Events</span></td>
-                        <td style="vertical-align:middle" align="right"><img src="../../../../../img/BH.png" width="60" alt="BH"></td>
+                        <td style="vertical-align:middle" align="right"><img src="<?php echo $this->webroot; ?>img/BH.png" width="60" alt="BH"></td>
                     </tr>
                 </table>
             </div>
