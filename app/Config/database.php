@@ -64,7 +64,7 @@ class DATABASE_CONFIG {
 		'persistent' => false,
 		'host' => '130.194.7.82',
 		'login' => 'IEMySQL35',
-		'password' => 'fit-ie-s35',
+		'password' => 'dbpassword',
 		'database' => 'fit-ie-s35',
 		'prefix' => '',
 		//'encoding' => 'utf8',
