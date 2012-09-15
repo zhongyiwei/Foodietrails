@@ -5,7 +5,6 @@ App::uses('AppModel', 'Model');
  *
  * @property Feedback $Feedback
  * @property TourGiftvoucher $TourGiftvoucher
- * @property TourImage $TourImage
  * @property TourOrder $TourOrder
  * @property Date $Date
  */
@@ -57,6 +56,16 @@ class Tour extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
+            		'tour_price_per_certificae' => array(
+			'notempty' => array(
+				'rule' => array('notempty'),
+				//'message' => 'Your custom message here',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),
 		'tour_notes' => array(
 			'notempty' => array(
 				'rule' => array('notempty'),
@@ -78,6 +87,16 @@ class Tour extends AppModel {
 			),
 		),
 		'tour_location' => array(
+			'notempty' => array(
+				'rule' => array('notempty'),
+				//'message' => 'Your custom message here',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),
+            		'tour_duration' => array(
 			'notempty' => array(
 				'rule' => array('notempty'),
 				//'message' => 'Your custom message here',
@@ -127,6 +146,16 @@ class Tour extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
+            		'tour_thumbnail' => array(
+			'notempty' => array(
+				'rule' => array('notempty'),
+				//'message' => 'Your custom message here',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),
 	);
 
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
@@ -152,19 +181,6 @@ class Tour extends AppModel {
 		),
 		'TourGiftvoucher' => array(
 			'className' => 'TourGiftvoucher',
-			'foreignKey' => 'tour_id',
-			'dependent' => false,
-			'conditions' => '',
-			'fields' => '',
-			'order' => '',
-			'limit' => '',
-			'offset' => '',
-			'exclusive' => '',
-			'finderQuery' => '',
-			'counterQuery' => ''
-		),
-		'TourImage' => array(
-			'className' => 'TourImage',
 			'foreignKey' => 'tour_id',
 			'dependent' => false,
 			'conditions' => '',
@@ -202,7 +218,7 @@ class Tour extends AppModel {
 			'className' => 'Date',
 			'joinTable' => 'date_tours',
 			'foreignKey' => 'tour_id',
-			'associationForeignKey' => 'date_id',
+			'associationForeignKey' => 'tour_dates_id',
 			'unique' => 'keepExisting',
 			'conditions' => '',
 			'fields' => '',

@@ -7,18 +7,20 @@
             echo $this->Html->css('cake.generic.css');
             echo $this->Html->css('index');
             echo $this->Html->css('craftyslide');
+
+            echo $this->Html->script('jquery-1.6.3.min.js');
+            echo $this->Html->script('craftyslide.js');
+            echo $this->Html->script('jquery.roundabout.js');
             ?>
-            <script type="text/javascript" src="js/jquery-1.6.3.min.js"></script>
-            <script type="text/javascript" src="js/craftyslide.js"></script>
-            <script type="text/javascript" src="js/jquery.roundabout.js"></script>
             <title><?php echo $this->fetch('title'); ?></title>
     </head>
 
     <body>
         <div class="container">
             <div class="header">
-                <a href="home">
-                    <img src="<?php echo $this->webroot; ?>img/LOGO.jpg" alt="Foodie Trails Logo" name="Foodie Trails Logo" height="90" id="Insert_logo" style="background: #FFF; display:block; float:left" /></a>
+                <?php
+                echo $this->Html->image("LOGO.jpg", array("alt" => "Foodie Trails Logo", 'name' => "Foodie Trails Logo", 'height' => "90", 'style' => "background: #FFF; display:block; float:left", 'url' => array('controller' => 'Home', 'action' => 'display')));
+                ?>
                 <div class="headerRight">
                     <p class="headerRightText">Contact Us: 0452660748<br/>
                         Taste the blend of flavours, Experience the culture, Explore the regions</p>
@@ -62,7 +64,12 @@
                             <span>Media</span>
                             <span>Deals</span>
                             <span>Events</span></td>
-                        <td style="vertical-align:middle" align="right"><img src="<?php echo $this->webroot; ?>img/BH.png" width="60" alt="BH"></td>
+                        <td style="vertical-align:middle" align="right">
+                            <a href="http://beaconholidays.com.au/"><?php
+                            echo $this->Html->image("BH.png", array("alt" => "Beacon Holiday", 'name' => "Beacon Holiday Logo", 'width' => "60"));
+                             ?></a>
+
+                        </td>
                     </tr>
                 </table>
             </div>
