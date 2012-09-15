@@ -117,22 +117,55 @@ input[type="submit"], .actions ul li a, .actions a {
 	background: url(/img/color2.png) center bottom;
 	color:#000;
 }
-.header{
+.header {
 	margin-bottom:20px;
 }
-.mangeRightSubMenu,.selected,.unselected,.selected a,.unselected a{
+.mangeRightSubMenu, .selected, .unselected, .selected a, .unselected a {
 	float:left;
 	margin-right:20px;
 	color:#FFF;
 }
-.mangeRightSubMenu{
-margin-top: -25px;
-margin-left: 20px;
+.mangeRightSubMenu {
+	margin-top: -25px;
+	margin-left: 20px;
 }
-.unselected a{
+.unselected a {
 	text-decoration:none;
 	font-weight:normal;
 }
-.unselected a:hover{
+.unselected a:hover {
 	text-decoration:underline;
+}
+form .submit input[type="submit"], table td.actions a {
+	background:#F90;
+	background:-webkit-gradient( linear, left bottom, left top, color-stop(0.44, rgb(255,119,0)), color-stop(0.72, rgb(255,153,0)) );
+	background: -moz-linear-gradient( center bottom, rgb(255,119,0) 44%, rgb(255,153,0) 72% );
+	color: white;
+	text-shadow: none;
+	border-color:#F90;
+	text-decoration:none;
+}
+form .submit input[type="submit"]:hover, table td.actions a:hover {
+	background:#ff6f00;
+	background:-webkit-gradient(  linear,  left bottom,  left top,  color-stop(0.44, rgb(255,68,0)),  color-stop(0.72, rgb(255,102,0)) );
+	background: -moz-linear-gradient(  center bottom,  rgb(255,68,0) 44%,  rgb(255,102,0) 72% );
+	color: white;
+	text-shadow: none;
+	border-color:#F90;
+	cursor:pointer;
+}
+.MenuSeparator {
+	margin-top: 15px;
+	border: 2px solid #8cc2db;
+	margin-bottom: 15px;
+}
+input, textarea {
+	padding:0;
+}
+dt{
+	width:220px;
+}
+dd{
+	width:830px;
+	margin-left:220px;
 }
