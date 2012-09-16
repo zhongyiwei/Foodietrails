@@ -7,11 +7,11 @@ echo $this->Html->css('admin');
 		            <div class="actions">
                 <h3><?php echo __('Menu'); ?></h3>
                 <ul>
-                    <li class="LeftMenuActions"><?php echo $this->Html->link(__('Product Management'), array('action' => 'index')); ?></li>
-                    <li><?php echo $this->Html->link(__('Customer Management'), array('controller' => 'users', 'action' => 'index')); ?></li>
+                    <li class="<?php echo $this->fetch('LeftProduct');?>"><?php echo $this->Html->link(__('Product Management'), array('action' => 'index')); ?></li>
+                    <li class="<?php echo $this->fetch('LeftCustomer');?>"><?php echo $this->Html->link(__('Customer Management'), array('controller' => 'users', 'action' => 'index')); ?></li>
                     <!--<li><?php echo $this->Html->link(__('Report Management'), array('controller' => 'reports', 'action' => 'index')); ?></li>-->
-                    <li><?php echo $this->Html->link(__('News Management'), array('controller' => 'news', 'action' => 'index')); ?></li>
-                    <li><?php echo $this->Html->link(__('Events Management'), array('controller' => 'events', 'action' => 'index')); ?></li>  
+                    <li class="<?php echo $this->fetch('LeftNews');?>"><?php echo $this->Html->link(__('News Management'), array('controller' => 'news', 'action' => 'index')); ?></li>
+                    <li class="<?php echo $this->fetch('LeftEvent');?>"><?php echo $this->Html->link(__('Events Management'), array('controller' => 'events', 'action' => 'index')); ?></li>  
                 </ul>
             </div>
         </td>
