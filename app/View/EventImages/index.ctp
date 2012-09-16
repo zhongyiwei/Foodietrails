@@ -1,5 +1,9 @@
 <?php
 $this->extend('/Common/AdminIndex');
+$this->assign('LeftProduct','');
+$this->assign('LeftCustomer','');
+$this->assign('LeftNews','');
+$this->assign('LeftEvent','LeftMenuActions');
 $this->start('manageRightMenu');
 ?>
 <div class="manageRightMenu" >
