@@ -1,5 +1,23 @@
+<?php
+$this->extend('/Common/AdminIndex');
+$this->start('manageRightMenu');
+?>
+<div class="manageRightMenu" >
+    <ul>
+        <li><?php echo $this->Html->link(__('Events'), array('controller' => 'events','action' => 'index')); ?></li>
+        <li class='active '><?php echo $this->Html->link(__('Events Images'), array('action' => 'index')); ?></li>
+    </ul>
+</div>
+<div class="mangeRightSubMenu"> 
+    <div class="selected"><?php echo $this->Html->link(__('Events List'), array('action' => 'index')); ?></div>
+    <div class="unselected"><?php echo $this->Html->link(__('Add Event'), array('action' => 'add')); ?></div>
+</div>
+<?php
+$this->end();
+
+$this->start('manageRightContent');
+?>
 <div class="eventImages index">
-	<h2><?php echo __('Event Images'); ?></h2>
 	<table cellpadding="0" cellspacing="0">
 	<tr>
 			<th><?php echo $this->Paginator->sort('id'); ?></th>
@@ -38,11 +56,5 @@
 	?>
 	</div>
 </div>
-<div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
-	<ul>
-		<li><?php echo $this->Html->link(__('New Event Image'), array('action' => 'add')); ?></li>
-		<li><?php echo $this->Html->link(__('List Events'), array('controller' => 'events', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Event'), array('controller' => 'events', 'action' => 'add')); ?> </li>
-	</ul>
-</div>
+<?php $this->end(); ?>
+
