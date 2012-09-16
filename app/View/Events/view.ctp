@@ -51,7 +51,7 @@ $this->start('manageRightContent');
 		</dd>
 			<dt><?php echo __('Event Image Name'); ?></dt>
 		<dd>
-			<?php echo h($eventImage['EventImage']['even_image_name']); ?>
+			<?php echo h($event['Event']['event_thumbnail']); ?>
 			&nbsp;
 		</dd>
 	</dl>

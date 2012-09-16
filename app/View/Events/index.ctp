@@ -27,7 +27,7 @@ $this->start('manageRightContent');
 			<th><?php echo $this->Paginator->sort('event_name'); ?></th>
 			<th><?php echo $this->Paginator->sort('event_description'); ?></th>
 			<th><?php echo $this->Paginator->sort('event_date'); ?></th>
-			<th><?php echo $this->Paginator->sort('event_image_name'); ?></th>
+			<th><?php echo $this->Paginator->sort('event_thumbnail'); ?></th>
 			<th class="actions"><?php echo __('Actions'); ?></th>
 	</tr>
 	<?php
@@ -37,7 +37,7 @@ $this->start('manageRightContent');
 		<td><?php echo h($event['Event']['event_name']); ?>&nbsp;</td>
 		<td><?php echo h($event['Event']['event_description']); ?>&nbsp;</td>
 		<td><?php echo h($event['Event']['event_date']); ?>&nbsp;</td>
-		<td><?php echo h($event['Event']['event_image_name']); ?>&nbsp;</td>
+		<td><?php echo h($event['Event']['event_thumbnail']); ?>&nbsp;</td>
 		<td class="actions">
 			<?php echo $this->Html->link(__('View'), array('action' => 'view', $event['Event']['id'])); ?>
 			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $event['Event']['id'])); ?>
