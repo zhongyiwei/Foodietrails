@@ -1,5 +1,24 @@
+<?php
+$this->extend('/Common/AdminIndex');
+$this->start('manageRightMenu');
+?>
+<div class="manageRightMenu" >
+    <ul>
+        <li><?php echo $this->Html->link(__('Tour'),  array('controller' => 'Tours', 'action' => 'index')); ?></li>
+        <li class='active '><?php echo $this->Html->link(__('Product'), array('action' => 'index')); ?></li>
+        <li><?php echo $this->Html->link(__('Cooking Class'), array('controller' => 'cookingclasses', 'action' => 'index')); ?></li>
+    </ul>
+</div>
+<div class="mangeRightSubMenu"> 
+    <div class="selected"><?php echo $this->Html->link(__('Product List'), array('action' => 'index')); ?></div>
+    <div class="unselected"><?php echo $this->Html->link(__('Add Product'), array('action' => 'add')); ?></div>
+</div>
+<?php
+$this->end();
+
+$this->start('manageRightContent');
+?>
 <div class="products index">
-	<h2><?php echo __('Products'); ?></h2>
 	<table cellpadding="0" cellspacing="0">
 	<tr>
 			<th><?php echo $this->Paginator->sort('id'); ?></th>
@@ -38,13 +57,4 @@
 	?>
 	</div>
 </div>
-<div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
-	<ul>
-		<li><?php echo $this->Html->link(__('New Product'), array('action' => 'add')); ?></li>
-		<li><?php echo $this->Html->link(__('List Product Images'), array('controller' => 'product_images', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Product Image'), array('controller' => 'product_images', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Product Orders'), array('controller' => 'product_orders', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Product Order'), array('controller' => 'product_orders', 'action' => 'add')); ?> </li>
-	</ul>
-</div>
+<?php $this->end(); ?>
