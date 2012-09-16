@@ -1,10 +1,9 @@
 <?php
 
 class HomeController extends AppController {
-
+    var $uses = array('Tour','Country');
     public function display() {
-//        $tourData = $this->home->find('list');
-//        $this->set('tour', $tourData);
+        $this->set('tourData', $this->Tour->find('all',array('limit'=>3)));
     }
 
 }
