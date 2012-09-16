@@ -9,8 +9,7 @@ $this->start('manageRightMenu');
 <div class="manageRightMenu" >
  <ul>
         <li class='active '><?php echo $this->Html->link(__('Events'), array('action' => 'index')); ?></li>
-        <li><?php echo $this->Html->link(__('Events Images'), array('controller' => 'eventimages', 'action' => 'index')); ?></li>
-    </ul>
+ </ul>
 </div>
 <div class="mangeRightSubMenu"> 
     <div class="unselected"><?php echo $this->Html->link(__('Events List'), array('action' => 'index')); ?></div>
@@ -28,6 +27,8 @@ $this->start('manageRightContent');
 		echo $this->Form->input('event_name');
 		echo $this->Form->input('event_description', array('id' => 'cooking_class_description', 'class' => 'ckeditor'));
 		echo $this->Form->input('event_date');
+		echo $this->Form->input('event_image_name', array('id' => 'xFilePath', 'class' => 'ckeditor', 'style' => 'width:500px'));
+        echo $this->Form->button('Browse Server', array('onclick' => 'BrowseServer()', 'type' => 'button', 'style' => 'padding:5px;margin-top:-55px; margin-left:530px;float:left'));
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Submit')); ?>
@@ -39,5 +40,16 @@ $this->start('manageRightContent');
         filebrowserWindowHeight : '300'
     } ); 
    CKFinder.SetupCKEditor( ck_newsContent, 'ckfinder/') ;
+   function BrowseServer()
+    {
+        var finder = new CKFinder();
+        finder.basePath = '../';	
+        finder.selectActionFunction = SetFileField;
+        finder.popup();
+    }
+    function SetFileField( fileUrl )
+    {
+        document.getElementById( 'xFilePath' ).value = fileUrl;
+    }
 </script>
 <?php $this->end(); ?>

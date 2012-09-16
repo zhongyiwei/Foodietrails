@@ -9,7 +9,6 @@ $this->start('manageRightMenu');
 <div class="manageRightMenu" >
     <ul>
         <li class='active '><?php echo $this->Html->link(__('Events'), array('action' => 'index')); ?></li>
-        <li><?php echo $this->Html->link(__('Events Images'), array('controller' => 'eventimages', 'action' => 'index')); ?></li>
     </ul>
 </div>
 <div class="mangeRightSubMenu"> 
@@ -28,6 +27,7 @@ $this->start('manageRightContent');
 			<th><?php echo $this->Paginator->sort('event_name'); ?></th>
 			<th><?php echo $this->Paginator->sort('event_description'); ?></th>
 			<th><?php echo $this->Paginator->sort('event_date'); ?></th>
+			<th><?php echo $this->Paginator->sort('event_image_name'); ?></th>
 			<th class="actions"><?php echo __('Actions'); ?></th>
 	</tr>
 	<?php
@@ -37,6 +37,7 @@ $this->start('manageRightContent');
 		<td><?php echo h($event['Event']['event_name']); ?>&nbsp;</td>
 		<td><?php echo h($event['Event']['event_description']); ?>&nbsp;</td>
 		<td><?php echo h($event['Event']['event_date']); ?>&nbsp;</td>
+		<td><?php echo h($event['Event']['event_image_name']); ?>&nbsp;</td>
 		<td class="actions">
 			<?php echo $this->Html->link(__('View'), array('action' => 'view', $event['Event']['id'])); ?>
 			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $event['Event']['id'])); ?>

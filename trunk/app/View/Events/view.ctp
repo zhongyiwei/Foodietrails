@@ -15,7 +15,6 @@ $this->start('manageRightMenu');
 <div class="manageRightMenu" >
    <ul>
         <li class='active '><?php echo $this->Html->link(__('Events'), array('action' => 'index')); ?></li>
-        <li><?php echo $this->Html->link(__('Events Images'), array('controller' => 'eventimages', 'action' => 'index')); ?></li>
     </ul>
 </div>
 <div class="mangeRightSubMenu"> 
@@ -48,6 +47,11 @@ $this->start('manageRightContent');
 		<dt><?php echo __('Event Date'); ?></dt>
 		<dd>
 			<?php echo h($event['Event']['event_date']); ?>
+			&nbsp;
+		</dd>
+			<dt><?php echo __('Event Image Name'); ?></dt>
+		<dd>
+			<?php echo h($eventImage['EventImage']['even_image_name']); ?>
 			&nbsp;
 		</dd>
 	</dl>
