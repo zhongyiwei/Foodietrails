@@ -1,5 +1,9 @@
 <?php
 $this->extend('/Common/AdminView');
+$this->assign('LeftProduct','LeftMenuActions');
+$this->assign('LeftCustomer','');
+$this->assign('LeftNews','');
+$this->assign('LeftEvent','');
 $this->start('LeftEditMenu');
 ?>
 <li><?php echo $this->Html->link(__('Edit This Tour'), array('action' => 'edit', $tour['Tour']['id'])); ?> </li>
