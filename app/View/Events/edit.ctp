@@ -15,7 +15,6 @@ $this->start('manageRightMenu');
  <div class="manageRightMenu" >
     <ul>
         <li class='active '><?php echo $this->Html->link(__('Events'), array('action' => 'index')); ?></li>
-        <li><?php echo $this->Html->link(__('Events Images'), array('controller' => 'eventimages', 'action' => 'index')); ?></li>
     </ul>
 </div>
 <div class="mangeRightSubMenu"> 
@@ -36,24 +35,30 @@ $this->start('manageRightContent');
 		echo $this->Form->input('event_name');
 		echo $this->Form->input('event_description');
 		echo $this->Form->input('event_date');
+		echo $this->Form->input('event_image_name', array('id' => 'xFilePath', 'class' => 'ckeditor', 'style' => 'width:500px'));
+        echo $this->Form->button('Browse Server', array('onclick' => 'BrowseServer()', 'type' => 'button', 'style' => 'padding:5px;margin-top:-55px; margin-left:530px;float:left'));
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Submit')); ?>
 </div>
 <script type="text/javascript">
-    var ck_newsContent = CKEDITOR.replace( 'tour_description',{
+    var ck_newsContent = CKEDITOR.replace( 'event_description',{
         filebrowserBrowseUrl : '/js/ckfinder/ckfinder.html',
         filebrowserWindowWidth : '600',
         filebrowserWindowHeight : '300'
     } ); 
     //the textarea id is given here to override the editor uploader with ckfinder.
-    CKFinder.SetupCKEditor( ck_newsContent, 'ckfinder/') ;
-    function BrowseServer()
+   CKFinder.SetupCKEditor( ck_newsContent, 'ckfinder/') ;
+   function BrowseServer()
     {
         var finder = new CKFinder();
         finder.basePath = '../';	
         finder.selectActionFunction = SetFileField;
         finder.popup();
+    }
+    function SetFileField( fileUrl )
+    {
+        document.getElementById( 'xFilePath' ).value = fileUrl;
     }
 
 </script>
