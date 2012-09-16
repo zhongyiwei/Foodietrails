@@ -25,7 +25,6 @@ $this->start('manageRightContent');
 <div class="Cooking Classes form">
     <?php echo $this->Form->create('Cookingclasses'); ?>
     <fieldset>
-        <!--<legend><?php echo __('Add Cooking Class'); ?></legend>-->
 		<?php
 		echo $this->Form->input('cooking_class_name');
 		echo $this->Form->input('cooking_class_description', array('id' => 'cooking_class_description', 'class' => 'ckeditor'));
