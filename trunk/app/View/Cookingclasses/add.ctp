@@ -25,7 +25,7 @@ $this->start('manageRightContent');
 		<?php
 		echo $this->Form->input('cooking_class_name');
 		echo $this->Form->input('cooking_class_description', array('id' => 'cooking_class_description', 'class' => 'ckeditor'));
-		echo $this->Form->input('cooking_class_price');
+		echo $this->Form->input('cooking_class_price',array('type'=>'number'));
 		echo $this->Form->input('cooking_class_location');
         ?>
     </fieldset>
@@ -37,6 +37,6 @@ $this->start('manageRightContent');
         filebrowserWindowWidth : '600',
         filebrowserWindowHeight : '300'
     } ); 
-    CKFinder.SetupCKEditor( ck_newsContent, 'ckfinder/') ;
+   CKFinder.SetupCKEditor( ck_newsContent, 'ckfinder/') ;
 </script>
 <?php $this->end(); ?>
