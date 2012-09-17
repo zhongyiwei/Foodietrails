@@ -1,5 +1,6 @@
 <?php
 App::uses('AppModel', 'Model');
+App::uses('AuthComponent', 'Controller/Component');
 /**
  * User Model
  *
@@ -13,19 +14,40 @@ App::uses('AppModel', 'Model');
  * @property Event $Event
  * @property News $News
  */
-class User extends AppModel 
-{ 
-    var $name = 'User'; 
-     
-    function validateLogin($data) 
-    { 
-        $user = $this->find(array('user_email' => $data['user_email'], 'user_password' => md5($data['user_password'])), array('id', 'user_email')); 
-        if(empty($user) == false) 
-            return $user['User']; 
-        return false; 
-    } 
-     
+
+class User extends AppModel {
+   public $name = 'User';
+    public $validates = array(
+        'user_email' => array(
+            'required' => array(
+                'rule' => array('notEmpty'),
+                'message' => 'A user email is required'
+            )
+        ),
+        'user_password' => array(
+            'required' => array(
+                'rule' => array('notEmpty'),
+                'message' => 'A password is required'
+            )
+        ),
+        'user_role' => array(
+            'valid' => array(
+                'rule' => array('inList', array('admin', 'User')),
+                'message' => 'Please enter a valid role',
+                'allowEmpty' => false
+            )
+        )
+    );
+	// ...
+
+public function beforeSave($options = array()) {
+    if (isset($this->data[$this->alias]['user_password'])) {
+        $this->data[$this->alias]['user_password'] = AuthComponent::password($this->data[$this->alias]['user_password']);
+    }
+    return true;
 }
+
+// ...
 /**
  * Display field
  *

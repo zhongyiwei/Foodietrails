@@ -1,8 +1,12 @@
-<div class="login"> 
-<h2>Login</h2>     
-    <?php echo $form->create('User', array('action' => 'login'));?> 
-        <?php echo $form->input('user_email');?> 
-        <?php echo $form->input('user_password');?> 
-        <?php echo $form->submit('Login');?> 
-    <?php echo $form->end(); ?> 
-</div> 
+<div class="users form">
+<?php echo $this->Session->flash('auth'); ?>
+<?php echo $this->Form->create('User'); ?>
+    <fieldset>
+        <legend><?php echo __('Please enter your email address and password'); ?></legend>
+    <?php
+        echo $this->Form->input('Email Adress');
+        echo $this->Form->input('Password');
+    ?>
+    </fieldset>
+<?php echo $this->Form->end(__('Login')); ?>
+</div>
