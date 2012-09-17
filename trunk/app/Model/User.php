@@ -13,8 +13,19 @@ App::uses('AppModel', 'Model');
  * @property Event $Event
  * @property News $News
  */
-class User extends AppModel {
-
+class User extends AppModel 
+{ 
+    var $name = 'User'; 
+     
+    function validateLogin($data) 
+    { 
+        $user = $this->find(array('user_email' => $data['user_email'], 'user_password' => md5($data['user_password'])), array('id', 'user_email')); 
+        if(empty($user) == false) 
+            return $user['User']; 
+        return false; 
+    } 
+     
+}
 /**
  * Display field
  *
