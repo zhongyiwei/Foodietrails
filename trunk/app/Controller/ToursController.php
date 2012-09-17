@@ -99,4 +99,12 @@ class ToursController extends AppController {
         $this->redirect(array('action' => 'index'));
     }
 
+    public function tourDetail($id = null) {
+        $this->Tour->id = $id;
+        if (!$this->Tour->exists()) {
+            throw new NotFoundException(__('Invalid tour'));
+        }
+        $this->set('tour', $this->Tour->read(null, $id));
+    }
+
 }

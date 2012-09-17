@@ -3,7 +3,6 @@ App::uses('AppModel', 'Model');
 /**
  * Event Model
  *
- * @property EventImage $EventImage
  * @property EventUser $EventUser
  */
 class Event extends AppModel {
@@ -54,19 +53,6 @@ class Event extends AppModel {
  * @var array
  */
 	public $hasMany = array(
-		'EventImage' => array(
-			'className' => 'EventImage',
-			'foreignKey' => 'event_id',
-			'dependent' => false,
-			'conditions' => '',
-			'fields' => '',
-			'order' => '',
-			'limit' => '',
-			'offset' => '',
-			'exclusive' => '',
-			'finderQuery' => '',
-			'counterQuery' => ''
-		),
 		'EventUser' => array(
 			'className' => 'EventUser',
 			'foreignKey' => 'event_id',

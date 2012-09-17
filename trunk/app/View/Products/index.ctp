@@ -36,7 +36,7 @@ $this->start('manageRightContent');
 	<tr>
 		<td><?php echo h($product['Product']['id']); ?>&nbsp;</td>
 		<td><?php echo h($product['Product']['product_name']); ?>&nbsp;</td>
-		<td><?php echo h($product['Product']['product_description']); ?>&nbsp;</td>
+		<td><?php echo  $this->Text->truncate(($product['Product']['product_description']),20,array('ellipsis'=>'...')); ?>&nbsp;</td>
 		<td><?php echo h($product['Product']['product_price']); ?>&nbsp;</td>
 		<td class="actions">
 			<?php echo $this->Html->link(__('View'), array('action' => 'view', $product['Product']['id'])); ?>

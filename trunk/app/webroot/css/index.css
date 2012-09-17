@@ -7,14 +7,14 @@ body {
 	padding: 0;
 	color: #000;
 }
-.menu{
+.menu {
 	background:#e5e5e5;
 	height:38px;
 	border-bottom:#06C solid 4px;
 	margin-top:10px;
 	border-radius:5px;
 }
-.submenu{
+.submenu {
 	text-align:center;
 	float:left;
 	padding:10px 15px;
@@ -22,7 +22,7 @@ body {
 	border-right:#CCC solid 1px;
 	height:18px;
 }
-.submenu:hover{
+.submenu:hover {
 	background:#cae3f0;
 	cursor:pointer;
 }
@@ -153,27 +153,26 @@ filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#4fbdf0', endCo
 .menu > ul > li > a:hover {
 	background:#36acd2;
 }
-
-.submenu_selected{
+.submenu_selected {
 	background:#06C;
 	color:#FFF;
 	border-right:#06C solid 1px;
 	font-weight:800;
 }
-.headerRight{
+.headerRight {
 	height:90px;
 	font-size:15px;
 	text-align:right;
 }
-.headerRightText{
+.headerRightText {
 	padding-top:45px;
 	color:#a1440c;
 }
-.search{
+.search {
 	height:250px;
 	margin:40px;
 }
-.searchBorder{
+.searchBorder {
 	border:15px solid #fff;
 	-webkit-box-shadow:0 3px 5px #999;
 	-moz-box-shadow:0 3px 5px #999;
@@ -181,108 +180,107 @@ filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#4fbdf0', endCo
 	width:850px;
 	height:250px;
 }
-.searchTable select{
+.searchTable select {
 	width:135px;
 }
-.searchPanel{
+.searchPanel {
 	width:250px;
 	height:251px;
 	background:#000;
 	color:#FFF;
 	float:left;
 }
-.searchPanel h1{
+.searchPanel h1 {
 	font-size:26px;
 	margin-top:15px;
 }
-.searchPanel p{
+.searchPanel p {
 	padding:5px;
 }
-.showTourButton{
+.showTourButton {
 	padding:10px;
-
 }
-.buttonLocation{
+.buttonLocation {
 	padding-left:130px;
 	padding-top:40px;
-                  display:none;
+	display:none;
 }
-.line{
+.line {
 	border-bottom: solid 1px #CCC;
 	margin-bottom: 15px;
 	border-right: solid 1px #CCC;
 }
 .tourTitle {
-text-align: left;
-font-size: 14px;
-clear: both;
-float: left;
-width: 100%;
-padding: 0 0 5px 15px;
-font-weight: bold;
+	text-align: left;
+	font-size: 14px;
+	clear: both;
+	float: left;
+	width: 100%;
+	padding: 0 0 5px 15px;
+	font-weight: bold;
 }
-.tourImage{
-padding-left: 15px;
-float: left;
-width: 125px;
-height: 125px;
+.tourImage {
+	padding-left: 15px;
+	float: left;
+	width: 125px;
+	height: 125px;
 }
 .tourDetails {
-text-align: left;
-font-size: 12px;
-padding: 0px 0px 5px 65px;
-float: left;
-width: 380px;
-height: 140px;
-line-height: 18px;
+	text-align: left;
+	font-size: 12px;
+	padding: 0px 0px 5px 65px;
+	float: left;
+	width: 380px;
+	height: 140px;
+	line-height: 18px;
 }
-.price{
-float: left;
-width: 100px;
-font-weight: bold;
-font-size: 22px;
-color: #ff850d;
-margin-left:20px;
-margin-right:10px;
+.price {
+	float: left;
+	width: 100px;
+	font-weight: bold;
+	font-size: 22px;
+	color: #ff850d;
+	margin-left:20px;
+	margin-right:10px;
 }
 .countingBox {
-width: 70px;
-height: 20px;
-background-color: #FF9B07;
-float: left;
-margin-top: 10px;
-margin-bottom: 10px;
+	width: 70px;
+	height: 20px;
+	background-color: #FF9B07;
+	float: left;
+	margin-top: 10px;
+	margin-bottom: 10px;
 }
 .countingBoxAlignment {
-width: 90%;
-text-align: center;
-margin-left: auto;
-margin-right: auto;
-margin-top: 2px;
+	width: 90%;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 2px;
 }
 .countingBoxFont {
-font-size: 12px;
-color: white;
-font-weight: bold;
+	font-size: 12px;
+	color: white;
+	font-weight: bold;
 }
-.footer span{
+.footer span {
 	padding-left:50px;
 	color:#036;
 	font-size:14px;
 }
 .sidetab {
-background: #CCC;
-border: 1px solid #CCC;
-width: 170px;
-height: 30px;
+	background: #CCC;
+	border: 1px solid #CCC;
+	width: 170px;
+	height: 30px;
 }
 .title2 {
-text-align: left;
-padding: 5px 0px 0px 10px;
-font-size: 13px;
-font-weight: bold;
+	text-align: left;
+	padding: 5px 0px 0px 10px;
+	font-size: 13px;
+	font-weight: bold;
 }
-.sidetab p{
+.sidetab p {
 	float:left;
 }
 /* ~~ 元素/标签选择器 ~~ */
@@ -349,4 +347,54 @@ a:hover, a:active, a:focus { /* 此组选择器将为键盘导航者提供与鼠
 	height:0;
 	font-size: 1px;
 	line-height: 0px;
+}
+.homePageLink {
+	font-size:11px;
+	text-decoration:underline;
+	color:blue;
+	cursor:pointer;
+}
+.tourPrice {
+	font-size:35px;
+	color:#247cab;
+}
+.tourHeader {
+	font-size:35px;
+ color:#;
+}
+.tourParticipantGuide {
+	font-size:15px;
+	color:#247cab;
+	font-weight:bold;
+}
+.tourBook a, {
+ text-decoration:none;
+}
+.tourBook {
+	position:absolute;
+	margin-left:600px;
+	margin-top:-100px;
+}
+.aboutUsHeading {
+	font-weight:bold;
+	font-size:20px;
+}
+.aboutP {
+	color:#036;
+}
+.contactHeading {
+	font-size:30px;
+}
+.contactP {
+	margin-top:45px;
+}
+.footerRow a {
+	padding-left: 50px;
+	color: #036;
+	font-size: 14px;
+	font-weight:normal;
+	text-decoration:none;
+}
+.footerRow a:hover{
+	text-decoration:underline;
 }

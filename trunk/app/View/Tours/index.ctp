@@ -30,7 +30,7 @@ $this->start('manageRightContent');
             <th><?php echo $this->Paginator->sort('tour_name','Name'); ?></th>
             <!--<th><?php echo $this->Paginator->sort('tour_description'); ?></th>-->
             <!--<th><?php echo $this->Paginator->sort('vendor'); ?></th>-->
-            <th><?php echo $this->Paginator->sort('tour_price_per_certificae','Price/Certificate'); ?></th>
+            <th><?php echo $this->Paginator->sort('tour_price_per_certificate','Price/Certificate'); ?></th>
             <!--<th><?php echo $this->Paginator->sort('tour_long_description'); ?></th>-->
             <th><?php echo $this->Paginator->sort('tour_notes','Notes'); ?></th>
             <!--<th><?php echo $this->Paginator->sort('tour_paricipant_guidlines'); ?></th>-->
@@ -48,7 +48,7 @@ $this->start('manageRightContent');
                 <td><?php echo h($tour['Tour']['tour_name']); ?>&nbsp;</td>
                 <!--<td><?php echo h($tour['Tour']['tour_description']); ?>&nbsp;</td>-->
                 <!--<td><?php echo h($tour['Tour']['tour_vendor_name']); ?>&nbsp;</td>-->
-                <td><?php echo h($tour['Tour']['tour_price_per_certificae']); ?>&nbsp;</td>
+                <td><?php echo h($tour['Tour']['tour_price_per_certificate']); ?>&nbsp;</td>
                 <!--<td><?php echo h($tour['Tour']['tour_long_description']); ?>&nbsp;</td>-->
                 <td><?php echo $this->Text->truncate(h($tour['Tour']['tour_notes']),10,array('ellipsis'=>'...')); ?>&nbsp;</td>
                 <!--<td><?php echo h($tour['Tour']['tour_paricipant_guidlines']); ?>&nbsp;</td>-->

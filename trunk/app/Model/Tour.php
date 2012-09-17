@@ -56,7 +56,7 @@ class Tour extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-            		'tour_price_per_certificae' => array(
+            		'tour_price_per_certificate' => array(
 			'notempty' => array(
 				'rule' => array('notempty'),
 				//'message' => 'Your custom message here',

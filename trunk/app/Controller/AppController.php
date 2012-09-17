@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Application level Controller
  *
@@ -19,7 +20,6 @@
  * @since         CakePHP(tm) v 0.2.9
  * @license       MIT License (http://www.opensource.org/licenses/mit-license.php)
  */
-
 App::uses('Controller', 'Controller');
 
 /**
@@ -32,4 +32,12 @@ App::uses('Controller', 'Controller');
  * @link http://book.cakephp.org/2.0/en/controllers.html#the-app-controller
  */
 class AppController extends Controller {
+
+    var $uses = array('Tour', 'Country');
+
+    function beforeFilter() {
+        $menus = $this->Tour->find('all', array('limit' => 3));
+        $this->set('menu', $menus);
+    }
+
 }

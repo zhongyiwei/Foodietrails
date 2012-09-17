@@ -54,19 +54,6 @@ class Product extends AppModel {
  * @var array
  */
 	public $hasMany = array(
-		'ProductImage' => array(
-			'className' => 'ProductImage',
-			'foreignKey' => 'product_id',
-			'dependent' => false,
-			'conditions' => '',
-			'fields' => '',
-			'order' => '',
-			'limit' => '',
-			'offset' => '',
-			'exclusive' => '',
-			'finderQuery' => '',
-			'counterQuery' => ''
-		),
 		'ProductOrder' => array(
 			'className' => 'ProductOrder',
 			'foreignKey' => 'product_id',

@@ -31,11 +31,11 @@ $this->start('manageRightContent');
 <div class="tours form">
    <?php echo $this->Form->create('Product'); ?>
 	<fieldset>
-		<legend><?php echo __('Edit Product'); ?></legend>
+		<!--<legend><?php echo __('Edit Product'); ?></legend>-->
 	<?php
 		echo $this->Form->input('id');
 		echo $this->Form->input('product_name');
-		echo $this->Form->input('product_description');
+		echo $this->Form->input('product_description', array('id' => 'product_description', 'class' => 'ckeditor'));
 		echo $this->Form->input('product_price');
 		echo $this->Form->input('product_thumbnail', array('id' => 'xFilePath', 'class' => 'ckeditor', 'style' => 'width:500px'));
         echo $this->Form->button('Browse Server', array('onclick' => 'BrowseServer()', 'type' => 'button', 'style' => 'padding:5px;margin-top:-55px; margin-left:530px'));
@@ -44,7 +44,7 @@ $this->start('manageRightContent');
     <?php echo $this->Form->end(__('Submit')); ?>
 </div>
 <script type="text/javascript">
-    var ck_newsContent = CKEDITOR.replace( 'tour_description',{
+    var ck_newsContent = CKEDITOR.replace( 'product_description',{
         filebrowserBrowseUrl : '/js/ckfinder/ckfinder.html',
         filebrowserWindowWidth : '600',
         filebrowserWindowHeight : '300'

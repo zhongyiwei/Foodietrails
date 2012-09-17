@@ -32,7 +32,7 @@ $this->start('manageRightContent');
         echo $this->Form->input('tour_name');
         echo $this->Form->input('tour_description', array('id' => 'tour_description', 'class' => 'ckeditor'));
         echo $this->Form->input('tour_vendor_name');
-        echo $this->Form->input('tour_price_per_certificae');
+        echo $this->Form->input('tour_price_per_certificate');
         echo $this->Form->input('tour_long_description');
         echo $this->Form->input('tour_notes');
         echo $this->Form->input('tour_paricipant_guidlines');
