@@ -1,4 +1,7 @@
 <div class="users index">
+<?php echo $html->link('Logout', array('controller' => 'Users', 'action' => 'logout')); ?> 
+<br/><br/> 
+You've accessed the secret secure location! 
 	<h2><?php echo __('Users'); ?></h2>
 	<table cellpadding="0" cellspacing="0">
 	<tr>
