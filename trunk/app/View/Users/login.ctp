@@ -4,8 +4,8 @@
     <fieldset>
         <legend><?php echo __('Please enter your email address and password'); ?></legend>
     <?php
-        echo $this->Form->input('Email Adress');
-        echo $this->Form->input('Password');
+        echo $this->Form->input('user_email');
+        echo $this->Form->input('user_password');
     ?>
     </fieldset>
 <?php echo $this->Form->end(__('Login')); ?>
