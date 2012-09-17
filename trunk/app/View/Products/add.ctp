@@ -29,6 +29,8 @@ $this->start('manageRightContent');
 		echo $this->Form->input('product_name');
 		echo $this->Form->input('product_description', array('id' => 'product_description', 'class' => 'ckeditor'));
 		echo $this->Form->input('product_price',array('type'=>'number'));
+		echo $this->Form->input('product_thumbnail', array('id' => 'xFilePath', 'class' => 'ckeditor', 'style' => 'width:500px'));
+        echo $this->Form->button('Browse Server', array('onclick' => 'BrowseServer()', 'type' => 'button', 'style' => 'padding:5px;margin-top:-55px; margin-left:530px;float:left'));
 	?>
 	</fieldset>
     <?php echo $this->Form->end(__('Submit')); ?>
@@ -40,5 +42,17 @@ $this->start('manageRightContent');
         filebrowserWindowHeight : '300'
     } ); 
     CKFinder.SetupCKEditor( ck_newsContent, 'ckfinder/') ; 
+	function BrowseServer()
+    {
+        var finder = new CKFinder();
+        finder.basePath = '../';	
+        finder.selectActionFunction = SetFileField;
+        finder.popup();
+    }
+    function SetFileField( fileUrl )
+    {
+        document.getElementById( 'xFilePath' ).value = fileUrl;
+    }
+
 </script>
 <?php $this->end(); ?>
