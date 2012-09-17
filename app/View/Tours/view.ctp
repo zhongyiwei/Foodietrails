@@ -46,9 +46,9 @@ $this->start('manageRightContent');
             <?php echo h($tour['Tour']['tour_vendor_name']); ?>
             &nbsp;
         </dd>
-        <dt><?php echo __('Tour Price Per Certificae'); ?></dt>
+        <dt><?php echo __('Tour Price Per Certificate'); ?></dt>
         <dd>
-            <?php echo h($tour['Tour']['tour_price_per_certificae']); ?>
+            <?php echo h($tour['Tour']['tour_price_per_certificate']); ?>
             &nbsp;
         </dd>
         <dt><?php echo __('Tour Long Description'); ?></dt>

@@ -41,7 +41,7 @@ $this->start('manageRightContent');
 		</dd>
 		<dt><?php echo __('Event Description'); ?></dt>
 		<dd>
-			<?php echo h($event['Event']['event_description']); ?>
+			<?php echo ($event['Event']['event_description']); ?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('Event Date'); ?></dt>
