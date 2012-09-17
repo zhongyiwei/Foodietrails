@@ -6,8 +6,8 @@ $this->assign('LeftNews','');
 $this->assign('LeftEvent','');
 $this->start('LeftEditMenu');
 ?>
-<li><?php echo $this->Html->link(__('View this Cooking Class'), array('action' => 'view', $this->Form->value('Cooking_class.id'))); ?></li>
-<li><?php echo $this->Form->postLink(__('Delete this Cooking Class'), array('action' => 'delete', $this->Form->value('Cooking_class.id')), null, __('Are you sure you want to delete # %s?', $this->Form->value('Cooking_class.cooking_class_name'))); ?></li>
+<li><?php echo $this->Html->link(__('View this Cooking Class'), array('action' => 'view', $this->Form->value('Cooking_classes.id'))); ?></li>
+<li><?php echo $this->Form->postLink(__('Delete this Cooking Class'), array('action' => 'delete', $this->Form->value('Cooking_classes.id')), null, __('Are you sure you want to delete # %s?', $this->Form->value('Cooking_classes.cooking_class_name'))); ?></li>
 <?php
 $this->end();
 $this->start('manageRightMenu');
@@ -31,7 +31,6 @@ $this->start('manageRightContent');
 <div class="cookingclasses form">
 <?php echo $this->Form->create('Cookingclass'); ?>
 	<fieldset>
-		<legend><?php echo __('Edit Cookingclass'); ?></legend>
 	<?php
 		echo $this->Form->input('id');
 		echo $this->Form->input('cooking_class_name');
