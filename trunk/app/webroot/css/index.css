@@ -360,15 +360,11 @@ a:hover, a:active, a:focus { /* 此组选择器将为键盘导航者提供与鼠
 }
 .tourHeader {
 	font-size:35px;
- color:#;
 }
 .tourParticipantGuide {
 	font-size:15px;
 	color:#247cab;
 	font-weight:bold;
-}
-.tourBook a, {
- text-decoration:none;
 }
 .tourBook {
 	position:absolute;
