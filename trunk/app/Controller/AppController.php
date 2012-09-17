@@ -34,16 +34,16 @@ App::uses('Controller', 'Controller');
 class AppController extends Controller {
     //...
 
-    public $components = array(
-        'Session',
-        'Auth' => array(
-            'loginRedirect' => array('controller' => 'products', 'action' => 'index'),
-            'logoutRedirect' => array('controller' => 'home', 'action' => 'display', 'home')
-        )
-    );
+  //  public $components = array(
+  //      'Session',
+  //      'Auth' => array(
+  //          'loginRedirect' => array('controller' => 'products', 'action' => 'index'),
+  //         'logoutRedirect' => array('controller' => 'pages', 'action' => 'display', 'home')
+  //     )
+  // );
 
-    public function beforeFilter() {
-        $this->Auth->allow('index', 'view');
-    }
+  //  public function beforeFilter() {
+   //     $this->Auth->allow('index', 'view');
+   // }
     //...
 }
