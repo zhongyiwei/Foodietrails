@@ -5,13 +5,7 @@ App::uses('AppController', 'Controller');
  *
  * @property User $User
  */
-class UsersController extends AppController 
-{ 
-public function beforeFilter() {
-    parent::beforeFilter();
-    $this->Auth->allow('add'); // Letting users register themselves
-}
-
+class UsersController extends AppController {
 public function login() {
     if ($this->request->is('post')) {
         if ($this->Auth->login()) {
