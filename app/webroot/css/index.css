@@ -2,10 +2,10 @@
 /* CSS Document */
 body {
 	font: 100%/1.4 Verdana, Arial, Helvetica, sans-serif;
-	background: #f2f8fb;
 	margin: 0;
 	padding: 0;
 	color: #000;
+                  background: url(/img/body.png) repeat left top;
 }
 .menu {
 	background:#e5e5e5;
