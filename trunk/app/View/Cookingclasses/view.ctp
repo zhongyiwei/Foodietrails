@@ -6,8 +6,8 @@ $this->assign('LeftNews','');
 $this->assign('LeftEvent','');
 $this->start('LeftEditMenu');
 ?>
-<li><?php echo $this->Html->link(__('Edit This Cooking Class'), array('action' => 'edit', $cooking_class['Cooking_class']['id'])); ?> </li>
-<li><?php echo $this->Form->postLink(__('Delete This Cooking class'), array('action' => 'delete', $cooking_class['Cooking_class']['id']), null, __('Are you sure you want to delete # %s?', $cooking_class['Cooking_class']['id'])); ?> </li>
+<li><?php echo $this->Html->link(__('Edit This Cooking Class'), array('action' => 'edit', $cookingclass['Cookingclass']['id'])); ?> </li>
+<li><?php echo $this->Form->postLink(__('Delete This Cooking class'), array('action' => 'delete', $cookingclass['Cookingclass']['id']), null, __('Are you sure you want to delete # %s?', $cookingclass['Cookingclass']['id'])); ?> </li>
 <?php
 $this->end();
 $this->start('manageRightMenu');
@@ -43,7 +43,7 @@ $this->start('manageRightContent');
 		</dd>
 		<dt><?php echo __('Cooking Class Description'); ?></dt>
 		<dd>
-			<?php echo h($cookingclass['Cookingclass']['cooking_class_description']); ?>
+			<?php echo ($cookingclass['Cookingclass']['cooking_class_description']); ?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('Cooking Class Price'); ?></dt>

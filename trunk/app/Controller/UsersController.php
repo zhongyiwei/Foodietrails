@@ -81,7 +81,7 @@ class UsersController extends AppController {
                 $this->Session->setFlash(__('The user could not be saved. Please, try again.'));
             }
         }
-        $countries = $this->User->Country->find('list');
+        $countries = $this->User->Country->find('list', array('fields' =>'country_name' ));
         $events = $this->User->Event->find('list');
         $news = $this->User->News->find('list');
         $this->set(compact('countries', 'events', 'news'));

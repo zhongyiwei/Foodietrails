@@ -6,8 +6,8 @@ $this->assign('LeftNews','');
 $this->assign('LeftEvent','');
 $this->start('LeftEditMenu');
 ?>
-<li><?php echo $this->Html->link(__('View this Cooking Class'), array('action' => 'view', $this->Form->value('Cooking_classes.id'))); ?></li>
-<li><?php echo $this->Form->postLink(__('Delete this Cooking Class'), array('action' => 'delete', $this->Form->value('Cooking_classes.id')), null, __('Are you sure you want to delete # %s?', $this->Form->value('Cooking_classes.cooking_class_name'))); ?></li>
+<li><?php echo $this->Html->link(__('View this Cooking Class'), array('action' => 'view', $this->Form->value('Cookingclass.id'))); ?></li>
+<li><?php echo $this->Form->postLink(__('Delete this Cooking Class'), array('action' => 'delete', $this->Form->value('Cookingclass.id')), null, __('Are you sure you want to delete # %s?', $this->Form->value('Cooking_classes.cooking_class_name'))); ?></li>
 <?php
 $this->end();
 $this->start('manageRightMenu');
@@ -34,7 +34,7 @@ $this->start('manageRightContent');
 	<?php
 		echo $this->Form->input('id');
 		echo $this->Form->input('cooking_class_name');
-		echo $this->Form->input('cooking_class_description');
+		echo $this->Form->input('cooking_class_description', array('id' => 'cooking_class_description', 'class' => 'ckeditor'));
 		echo $this->Form->input('cooking_class_price');
 		echo $this->Form->input('cooking_class_location');
 		echo $this->Form->input('cooking_class_thumbnail', array('id' => 'xFilePath', 'class' => 'ckeditor', 'style' => 'width:500px'));
@@ -44,7 +44,7 @@ $this->start('manageRightContent');
 <?php echo $this->Form->end(__('Submit')); ?>
 </div>
 <script type="text/javascript">
-    var ck_newsContent = CKEDITOR.replace( 'tour_description',{
+    var ck_newsContent = CKEDITOR.replace( 'cooking_class_description',{
         filebrowserBrowseUrl : '/js/ckfinder/ckfinder.html',
         filebrowserWindowWidth : '600',
         filebrowserWindowHeight : '300'

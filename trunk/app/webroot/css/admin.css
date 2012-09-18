@@ -65,9 +65,9 @@ background: -moz-linear-gradient(
 	font-weight: 400;
 	opacity: .9;
 }
-.manageRightMenu li:first-child a {
+/*.manageRightMenu li:first-child a {
 	margin: 4px 2px 0 0;
-}
+}*/
 .manageRightMenu ul li a:hover, .manageRightMenu ul li.active a {
 	background: url(/img/color.png) center bottom;
 	display: block;
