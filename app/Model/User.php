@@ -54,13 +54,13 @@ class User extends AppModel {
      * @var array
      */
     public $validate = array(
-        'email' => array(
+        'user_email' => array(
             'required' => array(
                 'rule' => array('notEmpty'),
                 'message' => 'A Email is required'
             )
         ),
-        'password' => array(
+        'user_password' => array(
             'required' => array(
                 'rule' => array('notEmpty'),
                 'message' => 'A Password is required'

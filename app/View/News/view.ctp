@@ -2,8 +2,8 @@
 $this->extend('/Common/AdminView');
 $this->assign('LeftProduct','');
 $this->assign('LeftCustomer','');
-$this->assign('LeftNews','');
-$this->assign('LeftEvent','LeftMenuActions');
+$this->assign('LeftNews','LeftMenuActions');
+$this->assign('LeftEvent','');
 $this->start('LeftEditMenu');
 ?>
 <li><?php echo $this->Html->link(__('Edit This News'), array('action' => 'edit', $news['News']['id'])); ?> </li>
@@ -27,7 +27,6 @@ $this->end();
 $this->start('manageRightContent');
 ?>
 <div class="news view">
-<h2><?php  echo __('News'); ?></h2>
 	<dl>
 		<dt><?php echo __('Id'); ?></dt>
 		<dd>
