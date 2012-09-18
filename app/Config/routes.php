@@ -42,3 +42,10 @@
  * the built-in default routes.
  */
 	require CAKE . 'Config' . DS . 'routes.php';
+Router::connect('/sitemap', array('controller' => 'sitemaps', 'action' => 'index')); 
+Router::connect('/sitemap/:action/*', array('controller' => 'sitemaps')); 
+
+// Optional 
+Router::connect('/robots/:action/*', array('controller' => 'sitemaps', 'action' => 'robot')); 
+
+Router::parseExtensions(); 
