@@ -19,6 +19,7 @@ App::uses('AuthComponent', 'Controller/Component');
 class User extends AppModel {
 
     public $name = 'User';
+
 //    public $validate = array(
 ////        'user_role' => array(
 ////            'valid' => array(
@@ -39,14 +40,13 @@ class User extends AppModel {
 //    public function isOwnedBy($tourId, $user) {
 //        return $this->field('id', array('id' => $tourId, 'user_id' => $user)) === $tourId;
 //    }
-
 // ...
     /**
      * Display field
      *
      * @var string
      */
-    public $displayField = 'id';
+    var $displayField = 'id';
 
     /**
      * Validation rules
@@ -189,7 +189,7 @@ class User extends AppModel {
             'fields' => '',
             'order' => ''
         )
-    );
+    );            
 
     /**
      * hasMany associations

@@ -37,13 +37,13 @@ $this->start('manageRightContent');
 	<tr>
 		<td><?php echo h($cookingclass['Cookingclass']['id']); ?>&nbsp;</td>
 		<td><?php echo h($cookingclass['Cookingclass']['cooking_class_name']); ?>&nbsp;</td>
-		<td><?php echo h($cookingclass['Cookingclass']['cooking_class_description']); ?>&nbsp;</td>
+		<td><?php echo $this->Text->truncate($cookingclass['Cookingclass']['cooking_class_description'],50,array('ellipsis'=>'...'));  ?>&nbsp;</td>
 		<td><?php echo h($cookingclass['Cookingclass']['cooking_class_price']); ?>&nbsp;</td>
-		<td><?php echo h($cookingclass['Cookingclass']['cooking_class_location']); ?>&nbsp;</td>
+		<td><?php echo  $this->Text->truncate(h($cookingclass['Cookingclass']['cooking_class_location']),50,array('ellipsis'=>'...'));  ?>&nbsp;</td>
 		<td class="actions">
 			<?php echo $this->Html->link(__('View'), array('action' => 'view', $cookingclass['Cookingclass']['id'])); ?>
 			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $cookingclass['Cookingclass']['id'])); ?>
-			<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $cookingclass['Cookingclass']['id']), null, __('Are you sure you want to delete # %s?', $cookingclass['Cookingclass']['id'])); ?>
+			<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $cookingclass['Cookingclass']['id']), null, __('Are you sure you want to delete # %s?', $cookingclass['Cookingclass']['cooking_class_name'])); ?>
 		</td>
 	</tr>
 <?php endforeach; ?>
