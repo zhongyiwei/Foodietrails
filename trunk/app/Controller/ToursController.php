@@ -9,6 +9,21 @@ App::uses('AppController', 'Controller');
  */
 class ToursController extends AppController {
 
+//    public function isAuthorized($user) {
+//        // All registered users can add posts
+////        if ($this->action === 'add') {
+////            return true;
+////        }
+//        // The owner of a post can edit and delete it
+////        if (in_array($this->action, array('edit', 'delete','view','index','add'))) {
+////            $tourId = $this->request->params['pass'][0];
+////            if ($this->Tour->isOwnedBy($tourId, $user['id'])) {
+//                return true;
+////            }
+////        }
+//        return parent::isAuthorized($user);
+//    }
+
     /**
      * index method
      *
@@ -41,6 +56,7 @@ class ToursController extends AppController {
      */
     public function add() {
         if ($this->request->is('post')) {
+             $this->request->data['Post']['user_id'] = $this->Auth->user('id');
             $this->Tour->create();
             if ($this->Tour->save($this->request->data)) {
                 $this->Session->setFlash(__('The tour has been saved'));
