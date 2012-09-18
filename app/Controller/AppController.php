@@ -42,11 +42,13 @@ class AppController extends Controller {
       public function beforeFilter1() {
          $this->Auth->allow('index', 'view');
      }
-    var $uses = array('Tour', 'Country');
+    var $uses = array('Tour', 'Event');
 
     function beforeFilter() {
         $menus = $this->Tour->find('all', array('limit' => 3));
         $this->set('menu', $menus);
+		$menus2 = $this->Event->find('all', array('limit' => 3));
+        $this->set('menu2', $menus2);
     }
 
 }

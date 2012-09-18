@@ -96,4 +96,12 @@ class EventsController extends AppController {
 		$this->Session->setFlash(__('Event was not deleted'));
 		$this->redirect(array('action' => 'index'));
 	}
+	public function event_detail($id = null) {
+        $this->Event->id = $id;
+        if (!$this->Event->exists()) {
+            throw new NotFoundException(__('Invalid event'));
+        }
+        $this->set('event', $this->Event->read(null, $id));
+    }
+
 }

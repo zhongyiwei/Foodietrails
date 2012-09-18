@@ -42,8 +42,12 @@
                         </ul>
                     </li>
                     <li class='has-sub'><a>Events</a>
-                        <ul>
-                            <li><a href='#'><span>Coming Soon...</span></a></li>
+                     <ul>
+                            <?php for ($i = 0; $i < count($menu2); $i++) { ?>
+                                <li> <?php $eventName = $menu2[$i]['Event']['event_name'];
+                            echo $this->Html->link(__($eventName), array('controller' => 'Events', 'action' => 'event_detail', $menu2[$i]['Event']['id']));
+                                ?></li>
+<?php } ?>
                         </ul>
                     </li>
                     <li><a>Product</a></li>
