@@ -33,22 +33,45 @@ App::uses('Controller', 'Controller');
  */
 class AppController extends Controller {
 
-     // public $components = array(
-     //     'Auth' => array(
-     //       'loginRedirect' => array('controller' => 'products', 'action' => 'index'),
-     //        'logoutRedirect' => array('controller' => 'pages', 'action' => 'display', 'home')
-     //    )
-     //);
-      public function beforeFilter1() {
-         $this->Auth->allow('index', 'view');
-     }
+    public $components = array(
+        'Session',
+        'Auth' => array(
+            'authenticate' => array(
+                'Form' => array(
+//                    'userModel' => 'User',
+                    'fields' => array(
+                        'username' => 'user_email',
+                        'password' => 'user_password'
+                    )
+                )
+            ),
+            'loginRedirect' => array('controller' => 'tours', 'action' => 'index'),
+            'logoutRedirect' => array('controller' => 'home', 'action' => 'display'),
+//            'authorize' => array('Controller')
+        )
+    );
+//      public function beforeFilter1() {
+//         $this->Auth->allow('index', 'view');
+//     }
     var $uses = array('Tour', 'Event');
 
     function beforeFilter() {
+        Security::setHash('sha1');
         $menus = $this->Tour->find('all', array('limit' => 3));
         $this->set('menu', $menus);
-		$menus2 = $this->Event->find('all', array('limit' => 3));
+        $this->Auth->allow('display', 'tourDetail', 'aboutCompany', 'contactUs', 'login', 'event_detail');
+        $menus2 = $this->Event->find('all', array('limit' => 3));
         $this->set('menu2', $menus2);
+    }
+
+    public function isAuthorized($user) {
+        // Admin can access every action
+        if (isset($user['user_role']) && $user['user_role'] == 'Admin') {
+            return true;
+        }
+
+        // Default deny
+        return false;
     }
 
 }
