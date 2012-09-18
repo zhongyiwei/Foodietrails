@@ -35,7 +35,7 @@ $this->start('manageRightContent');
 		echo $this->Form->input('id');
 		echo $this->Form->input('news_title');
 		echo $this->Form->input('news_description', array('id' => 'news_description', 'news' => 'ckeditor'));
-		echo $this->Form->input('User');
+		//echo $this->Form->input('User');
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Submit')); ?>
@@ -48,19 +48,7 @@ $this->start('manageRightContent');
         filebrowserWindowWidth : '600',
         filebrowserWindowHeight : '300'
     } ); 
-    //the textarea id is given here to override the editor uploader with ckfinder.
    CKFinder.SetupCKEditor( ck_newsContent, 'ckfinder/') ;
-   function BrowseServer()
-    {
-        var finder = new CKFinder();
-        finder.basePath = '../';	
-        finder.selectActionFunction = SetFileField;
-        finder.popup();
-    }
-    function SetFileField( fileUrl )
-    {
-        document.getElementById( 'xFilePath' ).value = fileUrl;
-    }
 
 </script>
 <?php $this->end(); ?>

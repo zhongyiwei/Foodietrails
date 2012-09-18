@@ -23,7 +23,6 @@ $this->start('manageRightContent');
 
 
 <div class="news index">
-	<h2><?php echo __('News'); ?></h2>
 	<table cellpadding="0" cellspacing="0">
 	<tr>
 			<th><?php echo $this->Paginator->sort('id'); ?></th>
