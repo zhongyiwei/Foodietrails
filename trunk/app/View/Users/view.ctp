@@ -1,5 +1,33 @@
+<?php
+$this->extend('/Common/AdminView');
+$this->assign('LeftProduct','');
+$this->assign('LeftCustomer','LeftMenuActions');
+$this->assign('LeftNews','');
+$this->assign('LeftEvent','');
+$this->start('LeftEditMenu');
+?>
+<li><?php echo $this->Html->link(__('Edit This Customer'), array('action' => 'edit', $user['User']['id'])); ?> </li>
+<li><?php echo $this->Form->postLink(__('Delete This Customer'), array('action' => 'delete', $user['User']['id']), null, __('Are you sure you want to delete # %s?', $user['User']['id'])); ?> </li>
+<?php
+$this->end();
+$this->start('manageRightMenu');
+?>
+<div class="manageRightMenu" >
+    <ul>
+        <li><?php echo $this->Html->link(__('Customer'), array('action' => 'index')); ?></li>
+    </ul>
+</div>
+<div class="mangeRightSubMenu"> 
+    <div class="unselected"><?php echo $this->Html->link(__('Customer List'), array('action' => 'index')); ?></div>
+    <div class="unselected"><?php echo $this->Html->link(__('Add Customer'), array('action' => 'add')); ?></div>
+</div>
+<?php
+$this->end();
+
+$this->start('manageRightContent');
+?>
 <div class="users view">
-<h2><?php  echo __('User'); ?></h2>
+<!--<h2><?php  echo __('User'); ?></h2>-->
 	<dl>
 		<dt><?php echo __('Id'); ?></dt>
 		<dd>
@@ -73,7 +101,9 @@
 		</dd>
 	</dl>
 </div>
-<div class="actions">
+<?php $this->end(); ?>
+
+<!--<div class="actions">
 	<h3><?php echo __('Actions'); ?></h3>
 	<ul>
 		<li><?php echo $this->Html->link(__('Edit User'), array('action' => 'edit', $user['User']['id'])); ?> </li>
@@ -379,4 +409,4 @@
 			<li><?php echo $this->Html->link(__('New News'), array('controller' => 'news', 'action' => 'add')); ?> </li>
 		</ul>
 	</div>
-</div>
+</div> -->
