@@ -12,6 +12,7 @@ class UsersController extends AppController {
     public $name="Users";
     public function beforeFilter() {
         parent::beforeFilter();
+        $this->Auth->allow('add');
     }
     public function login() {
         if ($this->request->is('post')) {
@@ -21,7 +22,6 @@ class UsersController extends AppController {
                 $this->Session->setFlash(__('worked'));
             } else {
                 $this->Session->setFlash(__('Invalid email or password, try again'));
-                echo "WO CAO";
             }
         }
     }

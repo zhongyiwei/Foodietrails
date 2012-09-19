@@ -24,7 +24,8 @@ $this->start('manageRightContent');
     <?php echo $this->Form->create('User'); ?>
 	<fieldset>
 	<?php
-		echo $this->Form->input('user_role');
+                                    $roleType=array('Admin'=>'Administrator','User'=>'User');
+		echo $this->Form->input('user_role',array('options'=>$roleType,'default'=>'User'));
 		echo $this->Form->input('user_first_name');
 		echo $this->Form->input('user_surname');
 		echo $this->Form->input('user_contacts');

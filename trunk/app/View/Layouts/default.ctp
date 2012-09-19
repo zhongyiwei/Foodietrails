@@ -25,7 +25,10 @@
                 echo $this->Html->image("LOGO.jpg", array("alt" => "Foodie Trails Logo", 'name' => "Foodie Trails Logo", 'height' => "90", 'style' => "background: #FFF; display:block; float:left", 'url' => array('controller' => 'Home', 'action' => 'display')));
                 ?>
                 <div class="headerRight">
-                    <p class="headerRightText">Contact Us: 0452660748<br/>
+                    <?php if ($logged_in==true){?>
+                    <p style="color:#3589A1" class="adminLogin">Welcome <?php echo $current_user['user_surname'].'&nbsp;&nbsp;';echo $this->Html->link('Logout',array('controller'=>'users','action'=>'logout'),array('style'=>'color:#3589A1;'))?></p>
+                    <?php };?>
+                    <p class="headerRightText <?php if ($logged_in==true){echo "afterLogIn";}?> ">Contact Us: 0452660748<br/>
                         Taste the blend of flavours, Experience the culture, Explore the regions</p>
                 </div>
             </div>
