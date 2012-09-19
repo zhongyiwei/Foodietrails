@@ -20,16 +20,6 @@ class User extends AppModel {
 
     public $name = 'User';
 
-//    public $validate = array(
-////        'user_role' => array(
-////            'valid' => array(
-////                'rule' => array('inList', array('Admin')),
-////                'message' => 'Please enter a valid role',
-////                'allowEmpty' => false
-////            )
-////        )
-//    );
-
     public function beforeSave($options = array()) {
         if (isset($this->data[$this->alias]['user_password'])) {
             $this->data[$this->alias]['user_password'] = AuthComponent::password($this->data[$this->alias]['user_password']);
@@ -53,7 +43,7 @@ class User extends AppModel {
      *
      * @var array
      */
-   /* public $validate = array(
+   public $validate = array(
         'user_email' => array(
             'required' => array(
                 'rule' => array('notEmpty'),
@@ -68,7 +58,7 @@ class User extends AppModel {
         ),
         'id' => array(
             'blank' => array(
-                'rule' => array('blank'),
+                'rule' => array('notEmpty'),
             //'message' => 'Your custom message here',
             //'allowEmpty' => false,
             //'required' => false,
@@ -78,7 +68,7 @@ class User extends AppModel {
         ),
         'user_role' => array(
             'blank' => array(
-                'rule' => array('blank'),
+                'rule' => array('notEmpty'),
             //'message' => 'Your custom message here',
             //'allowEmpty' => false,
             //'required' => false,
@@ -88,7 +78,7 @@ class User extends AppModel {
         ),
         'user_first_name' => array(
             'blank' => array(
-                'rule' => array('blank'),
+                'rule' => array('notEmpty'),
             //'message' => 'Your custom message here',
             //'allowEmpty' => false,
             //'required' => false,
@@ -114,7 +104,7 @@ class User extends AppModel {
             //'on' => 'create', // Limit validation to 'create' or 'update' operations
             ),
             'blank' => array(
-                'rule' => array('blank'),
+                'rule' => array('notEmpty'),
             //'message' => 'Your custom message here',
             //'allowEmpty' => false,
             //'required' => false,
@@ -124,7 +114,7 @@ class User extends AppModel {
         ),
         'user_contacts' => array(
             'phone' => array(
-                'rule' => array('phone'),
+                'rule' => array('notEmpty'),
             //'message' => 'Your custom message here',
             //'allowEmpty' => false,
             //'required' => false,
@@ -144,7 +134,7 @@ class User extends AppModel {
         ),
         'user_password' => array(
             'blank' => array(
-                'rule' => array('blank'),
+                'rule' => array('notEmpty'),
             //'message' => 'Your custom message here',
             //'allowEmpty' => false,
             //'required' => false,
@@ -154,7 +144,7 @@ class User extends AppModel {
         ),
         'user_address' => array(
             'blank' => array(
-                'rule' => array('blank'),
+                'rule' => array('notEmpty'),
             //'message' => 'Your custom message here',
             //'allowEmpty' => false,
             //'required' => false,
@@ -164,7 +154,7 @@ class User extends AppModel {
         ),
         'country_id' => array(
             'blank' => array(
-                'rule' => array('blank'),
+                'rule' => array('notEmpty'),
             //'message' => 'Your custom message here',
             //'allowEmpty' => false,
             //'required' => false,

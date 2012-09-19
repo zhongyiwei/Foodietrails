@@ -58,6 +58,8 @@ class AppController extends Controller {
                 'fields' => array('username' => 'user_email', 'password' => 'user_password'),
             ),
         );
+        $this->set('logged_in',$this->Auth->loggedIn());
+        $this->set('current_user',$this->Auth->user());
     }
 
     public function isAuthorized($user) {
