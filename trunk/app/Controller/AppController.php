@@ -36,18 +36,9 @@ class AppController extends Controller {
     public $components = array(
         'Session',
         'Auth' => array(
-            'authenticate' => array(
-                'Form' => array(
-                   'userModel' => 'User',
-                    'fields' => array(
-                        'username' => 'user_email',
-                        'password' => 'user_password'
-                    )
-                )
-            ),
-			'loginRedirect' => array('controller' => 'tours', 'action' => 'index'),
-            'logoutRedirect' => array('controller' => 'home', 'action' => 'display'),
-//            'authorize' => array('Controller')
+            'loginRedirect' => array('controller' => 'users', 'action' => 'index'),
+            'logoutRedirect' => array('controller' => 'home', 'action' => 'display'),	
+            'authorize' => array('Controller')
         )
     );
 //      public function beforeFilter1() {
@@ -59,9 +50,14 @@ class AppController extends Controller {
         Security::setHash('sha1');
         $menus = $this->Tour->find('all', array('limit' => 3));
         $this->set('menu', $menus);
-        $this->Auth->allow('display', 'tourDetail', 'aboutCompany', 'contactUs', 'login', 'event_detail','index','add','edit','view');
+        $this->Auth->allow('display', 'tourDetail', 'aboutCompany', 'contactUs', 'login', 'event_detail','add','edit','view');
         $menus2 = $this->Event->find('all', array('limit' => 3));
         $this->set('menu2', $menus2);
+        $this->Auth->authenticate = array(
+            'Form' => array('userModel'=>'User',
+                'fields' => array('username' => 'user_email', 'password' => 'user_password'),
+            ),
+        );
     }
 
     public function isAuthorized($user) {

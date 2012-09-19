@@ -9,22 +9,10 @@ App::uses('AppController', 'Controller');
  */
 class UsersController extends AppController {
 
-//    public function beforeFilter() {
-//        parent::beforeFilter();
-//        $this->Auth->allow('add','edit','view','index');
-//    }
-    function beforeFilter() {
+    public $name="Users";
+    public function beforeFilter() {
         parent::beforeFilter();
-//        Security::setHash('sha1');
-        $this->Auth->allow('login');
-        $this->Auth->authenticate = array(
-            'Form' => array(
-                'fields' => array('username' => 'user_email', 'password' => 'user_password'),
-            ),
-        );
-//        $this->Auth->fields = array('username' => 'user_email', 'password' => 'user_password');
     }
-
     public function login() {
         if ($this->request->is('post')) {
 //            debug($this->Auth);
@@ -33,6 +21,7 @@ class UsersController extends AppController {
                 $this->Session->setFlash(__('worked'));
             } else {
                 $this->Session->setFlash(__('Invalid email or password, try again'));
+                echo "WO CAO";
             }
         }
     }
