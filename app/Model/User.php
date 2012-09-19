@@ -53,7 +53,7 @@ class User extends AppModel {
      *
      * @var array
      */
-    public $validate = array(
+   /* public $validate = array(
         'user_email' => array(
             'required' => array(
                 'rule' => array('notEmpty'),
