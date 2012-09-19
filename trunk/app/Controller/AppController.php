@@ -50,7 +50,7 @@ class AppController extends Controller {
         Security::setHash('sha1');
         $menus = $this->Tour->find('all', array('limit' => 3));
         $this->set('menu', $menus);
-        $this->Auth->allow('display', 'tourDetail', 'aboutCompany', 'contactUs', 'login', 'event_detail','add','edit','view');
+        $this->Auth->allow('display', 'tourDetail', 'aboutCompany', 'contactUs', 'login', 'event_detail');
         $menus2 = $this->Event->find('all', array('limit' => 3));
         $this->set('menu2', $menus2);
         $this->Auth->authenticate = array(
