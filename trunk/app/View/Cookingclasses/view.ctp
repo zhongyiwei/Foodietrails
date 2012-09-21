@@ -29,7 +29,7 @@ $this->end();
 $this->start('manageRightContent');
 ?>
 <div class="cookingclasses view">
-<h2><?php  echo __('Cookingclass'); ?></h2>
+<!--<h2><?php  echo __('Cookingclass'); ?></h2>-->
 	<dl>
 		<dt><?php echo __('Id'); ?></dt>
 		<dd>
