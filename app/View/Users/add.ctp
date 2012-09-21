@@ -30,7 +30,7 @@ $this->start('manageRightContent');
 		echo $this->Form->input('user_surname');
 		echo $this->Form->input('user_contacts');
 		echo $this->Form->input('user_email');
-		echo $this->Form->input('user_password');
+		echo $this->Form->input('user_password',array('type'=>'password'));
 		echo $this->Form->input('user_address');
 		echo $this->Form->input('user_dietary_requirement');
 		echo $this->Form->input('user_spl_assistance');
