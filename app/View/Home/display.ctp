@@ -40,8 +40,8 @@
     <tr>
         <td style="border-bottom: none;"><div style="width: 720px" class="line">
                 <div class="tourTitle"> <span><?php echo $tourData[0]['Tour']['tour_name']; ?></span> </div>
-                <div class="tourImage"><?php $tourThumbnail = $tourData[0]['Tour']['tour_thumbnail'];
-echo $this->Html->image("$tourThumbnail", array("alt" => "Afriaca Trails", 'title' => 'Afriaca Trails', 'height' => '125px', 'width' => '175px', 'border' => 0)); ?></div>
+                <div class="tourImage"><?php $tourThumbnail = $tourData[0]['Tour']['tour_thumbnail'];?>
+<img src='<?php echo $tourThumbnail?>' alt = "<?php echo $tourData[0]['Tour']['tour_name'];?>" title = '<?php echo $tourData[0]['Tour']['tour_name'];?>' height = '125px' width = '175px' border = 0/></div>
                 <!--<div class="tourDetails"> <b>Country: </b>Australia <?php // print_r($tour);          ?><br>-->
 
                 <div class="tourDetails"> <b>Location: </b> <?php echo $tourData[0]['Tour']['tour_location']; ?><br>
@@ -73,8 +73,8 @@ echo $description;
         <tr>
             <td style="border-bottom: none"><div style="width: 720px" class="line">
                     <div class="tourTitle"> <span><?php echo $tourData[$i]['Tour']['tour_name']; ?></span> </div>
-                    <div class="tourImage"><?php $tourThumbnail2 = $tourData[$i]['Tour']['tour_thumbnail'];
-    echo $this->Html->image("$tourThumbnail2", array("alt" => "Afriaca Trails", 'title' => 'Afriaca Trails', 'height' => '125px', 'width' => '175px', 'border' => 0)); ?></div>
+                    <div class="tourImage"><?php $tourThumbnail2 = $tourData[$i]['Tour']['tour_thumbnail'];?>
+   <img src='<?php echo $tourThumbnail2?>' alt = "<?php echo $tourData[$i]['Tour']['tour_name'];?>" title = '<?php echo $tourData[$i]['Tour']['tour_name'];?>' height = '125px' width = '175px' border = 0/></div>
                     <!--<div class="tourDetails"> <b>Country: </b>Australia <?php // print_r($tour);          ?><br>-->
 
                     <div class="tourDetails"> <b>Location: </b> <?php echo $tourData[$i]['Tour']['tour_location']; ?><br>
