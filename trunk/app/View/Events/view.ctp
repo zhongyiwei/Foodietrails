@@ -51,7 +51,7 @@ $this->start('manageRightContent');
 		</dd>
 			<dt><?php echo __('Event Image Name'); ?></dt>
 		<dd>
-			<?php echo h($event['Event']['event_thumbnail']); ?>
+			<img src="<?php echo ($event['Event']['event_thumbnail']);?>" height="100px">
 			&nbsp;
 		</dd>
 	</dl>
