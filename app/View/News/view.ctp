@@ -14,12 +14,12 @@ $this->start('manageRightMenu');
 ?>
 <div class="manageRightMenu" >
    <ul>
-        <li class='active '><?php echo $this->Html->link(__('News'), array('action' => 'index')); ?></li>
+        <li class="active"><?php echo $this->Html->link(__('News'), array('action' => 'index')); ?></li>
     </ul>
 </div>
 <div class="mangeRightSubMenu"> 
     <div class="unselected"><?php echo $this->Html->link(__('News List'), array('action' => 'index')); ?></div>
-    <div class="selected"><?php echo $this->Html->link(__('Add News'), array('action' => 'add')); ?></div>
+    <div class="unselected"><?php echo $this->Html->link(__('Add News'), array('action' => 'add')); ?></div>
 </div>
 <?php
 $this->end();
