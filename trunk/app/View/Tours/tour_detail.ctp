@@ -13,7 +13,7 @@
   </tr>
 </table>
 <div class="tourBook"><?php
-                echo $this->Html->image("Book.png", array("alt" => "Book", 'name' => "Book", 'height' => "200", 'url' => array('controller' => '#', 'action' => '')));
+                echo $this->Html->image("Book.png", array("alt" => "Book", 'name' => "Book", 'height' => "200", 'url' => array('controller' => 'tours', 'action' => 'checkout',$tour['Tour']['id'])));
                 ?></div>
 <?php echo $tour['Tour']['tour_description']; ?>
 <h2 class="tourParticipantGuide">Participant Guidelines</h2>
