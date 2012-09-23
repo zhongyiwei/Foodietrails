@@ -68,6 +68,5 @@ $this->start('manageRightContent');
     {
         document.getElementById( 'xFilePath' ).value = fileUrl;
     }
-
 </script>
 <?php $this->end(); ?>

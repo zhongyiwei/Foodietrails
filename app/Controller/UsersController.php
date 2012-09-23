@@ -9,11 +9,13 @@ App::uses('AppController', 'Controller');
  */
 class UsersController extends AppController {
 
-    public $name="Users";
+    public $name = "Users";
+
     public function beforeFilter() {
         parent::beforeFilter();
         $this->Auth->allow('add');
     }
+
     public function login() {
         if ($this->request->is('post')) {
 //            debug($this->Auth);
@@ -70,7 +72,7 @@ class UsersController extends AppController {
                 $this->Session->setFlash(__('The user could not be saved. Please, try again.'));
             }
         }
-        $countries = $this->User->Country->find('list', array('fields' =>'country_name' ));
+        $countries = $this->User->Country->find('list', array('fields' => 'country_name'));
         $events = $this->User->Event->find('list');
         $news = $this->User->News->find('list');
         $this->set(compact('countries', 'events', 'news'));
@@ -225,4 +227,32 @@ class UsersController extends AppController {
 //		$this->Session->setFlash(__('User was not deleted'));
 //		$this->redirect(array('action' => 'index'));
 //	}
+
+    public function customerLogin() {
+        if ($this->Auth->loggedIn() == false) {
+            if ($this->request->is('post')) {
+                $this->User->create();
+                $customerData = $this->request->data;
+                $customerData['User']['user_role'] = 'Customer';
+                if ($this->User->save($customerData)) {
+                    $this->Session->setFlash(__('The user has been saved'));
+                    $this->redirect(array('action' => "/customerPayment/"));
+                } else {
+                    $this->Session->setFlash(__('The user could not be saved. Please, try again.'));
+                }
+            }
+            $countries = $this->User->Country->find('list', array('fields' => 'country_name'));
+            $events = $this->User->Event->find('list');
+            $news = $this->User->News->find('list');
+            $this->set(compact('countries', 'events', 'news'));
+        } else {
+            $this->redirect(array('action' => "/customerPayment/"));
+        }
+    }
+
+
+    public function customerPayment() {
+//        debug($this->Auth);
+    }
+
 }

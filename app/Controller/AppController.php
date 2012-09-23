@@ -36,10 +36,11 @@ class AppController extends Controller {
     public $components = array(
         'Session',
         'Auth' => array(
-            'loginRedirect' => array('controller' => 'users', 'action' => 'index'),
-            'logoutRedirect' => array('controller' => 'home', 'action' => 'display'),	
+            'loginRedirect' => array('controller' => 'users', 'action' => 'customerPayment'),
+            'logoutRedirect' => array('controller' => 'home', 'action' => 'display'),
             'authorize' => array('Controller')
-        )
+        ),
+        'Cookie',
     );
 //      public function beforeFilter1() {
 //         $this->Auth->allow('index', 'view');
@@ -48,23 +49,25 @@ class AppController extends Controller {
 
     function beforeFilter() {
         Security::setHash('sha1');
-        $menus = $this->Tour->find('all', array('limit' => 3));
+        $menus = $this->Tour->find('all');
         $this->set('menu', $menus);
-        $this->Auth->allow('display', 'tourDetail', 'aboutCompany', 'contactUs', 'login', 'event_detail');
-        $menus2 = $this->Event->find('all', array('limit' => 3));
+        $this->Auth->allow('display', 'tourDetail', 'aboutCompany', 'contactUs', 'login', 'event_detail', 'checkout','logout','customerLogin','deleteCheckoutItem','customerPayment','existingCustomerLogin');
+        $menus2 = $this->Event->find('all');
         $this->set('menu2', $menus2);
         $this->Auth->authenticate = array(
-            'Form' => array('userModel'=>'User',
+            'Form' => array('userModel' => 'User',
                 'fields' => array('username' => 'user_email', 'password' => 'user_password'),
             ),
         );
-        $this->set('logged_in',$this->Auth->loggedIn());
-        $this->set('current_user',$this->Auth->user());
+        $this->set('logged_in', $this->Auth->loggedIn());
+        $this->set('current_user', $this->Auth->user());
+        $this->Cookie->name = 'shoppingCart';
+        $this->Cookie->time = 60 * 60 * 24 * 30;
     }
 
     public function isAuthorized($user) {
         // Admin can access every action
-        if (isset($user['user_role']) && $user['user_role'] == 'Admin') {
+        if (isset($user['user_role']) && $user['user_role'] == 'Admin' || $user['user_role']== 'Customer') {
             return true;
         }
 
