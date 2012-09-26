@@ -8,12 +8,12 @@ $this->start('manageRightMenu');
 ?>
 <div class="manageRightMenu" >
     <ul>
-        <li class='active '><?php echo $this->Html->link(__('Customers'), array('action' => 'index')); ?></li>
+        <li class='active '><?php echo $this->Html->link(__('User'), array('action' => 'index')); ?></li>
     </ul>
 </div>
 <div class="mangeRightSubMenu"> 
-    <div class="selected"><?php echo $this->Html->link(__('Customer List'), array('action' => 'index')); ?></div>
-    <div class="unselected"><?php echo $this->Html->link(__('Add Customer'), array('action' => 'add')); ?></div>
+    <div class="selected"><?php echo $this->Html->link(__('User List'), array('action' => 'index')); ?></div>
+    <div class="unselected"><?php echo $this->Html->link(__('Add User'), array('action' => 'add')); ?></div>
 </div>
 <?php
 $this->end();

@@ -69,7 +69,7 @@ class User extends AppModel {
         'user_role' => array(
             'blank' => array(
                 'rule' => array('notEmpty'),
-            //'message' => 'Your custom message here',
+                'message' => 'Please choose your role.',
             //'allowEmpty' => false,
             //'required' => false,
             //'last' => false, // Stop validation after this rule
@@ -79,7 +79,7 @@ class User extends AppModel {
         'user_first_name' => array(
             'blank' => array(
                 'rule' => array('notEmpty'),
-            //'message' => 'Your custom message here',
+                'message' => 'Please enter your first name',
             //'allowEmpty' => false,
             //'required' => false,
             //'last' => false, // Stop validation after this rule
@@ -87,7 +87,7 @@ class User extends AppModel {
             ),
             'alphanumeric' => array(
                 'rule' => array('alphanumeric'),
-            //'message' => 'Your custom message here',
+                'message' => 'You need to enter a valid first name',
             //'allowEmpty' => false,
             //'required' => false,
             //'last' => false, // Stop validation after this rule
@@ -97,7 +97,7 @@ class User extends AppModel {
         'user_surname' => array(
             'alphanumeric' => array(
                 'rule' => array('alphanumeric'),
-            //'message' => 'Your custom message here',
+                'message' => 'Please enter your surname',
             //'allowEmpty' => false,
             //'required' => false,
             //'last' => false, // Stop validation after this rule
@@ -105,7 +105,7 @@ class User extends AppModel {
             ),
             'blank' => array(
                 'rule' => array('notEmpty'),
-            //'message' => 'Your custom message here',
+                'message' => 'You need to enter a valid first name',
             //'allowEmpty' => false,
             //'required' => false,
             //'last' => false, // Stop validation after this rule
@@ -115,7 +115,7 @@ class User extends AppModel {
         'user_contacts' => array(
             'phone' => array(
                 'rule' => array('notEmpty'),
-            //'message' => 'Your custom message here',
+                'message' => 'Please enter your contact number',
             //'allowEmpty' => false,
             //'required' => false,
             //'last' => false, // Stop validation after this rule
@@ -125,7 +125,7 @@ class User extends AppModel {
         'user_email' => array(
             'email' => array(
                 'rule' => array('email'),
-            //'message' => 'Your custom message here',
+                'message' => 'Please enter a valid email',
             //'allowEmpty' => false,
             //'required' => false,
             //'last' => false, // Stop validation after this rule
@@ -135,7 +135,7 @@ class User extends AppModel {
         'user_password' => array(
             'blank' => array(
                 'rule' => array('notEmpty'),
-            //'message' => 'Your custom message here',
+                'message' => 'Please enter your password',
             //'allowEmpty' => false,
             //'required' => false,
             //'last' => false, // Stop validation after this rule
@@ -145,7 +145,7 @@ class User extends AppModel {
         'user_address' => array(
             'blank' => array(
                 'rule' => array('notEmpty'),
-            //'message' => 'Your custom message here',
+                'message' => 'Please enter your home address',
             //'allowEmpty' => false,
             //'required' => false,
             //'last' => false, // Stop validation after this rule
@@ -155,7 +155,7 @@ class User extends AppModel {
         'country_id' => array(
             'blank' => array(
                 'rule' => array('notEmpty'),
-            //'message' => 'Your custom message here',
+                'message' => 'Please choose your home country',
             //'allowEmpty' => false,
             //'required' => false,
             //'last' => false, // Stop validation after this rule

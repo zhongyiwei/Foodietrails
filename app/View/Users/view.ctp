@@ -6,20 +6,20 @@ $this->assign('LeftNews','');
 $this->assign('LeftEvent','');
 $this->start('LeftEditMenu');
 ?>
-<li><?php echo $this->Html->link(__('Edit This Customer'), array('action' => 'edit', $user['User']['id'])); ?> </li>
-<li><?php echo $this->Form->postLink(__('Delete This Customer'), array('action' => 'delete', $user['User']['id']), null, __('Are you sure you want to delete # %s?', $user['User']['id'])); ?> </li>
+<li><?php echo $this->Html->link(__('Edit This User'), array('action' => 'edit', $user['User']['id'])); ?> </li>
+<li><?php echo $this->Form->postLink(__('Delete This User'), array('action' => 'delete', $user['User']['id']), null, __('Are you sure you want to delete # %s?', $user['User']['id'])); ?> </li>
 <?php
 $this->end();
 $this->start('manageRightMenu');
 ?>
 <div class="manageRightMenu" >
     <ul>
-        <li><?php echo $this->Html->link(__('Customer'), array('action' => 'index')); ?></li>
+        <li class='active '><?php echo $this->Html->link(__('User'), array('action' => 'index')); ?></li>
     </ul>
 </div>
 <div class="mangeRightSubMenu"> 
-    <div class="unselected"><?php echo $this->Html->link(__('Customer List'), array('action' => 'index')); ?></div>
-    <div class="unselected"><?php echo $this->Html->link(__('Add Customer'), array('action' => 'add')); ?></div>
+    <div class="unselected"><?php echo $this->Html->link(__('User List'), array('action' => 'index')); ?></div>
+    <div class="unselected"><?php echo $this->Html->link(__('Add User'), array('action' => 'add')); ?></div>
 </div>
 <?php
 $this->end();
@@ -96,7 +96,7 @@ $this->start('manageRightContent');
 		</dd>
 		<dt><?php echo __('Country'); ?></dt>
 		<dd>
-			<?php echo $this->Html->link($user['Country']['id'], array('controller' => 'countries', 'action' => 'view', $user['Country']['id'])); ?>
+			<?php echo $this->Html->link($user['Country']['country_name'], array('controller' => 'countries', 'action' => 'view', $user['Country']['id'])); ?>
 			&nbsp;
 		</dd>
 	</dl>

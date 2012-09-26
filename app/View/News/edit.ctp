@@ -30,7 +30,7 @@ $this->start('manageRightContent');
 <div class="news form">
 <?php echo $this->Form->create('News'); ?>
 	<fieldset>
-		<legend><?php echo __('Edit News'); ?></legend>
+		<!--<legend><?php echo __('Edit News'); ?></legend>-->
 	<?php
 		echo $this->Form->input('id');
 		echo $this->Form->input('news_title');

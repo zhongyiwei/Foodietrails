@@ -163,12 +163,20 @@ input, textarea {
 	padding:0;
 }
 dt{
-	width:220px;
+    width:220px;
 }
 dd{
-	width:830px;
-	margin-left:220px;
+    border-left: 1px black dotted;
+    padding-left: 10px;
+    border-bottom: 1px black dotted;
+    width: 780px;
+    margin-top: -33px;
+    margin-left:220px;
+    font-size:13px;
+}
+dd:last-child{
+    border-bottom:0px;
 }
 .adminLogin{
-	margin-right: -350px;
+    margin-right: -350px;
 }
