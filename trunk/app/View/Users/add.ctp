@@ -8,12 +8,12 @@ $this->start('manageRightMenu');
 ?>
 <div class="manageRightMenu" >
     <ul>
-        <li class='active '><?php echo $this->Html->link(__('Customer'), array('action' => 'index')); ?></li>
+        <li class='active '><?php echo $this->Html->link(__('User'), array('action' => 'index')); ?></li>
     </ul>
 </div>
 <div class="mangeRightSubMenu"> 
-    <div class="unselected"><?php echo $this->Html->link(__('Customer List'), array('action' => 'index')); ?></div>
-    <div class="selected"><?php echo $this->Html->link(__('Add Customer'), array('action' => 'add')); ?></div>
+    <div class="unselected"><?php echo $this->Html->link(__('User List'), array('action' => 'index')); ?></div>
+    <div class="selected"><?php echo $this->Html->link(__('Add User'), array('action' => 'add')); ?></div>
 </div>
 <?php
 $this->end();
@@ -24,7 +24,7 @@ $this->start('manageRightContent');
     <?php echo $this->Form->create('User'); ?>
 	<fieldset>
 	<?php
-                                    $roleType=array('Admin'=>'Administrator','User'=>'User');
+                $roleType=array('Admin'=>'Administrator','Customer'=>'Customer');
 		echo $this->Form->input('user_role',array('options'=>$roleType,'default'=>'User'));
 		echo $this->Form->input('user_first_name');
 		echo $this->Form->input('user_surname');

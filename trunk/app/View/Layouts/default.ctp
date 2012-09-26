@@ -54,7 +54,11 @@
                         </ul>
                     </li>
                     <li><a>Product</a></li>
-                    <li><a>Media</a></li>
+                    <li class='has-sub'><a>Media</a>
+                        <ul>
+                            <li><a>News</a></li>
+                        </ul>
+                    </li>
                     <li><a>Cooking Classes</a></li>
                     <li class='has-sub'><a>About Us</a>
                         <ul>
