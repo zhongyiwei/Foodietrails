@@ -47,13 +47,13 @@ class User extends AppModel {
         'user_email' => array(
             'required' => array(
                 'rule' => array('notEmpty'),
-                'message' => 'A Email is required'
+                'message' => 'Email Address cannot be Empty.'
             )
         ),
         'user_password' => array(
             'required' => array(
                 'rule' => array('notEmpty'),
-                'message' => 'A Password is required'
+                'message' => 'Password cannot be Empty.'
             )
         ),
         'id' => array(
@@ -79,7 +79,7 @@ class User extends AppModel {
         'user_first_name' => array(
             'blank' => array(
                 'rule' => array('notEmpty'),
-                'message' => 'Please enter your first name',
+                'message' => 'The First Name cannot be Empty.',
             //'allowEmpty' => false,
             //'required' => false,
             //'last' => false, // Stop validation after this rule
@@ -87,7 +87,7 @@ class User extends AppModel {
             ),
             'alphanumeric' => array(
                 'rule' => array('alphanumeric'),
-                'message' => 'You need to enter a valid first name',
+                'message' => 'The First Name can only contains letters and numbers',
             //'allowEmpty' => false,
             //'required' => false,
             //'last' => false, // Stop validation after this rule
@@ -97,7 +97,7 @@ class User extends AppModel {
         'user_surname' => array(
             'alphanumeric' => array(
                 'rule' => array('alphanumeric'),
-                'message' => 'Please enter your surname',
+                'message' => 'The Surname cannot be Empty',
             //'allowEmpty' => false,
             //'required' => false,
             //'last' => false, // Stop validation after this rule
@@ -105,7 +105,7 @@ class User extends AppModel {
             ),
             'blank' => array(
                 'rule' => array('notEmpty'),
-                'message' => 'You need to enter a valid first name',
+                'message' => 'Your Surname Name can only contains letters and numbers',
             //'allowEmpty' => false,
             //'required' => false,
             //'last' => false, // Stop validation after this rule
@@ -115,7 +115,7 @@ class User extends AppModel {
         'user_contacts' => array(
             'phone' => array(
                 'rule' => array('notEmpty'),
-                'message' => 'Please enter your contact number',
+                'message' => 'The contact cannot be Empty',
             //'allowEmpty' => false,
             //'required' => false,
             //'last' => false, // Stop validation after this rule
@@ -125,7 +125,7 @@ class User extends AppModel {
         'user_email' => array(
             'email' => array(
                 'rule' => array('email'),
-                'message' => 'Please enter a valid email',
+                'message' => 'The Email cannot be Empty.',
             //'allowEmpty' => false,
             //'required' => false,
             //'last' => false, // Stop validation after this rule
@@ -135,7 +135,7 @@ class User extends AppModel {
         'user_password' => array(
             'blank' => array(
                 'rule' => array('notEmpty'),
-                'message' => 'Please enter your password',
+                'message' => 'The Password cannot be Empty',
             //'allowEmpty' => false,
             //'required' => false,
             //'last' => false, // Stop validation after this rule
@@ -145,7 +145,7 @@ class User extends AppModel {
         'user_address' => array(
             'blank' => array(
                 'rule' => array('notEmpty'),
-                'message' => 'Please enter your home address',
+                'message' => 'The address cannot be Empty',
             //'allowEmpty' => false,
             //'required' => false,
             //'last' => false, // Stop validation after this rule
@@ -155,7 +155,7 @@ class User extends AppModel {
         'country_id' => array(
             'blank' => array(
                 'rule' => array('notEmpty'),
-                'message' => 'Please choose your home country',
+                'message' => 'The Country cannot be Empty',
             //'allowEmpty' => false,
             //'required' => false,
             //'last' => false, // Stop validation after this rule

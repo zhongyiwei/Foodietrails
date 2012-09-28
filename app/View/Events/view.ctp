@@ -27,7 +27,7 @@ $this->end();
 $this->start('manageRightContent');
 ?>
 <div class="events view">
-<h2><?php  echo __('Event'); ?></h2>
+<h2><?php //  echo __('Event'); ?></h2>
 	<dl>
 		<dt><?php echo __('Id'); ?></dt>
 		<dd>
