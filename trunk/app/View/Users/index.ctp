@@ -34,8 +34,8 @@ $this->start('manageRightContent');
 			<!--<th><?php echo $this->Paginator->sort('user_dietary_requirement'); ?></th>
 			<th><?php echo $this->Paginator->sort('user_spl_assistance'); ?></th>
 			<th><?php echo $this->Paginator->sort('user_referee'); ?></th> -->
-			<th><?php echo $this->Paginator->sort('user_postcode','Postcode'); ?></th>
-			<th><?php echo $this->Paginator->sort('user_state','State'); ?></th>
+<!--			<th><?php echo $this->Paginator->sort('user_postcode','Postcode'); ?></th>
+			<th><?php echo $this->Paginator->sort('user_state','State'); ?></th>-->
 			<!-- <th><?php echo $this->Paginator->sort('country_id'); ?></th> -->
 			<th class="actions"><?php echo __('Actions'); ?></th>
 	</tr>
@@ -53,8 +53,8 @@ $this->start('manageRightContent');
 		<!-- <td><?php echo h($user['User']['user_dietary_requirement']); ?>&nbsp;</td>
 		<td><?php echo h($user['User']['user_spl_assistance']); ?>&nbsp;</td>
 		<td><?php echo h($user['User']['user_referee']); ?>&nbsp;</td> -->
-		<td><?php echo h($user['User']['user_postcode']); ?>&nbsp;</td>
-		<td><?php echo h($user['User']['user_state']); ?>&nbsp;</td>
+<!--		<td><?php echo h($user['User']['user_postcode']); ?>&nbsp;</td>
+		<td><?php echo h($user['User']['user_state']); ?>&nbsp;</td>-->
 		<!-- <td>
 			<?php echo $this->Html->link($user['Country']['id'], array('controller' => 'countries', 'action' => 'view', $user['Country']['id'])); ?>
 		</td> -->
