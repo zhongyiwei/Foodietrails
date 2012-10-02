@@ -81,7 +81,9 @@
                             <span>Tours</span>
                             <span>Media</span>
                             <span>Deals</span>
-                            <span>Events</span></td>
+                            <span>Events</span>
+							<span class="footerRow"><?php echo $this->Html->link(__('Sitemap'), array('controller' => 'sitemap', 'action' => 'index')); ?></span>
+							</td>
                         <td style="vertical-align:middle" align="right">
                             <a href="http://beaconholidays.com.au/"><?php
 echo $this->Html->image("BH.png", array("alt" => "Beacon Holiday", 'name' => "Beacon Holiday Logo", 'width' => "60"));

@@ -1,4 +1,4 @@
-@charset "utf-8";
+﻿@charset "utf-8";
 /* CSS Document */
 body {
 	font: 100%/1.4 Verdana, Arial, Helvetica, sans-serif;
@@ -390,7 +390,7 @@ a:hover, a:active, a:focus { /* 此组选择器将为键盘导航者提供与鼠
 	margin-top:45px;
 }
 .footerRow a {
-	padding-left: 50px;
+
 	color: #036;
 	font-size: 14px;
 	font-weight:normal;
@@ -422,4 +422,25 @@ form .submit input[type="submit"]:hover, table td.actions a:hover {
 }
 input, textarea {
 font-family:arial;
+}
+.indent_sitemap {
+margin-left: 50px;
+list-style-type: circle;
+}
+.parent_sitemap {
+list-style-type: disc;
+font-weight:bold;
+color:#003D4C;
+}
+.indent_sitemap a {
+color:#003D4C;
+}
+.parent_sitemap a{
+color:#003D4C;
+}
+.indent_sitemap a:hover {
+color:#367889;
+}
+.parent_sitemap a:hover{
+color:#367889;
 }
