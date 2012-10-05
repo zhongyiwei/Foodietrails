@@ -64,8 +64,8 @@ class DATABASE_CONFIG {
 		'persistent' => false,
 		'host' => 'localhost',//130.194.7.82
 		'login' => 'root',//IEMySQL35
-		'password' => '',//6h4ekludrl
-		'database' => 'cakedb',//fit-ie-s35
+		'password' => 'root',//6h4ekludrl
+		'database' => 'fit-ie-s35',//fit-ie-s35
 
 	);
 
