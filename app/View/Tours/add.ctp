@@ -38,7 +38,7 @@ $this->start('manageRightContent');
         echo $this->Form->input('tour_paricipant_guidlines');
         echo $this->Form->input('tour_location');
         echo $this->Form->input('tour_duration');
-        echo $this->Form->input('tour_weather');
+        echo $this->Form->input('tour_weather', array('label' => 'Tour Weather (Desription of weather condition the tour can operate)'));
         echo $this->Form->input('tour_spectator');
         echo $this->Form->input('tour_max_num_on_day');
         echo $this->Form->input('tour_type',array('options'=>$tourType,'default'=>'Public'));
