@@ -76,7 +76,7 @@ $this->start('manageRightContent');
             <?php echo h($tour['Tour']['tour_duration']); ?>
             &nbsp;
         </dd>
-        <dt><?php echo __('Tour Weather'); ?></dt>
+        <dt><?php echo __('Tour Weather (d)'); ?></dt>
         <dd>
             <?php echo h($tour['Tour']['tour_weather']); ?>
             &nbsp;
