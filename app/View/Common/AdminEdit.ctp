@@ -13,7 +13,8 @@ echo $this->Html->css('admin');
                     <li class="<?php echo $this->fetch('LeftCustomer'); ?>"><?php echo $this->Html->link(__('User Management'), array('controller' => 'users', 'action' => 'index')); ?></li>
                     <!--<li><?php echo $this->Html->link(__('Report Management'), array('controller' => 'reports', 'action' => 'index')); ?></li>-->
                     <li class="<?php echo $this->fetch('LeftNews'); ?>"><?php echo $this->Html->link(__('News Management'), array('controller' => 'news', 'action' => 'index')); ?></li>
-                    <li class="<?php echo $this->fetch('LeftEvent'); ?>"><?php echo $this->Html->link(__('Events Management'), array('controller' => 'events', 'action' => 'index')); ?></li>  
+                    <li class="<?php echo $this->fetch('LeftEvent'); ?>"><?php echo $this->Html->link(__('Events Management'), array('controller' => 'events', 'action' => 'index')); ?></li> 
+ 		    <li class="<?php echo $this->fetch('LeftEvent'); ?>"><?php echo $this->Html->link(__('FAQ Management'), array('controller' => 'events', 'action' => 'index')); ?></li>  
                     <hr class="MenuSeparator"/>
                     <?php echo $this->fetch('LeftEditMenu'); ?>
                 </ul>
