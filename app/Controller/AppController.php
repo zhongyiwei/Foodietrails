@@ -61,13 +61,11 @@ class AppController extends Controller {
         );
         $this->set('logged_in', $this->Auth->loggedIn());
         $this->set('current_user', $this->Auth->user());
-        $this->Cookie->name = 'shoppingCart';
-        $this->Cookie->time = 60 * 60 * 24 * 30;
     }
 
     public function isAuthorized($user) {
         // Admin can access every action
-        if (isset($user['user_role']) && $user['user_role'] == 'Admin' || $user['user_role']== 'Customer') {
+        if (isset($user['user_role']) && $user['user_role'] == 'Admin') {
             return true;
         }
 
