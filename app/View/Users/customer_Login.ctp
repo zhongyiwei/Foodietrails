@@ -33,6 +33,15 @@
         </td>
         <td>
             <?php echo $this->Html->link(__('Existing Customer? Login here'), array('action' => 'login')); ?>
+<!--            <form action="<?php echo $this->webroot; ?>users/login" method="post" >
+                <?php // echo $this->Form->create('User'); ?>
+                <legend style="font-weight:normal;">Existing Customer? Login here ↓</legend>
+                <?php
+                echo $this->Form->input('user_email');
+                echo $this->Form->input('user_password', array('type' => 'password'));
+                echo $this->Form->end(__('Login',array('class'=>'login')));
+               ?>
+            </form>-->
         </td>
     </tr>
 </table>
