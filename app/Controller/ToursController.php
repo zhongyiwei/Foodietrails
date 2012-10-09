@@ -254,7 +254,7 @@ class ToursController extends AppController {
                 }
             }
             array_splice($currentCart, count($currentCart), 1);
-            debug($currentCart);
+//            debug($currentCart);
             for ($i = 0; $i < count($currentCart); $i++) {
                 $this->Cookie->write("Cart.cartData$i", $currentCart[$i]);
             }

@@ -12,9 +12,11 @@
     <td><div class="tourPrice"><?php echo $tour['Tour']['tour_price_per_certificate']; ?></div></td>
   </tr>
 </table>
-<div class="tourBook"><?php
-                echo $this->Html->image("Book.png", array("alt" => "Book", 'name' => "Book", 'height' => "200", 'url' => array('controller' => 'tours', 'action' => 'checkout',$tour['Tour']['id'])));
-                ?></div>
+<?php
+//                echo $this->Html->image("Book.png", array("alt" => "Book", 'name' => "Book", 'height' => "200", 'url' => array('controller' => 'tours', 'action' => 'checkout',$tour['Tour']['id'])));
+                echo $this->Html->link(__(''),  array('controller' => 'tours', 'action' => 'checkout',$tour['Tour']['id']),array("class" => "tourBook"));
+                
+?>
 <?php echo $tour['Tour']['tour_description']; ?>
 <h2 class="tourParticipantGuide">Participant Guidelines</h2>
 <p><?php echo $tour['Tour']['tour_paricipant_guidlines'];?></p>

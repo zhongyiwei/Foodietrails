@@ -48,11 +48,12 @@ body {
 	position:relative;
 }
 .menu > ul > li > a {
+                  margin-top: -1px;
 	outline:none;
 	display:block;
 	position:relative;
 	padding:12px 20px;
-	font:bold 13px/100% Arial, Helvetica, sans-serif;
+	font:bold 15px/100% Arial, Helvetica, sans-serif;
 	text-align:center;
 	text-decoration:none;
 	text-shadow:1px 1px 0 rgba(0, 0, 0, 0.4);
@@ -63,7 +64,7 @@ body {
 .menu > ul > li > a:after {
 	content:'';
 	position:absolute;
-	border-right:1px solid;
+	/*border-right:1px solid;*/
 	top:-1px;
 	bottom:-1px;
 	right:-2px;
@@ -131,24 +132,24 @@ body {
 	text-shadow:1px 1px 0 rgba(0, 0, 0, 0.5);
 }
 .menu, .menu > ul > li > ul > li a:hover {
-	background:#4fbdf0;
-	background:-moz-linear-gradient(top, #4fbdf0 0%, #45b2d2 100%);
-	background:-webkit-gradient(linear, left top, left bottom, color-stop(0%, #4fbdf0), color-stop(100%, #45b2d2));
-	background:-webkit-linear-gradient(top, #4fbdf0 0%, #45b2d2 100%);
-	background:-o-linear-gradient(top, #4fbdf0 0%, #45b2d2 100%);
-	background:-ms-linear-gradient(top, #4fbdf0 0%, #45b2d2 100%);
-	background:linear-gradient(top, #4fbdf0 0%, #45b2d2 100%);
-        filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#4fbdf0', endColorstr='#45b2d2', GradientType=0);
+	background:#3366BB;
+	background:-moz-linear-gradient(top, #45b2d2 0%, #3366BB 100%);
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0%, #45b2d2), color-stop(100%, #3366BB));
+	background:-webkit-linear-gradient(top, #45b2d2 0%, #3366BB 100%);
+	background:-o-linear-gradient(top, #45b2d2 0%, #3366BB 100%);
+	background:-ms-linear-gradient(top, #45b2d2 0%, #3366BB 100%);
+	background:linear-gradient(top, #45b2d2 0%, #3366BB 100%);
+        filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#45b2d2', endColorstr='#3366BB', GradientType=0);
 }
 .menu {
 	border-color:#3589a1;
 }
 .menu > ul > li > a {
-	border-right:1px solid #3589a1;
+	/*border-right:1px solid #3589a1;*/
 	color:#fff;
 }
 .menu > ul > li > a:after {
-	border-color:#6ed1ff;
+	border-color:#2266EE;
 }
 .menu > ul > li > a:hover {
 	background:#36acd2;
@@ -356,6 +357,11 @@ a:hover, a:active, a:focus { /* 此组选择器将为键盘导航者提供与鼠
 	color:blue;
 	cursor:pointer;
 }
+.homePageTitle{
+                font-size: 25px;
+                color: #FF850D;
+                font-weight: bold;
+}
 .tourPrice {
 	font-size:35px;
 	color:#247cab;
@@ -373,8 +379,14 @@ a:hover, a:active, a:focus { /* 此组选择器将为键盘导航者提供与鼠
 }
 .tourBook {
 	position:absolute;
-	margin-left:600px;
-	margin-top:-200px;
+                  margin-left: 750px;
+                  margin-top: -120px;
+                  height:80px;
+                  width: 150px;
+                  background: url(/img/Book.png);
+}
+.tourBook:hover {
+                  background: url(/img/BookHover.png);
 }
 .aboutUsHeading {
 	font-weight:bold;

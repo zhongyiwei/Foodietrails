@@ -14,6 +14,8 @@ $this->start('manageRightMenu');
 <div class="mangeRightSubMenu"> 
     <div class="selected"><?php echo $this->Html->link(__('User List'), array('action' => 'index')); ?></div>
     <div class="unselected"><?php echo $this->Html->link(__('Add User'), array('action' => 'add')); ?></div>
+    <div class="unselected"><?php echo $this->Html->link(__('Download User Details'), array('action' => '/export/User_Details_On_'.  date("Ymd").'.csv')); ?>
+    </div>
 </div>
 <?php
 $this->end();

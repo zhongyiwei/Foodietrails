@@ -49,3 +49,4 @@ Router::connect('/sitemap/:action/*', array('controller' => 'sitemaps'));
 Router::connect('/robots/:action/*', array('controller' => 'sitemaps', 'action' => 'robot')); 
 
 Router::parseExtensions(); 
+//Router::parseExtensions('csv'); 
