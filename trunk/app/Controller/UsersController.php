@@ -20,8 +20,12 @@ class UsersController extends AppController {
         if ($this->request->is('post')) {
 //            debug($this->Auth);
             if ($this->Auth->login()) {
-                $this->redirect($this->Auth->redirect());
-                $this->Session->setFlash(__('worked'));
+                $currentUser = $this->Auth->user();
+                if ($currentUser['user_role'] == 'Admin') {
+                    $this->redirect($this->Auth->redirect());
+                } else {
+                    $this->redirect(array('action' => 'customerPayment'));
+                }
             } else {
                 $this->Session->setFlash(__('Invalid email or password, try again'));
             }
@@ -249,7 +253,6 @@ class UsersController extends AppController {
             $this->redirect(array('action' => "/customerPayment/"));
         }
     }
-
 
     public function customerPayment() {
 //        debug($this->Auth);

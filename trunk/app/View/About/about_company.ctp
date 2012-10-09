@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 ?>
-<h1 class="aboutUsHeading">We have a passion for food…its evolution and its history</h1><img src="<?php echo $this->webroot;?>/img/AboutCompanyP1.png" width="180" style="border-radius:5px;margin-top: -5px;
+<h1 class="aboutUsHeading">We have a passion for food…its evolution and its history</h1><img src="<?php echo $this->webroot;?>img/AboutCompanyP1.png" width="180" style="border-radius:5px;margin-top: -5px;
 margin-right: 15px;" title="" alt="" align="right" style="margin: -8px 25px 20px 5px; " />
 <p class="aboutP">It all started when
     2 sisters Rushina (Gastronome Writer) and Himanshi (Travel Consultant) got
@@ -21,7 +21,7 @@ margin-right: 15px;" title="" alt="" align="right" style="margin: -8px 25px 20px
     passion for Turkish and African food… the influences have so much similarity
     and the flavours have crossed over the continents to each create a blend of
     it's own.</p></font></font></font>
-<p class="aboutP"><img src="<?php echo $this->webroot;?>/img/AboutCompanyP2.png" width="200" title="" alt="" align="left" style="margin: 5px;margin-right: 10px" /></font></span></p>
+<p class="aboutP"><img src="<?php echo $this->webroot;?>img/AboutCompanyP2.png" width="200" title="" alt="" align="left" style="margin: 5px;margin-right: 10px" /></font></span></p>
 <p class="aboutP">Rushina is based in Mumbai and is due to release
     her 1<sup>st</sup>&nbsp;book “My Mumbai Cookbook” this year. Food blogger,
     Gastronome, consultant and journalist, she also finds time to conduct and

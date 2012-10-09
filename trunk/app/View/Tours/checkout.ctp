@@ -15,7 +15,7 @@
             <td>Subtotal</td>
             <td>Remove</td>
         </tr>
-        <form method="post" action="/tours/checkout/<?php echo $SC[$ar_keys[0]]['Tour']['id']; ?>">
+        <form method="post" action="<?php echo $this->webroot; ?>tours/checkout/<?php echo $SC[$ar_keys[0]]['Tour']['id']; ?>">
             <?php
             $total = 0;
             for ($i = 0; $i < count($SC); $i++) {
@@ -36,7 +36,7 @@
 
                     </td>
                     <td><?php echo $SC["cartData$i"]['subTotal']; ?> AU$</td>
-                    <td><a href="/tours/deleteCheckoutItem/<?php echo $SC["cartData$i"]['Tour']['id']; ?>" >Delete</a> </td>
+                    <td><a href="<?php echo $this->webroot; ?>tours/deleteCheckoutItem/<?php echo $SC["cartData$i"]['Tour']['id']; ?>" >Delete</a> </td>
                 </tr>
     <?php }; ?>
             <tr>
@@ -45,7 +45,7 @@
     </table>
     <button type="submit" title="Update Shopping Cart" style="padding: 5px; font-size:14px;">Update Shopping Cart</button>
     </form>
-    <button type="button" title="Proceed to Checkout" style="padding: 5px; font-size:14px;" onclick="window.location='/../users/customerLogin';">Proceed to Check Out</button>
+    <button type="button" title="Proceed to Checkout" style="padding: 5px; font-size:14px;" onclick="window.location='<?php echo $this->webroot; ?>users/customerLogin';">Proceed to Check Out</button>
 <?php
 } else {
     echo "<p>You have not book anything yet.</p><p>Please click " . $this->Html->link(__('here'), array('controller' => 'home', 'action' => 'display')) . " to continue your browsing.</p>";
