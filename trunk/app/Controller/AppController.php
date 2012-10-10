@@ -45,13 +45,13 @@ class AppController extends Controller {
 //      public function beforeFilter1() {
 //         $this->Auth->allow('index', 'view');
 //     }
-    var $uses = array('Tour', 'Event','Cookingclass');
+    var $uses = array('Tour', 'Event','Cookingclass','Product');
 
     function beforeFilter() {
         Security::setHash('sha1');
         $menus = $this->Tour->find('all');
         $this->set('menu', $menus);
-        $this->Auth->allow('display', 'tourDetail', 'aboutCompany', 'contactUs', 'login', 'event_detail', 'checkout', 'logout', 'customerLogin', 'deleteCheckoutItem', 'customerPayment', 'existingCustomerLogin');
+        $this->Auth->allow('display', 'tourDetail', 'aboutCompany', 'contactUs', 'login', 'event_detail', 'checkout', 'logout', 'customerLogin', 'deleteCheckoutItem', 'customerPayment', 'existingCustomerLogin','check');
         $menus2 = $this->Event->find('all');
         $this->set('menu2', $menus2);
         $menus3 = $this->Cookingclass->find('all');
