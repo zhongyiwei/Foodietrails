@@ -134,136 +134,137 @@ class ToursController extends AppController {
         $this->set('tour', $this->Tour->read(null, $id));
     }
 
-    public function checkout($id = null) {
-//        debug($this->Cookie->read('shoppingCart'));
-        if ($this->Cookie->read('Cart') != null) {
-            for ($i = 0; $i < count($this->Cookie->read('Cart')); $i++) {
-//            $currentCart = $this->Cookie->read('cartData');
-//            print_r($currentCart);
-                $currentCart[$i] = $this->Cookie->read("Cart.cartData$i");
-//                print_r($currentCart);
-            }
-        } else {
-            $currentCart[0] = null;
-        }
-//        debug($_COOKIE);
-        $currentTour = $this->Tour->read(null, $id);
-//        debug($currentCart);
-        if ($currentCart[0] == null && $id != null) {
-            $currentProduct['Tour']['id'] = $currentTour['Tour']['id'];
-            $currentProduct['Tour']['tour_name'] = $currentTour['Tour']['tour_name'];
-            $currentProduct['Tour']['tour_price_per_certificate'] = $currentTour['Tour']['tour_price_per_certificate'];
-            $currentProduct['Qty'] = 1;
-            $currentProduct['subTotal'] = $currentProduct['Qty'] * $currentProduct['Tour']['tour_price_per_certificate'];
-//            $currentCart[0] = $currentProduct;
-//            print_r($currentCart);
-            $this->Cookie->write('Cart.cartData0', $currentProduct);
-//            print_r($this->Cookie->read('cartData'));
-//            debug($currentCart);
-//            $this->set('SC', $this->Cookie->read('Cart'));
-        } else if ($currentCart[0] != null && $id != null) {
-            $maxArrayKeyId = count($this->Cookie->read('Cart'));
-            $insertStatus = true;
-//            debug($currentCart);
-            for ($i = 0; $i < $maxArrayKeyId; $i++) {
-                if ($currentCart[$i]['Tour']['id'] == $id) {
-                    //$staus = "You have already got this product in your Shopping Cart";
-                    $insertStatus = false;
-//                    $this->set('SC', $this->Cookie->read("Cart"));
-                }
-            }
-            if ($insertStatus == true) {
-                $currentProduct['Tour']['id'] = $currentTour['Tour']['id'];
-                $currentProduct['Tour']['tour_name'] = $currentTour['Tour']['tour_name'];
-                $currentProduct['Tour']['tour_price_per_certificate'] = $currentTour['Tour']['tour_price_per_certificate'];
-                $currentProduct['Qty'] = 1;
-                $currentProduct['subTotal'] = $currentProduct['Qty'] * $currentProduct['Tour']['tour_price_per_certificate'];
-//                $currentCart[$maxArrayKeyId][0] = $currentProduct;
-//                print_r($currentCart);
-//                print_r( unserialize($_COOKIE["shoppingCart"]));
-//                $this->Cookie->delete('cartData');
-//                print_r($_COOKIE);
-//                $this->Cookie->write('shoppingCart.cartData', $currentCart, false);
-                $this->Cookie->write("Cart.cartData$maxArrayKeyId", $currentProduct);
-//                debug($this->Cookie->read('cartData'));
-//                print_r($_COOKIE);
-//                $this->set('SC', $this->Cookie->read("Cart"));
-//                $this->set('SC', unserialize($_COOKIE["shoppingCart"]));
-            }
-        }
-        $this->set('SC', $this->Cookie->read("Cart"));
-//        print_r($_COOKIE);
-        if ($this->request->is('post')) {
-            for ($i = 0; $i < count($this->Cookie->read('Cart')); $i++) {
-                $currentCart[$i] = $this->Cookie->read("Cart.cartData$i");
-            }
-            for ($i = 0; $i < count($currentCart); $i++) {
-                $postName = $currentCart[$i]['Tour']['id'] . 'Qty';
-                $currentCart[$i]['Qty'] = $this->request->data($postName);
-                $currentCart[$i]['subTotal'] = $currentCart[$i]['Qty'] * $currentCart[$i]['Tour']['tour_price_per_certificate'];
-                $this->Cookie->write("Cart.cartData$i", $currentCart[$i]);
-            }
-            $this->set('SC', $this->Cookie->read('Cart'));
-        }
-    }
-
-    public function deleteCheckoutItem($id = null) {
-//        if (!$this->request->is('post')) {
-//            throw new MethodNotAllowedException();
+//    public function checkout($id = null) {
+////        debug($this->Cookie->read('shoppingCart'));
+//        if ($this->Cookie->read('Cart') != null) {
+//            for ($i = 0; $i < count($this->Cookie->read('Cart')); $i++) {
+////            $currentCart = $this->Cookie->read('cartData');
+////            print_r($currentCart);
+//                $currentCart[$i] = $this->Cookie->read("Cart.cartData$i");
+////                print_r($currentCart);
+//            }
+//        } else {
+//            $currentCart[0] = null;
 //        }
-//        $this->Tour->id = $id;
-//        if (!$this->Tour->exists()) {
-//            throw new NotFoundException(__('Invalid tour'));
-//        }
-//        $currentCart = $this->Cookie->read('shoppingCart');
-////        $ar_keys = array_keys($currentCart);
-//        if (count($currentCart) == 0) {
-////            unset($currentCart[0]);
-////            array_splice($currentCart, 1, 1);
-////            $this->Cookie->destroy();
-////            $this->redirect(array('action' => "/checkout/"));
-////                debug($ar_keys);
-//        }
-//        for ($i = 0; $i < count($currentCart); $i++) {
-//            if ($currentCart[$i]['Tour']['id'] == $id && count($currentCart) != 1) {
-////                unset($currentCart[$i]);
-////                array_splice($currentCart, 1, 1);
-////                debug($currentCart);
-////                $this->Cookie->write('shoppingCart', $currentCart);
-//                $redirectLink = "/checkout/$currentCart[0]['Tour']['id']";
-////                $this->redirect(array('action' => $redirectLink));
+////        debug($_COOKIE);
+//        $currentTour = $this->Tour->read(null, $id);
+////        debug($currentCart);
+//        if ($currentCart[0] == null && $id != null) {
+//            $currentProduct['Tour']['id'] = $currentTour['Tour']['id'];
+//            $currentProduct['Tour']['tour_name'] = $currentTour['Tour']['tour_name'];
+//            $currentProduct['Tour']['tour_price_per_certificate'] = $currentTour['Tour']['tour_price_per_certificate'];
+//            $currentProduct['Qty'] = 1;
+//            $currentProduct['subTotal'] = $currentProduct['Qty'] * $currentProduct['Tour']['tour_price_per_certificate'];
+////            $currentCart[0] = $currentProduct;
+////            print_r($currentCart);
+//            $this->Cookie->write('Cart.cartData0', $currentProduct);
+////            print_r($this->Cookie->read('cartData'));
+////            debug($currentCart);
+////            $this->set('SC', $this->Cookie->read('Cart'));
+//        } else if ($currentCart[0] != null && $id != null) {
+//            $maxArrayKeyId = count($this->Cookie->read('Cart'));
+//            $insertStatus = true;
+////            debug($currentCart);
+//            for ($i = 0; $i < $maxArrayKeyId; $i++) {
+//                if ($currentCart[$i]['Tour']['id'] == $id) {
+//                    //$staus = "You have already got this product in your Shopping Cart";
+//                    $insertStatus = false;
+////                    $this->set('SC', $this->Cookie->read("Cart"));
+//                }
+//            }
+//            if ($insertStatus == true) {
+//                $currentProduct['Identifier'] = "Tour";
+//                $currentProduct['Tour']['id'] = $currentTour['Tour']['id'];
+//                $currentProduct['Tour']['tour_name'] = $currentTour['Tour']['tour_name'];
+//                $currentProduct['Tour']['tour_price_per_certificate'] = $currentTour['Tour']['tour_price_per_certificate'];
+//                $currentProduct['Qty'] = 1;
+//                $currentProduct['subTotal'] = $currentProduct['Qty'] * $currentProduct['Tour']['tour_price_per_certificate'];
+////                $currentCart[$maxArrayKeyId][0] = $currentProduct;
+////                print_r($currentCart);
+////                print_r( unserialize($_COOKIE["shoppingCart"]));
+////                $this->Cookie->delete('cartData');
+////                print_r($_COOKIE);
+////                $this->Cookie->write('shoppingCart.cartData', $currentCart, false);
+//                $this->Cookie->write("Cart.cartData$maxArrayKeyId", $currentProduct);
+////                debug($this->Cookie->read('cartData'));
+////                print_r($_COOKIE);
+////                $this->set('SC', $this->Cookie->read("Cart"));
+////                $this->set('SC', unserialize($_COOKIE["shoppingCart"]));
 //            }
 //        }
-//        $this->Session->setFlash(__('Tour deleted'));
-//        debug($this->Cookie->read('shoppingCart'));
-//        $this->redirect(array('controller' => 'home', 'action' => 'display'));
-        for ($i = 0; $i < count($this->Cookie->read('Cart')); $i++) {
-            $currentCart[$i] = $this->Cookie->read("Cart.cartData$i");
-        }
-//        debug($currentCart);
-//        debug($id);
-        if (count($currentCart) != 1) {
-//            $redirectLink = "/checkout/" . $currentCart[0]['Tour']['id'];
-            $redirectLink = "/checkout/";
-            for ($i = 0; $i < count($currentCart); $i++) {
-                $this->Cookie->delete("Cart.cartData$i");
-            }
-            for ($i = 0; $i < count($currentCart); $i++) {
-                if ($currentCart[$i]['Tour']['id'] == $id) {
-                    unset($currentCart[$i]);
-                }
-            }
-            array_splice($currentCart, count($currentCart), 1);
-//            debug($currentCart);
-            for ($i = 0; $i < count($currentCart); $i++) {
-                $this->Cookie->write("Cart.cartData$i", $currentCart[$i]);
-            }
-        } else {
-            $redirectLink = "/checkout/";
-            $this->Cookie->delete("Cart.cartData0");
-        }
-        $this->redirect(array('action' => $redirectLink));
-    }
+//        $this->set('SC', $this->Cookie->read("Cart"));
+////        print_r($_COOKIE);
+//        if ($this->request->is('post')) {
+//            for ($i = 0; $i < count($this->Cookie->read('Cart')); $i++) {
+//                $currentCart[$i] = $this->Cookie->read("Cart.cartData$i");
+//            }
+//            for ($i = 0; $i < count($currentCart); $i++) {
+//                $postName = $currentCart[$i]['Tour']['id'] . 'Qty';
+//                $currentCart[$i]['Qty'] = $this->request->data($postName);
+//                $currentCart[$i]['subTotal'] = $currentCart[$i]['Qty'] * $currentCart[$i]['Tour']['tour_price_per_certificate'];
+//                $this->Cookie->write("Cart.cartData$i", $currentCart[$i]);
+//            }
+//            $this->set('SC', $this->Cookie->read('Cart'));
+//        }
+//    }
+//
+//    public function deleteCheckoutItem($id = null) {
+////        if (!$this->request->is('post')) {
+////            throw new MethodNotAllowedException();
+////        }
+////        $this->Tour->id = $id;
+////        if (!$this->Tour->exists()) {
+////            throw new NotFoundException(__('Invalid tour'));
+////        }
+////        $currentCart = $this->Cookie->read('shoppingCart');
+//////        $ar_keys = array_keys($currentCart);
+////        if (count($currentCart) == 0) {
+//////            unset($currentCart[0]);
+//////            array_splice($currentCart, 1, 1);
+//////            $this->Cookie->destroy();
+//////            $this->redirect(array('action' => "/checkout/"));
+//////                debug($ar_keys);
+////        }
+////        for ($i = 0; $i < count($currentCart); $i++) {
+////            if ($currentCart[$i]['Tour']['id'] == $id && count($currentCart) != 1) {
+//////                unset($currentCart[$i]);
+//////                array_splice($currentCart, 1, 1);
+//////                debug($currentCart);
+//////                $this->Cookie->write('shoppingCart', $currentCart);
+////                $redirectLink = "/checkout/$currentCart[0]['Tour']['id']";
+//////                $this->redirect(array('action' => $redirectLink));
+////            }
+////        }
+////        $this->Session->setFlash(__('Tour deleted'));
+////        debug($this->Cookie->read('shoppingCart'));
+////        $this->redirect(array('controller' => 'home', 'action' => 'display'));
+//        for ($i = 0; $i < count($this->Cookie->read('Cart')); $i++) {
+//            $currentCart[$i] = $this->Cookie->read("Cart.cartData$i");
+//        }
+////        debug($currentCart);
+////        debug($id);
+//        if (count($currentCart) != 1) {
+////            $redirectLink = "/checkout/" . $currentCart[0]['Tour']['id'];
+//            $redirectLink = "/checkout/";
+//            for ($i = 0; $i < count($currentCart); $i++) {
+//                $this->Cookie->delete("Cart.cartData$i");
+//            }
+//            for ($i = 0; $i < count($currentCart); $i++) {
+//                if ($currentCart[$i]['Tour']['id'] == $id) {
+//                    unset($currentCart[$i]);
+//                }
+//            }
+//            array_splice($currentCart, count($currentCart), 1);
+////            debug($currentCart);
+//            for ($i = 0; $i < count($currentCart); $i++) {
+//                $this->Cookie->write("Cart.cartData$i", $currentCart[$i]);
+//            }
+//        } else {
+//            $redirectLink = "/checkout/";
+//            $this->Cookie->delete("Cart.cartData0");
+//        }
+//        $this->redirect(array('action' => $redirectLink));
+//    }
 
 }
 
