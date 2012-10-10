@@ -6,98 +6,58 @@ $this->assign('LeftNews','');
 $this->assign('LeftEvent','');
 $this->start('LeftEditMenu');
 ?>
-<li><?php echo $this->Html->link(__('Edit This User'), array('action' => 'edit', $user['User']['id'])); ?> </li>
-<li><?php echo $this->Form->postLink(__('Delete This User'), array('action' => 'delete', $user['User']['id']), null, __('Are you sure you want to delete # %s?', $user['User']['id'])); ?> </li>
+<li><?php echo $this->Html->link(__('Edit Feedback'), array('action' => 'edit', $feedback['Feedback']['id'])); ?> </li>
+<li><?php echo $this->Form->postLink(__('Delete Feedback'), array('action' => 'delete', $feedback['Feedback']['id']), null, __('Are you sure you want to delete # %s?', $feedback['Feedback']['id'])); ?> </li>
 <?php
 $this->end();
 $this->start('manageRightMenu');
 ?>
 <div class="manageRightMenu" >
     <ul>
-        <li class='active '><?php echo $this->Html->link(__('User'), array('action' => 'index')); ?></li>
-		li><?php echo $this->Html->link(__('Feedback'), array('controller' => 'feedbacks','action' => 'index')); ?></li>
+        <li><?php echo $this->Html->link(__('User'), array('controller' => 'users','action' => 'index')); ?></li>
+		<li class='active '><?php echo $this->Html->link(__('Feedback'), array('action' => 'index')); ?></li>
     </ul>
 </div>
 <div class="mangeRightSubMenu"> 
-    <div class="unselected"><?php echo $this->Html->link(__('User List'), array('action' => 'index')); ?></div>
-    <div class="unselected"><?php echo $this->Html->link(__('Add User'), array('action' => 'add')); ?></div>
+    <div class="unselected"><?php echo $this->Html->link(__('Feedback List'), array('action' => 'index')); ?></div>
+  
 </div>
 <?php
 $this->end();
 
 $this->start('manageRightContent');
 ?>
-<div class="users view">
+<div class="Feedback view">
 <!--<h2><?php  echo __('User'); ?></h2>-->
 	<dl>
 		<dt><?php echo __('Id'); ?></dt>
 		<dd>
-			<?php echo h($user['User']['id']); ?>
+			<?php echo h($feedback['Feedback']['id']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('User Role'); ?></dt>
+		<dt><?php echo __('Tour Id'); ?></dt>
 		<dd>
-			<?php echo h($user['User']['user_role']); ?>
+			<?php echo h($feedback['Feedback']['tour_id']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('User First Name'); ?></dt>
+		<dt><?php echo __('Full Name'); ?></dt>
 		<dd>
-			<?php echo h($user['User']['user_first_name']); ?>
+			<?php echo h($feedback['Feedback']['full_name']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('User Surname'); ?></dt>
+		<dt><?php echo __('Title'); ?></dt>
 		<dd>
-			<?php echo h($user['User']['user_surname']); ?>
+			<?php echo h($feedback['Feedback']['feedback_title']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('User Contacts'); ?></dt>
+		<dt><?php echo __('Description'); ?></dt>
 		<dd>
-			<?php echo h($user['User']['user_contacts']); ?>
+			<?php echo h($feedback['Feedback']['feedback_description']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('User Email'); ?></dt>
+		<dt><?php echo __('Status'); ?></dt>
 		<dd>
-			<?php echo h($user['User']['user_email']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('User Password'); ?></dt>
-		<dd>
-			<?php echo h($user['User']['user_password']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('User Address'); ?></dt>
-		<dd>
-			<?php echo h($user['User']['user_address']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('User Dietary Requirement'); ?></dt>
-		<dd>
-			<?php echo h($user['User']['user_dietary_requirement']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('User Spl Assistance'); ?></dt>
-		<dd>
-			<?php echo h($user['User']['user_spl_assistance']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('User Referee'); ?></dt>
-		<dd>
-			<?php echo h($user['User']['user_referee']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('User Postcode'); ?></dt>
-		<dd>
-			<?php echo h($user['User']['user_postcode']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('User State'); ?></dt>
-		<dd>
-			<?php echo h($user['User']['user_state']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Country'); ?></dt>
-		<dd>
-			<?php echo $this->Html->link($user['Country']['country_name'], array('controller' => 'countries', 'action' => 'view', $user['Country']['id'])); ?>
+			<?php echo h($feedback['Feedback']['feedback_status']); ?>
 			&nbsp;
 		</dd>
 	</dl>
