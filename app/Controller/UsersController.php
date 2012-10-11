@@ -26,7 +26,7 @@ class UsersController extends AppController {
                 if ($currentUser['user_role'] == 'Admin') {
                     $this->redirect($this->Auth->redirect());
                 } else {
-                    $this->redirect(array('action' => 'customerPayment'));
+                    $this->redirect(array('controller'=>'checkout','action' => 'confirmCheckout'));
                 }
             } else {
                 $this->Session->setFlash(__('Invalid email or password, try again'));
