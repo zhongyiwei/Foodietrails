@@ -69,7 +69,7 @@ background: -moz-linear-gradient(
 	margin: 4px 2px 0 0;
 }*/
 .manageRightMenu ul li a:hover, .manageRightMenu ul li.active a {
-	background: url(/img/color.png) center bottom;
+	background: url('../img/color.png') center bottom;
 	display: block;
 	height: 34px;
 	margin-top: -5px;
@@ -79,10 +79,10 @@ background: -moz-linear-gradient(
 	opacity: 1;
 }
 .manageRightMenu ul li a:hover {
-	background: url(/img/color2.png) center bottom;
+	background: url('../img/color2.png') center bottom;
 }
 .manageRightMenu ul {
-	background: url(/img/nav-bg.png) repeat-x 0px 0px;
+	background: url('../img/nav-bg.png') repeat-x 0px 0px;
 	height: 39px;
 }
 .manageRightMenu ul li {
@@ -114,7 +114,7 @@ input[type="submit"], .actions ul li a, .actions a {
 	border-radius: 4px;
 }
 .actions ul li a:hover {
-	background: url(/img/color2.png) center bottom;
+	background: url('../img/color2.png') center bottom;
 	color:#000;
 }
 .header {

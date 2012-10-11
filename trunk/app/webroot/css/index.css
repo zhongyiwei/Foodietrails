@@ -5,7 +5,7 @@ body {
 	margin: 0;
 	padding: 0;
 	color: #000;
-                  background: url(/img/body.png) repeat left top;
+                  background: url('../img/body.png') repeat left top;
 }
 .menu {
 	background:#e5e5e5;
@@ -383,10 +383,10 @@ a:hover, a:active, a:focus { /* 此组选择器将为键盘导航者提供与鼠
                   margin-top: -120px;
                   height:80px;
                   width: 150px;
-                  background: url(/img/Book.png);
+                  background: url('../img/Book.png');
 }
 .tourBook:hover {
-                  background: url(/img/BookHover.png);
+                  background: url('../img/BookHover.png');
 }
 .aboutUsHeading {
 	font-weight:bold;
