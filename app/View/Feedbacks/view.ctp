@@ -19,7 +19,7 @@ $this->start('manageRightMenu');
     </ul>
 </div>
 <div class="mangeRightSubMenu"> 
-    <div class="unselected"><?php echo $this->Html->link(__('Feedback List'), array('action' => 'index')); ?></div>
+    <div class="unselected"><?php echo $this->Html->link(__('Tour Feedback List'), array('action' => 'index')); ?></div>
   
 </div>
 <?php
