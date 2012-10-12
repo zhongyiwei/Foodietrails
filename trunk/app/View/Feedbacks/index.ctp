@@ -13,7 +13,7 @@ $this->start('manageRightMenu');
     </ul>
 </div>
 <div class="mangeRightSubMenu"> 
-    <div class="selected"><?php echo $this->Html->link(__('Feedback List'), array('action' => 'index')); ?></div>
+    <div class="selected"><?php echo $this->Html->link(__('Tour Feedback List'), array('action' => 'index')); ?></div>
 </div>
 <?php
 $this->end();
@@ -35,7 +35,7 @@ $this->start('manageRightContent');
             <?php foreach ($feedbacks as $feedback): ?>
                <tr>
                     <!--<td><?php echo h($feedback['Feedback']['id']); ?>&nbsp;</td>-->
-                    <td><?php echo h($feedback['Feedback']['tour_id']); ?>&nbsp;</td>
+                    <td><?php echo h($feedback['Feedback']['tour_id']); ?>&nbsp;</td> 
 					<td><?php echo h($feedback['Feedback']['full_name']); ?>&nbsp;</td>
                     <td><?php echo $this->Text->truncate(($feedback['Feedback']['feedback_description']),20,array('ellipsis'=>'...')); ?>&nbsp;</td>
                     <td><?php echo h($feedback['Feedback']['feedback_status']); ?>&nbsp;</td>

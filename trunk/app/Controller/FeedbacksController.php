@@ -5,8 +5,10 @@ App::uses('AppController', 'Controller');
  *
  * @property Event $Event
  */
+ 
 class FeedbacksController extends AppController {
-
+	public $uses = array('Tour');
+	
     public function beforeFilter() {
         parent::beforeFilter();
         $this->Auth->allow('add');
@@ -63,21 +65,22 @@ class FeedbacksController extends AppController {
  * @return void
  */
 	public function edit($id = null) {
-		$this->Feedback->id = $id;
-		if (!$this->Feedback->exists()) {
-			throw new NotFoundException(__('Invalid Feedback'));
-		}
-		if ($this->request->is('post') || $this->request->is('put')) {
-			if ($this->Feedback->save($this->request->data)) {
-				$this->Session->setFlash(__('your feedback has been saved'));
-				$this->redirect(array('action' => 'index'));
-			} else {
-				$this->Session->setFlash(__('Your feedback could not be saved. Please, try again.'));
-			}
-		} else {
-			$this->request->data = $this->Feedback->read(null, $id);
-		}
-		
+        $this->Feedback->id = $id;
+        if (!$this->Feedback->exists()) {
+            throw new NotFoundException(__('Invalid Feedback'));
+        }
+        if ($this->request->is('post') || $this->request->is('put')) {
+            if ($this->Feedback->save($this->request->data)) {
+                $this->Session->setFlash(__('Your Feedback has been saved'));
+                $this->redirect(array('action' => 'index'));
+            } else {
+                $this->Session->setFlash(__('Your feedback could not be saved. Please, try again.'));
+            }
+        } else {
+            $this->request->data = $this->Feedback->read(null, $id);
+        }
+		$tourNames = $this->Feedback->Tour->find('all', array('fields' => 'tour_name'));
+		$this->set(compact('tours'));
 	}
 
 /**
