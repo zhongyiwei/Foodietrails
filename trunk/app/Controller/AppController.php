@@ -45,7 +45,7 @@ class AppController extends Controller {
 //      public function beforeFilter1() {
 //         $this->Auth->allow('index', 'view');
 //     }
-    var $uses = array('Tour', 'Event','Cookingclass','Product','Feedback');
+    var $uses = array('Tour', 'Event','Cookingclass','Product','User','Feedback');
 
     function beforeFilter() {
         Security::setHash('sha1');

@@ -60,11 +60,11 @@ $this->start('manageRightContent');
 			<?php echo h($user['User']['user_email']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('User Password'); ?></dt>
-		<dd>
+<!--		<dt><?php echo __('User Password'); ?></dt>-->
+<!--		<dd>
 			<?php echo h($user['User']['user_password']); ?>
 			&nbsp;
-		</dd>
+		</dd>-->
 		<dt><?php echo __('User Address'); ?></dt>
 		<dd>
 			<?php echo h($user['User']['user_address']); ?>

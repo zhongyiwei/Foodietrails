@@ -26,7 +26,7 @@ class UsersController extends AppController {
                 if ($currentUser['user_role'] == 'Admin') {
                     $this->redirect($this->Auth->redirect());
                 } else {
-                    $this->redirect(array('controller'=>'checkout','action' => 'confirmCheckout'));
+                    $this->redirect(array('controller' => 'checkout', 'action' => 'confirmCheckout'));
                 }
             } else {
                 $this->Session->setFlash(__('Invalid email or password, try again'));
@@ -71,6 +71,9 @@ class UsersController extends AppController {
     public function add() {
         if ($this->request->is('post')) {
             $this->User->create();
+            if ($customerData['User']['user_emailsubscription'] != 'Yes') {
+                $customerData['User']['user_emailsubscription'] = 'No';
+            }
             if ($this->User->save($this->request->data)) {
                 $this->Session->setFlash(__('The user has been saved'));
                 $this->redirect(array('action' => 'index'));
@@ -79,8 +82,8 @@ class UsersController extends AppController {
             }
         }
         $countries = $this->User->Country->find('list', array('fields' => 'country_name'));
-        $events = $this->User->Event->find('list');
-        $news = $this->User->News->find('list');
+//        $events = $this->User->Event->find('list');
+//        $news = $this->User->News->find('list');
         $this->set(compact('countries', 'events', 'news'));
     }
 
@@ -96,6 +99,9 @@ class UsersController extends AppController {
         if (!$this->User->exists()) {
             throw new NotFoundException(__('Invalid user'));
         }
+        $userData = $this->User->read(null,$id);
+        $subscription = $userData['User']['user_emailsubscription'];
+        $this->set('subscriptionStatus',$subscription);
         if ($this->request->is('post') || $this->request->is('put')) {
             if ($this->User->save($this->request->data)) {
                 $this->Session->setFlash(__('The user has been saved'));
@@ -107,8 +113,8 @@ class UsersController extends AppController {
             $this->request->data = $this->User->read(null, $id);
         }
         $countries = $this->User->Country->find('list', array('fields' => 'country_name'));
-        $events = $this->User->Event->find('list');
-        $news = $this->User->News->find('list');
+//        $events = $this->User->Event->find('list');
+//        $news = $this->User->News->find('list');
         $this->set(compact('countries', 'events', 'news'));
     }
 
@@ -240,6 +246,9 @@ class UsersController extends AppController {
                 $this->User->create();
                 $customerData = $this->request->data;
                 $customerData['User']['user_role'] = 'Customer';
+                if ($customerData['User']['user_emailsubscription'] != 'Yes') {
+                    $customerData['User']['user_emailsubscription'] = 'No';
+                }
                 if ($this->User->save($customerData)) {
                     $this->Session->setFlash(__('The user has been saved'));
                     $this->redirect(array('action' => "/customerPayment/"));
@@ -248,8 +257,7 @@ class UsersController extends AppController {
                 }
             }
             $countries = $this->User->Country->find('list', array('fields' => 'country_name'));
-            $events = $this->User->Event->find('list');
-            $news = $this->User->News->find('list');
+//            $events = $this->User->Event->find('list');
             $this->set(compact('countries', 'events', 'news'));
         } else {
             $this->redirect(array('action' => "/customerPayment/"));
@@ -359,25 +367,24 @@ class UsersController extends AppController {
             'contain' => false));
 //        print_r($result);
         $header_row = array(
-        'User' => array(
-        'id' => 'ID',
-        'user_role' => 'Role',
-        'user_first_name' => 'First Name',
-        'user_surname' => 'Surname',
-        'user_contacts' => 'Contact Details (Phone)',
-        'user_email' => 'Email',
-        'user_dietary_requirement' => 'Dietary Requirements',
-        'user_spl_assistance' => 'SPL Assistance',
-        'user_referee' => 'Referee',
-        'user_postcode' => 'Post Code',
-        'user_state' => 'State',
-        )
+            'User' => array(
+                'id' => 'ID',
+                'user_role' => 'Role',
+                'user_first_name' => 'First Name',
+                'user_surname' => 'Surname',
+                'user_contacts' => 'Contact Details (Phone)',
+                'user_email' => 'Email',
+                'user_dietary_requirement' => 'Dietary Requirements',
+                'user_spl_assistance' => 'SPL Assistance',
+                'user_referee' => 'Referee',
+                'user_postcode' => 'Post Code',
+                'user_state' => 'State',
+            )
         );
         array_unshift($result, $header_row);
 //        print_r($result);
 //        $this->set(compact('data'));
-         $this->set('data', $result);
-         
+        $this->set('data', $result);
     }
 
 }

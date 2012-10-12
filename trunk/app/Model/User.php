@@ -275,21 +275,6 @@ class User extends AppModel {
             'deleteQuery' => '',
             'insertQuery' => ''
         ),
-        'News' => array(
-            'className' => 'News',
-            'joinTable' => 'news_users',
-            'foreignKey' => 'user_id',
-            'associationForeignKey' => 'news_id',
-            'unique' => 'keepExisting',
-            'conditions' => '',
-            'fields' => '',
-            'order' => '',
-            'limit' => '',
-            'offset' => '',
-            'finderQuery' => '',
-            'deleteQuery' => '',
-            'insertQuery' => ''
-        )
     );
 
 }
