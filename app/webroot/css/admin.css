@@ -180,3 +180,6 @@ dd:last-child{
 .adminLogin{
     margin-right: -350px;
 }
+.addThis{
+          display: none;
+}

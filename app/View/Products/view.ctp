@@ -43,7 +43,7 @@ $this->start('manageRightContent');
 		</dd>
 		<dt><?php echo __('Product Description'); ?></dt>
 		<dd>
-			<?php echo h($product['Product']['product_description']); ?>
+			<?php echo ($product['Product']['product_description']); ?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('Product Price'); ?></dt>

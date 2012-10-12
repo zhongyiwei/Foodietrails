@@ -1,326 +1,326 @@
 ﻿@charset "utf-8";
 /* CSS Document */
 body {
-	font: 100%/1.4 Verdana, Arial, Helvetica, sans-serif;
-	margin: 0;
-	padding: 0;
-	color: #000;
-                  background: url('../img/body.png') repeat left top;
+    font: 100%/1.4 Verdana, Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #000;
+    background: url('../img/body.png') repeat left top;
 }
 .menu {
-	background:#e5e5e5;
-	height:38px;
-	border-bottom:#06C solid 4px;
-	margin-top:10px;
-	border-radius:5px;
+    background:#e5e5e5;
+    height:38px;
+    border-bottom:#06C solid 4px;
+    margin-top:10px;
+    border-radius:5px;
 }
 .submenu {
-	text-align:center;
-	float:left;
-	padding:10px 15px;
-	font-size:14px;
-	border-right:#CCC solid 1px;
-	height:18px;
+    text-align:center;
+    float:left;
+    padding:10px 15px;
+    font-size:14px;
+    border-right:#CCC solid 1px;
+    height:18px;
 }
 .submenu:hover {
-	background:#cae3f0;
-	cursor:pointer;
+    background:#cae3f0;
+    cursor:pointer;
 }
 .menu {
-	height:37px;
-	display:block;
-	padding:0;
-	margin:0;
-	border:1px solid;
-	border-radius:5px;
+    height:37px;
+    display:block;
+    padding:0;
+    margin:0;
+    border:1px solid;
+    border-radius:5px;
 }
 .menu > ul {
-	list-style:inside none;
-	padding:0;
-	margin:0;
+    list-style:inside none;
+    padding:0;
+    margin:0;
 }
 .menu > ul > li {
-	list-style:inside none;
-	padding:0;
-	margin:0;
-	float:left;
-	display:block;
-	position:relative;
+    list-style:inside none;
+    padding:0;
+    margin:0;
+    float:left;
+    display:block;
+    position:relative;
 }
 .menu > ul > li > a {
-                  margin-top: -1px;
-	outline:none;
-	display:block;
-	position:relative;
-	padding:12px 20px;
-	font:bold 15px/100% Arial, Helvetica, sans-serif;
-	text-align:center;
-	text-decoration:none;
-	text-shadow:1px 1px 0 rgba(0, 0, 0, 0.4);
+    margin-top: -1px;
+    outline:none;
+    display:block;
+    position:relative;
+    padding:12px 20px;
+    font:bold 15px/100% Arial, Helvetica, sans-serif;
+    text-align:center;
+    text-decoration:none;
+    text-shadow:1px 1px 0 rgba(0, 0, 0, 0.4);
 }
 .menu > ul > li:first-child > a {
-	border-radius:5px 0 0 5px;
+    border-radius:5px 0 0 5px;
 }
 .menu > ul > li > a:after {
-	content:'';
-	position:absolute;
-	/*border-right:1px solid;*/
-	top:-1px;
-	bottom:-1px;
-	right:-2px;
-	z-index:99;
+    content:'';
+    position:absolute;
+    /*border-right:1px solid;*/
+    top:-1px;
+    bottom:-1px;
+    right:-2px;
+    z-index:99;
 }
 .menu ul li.has-sub:hover > a:after {
-	top:0;
-	bottom:0;
+    top:0;
+    bottom:0;
 }
 .menu > ul > li.has-sub > a:before {
-	content:'';
-	position:absolute;
-	top:18px;
-	right:6px;
-	border:5px solid transparent;
-	border-top:5px solid #fff;
+    content:'';
+    position:absolute;
+    top:18px;
+    right:6px;
+    border:5px solid transparent;
+    border-top:5px solid #fff;
 }
 .menu > ul > li.has-sub:hover > a:before {
-	top:19px;
+    top:19px;
 }
 .menu ul li.has-sub:hover > a {
-	background:#3f3f3f;
-	border-color:#3f3f3f;
-	padding-bottom:13px;
-	padding-top:13px;
-	top:-1px;
-	z-index:999;
+    background:#3f3f3f;
+    border-color:#3f3f3f;
+    padding-bottom:13px;
+    padding-top:13px;
+    top:-1px;
+    z-index:999;
 }
 .menu ul li.has-sub:hover > ul, .menu ul li.has-sub:hover > div {
-	display:block;
+    display:block;
 }
 .menu ul li.has-sub > a:hover {
-	background:#3f3f3f;
-	border-color:#3f3f3f;
+    background:#3f3f3f;
+    border-color:#3f3f3f;
 }
 .menu ul li > ul, .menu ul li > div {
-	display:none;
-	width:auto;
-	position:absolute;
-	top:38px;
-	padding:10px 0;
-	background:#3f3f3f;
-	border-radius:0 0 5px 5px;
-	z-index:999;
+    display:none;
+    width:auto;
+    position:absolute;
+    top:38px;
+    padding:10px 0;
+    background:#3f3f3f;
+    border-radius:0 0 5px 5px;
+    z-index:999;
 }
 .menu ul li > ul {
-	width:200px;
+    width:200px;
 }
 .menu ul li > ul li {
-	display:block;
-	list-style:inside none;
-	padding:0;
-	margin:0;
-	position:relative;
+    display:block;
+    list-style:inside none;
+    padding:0;
+    margin:0;
+    position:relative;
 }
 .menu ul li > ul li a {
-	outline:none;
-	display:block;
-	position:relative;
-	margin:0;
-	padding:8px 20px;
-	font:10pt Arial, Helvetica, sans-serif;
-	color:#fff;
-	text-decoration:none;
-	text-shadow:1px 1px 0 rgba(0, 0, 0, 0.5);
+    outline:none;
+    display:block;
+    position:relative;
+    margin:0;
+    padding:8px 20px;
+    font:10pt Arial, Helvetica, sans-serif;
+    color:#fff;
+    text-decoration:none;
+    text-shadow:1px 1px 0 rgba(0, 0, 0, 0.5);
 }
 .menu, .menu > ul > li > ul > li a:hover {
-	background:#3366BB;
-	background:-moz-linear-gradient(top, #45b2d2 0%, #3366BB 100%);
-	background:-webkit-gradient(linear, left top, left bottom, color-stop(0%, #45b2d2), color-stop(100%, #3366BB));
-	background:-webkit-linear-gradient(top, #45b2d2 0%, #3366BB 100%);
-	background:-o-linear-gradient(top, #45b2d2 0%, #3366BB 100%);
-	background:-ms-linear-gradient(top, #45b2d2 0%, #3366BB 100%);
-	background:linear-gradient(top, #45b2d2 0%, #3366BB 100%);
-        filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#45b2d2', endColorstr='#3366BB', GradientType=0);
+    background:#3366BB;
+    background:-moz-linear-gradient(top, #45b2d2 0%, #3366BB 100%);
+    background:-webkit-gradient(linear, left top, left bottom, color-stop(0%, #45b2d2), color-stop(100%, #3366BB));
+    background:-webkit-linear-gradient(top, #45b2d2 0%, #3366BB 100%);
+    background:-o-linear-gradient(top, #45b2d2 0%, #3366BB 100%);
+    background:-ms-linear-gradient(top, #45b2d2 0%, #3366BB 100%);
+    background:linear-gradient(top, #45b2d2 0%, #3366BB 100%);
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#45b2d2', endColorstr='#3366BB', GradientType=0);
 }
 .menu {
-	border-color:#3589a1;
+    border-color:#3589a1;
 }
 .menu > ul > li > a {
-	/*border-right:1px solid #3589a1;*/
-	color:#fff;
+    /*border-right:1px solid #3589a1;*/
+    color:#fff;
 }
 .menu > ul > li > a:after {
-	border-color:#2266EE;
+    border-color:#2266EE;
 }
 .menu > ul > li > a:hover {
-	background:#36acd2;
+    background:#36acd2;
 }
 .submenu_selected {
-	background:#06C;
-	color:#FFF;
-	border-right:#06C solid 1px;
-	font-weight:800;
+    background:#06C;
+    color:#FFF;
+    border-right:#06C solid 1px;
+    font-weight:800;
 }
 .headerRight {
-	height:90px;
-	font-size:15px;
-	text-align:right;
+    height:90px;
+    font-size:15px;
+    text-align:right;
 }
 .headerRightText {
-	padding-top:45px;
-	color:#a1440c;
+    padding-top:45px;
+    color:#a1440c;
 }
 .search {
-	height:250px;
-	margin:40px;
+    height:250px;
+    margin:40px;
 }
 .searchBorder {
-	border:15px solid #fff;
-	-webkit-box-shadow:0 3px 5px #999;
-	-moz-box-shadow:0 3px 5px #999;
-	box-shadow:0 3px 5px #999;
-	width:850px;
-	height:250px;
+    border:15px solid #fff;
+    -webkit-box-shadow:0 3px 5px #999;
+    -moz-box-shadow:0 3px 5px #999;
+    box-shadow:0 3px 5px #999;
+    width:850px;
+    height:250px;
 }
 .searchTable select {
-	width:135px;
+    width:135px;
 }
 .searchPanel {
-	width:250px;
-	height:250px;
-	background:#000;
-	color:#FFF;
-	float:left;
+    width:250px;
+    height:250px;
+    background:#000;
+    color:#FFF;
+    float:left;
 }
 .searchPanel h1 {
-	font-size:26px;
-	margin-top:15px;
-	background:#000;
-	color:#FC0;
+    font-size:26px;
+    margin-top:15px;
+    background:#000;
+    color:#FC0;
 }
 .searchPanel p {
-	padding:5px;
+    padding:5px;
 }
 .showTourButton {
-	padding:10px;
+    padding:10px;
 }
 .buttonLocation {
-	padding-left:130px;
-	padding-top:40px;
-	display:none;
+    padding-left:130px;
+    padding-top:40px;
+    display:none;
 }
 .line {
-	border-bottom: solid 1px #CCC;
-	margin-bottom: 15px;
-	border-right: solid 1px #CCC;
+    border-bottom: solid 1px #CCC;
+    margin-bottom: 15px;
+    border-right: solid 1px #CCC;
 }
 .tourTitle {
-	text-align: left;
-	font-size: 14px;
-	clear: both;
-	float: left;
-	width: 100%;
-	padding: 0 0 5px 15px;
-	font-weight: bold;
+    text-align: left;
+    font-size: 14px;
+    clear: both;
+    float: left;
+    width: 100%;
+    padding: 0 0 5px 15px;
+    font-weight: bold;
 }
 .tourImage {
-	padding-left: 15px;
-	float: left;
-	width: 125px;
-	height: 125px;
+    padding-left: 15px;
+    float: left;
+    width: 125px;
+    height: 125px;
 }
 .tourDetails {
-	text-align: left;
-	font-size: 12px;
-	padding: 0px 0px 5px 65px;
-	float: left;
-	width: 380px;
-	height: 140px;
-	line-height: 18px;
+    text-align: left;
+    font-size: 12px;
+    padding: 0px 0px 5px 65px;
+    float: left;
+    width: 380px;
+    height: 140px;
+    line-height: 18px;
 }
 .price {
-	float: left;
-	width: 100px;
-	font-weight: bold;
-	font-size: 22px;
-	color: #ff850d;
-	margin-left:20px;
-	margin-right:10px;
+    float: left;
+    width: 100px;
+    font-weight: bold;
+    font-size: 22px;
+    color: #ff850d;
+    margin-left:20px;
+    margin-right:10px;
 }
 .countingBox {
-	width: 70px;
-	height: 20px;
-	background-color: #FF9B07;
-	float: left;
-	margin-top: 10px;
-	margin-bottom: 10px;
+    width: 70px;
+    height: 20px;
+    background-color: #FF9B07;
+    float: left;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 .countingBoxAlignment {
-	width: 90%;
-	text-align: center;
-	margin-left: auto;
-	margin-right: auto;
-	margin-top: 2px;
+    width: 90%;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2px;
 }
 .countingBoxFont {
-	font-size: 12px;
-	color: white;
-	font-weight: bold;
+    font-size: 12px;
+    color: white;
+    font-weight: bold;
 }
 .footer span {
-	padding-left:50px;
-	color:#036;
-	font-size:14px;
+    padding-left:50px;
+    color:#036;
+    font-size:14px;
 }
 .sidetab {
-	background: #CCC;
-	border: 1px solid #CCC;
-	width: 170px;
-	height: 30px;
+    background: #CCC;
+    border: 1px solid #CCC;
+    width: 170px;
+    height: 30px;
 }
 .title2 {
-	text-align: left;
-	padding: 5px 0px 0px 10px;
-	font-size: 13px;
-	font-weight: bold;
+    text-align: left;
+    padding: 5px 0px 0px 10px;
+    font-size: 13px;
+    font-weight: bold;
 }
 .sidetab p {
-	float:left;
+    float:left;
 }
 /* ~~ 元素/标签选择器 ~~ */
 ul, ol, dl { /* 由于浏览器之间的差异，最佳做法是在列表中将填充和边距都设置为零。为了保持一致，您可以在此处指定需要的数值，也可以在列表所包含的列表项（LI、DT 和 DD）中指定需要的数值。请注意，除非编写一个更为具体的选择器，否则您在此处进行的设置将会层叠到 .nav 列表。 */
-	padding: 0;
-	margin: 0;
+    padding: 0;
+    margin: 0;
 }
 h1, h2, h3, h4, h5, h6, p {
-	margin-top: 0;	 /* 删除上边距可以解决边距会超出其包含的 div 的问题。剩余的下边距可以使 div 与后面的任何元素保持一定距离。 */
-	padding-right: 15px;
-	padding-left: 15px; /* 向 div 内的元素侧边（而不是 div 自身）添加填充可避免使用任何方框模型数学。此外，也可将具有侧边填充的嵌套 div 用作替代方法。 */
+    margin-top: 0;	 /* 删除上边距可以解决边距会超出其包含的 div 的问题。剩余的下边距可以使 div 与后面的任何元素保持一定距离。 */
+    padding-right: 15px;
+    padding-left: 15px; /* 向 div 内的元素侧边（而不是 div 自身）添加填充可避免使用任何方框模型数学。此外，也可将具有侧边填充的嵌套 div 用作替代方法。 */
 }
 a img { /* 此选择器将删除某些浏览器中显示在图像周围的默认蓝色边框（当该图像包含在链接中时） */
-	border: none;
+    border: none;
 }
 /* ~~ 站点链接的样式必须保持此顺序，包括用于创建悬停效果的选择器组在内。 ~~ */
 a:link {
-	color: #42413C;
-	text-decoration: underline; /* 除非将链接设置成极为独特的外观样式，否则最好提供下划线，以便可从视觉上快速识别 */
+    color: #42413C;
+    text-decoration: underline; /* 除非将链接设置成极为独特的外观样式，否则最好提供下划线，以便可从视觉上快速识别 */
 }
 a:visited {
-	color: #6E6C64;
-	text-decoration: underline;
+    color: #6E6C64;
+    text-decoration: underline;
 }
 a:hover, a:active, a:focus { /* 此组选择器将为键盘导航者提供与鼠标使用者相同的悬停体验。 */
-	text-decoration: none;
+    text-decoration: none;
 }
 /* ~~ 此固定宽度容器包含其它 div ~~ */
 .container {
-	width: 960px;
-	background: #FFF;
-	margin: 0 auto; /* 侧边的自动值与宽度结合使用，可以将布局居中对齐 */
+    width: 960px;
+    background: #FFF;
+    margin: 0 auto; /* 侧边的自动值与宽度结合使用，可以将布局居中对齐 */
 }
 /* ~~ 标题未指定宽度。它将扩展到布局的完整宽度。标题包含一个图像占位符，该占位符应替换为您自己的链接徽标 ~~ */
 .header {
-	background: #FFF;
-	width:960px;
+    background: #FFF;
+    width:960px;
 }
 /* ~~ 这是布局信息。 ~~ 
 
@@ -329,141 +329,147 @@ a:hover, a:active, a:focus { /* 此组选择器将为键盘导航者提供与鼠
 */
 
 .content {
-	padding: 20px 0 20px 25px;
+    padding: 20px 0 20px 25px;
 }
 /* ~~ 脚注 ~~ */
 .footer {
-	padding: 10px 0;
-	background: #cae3f0;
+    padding: 10px 0;
+    background: #cae3f0;
 }
 /* ~~ 其它浮动/清除类 ~~ */
 .fltrt {  /* 此类可用于在页面中使元素向右浮动。浮动元素必须位于其在页面上的相邻元素之前。 */
-	float: right;
-	margin-left: 8px;
+    float: right;
+    margin-left: 8px;
 }
 .fltlft { /* 此类可用于在页面中使元素向左浮动。浮动元素必须位于其在页面上的相邻元素之前。 */
-	float: left;
-	margin-right: 8px;
+    float: left;
+    margin-right: 8px;
 }
 .clearfloat { /* 如果从 #container 中删除或移出了 #footer，则可以将此类放置在 <br /> 或空 div 中，作为 #container 内最后一个浮动 div 之后的最终元素 */
-	clear:both;
-	height:0;
-	font-size: 1px;
-	line-height: 0px;
+    clear:both;
+    height:0;
+    font-size: 1px;
+    line-height: 0px;
 }
 .homePageLink {
-	font-size:11px;
-	text-decoration:underline;
-	color:blue;
-	cursor:pointer;
+    font-size:11px;
+    text-decoration:underline;
+    color:blue;
+    cursor:pointer;
 }
 .homePageTitle{
-                font-size: 25px;
-                color: #FF850D;
-                font-weight: bold;
+    font-size: 25px;
+    color: #FF850D;
+    font-weight: bold;
 }
 .tourPrice {
-	font-size:35px;
-	color:#247cab;
+    font-size:35px;
+    color:#247cab;
 }
 .eventHeader {
-	font-size:35px;
+    font-size:35px;
 }
 .tourHeader {
-	font-size:35px;
+    font-size:35px;
 }
 .tourParticipantGuide {
-	font-size:15px;
-	color:#247cab;
-	font-weight:bold;
+    font-size:15px;
+    color:#247cab;
+    font-weight:bold;
 }
 .tourBook {
-	position:absolute;
-                  margin-left: 600px;
-                  margin-top: -120px;
-                  height:80px;
-                  width: 150px;
-                  background: url('../img/Book.png');
+    position:absolute;
+    margin-left: 600px;
+    margin-top: -120px;
+    height:80px;
+    width: 150px;
+    background: url('../img/Book.png');
 }
 .tourBook:hover {
-                  background: url('../img/BookHover.png');
+    background: url('../img/BookHover.png');
 }
 .feedback {
-	position:absolute;
-                  margin-left: 750px;
-                  margin-top: -120px;
-                  height:80px;
-                  width: 150px;
-                  background: url('../img/FeedBack.png');
+    position:absolute;
+    margin-left: 750px;
+    margin-top: -120px;
+    height:80px;
+    width: 150px;
+    background: url('../img/FeedBack.png');
 }
 .feedback:hover {
-                  background: url('../img/Feedback.png');
+    background: url('../img/Feedbackhover.png');
 }
 .aboutUsHeading {
-	font-weight:bold;
-	font-size:20px;
+    font-weight:bold;
+    font-size:20px;
 }
 .aboutP {
-	color:#036;
+    color:#036;
 }
 .contactHeading {
-	font-size:30px;
+    font-size:30px;
 }
 .contactP {
-	margin-top:45px;
+    margin-top:45px;
 }
 .footerRow a {
 
-	color: #036;
-	font-size: 14px;
-	font-weight:normal;
-	text-decoration:none;
+    color: #036;
+    font-size: 14px;
+    font-weight:normal;
+    text-decoration:none;
 }
 .footerRow a:hover{
-	text-decoration:underline;
+    text-decoration:underline;
 }
 .afterLogIn{
-margin-top: -40px;
+    margin-top: -40px;
 }
 form .submit input[type="submit"] {
-	background:#F90;
-	background:-webkit-gradient( linear, left bottom, left top, color-stop(0.44, rgb(255,119,0)), color-stop(0.72, rgb(255,153,0)) );
-	background: -moz-linear-gradient( center bottom, rgb(255,119,0) 44%, rgb(255,153,0) 72% );
-	color: white;
-	text-shadow: none;
-	border-color:#F90;
-	text-decoration:none;
+    background:#F90;
+    background:-webkit-gradient( linear, left bottom, left top, color-stop(0.44, rgb(255,119,0)), color-stop(0.72, rgb(255,153,0)) );
+    background: -moz-linear-gradient( center bottom, rgb(255,119,0) 44%, rgb(255,153,0) 72% );
+    color: white;
+    text-shadow: none;
+    border-color:#F90;
+    text-decoration:none;
 }
 form .submit input[type="submit"]:hover, table td.actions a:hover {
-	background:#ff6f00;
-	background:-webkit-gradient(  linear,  left bottom,  left top,  color-stop(0.44, rgb(255,68,0)),  color-stop(0.72, rgb(255,102,0)) );
-	background: -moz-linear-gradient(  center bottom,  rgb(255,68,0) 44%,  rgb(255,102,0) 72% );
-	color: white;
-	text-shadow: none;
-	border-color:#F90;
-	cursor:pointer;
+    background:#ff6f00;
+    background:-webkit-gradient(  linear,  left bottom,  left top,  color-stop(0.44, rgb(255,68,0)),  color-stop(0.72, rgb(255,102,0)) );
+    background: -moz-linear-gradient(  center bottom,  rgb(255,68,0) 44%,  rgb(255,102,0) 72% );
+    color: white;
+    text-shadow: none;
+    border-color:#F90;
+    cursor:pointer;
 }
 input, textarea {
-font-family:arial;
+    font-family:arial;
 }
 .indent_sitemap {
-margin-left: 50px;
-list-style-type: circle;
+    margin-left: 50px;
+    list-style-type: circle;
 }
 .parent_sitemap {
-list-style-type: disc;
-font-weight:bold;
-color:#003D4C;
+    list-style-type: disc;
+    font-weight:bold;
+    color:#003D4C;
 }
 .indent_sitemap a {
-color:#003D4C;
+    color:#003D4C;
 }
 .parent_sitemap a{
-color:#003D4C;
+    color:#003D4C;
 }
 .indent_sitemap a:hover {
-color:#367889;
+    color:#367889;
 }
 .parent_sitemap a:hover{
-color:#367889;
+    color:#367889;
+}
+.addThis{
+    margin-right: -30px;
+    margin-top: -40px;
+    width: 200px;
+    float: right;
 }
