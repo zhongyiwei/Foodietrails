@@ -38,9 +38,10 @@ $this->start('manageRightContent');
 //		echo $this->Form->input('user_postcode');
 //		echo $this->Form->input('user_state');
 		echo $this->Form->input('country_id', array('type'=>'select','options'=>$countries));
+                                    echo $this->Form->checkbox('user_emailsubscription', array( 'value' => 'Yes' )); 
 //		echo $this->Form->input('Event');
 //		echo $this->Form->input('News');
-	?>
+	?>Subscribe to our News
 	</fieldset>
 <?php echo $this->Form->end(__('Submit')); ?>
 </div>

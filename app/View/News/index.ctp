@@ -37,11 +37,18 @@ $this->start('manageRightContent');
                 <tr>
                     <td><?php echo h($news['News']['id']); ?>&nbsp;</td>
                     <td><?php echo h($news['News']['news_title']); ?>&nbsp;</td>
-                    <td><?php echo $this->Text->truncate($news['News']['news_description'], 100, array('ellipsis' => '...')); ?></td>
+                    <td><?php echo $this->Text->truncate($news['News']['news_description'], 40, array('ellipsis' => '...')); ?></td>
                     <td class="actions">
                         <?php echo $this->Html->link(__('View'), array('action' => 'view', $news['News']['id'])); ?>
                         <?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $news['News']['id'])); ?>
                         <?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $news['News']['id']), null, __('Are you sure you want to delete # %s?', $news['News']['news_title'])); ?>
+                        <?php
+                        if ($news['News']['send_status'] == 'false') {
+                            echo $this->Html->link(__('Send this news to Subscribers'), array('action' => 'emailsubscriber', $news['News']['id']));
+                        } else {
+                            echo $this->Html->link(__('Resend this news'), array('action' => 'emailsubscriber', $news['News']['id']),null,__('The sending of the email will take a long time depending on the number of subscribers, are you sure you want to send?'));
+                        }
+                        ?>
                     </td>
                 </tr>
             <?php endforeach; ?>

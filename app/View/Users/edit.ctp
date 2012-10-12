@@ -46,12 +46,17 @@ $this->start('manageRightContent');
 		echo $this->Form->input('country_id', array('type'=>'select','options'=>$countries));
 		//echo $this->Form->input('Event');
 		//echo $this->Form->input('News');
-	?>
+                                     if ($subscriptionStatus=="Yes"){
+                                        echo $this->Form->checkbox('user_emailsubscription', array( 'value' => 'Yes','checked'=>true ));         
+                                     }else{
+                                       echo $this->Form->checkbox('user_emailsubscription', array( 'value' => 'Yes' ));                            
+                                     }
+	?>Subscribe to our News
 	</fieldset>
 <?php echo $this->Form->end(__('Submit')); ?>
 </div>
 <?php $this->end(); ?>
-<div class="users form">
+<!--<div class="users form">
 <?php echo $this->Form->create('User'); ?>
 	<fieldset>
 		<legend><?php echo __('Edit User'); ?></legend>
@@ -70,12 +75,13 @@ $this->start('manageRightContent');
 //		echo $this->Form->input('user_postcode');
 //		echo $this->Form->input('user_state');
 		echo $this->Form->input('country_id');
+                                    echo $this->Form->checkbox('user_emailsubscription', array( 'value' => 'Yes' )); 
 		//echo $this->Form->input('Event');
 		//echo $this->Form->input('News');
-	?>
+	?>Subscribe to our News
 	</fieldset>
 <?php echo $this->Form->end(__('Submit')); ?>
-</div>
+</div>-->
 <!--- <div class="actions">
 	<h3><?php echo __('Actions'); ?></h3>
 	<ul>
