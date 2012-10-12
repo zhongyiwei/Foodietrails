@@ -18,7 +18,6 @@ $this->start('manageRightMenu');
 	<?php
 		echo $this->Form->input('tour_id', array('type'=>'select','options'=>$tours)));
 		echo $this->Form->input('full_name');
-		echo $this->Form->input('feedback_title');
 		echo $this->Form->input('feedback_description');
 		echo $this->Form->input('feedback_status');
 	?>
@@ -34,7 +33,6 @@ $this->start('manageRightMenu');
 		echo $this->Form->input('id');
 		echo $this->Form->input('tour_id');
 		echo $this->Form->input('full_name');
-		echo $this->Form->input('feedback_title');
 		echo $this->Form->input('feedback_description');
 		echo $this->Form->input('feedback_status');
 	?>

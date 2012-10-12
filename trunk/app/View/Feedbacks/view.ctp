@@ -45,11 +45,6 @@ $this->start('manageRightContent');
 			<?php echo h($feedback['Feedback']['full_name']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Title'); ?></dt>
-		<dd>
-			<?php echo h($feedback['Feedback']['feedback_title']); ?>
-			&nbsp;
-		</dd>
 		<dt><?php echo __('Description'); ?></dt>
 		<dd>
 			<?php echo h($feedback['Feedback']['feedback_description']); ?>

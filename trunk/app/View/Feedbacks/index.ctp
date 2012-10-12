@@ -21,30 +21,32 @@ $this->end();
 $this->start('manageRightContent');
 ?>
 <div class="products index">
-	<table cellpadding="0" cellspacing="0">
+	<table cellpadding="0" cellspacing="0" id="js-datatable">
+	<thead>
 	<tr>
-		<th><?php echo $this->Paginator->sort('Tour Id'); ?></th>
-		<th><?php echo $this->Paginator->sort ('Full Name'); ?></th>		
-        <th><?php echo $this->Paginator->sort ('Title'); ?></th>
-        <th><?php echo $this->Paginator->sort ('Description'); ?></th>
-		<th><?php echo $this->Paginator->sort ('Status'); ?></th>
+		<th>Tour ID</th>
+		<th>Full Name</th>		
+        <th>Description</th>
+		<th>Status</th>
         <th class="actions"><?php echo __('Actions'); ?></th>
 	</tr>
+	</thead>
+	<tbody>
             <?php foreach ($feedbacks as $feedback): ?>
                <tr>
                     <!--<td><?php echo h($feedback['Feedback']['id']); ?>&nbsp;</td>-->
                     <td><?php echo h($feedback['Feedback']['tour_id']); ?>&nbsp;</td>
 					<td><?php echo h($feedback['Feedback']['full_name']); ?>&nbsp;</td>
-                    <td><?php echo h($feedback['Feedback']['feedback_title']); ?>&nbsp;</td>
                     <td><?php echo $this->Text->truncate(($feedback['Feedback']['feedback_description']),20,array('ellipsis'=>'...')); ?>&nbsp;</td>
                     <td><?php echo h($feedback['Feedback']['feedback_status']); ?>&nbsp;</td>
                     <td class="actions">
                         <?php echo $this->Html->link(__('View'), array('action' => 'view', $feedback['Feedback']['id'])); ?>
                         <?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $feedback['Feedback']['id'])); ?>
-                        <?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $feedback['Feedback']['id']), null, __('Are you sure you want to delete # %s?',$feedback['Feedback']['feedback_title'])); ?>
+                        <?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $feedback['Feedback']['id']), null, __('Are you sure you want to delete # %s?',$feedback['Feedback']['id'])); ?>
                     </td>
                 </tr>
             <?php endforeach; ?>
+			</tbody>
     </table>
     <p>
         <?php
@@ -55,9 +57,9 @@ $this->start('manageRightContent');
 
 <!--    <div class="paging">
         <?php
-        echo $this->Paginator->prev('< ' . __('previous'), array(), null, array('class' => 'prev disabled'));
-        echo $this->Paginator->numbers(array('separator' => ''));
-        echo $this->Paginator->next(__('next') . ' >', array(), null, array('class' => 'next disabled'));
+   //     echo $this->Paginator->prev('< ' . __('previous'), array(), null, array('class' => 'prev disabled'));
+   //     echo $this->Paginator->numbers(array('separator' => ''));
+   //     echo $this->Paginator->next(__('next') . ' >', array(), null, array('class' => 'next disabled'));
         ?>
     </div>-->
 </div>

@@ -23,20 +23,23 @@ $this->end();
 $this->start('manageRightContent');
 ?>
 <div class="products index">
-	<table cellpadding="0" cellspacing="0">
+	<table cellpadding="0" cellspacing="0" id="js-datatable">
+	<thead>
 	<tr>
-			<th><?php echo $this->Paginator->sort('id'); ?></th>
-			<th><?php echo $this->Paginator->sort('product_name'); ?></th>
-			<th><?php echo $this->Paginator->sort('product_description'); ?></th>
-			<th><?php echo $this->Paginator->sort('product_price'); ?></th>
+			<th>ID</th>
+			<th>Product Name</th>
+			<th>Product Description</th>
+			<th>Product Price</th>
 			<th class="actions"><?php echo __('Actions'); ?></th>
 	</tr>
+	</thead>
+	<tbody>
 	<?php
 	foreach ($products as $product): ?>
 	<tr>
 		<td><?php echo h($product['Product']['id']); ?>&nbsp;</td>
 		<td><?php echo h($product['Product']['product_name']); ?>&nbsp;</td>
-		<td><?php echo  $this->Text->truncate(($product['Product']['product_description']),20,array('ellipsis'=>'...')); ?>&nbsp;</td>
+		<td><?php echo $this->Text->truncate($product['Product']['product_description']),20,array('ellipsis'=>'...'); ?>&nbsp;</td>
 		<td><?php echo h($product['Product']['product_price']); ?>&nbsp;</td>
 		<td class="actions">
 			<?php echo $this->Html->link(__('View'), array('action' => 'view', $product['Product']['id'])); ?>
@@ -45,20 +48,21 @@ $this->start('manageRightContent');
 		</td>
 	</tr>
 <?php endforeach; ?>
+</tbody>
 	</table>
 	<p>
 	<?php
-	echo $this->Paginator->counter(array(
-	'format' => __('Page {:page} of {:pages}, showing {:current} records out of {:count} total, starting on record {:start}, ending on {:end}')
-	));
+//	echo $this->Paginator->counter(array(
+//	'format' => __('Page {:page} of {:pages}, showing {:current} records out of {:count} total, starting on record {:start}, ending on {:end}')
+//	));
 	?>	</p>
 
-	<div class="paging">
+<!--	<div class="paging">
 	<?php
-		echo $this->Paginator->prev('< ' . __('previous'), array(), null, array('class' => 'prev disabled'));
-		echo $this->Paginator->numbers(array('separator' => ''));
-		echo $this->Paginator->next(__('next') . ' >', array(), null, array('class' => 'next disabled'));
+	//	echo $this->Paginator->prev('< ' . __('previous'), array(), null, array('class' => 'prev disabled'));
+	//	echo $this->Paginator->numbers(array('separator' => ''));
+	//	echo $this->Paginator->next(__('next') . ' >', array(), null, array('class' => 'next disabled'));
 	?>
 	</div>
-</div>
+</div> 
 <?php $this->end(); ?>

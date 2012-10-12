@@ -7,6 +7,10 @@ App::uses('AppController', 'Controller');
  */
 class FeedbacksController extends AppController {
 
+    public function beforeFilter() {
+        parent::beforeFilter();
+        $this->Auth->allow('add');
+    }
 /**
  * index method
  *
@@ -37,8 +41,10 @@ class FeedbacksController extends AppController {
  *
  * @return void
  */
-	public function add() {
+	public function add($id = null) {
 		if ($this->request->is('post')) {
+		    $this->request->data['Feedback']['tour_id'] = $id;
+			$this->request->data['Feedback']['feedback_status'] = 'Hide';
 			$this->Feedback->create();
 			if ($this->Feedback->save($this->request->data)) {
 				$this->Session->setFlash(__('Your Feedback has been saved'));
@@ -71,8 +77,7 @@ class FeedbacksController extends AppController {
 		} else {
 			$this->request->data = $this->Feedback->read(null, $id);
 		}
-		$tours = $this->Feedback->Tour->find('list', array('fields' => 'tour_name'));
-		$this->set(compact('tours'));
+		
 	}
 
 /**
