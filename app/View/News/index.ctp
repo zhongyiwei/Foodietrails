@@ -23,19 +23,22 @@ $this->start('manageRightContent');
 
 
 <div class="news index">
-	<table cellpadding="0" cellspacing="0">
+	<table cellpadding="0" cellspacing="0" id="js-datatable">
+	<thead>
 	<tr>
-			<th><?php echo $this->Paginator->sort('id'); ?></th>
-			<th><?php echo $this->Paginator->sort('news_title'); ?></th>
-			<th><?php echo $this->Paginator->sort('news_description'); ?></th>
+			<th>ID</th>
+			<th>News Title</th>
+			<th>News Description</th>
 			<th class="actions"><?php echo __('Actions'); ?></th>
 	</tr>
+	</thead>
+	<tbody>
 	<?php
 	foreach ($news as $news): ?>
 	<tr>
 		<td><?php echo h($news['News']['id']); ?>&nbsp;</td>
 		<td><?php echo h($news['News']['news_title']); ?>&nbsp;</td>
-		<td><?php echo ($news['News']['news_description']); ?>&nbsp;</td>
+		<td><?php echo $this->Text->truncate($news['News']['news_description'],100,array('ellipsis'=>'...')); ?></td>
 		<td class="actions">
 			<?php echo $this->Html->link(__('View'), array('action' => 'view', $news['News']['id'])); ?>
 			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $news['News']['id'])); ?>
@@ -43,15 +46,16 @@ $this->start('manageRightContent');
 		</td>
 	</tr>
 <?php endforeach; ?>
+	</tbody>
 	</table>
 	<p>
 	<?php
-	echo $this->Paginator->counter(array(
-	'format' => __('Page {:page} of {:pages}, showing {:current} records out of {:count} total, starting on record {:start}, ending on {:end}')
-	));
+//	echo $this->Paginator->counter(array(
+//	'format' => __('Page {:page} of {:pages}, showing {:current} records out of {:count} total, starting on record {:start}, ending on {:end}')
+//	));
 	?>	</p>
 
-	<div class="paging">
+<!--	<div class="paging">
 	<?php
 		echo $this->Paginator->prev('< ' . __('previous'), array(), null, array('class' => 'prev disabled'));
 		echo $this->Paginator->numbers(array('separator' => ''));
@@ -59,7 +63,7 @@ $this->start('manageRightContent');
 	?>
 	</div>
 </div>
-
+-->
 <?php $this->end(); ?>
 
 <!--div class="actions">

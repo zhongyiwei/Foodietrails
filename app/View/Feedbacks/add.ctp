@@ -1,9 +1,8 @@
-<div class="Customer Feedback form">
+<div class="">
     <?php echo $this->Form->create('Feedback'); ?>
     <fieldset>
 		<?php
 		echo $this->Form->input('full_name');
-		echo $this->Form->input('feedback_title');
 		echo $this->Form->input('feedback_description', array('id' => 'feedback_description', 'class' => 'ckeditor'));
         ?>
     </fieldset>

@@ -30,7 +30,7 @@
             <ul>
                 <li><?php echo $this->Html->image("Picture1.jpg", array("alt" => "Masala Trails", 'title' => 'Masala Trails', 'width' => 700)); ?></li>
                 <li><?php echo $this->Html->image("Picture2.jpg", array("alt" => "Indian Trails", 'title' => 'Indian Trails', 'width' => 700)); ?></li>
-                <li><?php echo $this->Html->image("Picture3.jpg", array("alt" => "Afriaca Trails", 'title' => 'Afriaca Trails', 'width' => 700)); ?></li>
+                <li><?php echo $this->Html->image("Picture3.jpg", array("alt" => "Africa Trails", 'title' => 'Africa Trails', 'width' => 700)); ?></li>
             </ul>
         </div>
     </div>

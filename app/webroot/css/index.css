@@ -379,7 +379,7 @@ a:hover, a:active, a:focus { /* 此组选择器将为键盘导航者提供与鼠
 }
 .tourBook {
 	position:absolute;
-                  margin-left: 750px;
+                  margin-left: 600px;
                   margin-top: -120px;
                   height:80px;
                   width: 150px;
@@ -387,6 +387,17 @@ a:hover, a:active, a:focus { /* 此组选择器将为键盘导航者提供与鼠
 }
 .tourBook:hover {
                   background: url('../img/BookHover.png');
+}
+.feedback {
+	position:absolute;
+                  margin-left: 750px;
+                  margin-top: -120px;
+                  height:80px;
+                  width: 150px;
+                  background: url('../img/FeedBack.png');
+}
+.feedback:hover {
+                  background: url('../img/Feedback.png');
 }
 .aboutUsHeading {
 	font-weight:bold;

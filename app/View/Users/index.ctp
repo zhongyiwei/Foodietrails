@@ -24,24 +24,27 @@ $this->end();
 $this->start('manageRightContent');
 ?>
 <div class="users index">
-	<table cellpadding="0" cellspacing="0">
+	<table cellpadding="0" cellspacing="0" id="js-datatable">
+	<thead>
 	<tr>
-			<th><?php echo $this->Paginator->sort('id'); ?></th>
-			<th><?php echo $this->Paginator->sort('user_role','Role'); ?></th>
-			<th><?php echo $this->Paginator->sort('user_first_name', 'First Name'); ?></th>
-			<th><?php echo $this->Paginator->sort('user_surname','Surname'); ?></th>
-			<th><?php echo $this->Paginator->sort('user_contacts', 'Contact No'); ?></th>
-			<th><?php echo $this->Paginator->sort('user_email', 'Email'); ?></th>
-			<!--<th><?php echo $this->Paginator->sort('user_password'); ?></th> -->
-			<th><?php echo $this->Paginator->sort('user_address','Address'); ?></th>
-			<!--<th><?php echo $this->Paginator->sort('user_dietary_requirement'); ?></th>
-			<th><?php echo $this->Paginator->sort('user_spl_assistance'); ?></th>
-			<th><?php echo $this->Paginator->sort('user_referee'); ?></th> -->
-<!--			<th><?php echo $this->Paginator->sort('user_postcode','Postcode'); ?></th>
-			<th><?php echo $this->Paginator->sort('user_state','State'); ?></th>-->
+			<th>ID</th>
+			<th>Role</th>
+			<th>First Name</th>
+			<th>Surname</th>
+			<th>Contact No</th>
+			<th>Email</th>
+			<!--<th>user_password</th> -->
+			<th>Address</th>
+			<!--<th>user_dietary_requirement</th>
+			<th>user_spl_assistance</th>
+			<th>user_referee</th> -->
+<!--			<th>Postcode</th>
+			<th>State</th>-->
 			<!-- <th><?php echo $this->Paginator->sort('country_id'); ?></th> -->
 			<th class="actions"><?php echo __('Actions'); ?></th>
 	</tr>
+	</thead>
+	<tbody>
 	<?php
 	foreach ($users as $user): ?>
 	<tr>
@@ -68,20 +71,21 @@ $this->start('manageRightContent');
 		</td>
 	</tr>
 <?php endforeach; ?>
+</tbody>
     </table>
     <p>
         <?php
-        echo $this->Paginator->counter(array(
-            'format' => __('Page {:page} of {:pages}, showing {:current} records out of {:count} total, starting on record {:start}, ending on {:end}')
-        ));
-        ?>	</p>
+      //  echo $this->Paginator->counter(array(
+      //      'format' => __('Page {:page} of {:pages}, showing {:current} records out of {:count} total, starting on record {:start}, ending on {:end}')
+      //  ));
+      //  ?>	</p>
 
-    <div class="paging">
+  <!-- <div class="paging">
         <?php
-        echo $this->Paginator->prev('< ' . __('previous'), array(), null, array('class' => 'prev disabled'));
-        echo $this->Paginator->numbers(array('separator' => ''));
-        echo $this->Paginator->next(__('next') . ' >', array(), null, array('class' => 'next disabled'));
+      //  echo $this->Paginator->prev('< ' . __('previous'), array(), null, array('class' => 'prev disabled'));
+      //  echo $this->Paginator->numbers(array('separator' => ''));
+      //  echo $this->Paginator->next(__('next') . ' >', array(), null, array('class' => 'next disabled'));
         ?>
-    </div>
+    </div> -->
 </div>
 <?php $this->end(); ?>

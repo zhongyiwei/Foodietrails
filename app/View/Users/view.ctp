@@ -15,7 +15,7 @@ $this->start('manageRightMenu');
 <div class="manageRightMenu" >
     <ul>
         <li class='active '><?php echo $this->Html->link(__('User'), array('action' => 'index')); ?></li>
-		li><?php echo $this->Html->link(__('Feedback'), array('controller' => 'feedbacks','action' => 'index')); ?></li>
+		<li><?php echo $this->Html->link(__('Feedback'), array('controller' => 'feedbacks','action' => 'index')); ?></li>
     </ul>
 </div>
 <div class="mangeRightSubMenu"> 

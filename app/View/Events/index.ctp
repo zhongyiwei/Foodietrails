@@ -21,15 +21,18 @@ $this->end();
 $this->start('manageRightContent');
 ?>
 <div class="events index">
-	<table cellpadding="0" cellspacing="0">
+	<table cellpadding="0" cellspacing="0" id="js-datatable">
+	<thead>
 	<tr>
-			<th><?php echo $this->Paginator->sort('id'); ?></th>
-			<th><?php echo $this->Paginator->sort('event_name'); ?></th>
-			<th><?php echo $this->Paginator->sort('event_description'); ?></th>
-			<th><?php echo $this->Paginator->sort('event_date'); ?></th>
-			<!--<th><?php echo $this->Paginator->sort('event_thumbnail'); ?></th>-->
+			<th>ID</th>
+			<th>Event Name</th>
+			<th>Event Description</th>
+			<th>Event Date</th>
+			<!--<th>event_thumbnail</th>-->
 			<th class="actions"><?php echo __('Actions'); ?></th>
 	</tr>
+	</thead>
+	<tbody>
 	<?php
 	foreach ($events as $event): ?>
 	<tr>
@@ -45,6 +48,7 @@ $this->start('manageRightContent');
 		</td>
 	</tr>
 <?php endforeach; ?>
+</tbody>
 	</table>
 	<p>
 	<?php
