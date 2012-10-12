@@ -72,6 +72,13 @@ class CookingclassesController extends AppController {
 			$this->request->data = $this->Cookingclass->read(null, $id);
 		}
 	}
+	 public function cookingclass_detail($id = null) {
+        $this->Cookingclass->id = $id;
+        if (!$this->Cookingclass->exists()) {
+            throw new NotFoundException(__('Invalid tour'));
+        }
+        $this->set('cookingclass', $this->Cookingclass->read(null, $id));
+    }
 
 /**
  * delete method
