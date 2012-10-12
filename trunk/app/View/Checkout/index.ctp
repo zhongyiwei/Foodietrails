@@ -9,11 +9,11 @@
         ?>
         <tr>
             <td>&nbsp;</td>
-            <td>Product Name</td>
-            <td>Unit Price</td>
-            <td>Qty</td>
-            <td>Subtotal</td>
-            <td>Remove</td>
+            <td style="font-weight: bold">Product Name</td>
+            <td style="font-weight: bold">Unit Price</td>
+            <td style="font-weight: bold">Qty</td>
+            <td style="font-weight: bold">Subtotal</td>
+            <td style="font-weight: bold">Remove</td>
         </tr>
         <form method="post" action="<?php echo $this->webroot; ?>checkout/?def=Tour&id=<?php echo "#" ?>">
             <?php

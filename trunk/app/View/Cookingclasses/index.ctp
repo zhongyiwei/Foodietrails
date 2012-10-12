@@ -52,7 +52,7 @@ $this->start('manageRightContent');
 <?php endforeach; ?>
 	</tbody>
     </table>
-<p>
+<!--<p>
         <?php
         echo $this->Paginator->counter(array(
             'format' => __('Page {:page} of {:pages}, showing {:current} records out of {:count} total, starting on record {:start}, ending on {:end}')
@@ -65,7 +65,7 @@ $this->start('manageRightContent');
         echo $this->Paginator->numbers(array('separator' => ''));
         echo $this->Paginator->next(__('next') . ' >', array(), null, array('class' => 'next disabled'));
         ?>
-    </div>
+    </div>-->
 </div>
 <?php $this->end(); ?>
 

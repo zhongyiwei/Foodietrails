@@ -26,12 +26,16 @@
                 ?>
                 <div class="headerRight">
                     <?php if ($logged_in == true) { ?>
-                        <p style="color:#3589A1" class="adminLogin">Welcome <?php echo $current_user['user_surname'] . '&nbsp;&nbsp;';
-                    echo $this->Html->link('Logout', array('controller' => 'users', 'action' => 'logout'), array('style' => 'color:#3589A1;')) ?></p>
-<?php }; ?>
-                    <p class="headerRightText <?php if ($logged_in == true) {
-    echo "afterLogIn";
-} ?> ">Contact Us: 0452660748<br/>
+                        <p style="color:#3589A1" class="adminLogin">Welcome <?php
+                    echo $current_user['user_surname'] . '&nbsp;&nbsp;';
+                    echo $this->Html->link('Logout', array('controller' => 'users', 'action' => 'logout'), array('style' => 'color:#3589A1;'))
+                        ?></p>
+                    <?php }; ?>
+                    <p class="headerRightText <?php
+                    if ($logged_in == true) {
+                        echo "afterLogIn";
+                    }
+                    ?> ">Contact Us: 0452660748<br/>
                         Taste the blend of flavours, Experience the culture, Explore the regions</p>
                 </div>
             </div>
@@ -40,10 +44,10 @@
                     <li class="active"><?php echo $this->Html->link(__('Home'), array('controller' => 'Home', 'action' => 'display')); ?></li>
                     <li class='has-sub'><a>Tours</a>
                         <ul>
-                                <?php for ($i = 0; $i < count($menu); $i++) { ?>
+                            <?php for ($i = 0; $i < count($menu); $i++) { ?>
                                 <li> <?php
-                                $tourName = $menu[$i]['Tour']['tour_name'];
-                                echo $this->Html->link(__($tourName), array('controller' => 'Tours', 'action' => 'tourDetail', $menu[$i]['Tour']['id']));
+                            $tourName = $menu[$i]['Tour']['tour_name'];
+                            echo $this->Html->link(__($tourName), array('controller' => 'Tours', 'action' => 'tourDetail', $menu[$i]['Tour']['id']));
                                 ?></li>
                             <?php } ?>
                         </ul>
@@ -52,11 +56,11 @@
                         <ul>
                             <?php for ($i = 0; $i < count($menu2); $i++) { ?>
                                 <li> <?php
-                                $eventName = $menu2[$i]['Event']['event_name'];
-                                echo $this->Html->link(__($eventName), array('controller' => 'Events', 'action' => 'event_detail', $menu2[$i]['Event']['id']));
+                            $eventName = $menu2[$i]['Event']['event_name'];
+                            echo $this->Html->link(__($eventName), array('controller' => 'Events', 'action' => 'event_detail', $menu2[$i]['Event']['id']));
                                 ?>
                                 </li>
-<?php } ?>
+                            <?php } ?>
                         </ul>
                     </li>
                     <li><a>Product</a></li>
@@ -71,9 +75,9 @@
                                 <li> <?php
                             $cookingClassName = $menu3[$i]['Cookingclass']['cooking_class_name'];
                             echo $this->Html->link(__($cookingClassName), array('controller' => 'CookingClasses', 'action' => 'cookingclass_detail', $menu3[$i]['Cookingclass']['id']));
-                            ?>
+                                ?>
                                 </li>
-<?php } ?>
+                            <?php } ?>
                         </ul>
                     </li>
                     <li class='has-sub'><a>About Us</a>
@@ -88,8 +92,41 @@
                 </ul>
             </div>
             <div class="content">
-<?php echo $this->fetch('content'); ?>
+                <?php echo $this->fetch('content'); ?>
             </div>
+            <!-- AddThis Button BEGIN -->
+            <div class="addThis">
+                <div class="addthis_toolbox addthis_default_style addthis_32x32_style">
+                    <a class="addthis_button_preferred_1"
+                       addthis:url ="http://foodietrails.com.au"
+                       addthis:title="Foodie Trails"
+                       addthis:description="Foodie Trails is a food tourism company."
+                       ></a>
+                    <a class="addthis_button_preferred_2"
+                       addthis:url ="http://foodietrails.com.au"
+                       addthis:title="Foodie Trails is awsome!"
+                       addthis:description="Foodie Trails is a food tourism company."></a>
+                    <a class="addthis_button_preferred_3"
+                       addthis:url ="http://foodietrails.com.au"
+                       addthis:title="Foodie Trails is awsome!"
+                       addthis:description="Foodie Trails is a food tourism company."></a>
+                    <a class="addthis_button_preferred_4"></a>
+                    <!--                    <a class="addthis_button_compact"></a>-->
+                    <!--                    <a class="addthis_counter addthis_bubble_style"></a>-->
+                </div>
+            </div>
+            <script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid=julianssss"></script>
+            <script type="text/javascript">var addthis_config = {"data_track_addressbar":true};
+                //                var addthis_share ={"title":"Foodie Trails is amazing!","note":"Hey friend, I thought you should check this website out, it is simply the best food tourism website I have evern tried."};   
+                //                                var addthis_share = { "email_template":"Foodie_Trails_Template" };
+                //                var addthis_share ={"templates":"Foodie_Trails_Template"};   
+                //                var addthis_share = { email_template: "FTT" };
+                var addthis_share = {url:"http://foodietrails.com.au"};
+                var addthis_share = {"title":"Foodie Trails is amazing!"};
+            </script>
+
+            <!-- AddThis Button END -->
+
             <div class="footer">
                 <table width="920" border="0">
                     <tr>
@@ -102,8 +139,8 @@
                         </td>
                         <td style="vertical-align:middle" align="right">
                             <a href="http://beaconholidays.com.au/"><?php
-echo $this->Html->image("BH.png", array("alt" => "Beacon Holiday", 'name' => "Beacon Holiday Logo", 'width' => "60"));
-?></a>
+                echo $this->Html->image("BH.png", array("alt" => "Beacon Holiday", 'name' => "Beacon Holiday Logo", 'width' => "60"));
+                ?></a>
 
                         </td>
                     </tr>
