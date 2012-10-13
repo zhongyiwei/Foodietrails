@@ -22,28 +22,27 @@ $this->end();
 
 $this->start('manageRightContent');
 ?>
-<div class="products form">
-<?php echo $this->Form->create('Product'); ?>
-	<fieldset>
+<div class="Products form">
+    <?php echo $this->Form->create('Product'); ?>
+    <fieldset>
 	<?php
 		echo $this->Form->input('product_name');
 		echo $this->Form->input('product_description', array('id' => 'product_description', 'class' => 'ckeditor'));
-		echo $this->Form->input('product_price');
+		echo $this->Form->input('product_price',array('type'=>'number'));
 		echo $this->Form->input('product_thumbnail', array('id' => 'xFilePath', 'class' => 'ckeditor', 'style' => 'width:500px'));
         echo $this->Form->button('Browse Server', array('onclick' => 'BrowseServer()', 'type' => 'button', 'style' => 'padding:5px;margin-top:-55px; margin-left:530px;float:left'));
 	?>
-	</fieldset>
+    </fieldset>
     <?php echo $this->Form->end(__('Submit')); ?>
 </div>
 <script type="text/javascript">
-    var ck_newsContent = CKEDITOR.replace( 'product_description',{
+    var ck_newsContent = CKEDITOR.replace( 'cooking_class_description',{
         filebrowserBrowseUrl : '/js/ckfinder/ckfinder.html',
         filebrowserWindowWidth : '600',
         filebrowserWindowHeight : '300'
     } ); 
-    CKFinder.SetupCKEditor( ck_newsContent, 'ckfinder/') ;
-    
-    function BrowseServer()
+   CKFinder.SetupCKEditor( ck_newsContent, 'ckfinder/') ;
+   function BrowseServer()
     {
         var finder = new CKFinder();
         finder.basePath = '../';	
