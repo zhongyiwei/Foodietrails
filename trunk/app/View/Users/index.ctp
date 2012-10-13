@@ -1,4 +1,4 @@
-<?php
+ <?php
 $this->extend('/Common/AdminIndex');
 $this->assign('LeftProduct','');
 $this->assign('LeftCustomer','LeftMenuActions');

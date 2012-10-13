@@ -13,20 +13,21 @@ $this->start('manageRightMenu');
         <li><?php echo $this->Html->link(__('Cooking Class'), array('controller' => 'cookingclasses', 'action' => 'index')); ?></li>
     </ul>
 </div>
+
 <div class="mangeRightSubMenu"> 
     <div class="selected"><?php echo $this->Html->link(__('Tour List'), array('action' => 'index')); ?></div>
     <div class="unselected"><?php echo $this->Html->link(__('Add Tour'), array('action' => 'add')); ?></div>
 </div>
+
 <?php
 $this->end();
 
 $this->start('manageRightContent');
 ?>
 <div class="tours index">
-    <!--<h2><?php echo __('Tours'); ?></h2>-->
-    <table cellpadding="0" cellspacing="0" id="js-datatable">
+	<table cellpadding="0" cellspacing="0" id="js-datatable">
 	<thead>
-            <tr>
+		 <tr>
                 <th>ID</th>
                 <th>Name</th>
                 <!--<th>tour_description</th>-->
@@ -43,9 +44,9 @@ $this->start('manageRightContent');
                 <th>Type</th>
                 <th class="actions"><?php echo __('Actions'); ?></th>
             </tr>
-        </thead>
-        <tbody>
-            <?php foreach ($tours as $tour): ?>
+	</thead>
+	<tbody>
+     <?php foreach ($tours as $tour): ?>
                 <tr>
                     <td><?php echo h($tour['Tour']['id']); ?>&nbsp;</td>
                     <td><?php echo h($tour['Tour']['tour_name']); ?>&nbsp;</td>
@@ -68,20 +69,20 @@ $this->start('manageRightContent');
                     </td>
                 </tr>
             <?php endforeach; ?>
-        </tbody>
+	</tbody>
     </table>
-<!--    <p>
+    <p>
         <?php
 //        echo $this->Paginator->counter(array(
 //            'format' => __('Page {:page} of {:pages}, showing {:current} records out of {:count} total, starting on record {:start}, ending on {:end}')
 //        ));
-        ?>	</p>-->
+        ?>	</p>
 
-<!--   <div class="paging">
+    <div class="paging">
         <?php
-    //    echo $this->Paginator->prev('< ' . __('previous'), array(), null, array('class' => 'prev disabled'));
-    //    echo $this->Paginator->numbers(array('separator' => ''));
-    //    echo $this->Paginator->next(__('next') . ' >', array(), null, array('class' => 'next disabled'));
+   //     echo $this->Paginator->prev('< ' . __('previous'), array(), null, array('class' => 'prev disabled'));
+   //     echo $this->Paginator->numbers(array('separator' => ''));
+   //     echo $this->Paginator->next(__('next') . ' >', array(), null, array('class' => 'next disabled'));
         ?>
     </div>
 </div>
