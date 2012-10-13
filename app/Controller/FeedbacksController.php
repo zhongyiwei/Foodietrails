@@ -6,9 +6,7 @@ App::uses('AppController', 'Controller');
  * @property Event $Event
  */
  
-class FeedbacksController extends AppController {
-	public $uses = array('Tour');
-	
+class FeedbacksController extends AppController {	
     public function beforeFilter() {
         parent::beforeFilter();
         $this->Auth->allow('add');
@@ -79,8 +77,6 @@ class FeedbacksController extends AppController {
         } else {
             $this->request->data = $this->Feedback->read(null, $id);
         }
-		$tourNames = $this->Feedback->Tour->find('all', array('fields' => 'tour_name'));
-		$this->set(compact('tours'));
 	}
 
 /**
