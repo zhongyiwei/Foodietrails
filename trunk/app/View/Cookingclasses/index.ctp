@@ -26,7 +26,7 @@ $this->start('manageRightContent');
 	<table cellpadding="0" cellspacing="0" id="js-datatable">
 	<thead>
 	<tr>
-			<th>id</th>
+			<!--<th>id</th>-->
 			<th>Cooking Class Name</th>
 			<th>Cooking Class Description</th>
 			<th>Cooking Class Price</th>
@@ -38,7 +38,7 @@ $this->start('manageRightContent');
 	<?php
 	foreach ($cookingclasses as $cookingclass): ?>
 	<tr>
-		<td><?php echo h($cookingclass['Cookingclass']['id']); ?>&nbsp;</td>
+		<!--<td><?php echo h($cookingclass['Cookingclass']['id']); ?>&nbsp;</td>-->
 		<td><?php echo h($cookingclass['Cookingclass']['cooking_class_name']); ?>&nbsp;</td>
 		<td><?php echo $this->Text->truncate($cookingclass['Cookingclass']['cooking_class_description'],50,array('ellipsis'=>'...'));  ?>&nbsp;</td>
 		<td><?php echo h($cookingclass['Cookingclass']['cooking_class_price']); ?>&nbsp;</td>

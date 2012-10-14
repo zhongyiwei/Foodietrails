@@ -26,7 +26,7 @@ $this->start('manageRightContent');
     <table cellpadding="0" cellspacing="0" id="js-datatable">
         <thead>
             <tr>
-                <th>ID</th>
+                <!--<th>ID</th>-->
                 <th>News Title</th>
                 <th>News Description</th>
                 <th class="actions"><?php echo __('Actions'); ?></th>
@@ -35,7 +35,7 @@ $this->start('manageRightContent');
         <tbody>
             <?php foreach ($news as $news): ?>
                 <tr>
-                    <td><?php echo h($news['News']['id']); ?>&nbsp;</td>
+                    <!--<td><?php echo h($news['News']['id']); ?>&nbsp;</td>-->
                     <td><?php echo h($news['News']['news_title']); ?>&nbsp;</td>
                     <td><?php echo $this->Text->truncate($news['News']['news_description'], 40, array('ellipsis' => '...')); ?></td>
                     <td class="actions">

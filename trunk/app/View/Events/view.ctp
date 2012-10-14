@@ -29,11 +29,11 @@ $this->start('manageRightContent');
 <div class="events view">
 <h2><?php //  echo __('Event'); ?></h2>
 	<dl>
-		<dt><?php echo __('Id'); ?></dt>
+<!--		<dt><?php echo __('Id'); ?></dt>
 		<dd>
 			<?php echo h($event['Event']['id']); ?>
 			&nbsp;
-		</dd>
+		</dd>-->
 		<dt><?php echo __('Event Name'); ?></dt>
 		<dd>
 			<?php echo h($event['Event']['event_name']); ?>

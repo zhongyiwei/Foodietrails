@@ -27,7 +27,7 @@ $this->start('manageRightContent');
 	<table cellpadding="0" cellspacing="0" id="js-datatable">
 	<thead>
 		<tr>
-                <th>ID</th>
+                <!--<th>ID</th>-->
                 <th>Product Name</th>
                 <th>Product Description</th>
                 <th>Product Price</th>
@@ -37,7 +37,7 @@ $this->start('manageRightContent');
 	<tbody>
     <?php foreach ($products as $product): ?>
         <tr>
-					<td><?php echo h($product['Product']['id']); ?>&nbsp;</td>
+					<!--<td><?php echo h($product['Product']['id']); ?>&nbsp;</td>-->
                     <td><?php echo h($product['Product']['product_name']); ?>&nbsp;</td>
                     <td><?php echo $this->Text->truncate($product['Product']['product_description'], 40, array('ellipsis' => '...')); ?></td>
                     <td><?php echo h($product['Product']['product_price']); ?>&nbsp;</td>

@@ -28,7 +28,7 @@ $this->start('manageRightContent');
 	<table cellpadding="0" cellspacing="0" id="js-datatable">
 	<thead>
 		 <tr>
-                <th>ID</th>
+<!--                <th>ID</th>-->
                 <th>Name</th>
                 <!--<th>tour_description</th>-->
                 <!--<th>vendor</th>-->
@@ -48,7 +48,7 @@ $this->start('manageRightContent');
 	<tbody>
      <?php foreach ($tours as $tour): ?>
                 <tr>
-                    <td><?php echo h($tour['Tour']['id']); ?>&nbsp;</td>
+<!--                    <td><?php echo h($tour['Tour']['id']); ?>&nbsp;</td>-->
                     <td><?php echo h($tour['Tour']['tour_name']); ?>&nbsp;</td>
                     <!--<td><?php echo h($tour['Tour']['tour_description']); ?>&nbsp;</td>-->
                     <!--<td><?php echo h($tour['Tour']['tour_vendor_name']); ?>&nbsp;</td>-->

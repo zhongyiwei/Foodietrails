@@ -28,11 +28,11 @@ $this->start('manageRightContent');
 ?>
 <div class="news view">
 	<dl>
-		<dt><?php echo __('Id'); ?></dt>
+<!--		<dt><?php echo __('Id'); ?></dt>
 		<dd>
 			<?php echo h($news['News']['id']); ?>
 			&nbsp;
-		</dd>
+		</dd>-->
 		<dt><?php echo __('News Title'); ?></dt>
 		<dd>
 			<?php echo h($news['News']['news_title']); ?>
