@@ -27,7 +27,7 @@ $this->start('manageRightContent');
 	<table cellpadding="0" cellspacing="0" id="js-datatable">
 	<thead>
 	<tr>
-			<th>ID</th>
+			<!--<th>ID</th>-->
 			<th>Role</th>
 			<th>First Name</th>
 			<th>Surname</th>
@@ -48,7 +48,7 @@ $this->start('manageRightContent');
 	<?php
 	foreach ($users as $user): ?>
 	<tr>
-		<td><?php echo h($user['User']['id']); ?>&nbsp;</td>
+		<!--<td><?php echo h($user['User']['id']); ?>&nbsp;</td>-->
 		<td><?php echo h($user['User']['user_role']); ?>&nbsp;</td>
 		<td><?php echo h($user['User']['user_first_name']); ?>&nbsp;</td>
 		<td><?php echo h($user['User']['user_surname']); ?>&nbsp;</td>

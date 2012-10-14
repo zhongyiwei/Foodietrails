@@ -24,7 +24,7 @@ $this->start('manageRightContent');
 	<table cellpadding="0" cellspacing="0" id="js-datatable">
 	<thead>
 	<tr>
-			<th>ID</th>
+			<!--<th>ID</th>-->
 			<th>Event Name</th>
 			<th>Event Description</th>
 			<th>Event Date</th>
@@ -36,7 +36,7 @@ $this->start('manageRightContent');
 	<?php
 	foreach ($events as $event): ?>
 	<tr>
-		<td><?php echo h($event['Event']['id']); ?>&nbsp;</td>
+		<!--<td><?php echo h($event['Event']['id']); ?>&nbsp;</td>-->
 		<td><?php echo h($event['Event']['event_name']); ?>&nbsp;</td>
 		<td><?php echo  $this->Text->truncate($event['Event']['event_description'],20,array('ellipsis'=>'...')); ?>&nbsp;</td>
 		<td><?php echo h($event['Event']['event_date']); ?>&nbsp;</td>

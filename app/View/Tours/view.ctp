@@ -31,11 +31,11 @@ $this->start('manageRightContent');
 <div class="tours view">
     <!--<h2><?php echo __('Tour'); ?></h2>-->
     <dl>
-        <dt><?php echo __('Id'); ?></dt>
+<!--        <dt><?php echo __('Id'); ?></dt>
         <dd>
             <?php echo h($tour['Tour']['id']); ?>
             &nbsp;
-        </dd>
+        </dd>-->
         <dt><?php echo __('Tour Name'); ?></dt>
         <dd>
             <?php echo h($tour['Tour']['tour_name']); ?>

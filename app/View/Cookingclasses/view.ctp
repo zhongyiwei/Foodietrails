@@ -31,11 +31,11 @@ $this->start('manageRightContent');
 <div class="cookingclasses view">
 <!--<h2><?php  echo __('Cookingclass'); ?></h2>-->
 	<dl>
-		<dt><?php echo __('Id'); ?></dt>
+<!--		<dt><?php echo __('Id'); ?></dt>
 		<dd>
 			<?php echo h($cookingclass['Cookingclass']['id']); ?>
 			&nbsp;
-		</dd>
+		</dd>-->
 		<dt><?php echo __('Cooking Class Name'); ?></dt>
 		<dd>
 			<?php echo h($cookingclass['Cookingclass']['cooking_class_name']); ?>

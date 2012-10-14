@@ -31,11 +31,11 @@ $this->start('manageRightContent');
 <div class="products view">
 <h2><?php  echo __('Product'); ?></h2>
 	<dl>
-		<dt><?php echo __('Id'); ?></dt>
+<!--		<dt><?php echo __('Id'); ?></dt>
 		<dd>
 			<?php echo h($product['Product']['id']); ?>
 			&nbsp;
-		</dd>
+		</dd>-->
 		<dt><?php echo __('Product Name'); ?></dt>
 		<dd>
 			<?php echo h($product['Product']['product_name']); ?>
