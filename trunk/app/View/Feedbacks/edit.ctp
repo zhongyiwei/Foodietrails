@@ -31,26 +31,13 @@ $this->start('manageRightContent');
 <?php echo $this->Form->create('Feedback'); ?>
 	<fieldset>
 	<?php
-		echo $this->Form->input('tour_id', array('type'=>'select','options'=>$tourNames));
+		echo $this->Form->input('tour_id');//, array('type'=>'select','options'=>$tours));
 		echo $this->Form->input('full_name');
 		echo $this->Form->input('feedback_description');
-		echo $this->Form->input('feedback_status');
+		$status = array('Show'=>'Show','Hide'=>'Hide');
+		echo $this->Form->input('feedback_status',array('options'=>$status,'default'=>'Hide'));
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Submit')); ?>
 </div>
 <?php $this->end(); ?>
-<div class="feedback form">
-<?php echo $this->Form->create('Feedback'); ?>
-	<fieldset>
-		<legend><?php echo __('Edit Tour Feedback'); ?></legend>
-	<?php
-		echo $this->Form->input('id');
-		echo $this->Form->input('tour_id');
-		echo $this->Form->input('full_name');
-		echo $this->Form->input('feedback_description');
-		echo $this->Form->input('feedback_status');
-	?>
-	</fieldset>
-<?php echo $this->Form->end(__('Submit')); ?>
-</div>

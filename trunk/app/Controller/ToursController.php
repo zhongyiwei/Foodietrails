@@ -8,7 +8,7 @@ App::uses('AppController', 'Controller');
  * @property Tour $Tour
  */
 class ToursController extends AppController {
-
+	
 //    public function isAuthorized($user) {
 //        // All registered users can add posts
 ////        if ($this->action === 'add') {
@@ -29,6 +29,7 @@ class ToursController extends AppController {
 //        $this->Cookie->name = 'shoppingCart';
 //        $this->Cookie->time = 60 * 60 * 24 * 30;
 //    }
+	
     public function beforeFilter() {
         parent::beforeFilter();
         $this->Cookie->name = 'shoppingCart';
@@ -132,8 +133,9 @@ class ToursController extends AppController {
             throw new NotFoundException(__('Invalid tour'));
         }
         $this->set('tour', $this->Tour->read(null, $id));
-    }
-
+		$this->set('feedbacks', $this->Feedback->find('all',array('conditions' => array('feedback.tour_id' => $id))));
+	}
+	
 //    public function checkout($id = null) {
 ////        debug($this->Cookie->read('shoppingCart'));
 //        if ($this->Cookie->read('Cart') != null) {
