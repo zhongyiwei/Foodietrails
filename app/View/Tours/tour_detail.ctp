@@ -1,5 +1,5 @@
 <?php
-//print_r($tour);
+//print_r($feedback);
 /*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
@@ -32,3 +32,10 @@ echo $this->Html->link(__(''), array('controller' => 'feedbacks', 'action' => 'a
 <p><?php echo $tour['Tour']['tour_weather']; ?></p>
 <h2 class="tourParticipantGuide">People Limit</h2>
 <p><?php echo $tour['Tour']['tour_max_num_on_day']; ?></p>
+
+<h2 class="tourParticipantGuide">Feedback</h2>
+<p><?php foreach ($feedbacks as $feedback): ?>
+               <tr>
+					<!--<td><?php echo $feedback['Feedback']['full_name']; ?> said --> "<?php echo $feedback['Feedback']['feedback_description']; ?>"<p /></td>
+				</tr>
+<?php endforeach; ?></p>

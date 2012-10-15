@@ -38,7 +38,7 @@ $this->start('manageRightContent');
                     <td><?php echo h($feedback['Feedback']['tour_id']); ?>&nbsp;</td> 
 					<td><?php echo h($feedback['Feedback']['full_name']); ?>&nbsp;</td>
                     <td><?php echo $this->Text->truncate(($feedback['Feedback']['feedback_description']),20,array('ellipsis'=>'...')); ?>&nbsp;</td>
-                    <td><?php echo h($feedback['Feedback']['feedback_status']); ?>&nbsp;</td>
+					<td><?php echo h($feedback['Feedback']['feedback_status']); ?>&nbsp;</td>
                     <td class="actions">
                         <?php echo $this->Html->link(__('View'), array('action' => 'view', $feedback['Feedback']['id'])); ?>
                         <?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $feedback['Feedback']['id'])); ?>
