@@ -51,7 +51,6 @@ class NewsController extends AppController {
                 $this->Session->setFlash(__('The news could not be saved. Please, try again.'));
             }
         }
-        $users = $this->News->User->find('list');
         $this->set(compact('users'));
     }
 
@@ -77,7 +76,6 @@ class NewsController extends AppController {
         } else {
             $this->request->data = $this->News->read(null, $id);
         }
-        $users = $this->News->User->find('list');
         $this->set(compact('users'));
     }
 
