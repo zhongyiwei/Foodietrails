@@ -24,3 +24,10 @@ echo $this->Html->link(__(''), array('controller' => 'feedbacks', 'action' => 'a
 <p><?php echo $cookingclass['Cookingclass']['cooking_class_description']; ?></p>
 <h2 class="tourParticipantGuide">Location</h2>
 <p><?php echo $cookingclass['Cookingclass']['cooking_class_location']; ?></p>
+
+<h2 class="tourParticipantGuide">Feedback</h2>
+<p><?php foreach ($feedbacks as $feedback): ?>
+               <tr>
+					<!--<td><?php echo $feedback['Feedback']['full_name']; ?> said --> "<?php echo $feedback['Feedback']['feedback_description']; ?>"<p /></td>
+				</tr>
+<?php endforeach; ?></p>

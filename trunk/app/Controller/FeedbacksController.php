@@ -44,8 +44,9 @@ class FeedbacksController extends AppController {
  */
 	public function add($id = null) {
 		if ($this->request->is('post')) {
-		    $this->request->data['Feedback']['tour_id'] = $id;
+		    $this->request->data['Feedback']['page_id'] = $id;
 			$this->request->data['Feedback']['feedback_status'] = 'Hide';
+			$this->request->data['Feedback']['feedback_type'] = '';
 			$this->Feedback->create();
 			if ($this->Feedback->save($this->request->data)) {
 				$this->Session->setFlash(__('Your Feedback has been saved'));
@@ -78,7 +79,7 @@ class FeedbacksController extends AppController {
         } else {
             $this->request->data = $this->Feedback->read(null, $id);
         }
-		$tours = $this->Tour->find('list', array('fields' => 'tour_name'));
+		$tours = $this->set('tours',$this->Tour->find('list', array('fields' => 'tour_name')));
 	}
 
 /**
@@ -104,12 +105,4 @@ class FeedbacksController extends AppController {
 		$this->Session->setFlash(__('Feedback was not deleted'));
 		$this->redirect(array('action' => 'index'));
 	}
-	public function feedback_detail($id = null) {
-        $this->Feedback->id = $id;
-        if (!$this->Feedback->exists()) {
-            throw new NotFoundException(__('Invalid feedback'));
-        }
-        $this->set('feedback', $this->Feedback->read(null, $id));
-    }
-
 }

@@ -31,11 +31,13 @@ $this->start('manageRightContent');
 <?php echo $this->Form->create('Feedback'); ?>
 	<fieldset>
 	<?php
-		echo $this->Form->input('tour_id');//, array('type'=>'select','options'=>$tours));
+		echo $this->Form->input('page_id', $tours);
 		echo $this->Form->input('full_name');
 		echo $this->Form->input('feedback_description');
 		$status = array('Show'=>'Show','Hide'=>'Hide');
 		echo $this->Form->input('feedback_status',array('options'=>$status,'default'=>'Hide'));
+		$types = array('Tour'=>'Tour','Cookingclass'=>'Cookingclass');
+		echo $this->Form->input('feedback_type',array('options'=>$types));
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Submit')); ?>

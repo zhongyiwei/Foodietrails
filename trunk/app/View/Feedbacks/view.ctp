@@ -35,9 +35,9 @@ $this->start('manageRightContent');
 			<?php echo h($feedback['Feedback']['id']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Tour Id'); ?></dt>
+		<dt><?php echo __('Page Id'); ?></dt>
 		<dd>
-			<?php echo h($feedback['Feedback']['tour_id']); ?>
+			<?php echo h($feedback['Feedback']['page_id']); ?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('Full Name'); ?></dt>

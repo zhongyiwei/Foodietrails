@@ -78,6 +78,7 @@ class CookingclassesController extends AppController {
             throw new NotFoundException(__('Invalid tour'));
         }
         $this->set('cookingclass', $this->Cookingclass->read(null, $id));
+		$this->set('feedbacks', $this->Feedback->find('all',array('conditions' => array('AND' => array('feedback.page_id' => $id),'feedback.feedback_type'=>"Cookingclass"))));
     }
 
 /**

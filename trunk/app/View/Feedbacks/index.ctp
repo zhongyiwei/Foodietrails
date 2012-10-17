@@ -24,7 +24,7 @@ $this->start('manageRightContent');
 	<table cellpadding="0" cellspacing="0" id="js-datatable">
 	<thead>
 	<tr>
-		<th>Tour ID</th>
+		<th>Page ID</th>
 		<th>Full Name</th>		
         <th>Description</th>
 		<th>Status</th>
@@ -35,7 +35,7 @@ $this->start('manageRightContent');
             <?php foreach ($feedbacks as $feedback): ?>
                <tr>
                     <!--<td><?php echo h($feedback['Feedback']['id']); ?>&nbsp;</td>-->
-                    <td><?php echo h($feedback['Feedback']['tour_id']); ?>&nbsp;</td> 
+                    <td><?php echo h($feedback['Feedback']['page_id']); ?>&nbsp;</td> 
 					<td><?php echo h($feedback['Feedback']['full_name']); ?>&nbsp;</td>
                     <td><?php echo $this->Text->truncate(($feedback['Feedback']['feedback_description']),20,array('ellipsis'=>'...')); ?>&nbsp;</td>
 					<td><?php echo h($feedback['Feedback']['feedback_status']); ?>&nbsp;</td>
