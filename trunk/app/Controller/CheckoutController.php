@@ -223,7 +223,5 @@ class CheckoutController extends AppController {
     public function confirmCheckout() {
         $this->set('SC', $this->Cookie->read('Cart'));
     }
-
 }
-
 ?>

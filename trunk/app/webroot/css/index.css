@@ -473,3 +473,13 @@ input, textarea {
     width: 200px;
     float: right;
 }
+dl dd:nth-child(4n+2), dl dt:nth-child(4n+1) {
+background: transparent;
+}
+.touradvisor{
+    margin-left: 980px;
+    position: absolute;
+}
+#CDSWIDSSP .widSSPData{
+    border-radius:10px;
+}

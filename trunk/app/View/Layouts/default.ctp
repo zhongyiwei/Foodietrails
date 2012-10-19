@@ -20,6 +20,13 @@
 
     <body>
         <div class="container">
+            <div class="touradvisor">
+                <div id="TA_selfserveprop495" class="TA_selfserveprop" style="border-radius:10px;">
+                    <ul id="HUhi3hDhjOU" class="TA_links krJduqL">
+                        <li id="rF2wPI" class="DYM4Z7d">2 reviews of <a target="_blank" href="http://www.tripadvisor.com.au/Attraction_Review-g255100-d2513377-Reviews-Foodie_Trails-Melbourne_Victoria.html">Foodie Trails</a> in Melbourne</li>
+                    </ul>
+                </div>
+            </div>
             <div class="header">
                 <?php
                 echo $this->Html->image("LOGO.jpg", array("alt" => "Foodie Trails Logo", 'name' => "Foodie Trails Logo", 'height' => "90", 'style' => "background: #FFF; display:block; float:left", 'url' => array('controller' => 'Home', 'action' => 'display')));
@@ -94,6 +101,8 @@
             <div class="content">
                 <?php echo $this->fetch('content'); ?>
             </div>
+
+            <script src="http://www.jscache.com/wejs?wtype=selfserveprop&amp;uniq=495&amp;locationId=2513377&amp;lang=en_AU&amp;rating=true&amp;nreviews=5&amp;writereviewlink=true&amp;popIdx=true&amp;iswide=false&amp;border=false"></script>
             <!-- AddThis Button BEGIN -->
             <div class="addThis">
                 <div class="addthis_toolbox addthis_default_style addthis_32x32_style">
@@ -130,7 +139,7 @@
             <div class="footer">
                 <table width="920" border="0">
                     <tr>
-                        <td style="vertical-align:middle" ><span class="footerRow"><?php echo $this->Html->link(__('About Foodie Trails Inc.'), array('controller' => 'About', 'action' => 'aboutCompany')); ?></span>
+                        <td style="vertical-align:middle" ><span class="footerRow"><?php echo $this->Html->link(__('About Foodie Trails'), array('controller' => 'About', 'action' => 'aboutCompany')); ?></span>
                             <span>Tours</span>
                             <span>Media</span>
                             <span>Deals</span>

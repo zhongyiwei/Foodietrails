@@ -13,6 +13,7 @@
             <td style="font-weight: bold">Unit Price</td>
             <td style="font-weight: bold">Qty</td>
             <td style="font-weight: bold">Subtotal</td>
+            <td></td>
         </tr>
         <?php
         $total = 0;
@@ -57,10 +58,13 @@
         }
         ?>
         <tr>
-            <td colspan="6"style="text-align:right;"><p style="font-weight:bold;">Total: <?php echo $total; ?> AU$</p></td>
+            <td colspan="6"style="text-align:right;"><p style="font-weight:bold; margin-bottom: 0px;margin: 0px 10px 0px 0px;">Total: <?php echo $total; ?> AU$</p></td>
+        </tr>
+        <tr>
+            <td colspan="5" style="text-align: left; border-bottom:0px">By confirming the check out, you accept the terms and conditions <?php echo $this->Html->link(__('here'), array('controller' => 'home', 'action' => 'display'),array('style'=>'margin-top:20px'));?></td>
+            <td colspan="6"style="text-align:right;border-bottom:0px; "><button type="button" title="Proceed to Checkout" style="margin: 0px 20px 50px 0px; padding: 5px; font-size:14px;" onclick="window.location='<?php echo $this->webroot; ?>users/customerLogin';">Confirm Payment</button></td>
         </tr>
     </table>
-    <button type="button" title="Proceed to Checkout" style="padding: 5px; font-size:14px;" onclick="window.location='<?php echo $this->webroot; ?>users/customerLogin';">Confirm Payment</button>
     <?php
 } else {
     echo "<p>You have not book anything yet.</p><p>Please click " . $this->Html->link(__('here'), array('controller' => 'home', 'action' => 'display')) . " to continue your browsing.</p>";

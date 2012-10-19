@@ -183,3 +183,6 @@ dd:last-child{
 .addThis{
           display: none;
 }
+.touradvisor, #CDSWIDSSP .widSSPData{
+display:none;
+}
