@@ -4,6 +4,7 @@ $this->assign('LeftProduct', '');
 $this->assign('LeftCustomer','');
 $this->assign('LeftNews','');
 $this->assign('LeftEvent','LeftMenuActions');
+$this->assign('LeftFaq','');
 $this->start('manageRightMenu');
 ?>
 <div class="manageRightMenu" >
@@ -25,7 +26,7 @@ $this->start('manageRightContent');
 	<fieldset>
 	<?php
 		echo $this->Form->input('event_name');
-		echo $this->Form->input('event_description', array('id' => 'cooking_class_description', 'class' => 'ckeditor'));
+		echo $this->Form->input('event_description', array('id' => 'event_description', 'class' => 'ckeditor'));
 		echo $this->Form->input('event_date');
 		echo $this->Form->input('event_thumbnail', array('id' => 'xFilePath', 'class' => 'ckeditor', 'style' => 'width:500px'));
         echo $this->Form->button('Browse Server', array('onclick' => 'BrowseServer()', 'type' => 'button', 'style' => 'padding:5px;margin-top:-55px; margin-left:530px;float:left'));

@@ -4,6 +4,7 @@ $this->assign('LeftProduct','');
 $this->assign('LeftCustomer','');
 $this->assign('LeftNews','');
 $this->assign('LeftEvent','LeftMenuActions');
+$this->assign('LeftFaq','');
 $this->start('manageRightMenu');
 ?>
 <div class="manageRightMenu" >

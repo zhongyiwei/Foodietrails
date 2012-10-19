@@ -4,6 +4,7 @@ $this->assign('LeftProduct','');
 $this->assign('LeftCustomer','');
 $this->assign('LeftNews','');
 $this->assign('LeftEvent','LeftMenuActions');
+$this->assign('LeftFaq','');
 $this->start('LeftEditMenu');
 ?>
 <li><?php echo $this->Html->link(__('View this Event'), array('action' => 'view', $this->Form->value('Event.id'))); ?></li>
