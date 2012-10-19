@@ -99,9 +99,9 @@ class UsersController extends AppController {
         if (!$this->User->exists()) {
             throw new NotFoundException(__('Invalid user'));
         }
-        $userData = $this->User->read(null,$id);
+        $userData = $this->User->read(null, $id);
         $subscription = $userData['User']['user_emailsubscription'];
-        $this->set('subscriptionStatus',$subscription);
+        $this->set('subscriptionStatus', $subscription);
         if ($this->request->is('post') || $this->request->is('put')) {
             if ($this->User->save($this->request->data)) {
                 $this->Session->setFlash(__('The user has been saved'));
@@ -251,7 +251,16 @@ class UsersController extends AppController {
                 }
                 if ($this->User->save($customerData)) {
                     $this->Session->setFlash(__('The user has been saved'));
-                    $this->redirect(array('action' => "/customerPayment/"));
+                    if ($this->Auth->login()) {
+                        $currentUser = $this->Auth->user();
+                        if ($currentUser['user_role'] == 'Admin') {
+                            $this->redirect($this->Auth->redirect());
+                        } else {
+                            $this->redirect(array('controller' => 'checkout', 'action' => 'confirmCheckout'));
+                        }
+                    } else {
+                        $this->Session->setFlash(__('Invalid email or password, try again'));
+                    }
                 } else {
                     $this->Session->setFlash(__('The user could not be saved. Please, try again.'));
                 }
@@ -260,7 +269,7 @@ class UsersController extends AppController {
 //            $events = $this->User->Event->find('list');
             $this->set(compact('countries', 'events', 'news'));
         } else {
-            $this->redirect(array('action' => "/customerPayment/"));
+            $this->redirect(array('controller' => 'checkout', 'action' => "/confirmCheckout/"));
         }
     }
 
