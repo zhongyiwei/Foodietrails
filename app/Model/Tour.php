@@ -166,19 +166,6 @@ class Tour extends AppModel {
  * @var array
  */
 	public $hasMany = array(
-		'Feedback' => array(
-			'className' => 'Feedback',
-			'foreignKey' => 'tour_id',
-			'dependent' => false,
-			'conditions' => '',
-			'fields' => '',
-			'order' => '',
-			'limit' => '',
-			'offset' => '',
-			'exclusive' => '',
-			'finderQuery' => '',
-			'counterQuery' => ''
-		),
 		'TourGiftvoucher' => array(
 			'className' => 'TourGiftvoucher',
 			'foreignKey' => 'tour_id',

@@ -43,10 +43,12 @@ class FeedbacksController extends AppController {
  * @return void
  */
 	public function add($id = null) {
+	$identifier = $this->params['url']['def'];
+	$id = $this->params['url']['id'];
 		if ($this->request->is('post')) {
 		    $this->request->data['Feedback']['page_id'] = $id;
 			$this->request->data['Feedback']['feedback_status'] = 'Hide';
-			$this->request->data['Feedback']['feedback_type'] = '';
+			$this->request->data['Feedback']['feedback_type'] = $identifier;
 			$this->Feedback->create();
 			if ($this->Feedback->save($this->request->data)) {
 				$this->Session->setFlash(__('Your Feedback has been saved'));

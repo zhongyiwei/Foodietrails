@@ -133,7 +133,7 @@ class ToursController extends AppController {
             throw new NotFoundException(__('Invalid tour'));
         }
         $this->set('tour', $this->Tour->read(null, $id));
-		$this->set('feedbacks', $this->Feedback->find('all',array('conditions' => array('AND' => array('feedback.page_id' => $id),'feedback.feedback_type'=>"Tour"))));
+		$this->set('feedbacks', $this->Feedback->find('all',array('conditions' => array('AND' => array('feedback.page_id' => $id),'feedback.feedback_type'=>"Tour", 'feedback_status'=>"show"))));
 	}
 	
 //    public function checkout($id = null) {
