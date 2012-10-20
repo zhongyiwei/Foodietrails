@@ -85,7 +85,6 @@ class FeedbacksController extends AppController {
         } else {
             $this->request->data = $this->Feedback->read(null, $id);
         }
-		$tours = $this->set('tours',$this->Tour->find('list', array('fields' => 'tour_name')));
 	}
 
 /**

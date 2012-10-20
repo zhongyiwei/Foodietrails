@@ -20,7 +20,7 @@ $this->start('manageRightMenu');
 </div>
 <div class="mangeRightSubMenu"> 
     <div class="unselected"><?php echo $this->Html->link(__('FAQs List'), array('action' => 'index')); ?></div>
-    <div class="selected"><?php echo $this->Html->link(__('Add FAQ'), array('action' => 'add')); ?></div>
+    <!--<div class="selected"><?php echo $this->Html->link(__('Add FAQ'), array('action' => 'add')); ?></div>-->
 </div>
 <?php
 $this->end();
@@ -35,12 +35,17 @@ $this->start('manageRightContent');
 			<?php echo $this->Html->link($faq['User'][''], array('controller' => 'users', 'action' => 'view', $faq['User']['y'])); ?>
 			&nbsp;
 		</dd>-->
-		<dt><?php echo __('Faq Description'); ?></dt>
+		<dt><?php echo __('Question'); ?></dt>
 		<dd>
-			<?php echo h($faq['Faq']['faq_description']); ?>
+			<?php echo h($faq['Faq']['question']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Faq Status'); ?></dt>
+		<dt><?php echo __('Answer'); ?></dt>
+		<dd>
+			<?php echo h($faq['Faq']['answer']); ?>
+			&nbsp;
+		</dd>
+		<dt><?php echo __('Status'); ?></dt>
 		<dd>
 			<?php echo h($faq['Faq']['faq_status']); ?>
 			&nbsp;
