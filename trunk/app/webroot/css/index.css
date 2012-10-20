@@ -483,3 +483,10 @@ background: transparent;
 #CDSWIDSSP .widSSPData{
     border-radius:10px;
 }
+.recaptcha_nothad_incorrect_sol,.recaptcha_isnot_showing_audio,#recaptcha_area{
+    margin-bottom: 0px;
+    padding:0px;
+}
+input[type="checkbox"]{
+    margin: 6px 6px 7px 2px;
+}
