@@ -52,7 +52,11 @@ class FeedbacksController extends AppController {
 			$this->Feedback->create();
 			if ($this->Feedback->save($this->request->data)) {
 				$this->Session->setFlash(__('Your Feedback has been saved'));
-				$this->redirect(array('action' => 'index'));
+				if ($identifier == 'Tour'){
+				$this->redirect(array('controller'=>'Tours','action' => "tourDetail/$id"));
+				}else if ($identifier == 'CookingClass'){
+				$this->redirect(array('controller'=>'CookingClasses','action' => "cookingclass_detail/$id"));
+				}
 			} else {
 				$this->Session->setFlash(__('Your Feedback could not be saved. Please, try again.'));
 			}

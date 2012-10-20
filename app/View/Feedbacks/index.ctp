@@ -13,7 +13,7 @@ $this->start('manageRightMenu');
     </ul>
 </div>
 <div class="mangeRightSubMenu"> 
-    <div class="selected"><?php echo $this->Html->link(__('Tour Feedback List'), array('action' => 'index')); ?></div>
+    <div class="selected"><?php echo $this->Html->link(__('Feedback List'), array('action' => 'index')); ?></div>
 </div>
 <?php
 $this->end();
@@ -24,10 +24,11 @@ $this->start('manageRightContent');
 	<table cellpadding="0" cellspacing="0" id="js-datatable">
 	<thead>
 	<tr>
-		<th>Page ID</th>
+		<!--<th>Page ID</th>-->
 		<th>Full Name</th>		
         <th>Description</th>
 		<th>Status</th>
+		<th>Type</th>
         <th class="actions"><?php echo __('Actions'); ?></th>
 	</tr>
 	</thead>
@@ -35,10 +36,11 @@ $this->start('manageRightContent');
             <?php foreach ($feedbacks as $feedback): ?>
                <tr>
                     <!--<td><?php echo h($feedback['Feedback']['id']); ?>&nbsp;</td>-->
-                    <td><?php echo h($feedback['Feedback']['page_id']); ?>&nbsp;</td> 
+                    <!--<td><?php echo h($feedback['Feedback']['page_id']); ?>&nbsp;</td>--> 
 					<td><?php echo h($feedback['Feedback']['full_name']); ?>&nbsp;</td>
                     <td><?php echo $this->Text->truncate(($feedback['Feedback']['feedback_description']),20,array('ellipsis'=>'...')); ?>&nbsp;</td>
 					<td><?php echo h($feedback['Feedback']['feedback_status']); ?>&nbsp;</td>
+					<td><?php echo h($feedback['Feedback']['feedback_type']); ?>&nbsp;</td>
                     <td class="actions">
                         <?php echo $this->Html->link(__('View'), array('action' => 'view', $feedback['Feedback']['id'])); ?>
                         <?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $feedback['Feedback']['id'])); ?>
