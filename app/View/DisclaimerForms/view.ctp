@@ -1,0 +1,47 @@
+<?php
+$this->extend('/Common/AdminView');
+$this->assign('LeftProduct', '');
+$this->assign('LeftCustomer', '');
+$this->assign('LeftNews', '');
+$this->assign('LeftEvent', '');
+$this->assign('LeftWebsite', 'LeftMenuActions');
+$this->start('LeftEditMenu');
+?>
+<li><?php echo $this->Html->link(__('Edit This Form'), array('action' => 'edit', $disclaimerForm['DisclaimerForm']['id'])); ?> </li>
+<li><?php echo $this->Form->postLink(__('Delete This Form'), array('action' => 'delete', $disclaimerForm['DisclaimerForm']['id']), null, __('Are you sure you want to delete # %s?', $disclaimerForm['DisclaimerForm']['id'])); ?> </li>
+<?php
+$this->end();
+$this->start('manageRightMenu');
+?>
+
+<div class="manageRightMenu" >
+    <ul>
+        <li class='active '><?php echo $this->Html->link(__('Disclaimer Form'), array('action' => 'index')); ?></li>
+    </ul>
+</div>
+
+<div class="mangeRightSubMenu"> 
+    <div class="selected"><?php echo $this->Html->link(__('Disclaimer Form List'), array('action' => 'index')); ?></div>
+    <div class="unselected"><?php echo $this->Html->link(__('Add Disclaimer Form'), array('action' => 'add')); ?></div>
+</div>
+
+<?php
+$this->end();
+
+$this->start('manageRightContent');
+?>
+<div class="disclaimerForms view">
+	<dl>
+<!--		<dt><?php echo __('Id'); ?></dt>
+		<dd>
+			<?php echo h($disclaimerForm['DisclaimerForm']['id']); ?>
+			&nbsp;
+		</dd>-->
+		<dt><?php echo __('Form Name'); ?></dt>
+		<dd>
+			<?php echo h($disclaimerForm['DisclaimerForm']['form_name']); ?>
+			&nbsp;
+		</dd>
+	</dl>
+</div>
+<?php $this->end(); ?>

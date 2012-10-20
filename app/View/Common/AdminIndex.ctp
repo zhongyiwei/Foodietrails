@@ -15,6 +15,7 @@ echo $this->Html->css('jquery.dataTables.css');
                     <li class="<?php echo $this->fetch('LeftNews'); ?>"><?php echo $this->Html->link(__('News Management'), array('controller' => 'news', 'action' => 'index')); ?></li>
                     <li class="<?php echo $this->fetch('LeftEvent'); ?>"><?php echo $this->Html->link(__('Events Management'), array('controller' => 'events', 'action' => 'index')); ?></li>  
                     <li class="<?php echo $this->fetch('LeftFaq'); ?>"><?php echo $this->Html->link(__('FAQ Management'), array('controller' => 'Faqs', 'action' => 'index')); ?></li>  
+                    <li class="<?php echo $this->fetch('LeftWebsite'); ?>"><?php echo $this->Html->link(__('Website Management'), array('controller' => 'disclaimerforms', 'action' => 'index')); ?></li>
                 </ul>
             </div>
         </td>
