@@ -19,7 +19,7 @@ $this->start('manageRightMenu');
     </ul>
 </div>
 <div class="mangeRightSubMenu"> 
-    <div class="unselected"><?php echo $this->Html->link(__('Tour Feedback List'), array('action' => 'index')); ?></div>
+    <div class="unselected"><?php echo $this->Html->link(__('Feedback List'), array('action' => 'index')); ?></div>
   
 </div>
 <?php
@@ -30,7 +30,7 @@ $this->start('manageRightContent');
 <div class="Feedback view">
 <!--<h2><?php  echo __('User'); ?></h2>-->
 	<dl>
-		<dt><?php echo __('Id'); ?></dt>
+		<!--<dt><?php echo __('Id'); ?></dt>
 		<dd>
 			<?php echo h($feedback['Feedback']['id']); ?>
 			&nbsp;
@@ -39,7 +39,7 @@ $this->start('manageRightContent');
 		<dd>
 			<?php echo h($feedback['Feedback']['page_id']); ?>
 			&nbsp;
-		</dd>
+		</dd>-->
 		<dt><?php echo __('Full Name'); ?></dt>
 		<dd>
 			<?php echo h($feedback['Feedback']['full_name']); ?>
@@ -53,6 +53,11 @@ $this->start('manageRightContent');
 		<dt><?php echo __('Status'); ?></dt>
 		<dd>
 			<?php echo h($feedback['Feedback']['feedback_status']); ?>
+			&nbsp;
+		</dd>
+		<dt><?php echo __('Type'); ?></dt>
+		<dd>
+			<?php echo h($feedback['Feedback']['feedback_type']); ?>
 			&nbsp;
 		</dd>
 	</dl>

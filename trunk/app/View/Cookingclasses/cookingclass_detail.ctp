@@ -17,7 +17,7 @@ $id = $cookingclass['Cookingclass']['id'];
 //                echo $this->Html->image("Book.png", array("alt" => "Book", 'name' => "Book", 'height' => "100", 'width' => "150", 'url' => array('controller' => 'tours', 'action' => 'checkout',$tour['Tour']['id'])));
 echo $this->Html->link(__(''), array('controller' => 'checkout', 'action' => 'index', '?' => array('def' => 'CookingClass', 'id' => "$id")), array("class" => "tourBook"));
 //echo $this->Html->link(__(''), array('controller' => 'tours', 'action' => 'checkout', $tour['Tour']['id']), array("class" => "tourBook"));
-echo $this->Html->link(__(''), array('controller' => 'feedbacks', 'action' => 'add',$cookingclass['Cookingclass']['id']), array("class" => "feedback"));
+echo $this->Html->link(__(''), array('controller' => 'feedbacks', 'action' => 'add', '?' => array('def' => 'CookingClass', 'id' => "$id")), array("class" => "feedback"));
 //echo $this->Html->image("feedback_button.jpg", array("alt" => "Feedback", 'name' => "Feedback", 'height' => "100", 'width' => "150", 'url' => array('controller' => 'feedbacks', 'action' => 'add',$cookingclass['Cookingclass']['id'])));
 echo $this->Html->link(__(''), array('controller' => 'feedbacks', 'action' => 'add'));
 ?>
