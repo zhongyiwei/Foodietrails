@@ -2,8 +2,8 @@
 <h2 class="tourParticipantGuide">Question and Answer</h2>
 <p><?php foreach ($faqs as $faq): ?>
             <tr>
-				<td><?php echo $faq['Faq']['question']; ?> -
-				"<?php echo $faq['Faq']['answer']; ?>"<p /></td>
+				<td>Q: <?php echo $faq['Faq']['question']; ?><p />
+				A: <?php echo $faq['Faq']['answer']; ?>"<p /></td>
 			</tr>
 <?php endforeach; ?></p>
 
