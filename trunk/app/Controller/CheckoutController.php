@@ -219,9 +219,12 @@ class CheckoutController extends AppController {
             $this->redirect(array('action' => $redirectLink));
         }
     }
-
+    var $uses = array('DisclaimerForm');
     public function confirmCheckout() {
+        $this->set('disclaimerForm', $this->DisclaimerForm->find('all', array('limit' => 1)));
         $this->set('SC', $this->Cookie->read('Cart'));
     }
+
 }
+
 ?>

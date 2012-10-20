@@ -40,7 +40,7 @@ class AboutController extends AppController {
                     $wantto = $this->request->data['wantto'];
                     $phone = $this->request->data['phone'];
                     $wanttoSentence = " want to ";
-                    $newsDesc = "<div style='font-family: Airal;'><p>Customer Name: <b>$firstName $lastName </b> </p>";
+                    $newsDesc = '<div style="font-family: Arial;">'."<p>Customer Name: <b>$firstName $lastName </b> </p>";
 //                    debug($_POST);
                     if ($wantto != '') {
                         for ($i = 0; $i < count($wantto); $i++) {
