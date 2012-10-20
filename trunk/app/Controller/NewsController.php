@@ -103,6 +103,13 @@ class NewsController extends AppController {
         $this->redirect(array('action' => 'index'));
     }
 
+	public function news_detail($id = null) {
+        $this->News->id = $id;
+        if (!$this->News->exists()) {
+            throw new NotFoundException(__('Invalid news'));
+        }
+        $this->set('news', $this->News->read(null, $id));
+    }
     public function emailsubscriber($id = null) {
         $this->News->id = $id;
         $this->set('news', $this->News->read(null, $id));

@@ -73,7 +73,13 @@
                     <li><a>Product</a></li>
                     <li class='has-sub'><a>Media</a>
                         <ul>
-                            <li><a>News</a></li>
+                               <?php for ($i = 0; $i < count($menu4); $i++) { ?>
+                                <li> <?php
+                            $news = $menu4[$i]['News']['news_title'];
+                            echo $this->Html->link(__($news), array('controller' => 'News', 'action' => 'news_detail', $menu4[$i]['News']['id']));
+                                ?>
+                                </li>
+                            <?php } ?>
                         </ul>
                     </li>
                     <li class='has-sub'><a>Cooking Classes</a>
@@ -94,6 +100,7 @@
                             <li><?php echo $this->Html->link(__('Contact Us'), array('controller' => 'About', 'action' => 'contactUs')); ?></li>
                             <li><a href="http://foodietrails.com.au/blogweb/index.php">Blogs</a></li>
                             <li><?php echo $this->Html->link(__('About Foodie Trails Inc.'), array('controller' => 'About', 'action' => 'aboutCompany')); ?></li>
+							<li><?php echo $this->Html->link(__('FAQs.'), array('controller' => 'Faqs', 'action' => 'add')); ?></li>
                         </ul>
                     </li>
                 </ul>

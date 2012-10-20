@@ -12,6 +12,11 @@ class FaqsController extends AppController {
  *
  * @return void
  */
+    public function beforeFilter() {
+        parent::beforeFilter();
+        $this->Auth->allow('add');
+    }
+	
 	public function index() {
 		$this->Faq->recursive = 0;
 		$this->set('faqs', $this->paginate());
@@ -38,17 +43,19 @@ class FaqsController extends AppController {
  * @return void
  */
 	public function add() {
+	//$currentUser = $this->Auth->user();
 		if ($this->request->is('post')) {
+			//$this->request->data['Faq']['user_id'] = $currentUser;
+			$this->request->data['Faq']['faq_status'] = 'Hide';
 			$this->Faq->create();
 			if ($this->Faq->save($this->request->data)) {
 				$this->Session->setFlash(__('The faq has been saved'));
-				$this->redirect(array('action' => 'index'));
+				$this->redirect(array('action' => 'add'));
 			} else {
 				$this->Session->setFlash(__('The faq could not be saved. Please, try again.'));
 			}
 		}
-		$users = $this->Faq->User->find('list');
-		$this->set(compact('users'));
+		$this->set('faqs', $this->Faq->find('all',array('conditions' => array('faq_status'=>"show"))));
 	}
 
 /**
@@ -73,8 +80,6 @@ class FaqsController extends AppController {
 		} else {
 			$this->request->data = $this->Faq->read(null, $id);
 		}
-		$users = $this->Faq->User->find('list');
-		$this->set(compact('users'));
 	}
 
 /**
