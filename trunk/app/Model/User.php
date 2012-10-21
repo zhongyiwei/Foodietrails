@@ -200,19 +200,6 @@ class User extends AppModel {
             'finderQuery' => '',
             'counterQuery' => ''
         ),
-        'Faq' => array(
-            'className' => 'Faq',
-            'foreignKey' => 'user_id',
-            'dependent' => false,
-            'conditions' => '',
-            'fields' => '',
-            'order' => '',
-            'limit' => '',
-            'offset' => '',
-            'exclusive' => '',
-            'finderQuery' => '',
-            'counterQuery' => ''
-        ),
         'GiftVoucher' => array(
             'className' => 'GiftVoucher',
             'foreignKey' => 'user_id',
