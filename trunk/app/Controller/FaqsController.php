@@ -49,15 +49,17 @@ class FaqsController extends AppController {
 			$this->request->data['Faq']['faq_status'] = 'Hide';
 			$this->Faq->create();
 			if ($this->Faq->save($this->request->data)) {
-				$this->Session->setFlash(__('The faq has been send for review, you might later see the answer in faq page.'));
-				$this->redirect(array('action' => 'add'));
+//				$this->Session->setFlash(__('The faq has been send for review, you might later see the answer in faq page.'));
+				$this->redirect(array('action' => 'askedsuccessful'));
 			} else {
 				$this->Session->setFlash(__('The faq could not be saved. Please, try again.'));
 			}
 		}
 		$this->set('faqs', $this->Faq->find('all',array('conditions' => array('faq_status'=>"show"))));
 	}
-
+        public function askedsuccessful(){
+            
+        }
 /**
  * edit method
  *

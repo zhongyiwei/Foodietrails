@@ -8,7 +8,7 @@
     </td>
 </tr>
 <?php endforeach; ?></p>
-<?php echo $this->Session->flash(); ?>
+<?php // echo $this->Session->flash(); ?>
 
 <?php echo $this->Form->create('Faq'); ?>
 <fieldset>
