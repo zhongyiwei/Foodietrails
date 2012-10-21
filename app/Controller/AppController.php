@@ -55,7 +55,7 @@ class AppController extends Controller {
         $this->set('menu5', $menus5);
         $menus6 = $this->Tour->find('all', array('conditions' => array('tour_type' => 'International')));
         $this->set('menu6', $menus6);
-        $this->Auth->allow('display', 'tourDetail', 'cookingclass_detail', 'aboutCompany', 'contactUs', 'login', 'event_detail', 'checkout', 'logout', 'customerLogin', 'deleteCheckoutItem', 'customerPayment', 'existingCustomerLogin', 'check', 'confirmCheckout', 'sendEmail', 'sendSuccessful', 'news_detail');
+        $this->Auth->allow('display', 'tourDetail', 'cookingclass_detail', 'aboutCompany', 'contactUs', 'login', 'event_detail', 'checkout', 'logout', 'customerLogin', 'deleteCheckoutItem', 'customerPayment', 'existingCustomerLogin', 'check', 'confirmCheckout', 'sendEmail', 'sendSuccessful', 'news_detail','askedsuccessful');
         $menus2 = $this->Event->find('all');
         $this->set('menu2', $menus2);
         $menus3 = $this->Cookingclass->find('all');
