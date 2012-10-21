@@ -474,7 +474,7 @@ input, textarea {
     float: right;
 }
 dl dd:nth-child(4n+2), dl dt:nth-child(4n+1) {
-background: transparent;
+    background: transparent;
 }
 .touradvisor{
     margin-left: 980px;
@@ -489,4 +489,141 @@ background: transparent;
 }
 input[type="checkbox"]{
     margin: 6px 6px 7px 2px;
+}
+
+/*CSS Menu Horizontal*/
+/* Some stylesheet reset */
+.menuhorizontal  > ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    vertical-align: baseline;
+    line-height: 1;
+}
+
+/* The container */
+.menuhorizontal  > ul {
+    display: block;
+    position: relative;
+    width: 150px;
+}
+
+/* The list elements which contain the links */
+.menuhorizontal  > ul li {
+    display: block;
+    position: relative;
+    margin: 0;
+    padding: 0;
+    width: 150px;	
+}
+
+/* General link styling */
+.menuhorizontal  > ul li a {
+    /* Layout */
+    display: block;
+    position: relative;
+    margin: 0;
+    padding: 11px 20px;
+    width: 110px;
+    background:#3F3F3F;
+    /* Typography */
+    font-family: Helvetica, Arial, sans-serif;
+    color: white;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 300;			
+}
+
+/* Rounded corners for the first link of the menu/submenus */
+.menuhorizontal  > ul li ul li:first-child>a {
+    /*border-top-left-radius: 4px;*/
+    border-top-right-radius: 4px;
+    border-top: 0;
+}
+
+/* Rounded corners for the last link of the menu/submenus */
+.menuhorizontal  > ul li ul li:last-child>a {
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    border-bottom: 0;
+}
+.menu ul li div ul li> ul {
+    background: transparent;
+    padding-left:0px;
+    margin-top:-15px;
+    border-left:5px transparent solid;
+}
+
+.menu ul li div ul li> ul li a {
+    padding:12px 20px;
+}
+/* The hover state of the menu/submenu links */
+.menuhorizontal  > ul li>a:hover, .menuhorizontal  > ul li:hover>a {
+    color: #fff;
+    text-shadow: 0 1px 0 rgba(0, 0, 0, .3);
+    background: #45b2d2;
+    background: -webkit-linear-gradient(bottom, #45b2d2, #3366BB);
+    background: -ms-linear-gradient(bottom, #45b2d2, #3366BB); 
+    background: -moz-linear-gradient(bottom, #45b2d2, #3366BB);
+    background: -o-linear-gradient(bottom, #45b2d2, #3366BB);
+    border-color: transparent;
+}
+
+/* The arrow indicating a submenu */
+.menuhorizontal  > ul .has-sub2>a::after {
+    content: '';
+    position: absolute;
+    top: 16px;
+    right: 10px;
+    width: 0px;
+    height: 0px;
+
+    /* Creating the arrow using borders */
+    border: 4px solid transparent;
+    border-left: 4px solid #d8d8d8; 
+}
+
+/* The same arrow, but with a darker color, to create the shadow effect */
+.menuhorizontal  > ul .has-sub2>a::before {
+    content: '';
+    position: absolute;
+    top: 17px;
+    right: 10px;
+    width: 0px;
+    height: 0px;
+
+    /* Creating the arrow using borders */
+    border: 4px solid transparent;
+    border-left: 4px solid #000;
+}
+
+/* Changing the color of the arrow on hover */
+.menuhorizontal  > ul li>a:hover::after, .menuhorizontal  > ul li:hover>a::after {
+    border-left: 4px solid #fff;
+}
+
+.menuhorizontal  > ul li>a:hover::before, .menuhorizontal  > ul li:hover>a::before {
+    border-left: 4px solid rgba(0, 0, 0, .3);
+}
+
+
+/* THE SUBMENUS */
+.menuhorizontal  > ul ul {
+    position: absolute;
+    left: 150px;
+    top: -9999px;
+    padding-left: 5px;
+    opacity: 0;
+    /* The fade effect, created using an opacity transition */
+    -webkit-transition: opacity .3s ease-in;
+    -moz-transition: opacity .3s ease-in;
+    -o-transition: opacity .3s ease-in;
+    -ms-transition: opacity .3s ease-in;
+}
+
+/* Showing the submenu when the user is hovering the parent link */
+.menuhorizontal  > ul li:hover>ul {
+    top: 0px;
+    opacity: 1;
+    display: block;
 }
