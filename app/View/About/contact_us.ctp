@@ -20,19 +20,19 @@ if (isset($validationErrorsArray['first_name'])) {
         <tr>
             <td>Last Name <span style="color:red">*</span></td>
             <td><?php
-echo $this->Form->input('last_name', array('label' => false, 'div' => false));
-if (isset($validationErrorsArray['last_name'])) {
-    echo "<div class='input text required error'>" . $validationErrorsArray['last_name'][0] . "</div>";
-};
+                echo $this->Form->input('last_name', array('label' => false, 'div' => false));
+                if (isset($validationErrorsArray['last_name'])) {
+                    echo "<div class='input text required error'>" . $validationErrorsArray['last_name'][0] . "</div>";
+                };
 ?></td>
         </tr>
         <tr>
             <td>Your E-mail <span style="color:red">*</span></td>
             <td><?php
-echo $this->Form->input('email', array('label' => false, 'div' => false));
-if (isset($validationErrorsArray['email'])) {
-    echo "<div class='input text required error'>" . $validationErrorsArray['email'][0] . "</div>";
-};
+                echo $this->Form->input('email', array('label' => false, 'div' => false));
+                if (isset($validationErrorsArray['email'])) {
+                    echo "<div class='input text required error'>" . $validationErrorsArray['email'][0] . "</div>";
+                };
 ?></td>
         </tr>
         <tr>
@@ -42,32 +42,47 @@ if (isset($validationErrorsArray['email'])) {
         <tr>
             <td>Inquiring About</td>
             <td><?php
+                $options['Public Tour'] = '';
+                $options['Private Tour'] = '';
+                $options['International Tour'] = '';
+                $options['Event'] = '';
+                $options['Cooking Class'] = '';
+
+                $publicTourName = array();
                 for ($i = 0; $i < count($menu); $i++) {
                     $name = $menu[$i]['Tour']['tour_name'];
                     $publicTourName["$name"] = $name;
                 }
+                $options['Public Tour'] = $publicTourName;
+
+                $privateTourName = array();
                 for ($i = 0; $i < count($menu5); $i++) {
                     $name = $menu5[$i]['Tour']['tour_name'];
                     $privateTourName["$name"] = $name;
                 }
+                $options['Private Tour'] = $privateTourName;
+
+                $internationalTourName = array();
                 for ($i = 0; $i < count($menu6); $i++) {
                     $name = $menu6[$i]['Tour']['tour_name'];
                     $internationalTourName["$name"] = $name;
                 }
+                $options['International Tour'] = $internationalTourName;
+
+                $eventName = array();
                 for ($i = 0; $i < count($menu2); $i++) {
                     $name = $menu2[$i]['Event']['event_name'];
                     $eventName["$name"] = $name;
                 }
+                $options['Event'] = $eventName;
+
+                $cookingClass = array();
                 for ($i = 0; $i < count($menu3); $i++) {
                     $name = $menu3[$i]['Cookingclass']['cooking_class_name'];
                     $cookingClass["$name"] = $name;
                 }
-                $options['Public Tour'] = $publicTourName;
-                $options['Private Tour'] = $privateTourName;
-                $options['International Tour'] = $internationalTourName;
-
-                $options['Event'] = $eventName;
                 $options['Cooking Class'] = $cookingClass;
+
                 echo $this->Form->select('inquiring', $options, array('label' => false, 'div' => false));
 ?></td>
         </tr>
@@ -94,19 +109,19 @@ if (isset($validationErrorsArray['email'])) {
         <tr>
             <td colspan="2">
                 <div class="<?php
-                     if (isset($Error)) {
-                         echo $Error[1];
-                     }
+                if (isset($Error)) {
+                    echo $Error[1];
+                }
 ?>" style="padding:0px;margin-bottom: 0px">
-<?php
-require_once('recaptchalib.php');
-$publickey = "6LeF-dcSAAAAAJpOKKcC_TuETypGQgUPXwNZTHyh";
-echo recaptcha_get_html($publickey);
-if (isset($Error)) {
-    echo $Error[0];
-}
+                     <?php
+                     require_once('recaptchalib.php');
+                     $publickey = "6LeF-dcSAAAAAJpOKKcC_TuETypGQgUPXwNZTHyh";
+                     echo recaptcha_get_html($publickey);
+                     if (isset($Error)) {
+                         echo $Error[0];
+                     }
 //                    print_r($validationErrorsArray);
-?>
+                     ?>
                 </div>
             </td>
         </tr>
