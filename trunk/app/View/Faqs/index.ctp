@@ -38,8 +38,8 @@ $this->start('manageRightContent');
 	<?php foreach ($faqs as $faq): ?>
 	<tr>
 		<!--<td><?php echo h($faq['Faq']['user_id']); ?>&nbsp;</td>-->
-		<td><?php echo  $this->Text->truncate(h($faq['Faq']['question'],20,array('ellipsis'=>'...'))); ?>&nbsp;</td>
-		<td><?php echo  $this->Text->truncate(h($faq['Faq']['answer'],20,array('ellipsis'=>'...'))); ?>&nbsp;</td>
+		<td><?php echo  $this->Text->truncate(h($faq['Faq']['question']),20,array('ellipsis'=>'...')); ?>&nbsp;</td>
+		<td><?php echo  $this->Text->truncate(h($faq['Faq']['answer']),20,array('ellipsis'=>'...')); ?>&nbsp;</td>
 		<td><?php echo h($faq['Faq']['faq_status']); ?>&nbsp;</td>
 		<td class="actions">
 			<?php echo $this->Html->link(__('View'), array('action' => 'view', $faq['Faq']['id'])); ?>
