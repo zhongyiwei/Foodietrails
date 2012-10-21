@@ -50,14 +50,42 @@
                 <ul>
                     <li class="active"><?php echo $this->Html->link(__('Home'), array('controller' => 'Home', 'action' => 'display')); ?></li>
                     <li class='has-sub'><a>Tours</a>
-                        <ul>
-                            <?php for ($i = 0; $i < count($menu); $i++) { ?>
-                                <li> <?php
-                            $tourName = $menu[$i]['Tour']['tour_name'];
-                            echo $this->Html->link(__($tourName), array('controller' => 'Tours', 'action' => 'tourDetail', $menu[$i]['Tour']['id']));
-                                ?></li>
-                            <?php } ?>
-                        </ul>
+
+                        <div class="menuhorizontal">
+                            <ul>
+                                <li class='has-sub2'><a>Public Tours</a>
+                                    <ul>
+                                        <?php for ($i = 0; $i < count($menu); $i++) { ?>
+                                            <li> <?php
+                                        $tourName = $menu[$i]['Tour']['tour_name'];
+                                        echo $this->Html->link(__($tourName), array('controller' => 'Tours', 'action' => 'tourDetail', $menu[$i]['Tour']['id']));
+                                            ?></li>
+                                        <?php } ?>
+                                    </ul>
+                                </li>
+                                <li class='has-sub2'><a>Private Tours</a>
+                                    <ul>
+                                        <?php for ($i = 0; $i < count($menu5); $i++) { ?>
+                                            <li> <?php
+                                        $tourName = $menu5[$i]['Tour']['tour_name'];
+                                        echo $this->Html->link(__($tourName), array('controller' => 'Tours', 'action' => 'tourDetail', $menu5[$i]['Tour']['id']));
+                                            ?></li>
+                                        <?php } ?>
+                                    </ul>
+                                </li>
+                                <li class='has-sub2'><a>International Tours</a>
+                                    <ul>
+                                        <?php for ($i = 0; $i < count($menu6); $i++) { ?>
+                                            <li> <?php
+                                        $tourName = $menu6[$i]['Tour']['tour_name'];
+                                        echo $this->Html->link(__($tourName), array('controller' => 'Tours', 'action' => 'tourDetail', $menu6[$i]['Tour']['id']));
+                                            ?></li>
+                                        <?php } ?>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+
                     </li>
                     <li class='has-sub'><a>Events</a>
                         <ul>
@@ -73,7 +101,7 @@
                     <li><a>Product</a></li>
                     <li class='has-sub'><a>Media</a>
                         <ul>
-                               <?php for ($i = 0; $i < count($menu4); $i++) { ?>
+                            <?php for ($i = 0; $i < count($menu4); $i++) { ?>
                                 <li> <?php
                             $news = $menu4[$i]['News']['news_title'];
                             echo $this->Html->link(__($news), array('controller' => 'News', 'action' => 'news_detail', $menu4[$i]['News']['id']));
@@ -100,7 +128,7 @@
                             <li><?php echo $this->Html->link(__('Contact Us'), array('controller' => 'About', 'action' => 'contactUs')); ?></li>
                             <li><a href="http://foodietrails.com.au/blogweb/index.php">Blogs</a></li>
                             <li><?php echo $this->Html->link(__('About Foodie Trails Inc.'), array('controller' => 'About', 'action' => 'aboutCompany')); ?></li>
-							<li><?php echo $this->Html->link(__('FAQs.'), array('controller' => 'Faqs', 'action' => 'add')); ?></li>
+                            <li><?php echo $this->Html->link(__('FAQs.'), array('controller' => 'Faqs', 'action' => 'add')); ?></li>
                         </ul>
                     </li>
                 </ul>
