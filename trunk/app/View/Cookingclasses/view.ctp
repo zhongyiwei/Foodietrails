@@ -17,6 +17,7 @@ $this->start('manageRightMenu');
         <li><?php echo $this->Html->link(__('Tour'), array('controller' => 'tours', 'action' => 'index')); ?></li>
         <li><?php echo $this->Html->link(__('Product'), array('controller' => 'products','action' => 'index')); ?></li>
         <li class='active '><?php echo $this->Html->link(__('Cooking Class'), array('action' => 'index')); ?></li>
+         <li><?php echo $this->Html->link(__('Gift Voucher'), array('controller' => 'giftvouchers', 'action' => 'index')); ?></li>        
     </ul>
 </div>
 <div class="mangeRightSubMenu"> 

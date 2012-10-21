@@ -1,9 +1,9 @@
 <?php
 $this->extend('/Common/AdminEdit');
-$this->assign('LeftProduct','LeftMenuActions');
-$this->assign('LeftCustomer','');
-$this->assign('LeftNews','');
-$this->assign('LeftEvent','');
+$this->assign('LeftProduct', 'LeftMenuActions');
+$this->assign('LeftCustomer', '');
+$this->assign('LeftNews', '');
+$this->assign('LeftEvent', '');
 $this->start('LeftEditMenu');
 ?>
 <li><?php echo $this->Html->link(__('View this Cooking Class'), array('action' => 'view', $this->Form->value('Cookingclass.id'))); ?></li>
@@ -14,9 +14,10 @@ $this->start('manageRightMenu');
 ?>
 <div class="manageRightMenu" >
     <ul>
-        <li><?php echo $this->Html->link(__('Tour'), array('controller' => 'tours','action' => 'index')); ?></li>
+        <li><?php echo $this->Html->link(__('Tour'), array('controller' => 'tours', 'action' => 'index')); ?></li>
         <li><?php echo $this->Html->link(__('Product'), array('controller' => 'products', 'action' => 'index')); ?></li>
         <li class='active '><?php echo $this->Html->link(__('Cooking Class'), array('action' => 'index')); ?></li>
+        <li><?php echo $this->Html->link(__('Gift Voucher'), array('controller' => 'giftvouchers', 'action' => 'index')); ?></li>        
     </ul>
 </div>
 <div class="mangeRightSubMenu"> 
@@ -29,19 +30,19 @@ $this->end();
 $this->start('manageRightContent');
 ?>
 <div class="cookingclasses form">
-<?php echo $this->Form->create('Cookingclass'); ?>
-	<fieldset>
-	<?php
-		echo $this->Form->input('id');
-		echo $this->Form->input('cooking_class_name');
-		echo $this->Form->input('cooking_class_description', array('id' => 'cooking_class_description', 'class' => 'ckeditor'));
-		echo $this->Form->input('cooking_class_price');
-		echo $this->Form->input('cooking_class_location');
-		echo $this->Form->input('cooking_class_thumbnail', array('id' => 'xFilePath', 'class' => 'ckeditor', 'style' => 'width:500px'));
+    <?php echo $this->Form->create('Cookingclass'); ?>
+    <fieldset>
+        <?php
+        echo $this->Form->input('id');
+        echo $this->Form->input('cooking_class_name');
+        echo $this->Form->input('cooking_class_description', array('id' => 'cooking_class_description', 'class' => 'ckeditor'));
+        echo $this->Form->input('cooking_class_price');
+        echo $this->Form->input('cooking_class_location');
+        echo $this->Form->input('cooking_class_thumbnail', array('id' => 'xFilePath', 'class' => 'ckeditor', 'style' => 'width:500px'));
         echo $this->Form->button('Browse Server', array('onclick' => 'BrowseServer()', 'type' => 'button', 'style' => 'padding:5px;margin-top:-55px; margin-left:530px'));
-	?>
-	</fieldset>
-<?php echo $this->Form->end(__('Submit')); ?>
+        ?>
+    </fieldset>
+    <?php echo $this->Form->end(__('Submit')); ?>
 </div>
 <script type="text/javascript">
     var ck_newsContent = CKEDITOR.replace( 'cooking_class_description',{
