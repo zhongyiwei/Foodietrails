@@ -27,6 +27,7 @@ echo $this->Html->css('jquery.dataTables.css');
     </tr>
     <tr>
         <td>
+            <div class="index"><?php echo $this->Session->flash(); ?></div>
             <?php echo $this->fetch('manageRightContent'); ?>
         </td>
     </tr>
