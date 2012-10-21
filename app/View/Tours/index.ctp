@@ -11,6 +11,7 @@ $this->start('manageRightMenu');
         <li class='active '><?php echo $this->Html->link(__('Tour'), array('action' => 'index')); ?></li>
         <li><?php echo $this->Html->link(__('Product'), array('controller' => 'products', 'action' => 'index')); ?></li>
         <li><?php echo $this->Html->link(__('Cooking Class'), array('controller' => 'cookingclasses', 'action' => 'index')); ?></li>
+        <li><?php echo $this->Html->link(__('Gift Voucher'), array('controller' => 'giftvouchers', 'action' => 'index')); ?></li>
     </ul>
 </div>
 
@@ -25,9 +26,9 @@ $this->end();
 $this->start('manageRightContent');
 ?>
 <div class="tours index">
-	<table cellpadding="0" cellspacing="0" id="js-datatable">
-	<thead>
-		 <tr>
+    <table cellpadding="0" cellspacing="0" id="js-datatable">
+        <thead>
+            <tr>
 <!--                <th>ID</th>-->
                 <th>Name</th>
                 <!--<th>tour_description</th>-->
@@ -44,11 +45,11 @@ $this->start('manageRightContent');
                 <th>Type</th>
                 <th class="actions"><?php echo __('Actions'); ?></th>
             </tr>
-	</thead>
-	<tbody>
-     <?php foreach ($tours as $tour): ?>
+        </thead>
+        <tbody>
+            <?php foreach ($tours as $tour): ?>
                 <tr>
-<!--                    <td><?php echo h($tour['Tour']['id']); ?>&nbsp;</td>-->
+    <!--                    <td><?php echo h($tour['Tour']['id']); ?>&nbsp;</td>-->
                     <td><?php echo h($tour['Tour']['tour_name']); ?>&nbsp;</td>
                     <!--<td><?php echo h($tour['Tour']['tour_description']); ?>&nbsp;</td>-->
                     <!--<td><?php echo h($tour['Tour']['tour_vendor_name']); ?>&nbsp;</td>-->
@@ -69,7 +70,7 @@ $this->start('manageRightContent');
                     </td>
                 </tr>
             <?php endforeach; ?>
-	</tbody>
+        </tbody>
     </table>
     <p>
         <?php
@@ -80,9 +81,9 @@ $this->start('manageRightContent');
 
     <div class="paging">
         <?php
-   //     echo $this->Paginator->prev('< ' . __('previous'), array(), null, array('class' => 'prev disabled'));
-   //     echo $this->Paginator->numbers(array('separator' => ''));
-   //     echo $this->Paginator->next(__('next') . ' >', array(), null, array('class' => 'next disabled'));
+        //     echo $this->Paginator->prev('< ' . __('previous'), array(), null, array('class' => 'prev disabled'));
+        //     echo $this->Paginator->numbers(array('separator' => ''));
+        //     echo $this->Paginator->next(__('next') . ' >', array(), null, array('class' => 'next disabled'));
         ?>
     </div>
 </div>

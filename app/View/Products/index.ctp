@@ -11,6 +11,7 @@ $this->start('manageRightMenu');
         <li><?php echo $this->Html->link(__('Tour'), array('controller' => 'Tours', 'action' => 'index')); ?></li>
         <li class='active '><?php echo $this->Html->link(__('Product'), array('action' => 'index')); ?></li>
         <li><?php echo $this->Html->link(__('Cooking Class'), array('controller' => 'cookingclasses', 'action' => 'index')); ?></li>
+        <li><?php echo $this->Html->link(__('Gift Voucher'), array('controller' => 'giftvouchers', 'action' => 'index')); ?></li>
     </ul>
 </div>
 
@@ -24,20 +25,20 @@ $this->end();
 $this->start('manageRightContent');
 ?>
 <div class="Products index">
-	<table cellpadding="0" cellspacing="0" id="js-datatable">
-	<thead>
-		<tr>
-                <!--<th>ID</th>-->
+    <table cellpadding="0" cellspacing="0" id="js-datatable">
+        <thead>
+            <tr>
+            <!--<th>ID</th>-->
                 <th>Product Name</th>
                 <th>Product Description</th>
                 <th>Product Price</th>
                 <th class="actions"><?php echo __('Actions'); ?></th>
-		</tr>
-	</thead>
-	<tbody>
-    <?php foreach ($products as $product): ?>
-        <tr>
-					<!--<td><?php echo h($product['Product']['id']); ?>&nbsp;</td>-->
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach ($products as $product): ?>
+                <tr>
+                                                <!--<td><?php echo h($product['Product']['id']); ?>&nbsp;</td>-->
                     <td><?php echo h($product['Product']['product_name']); ?>&nbsp;</td>
                     <td><?php echo $this->Text->truncate($product['Product']['product_description'], 40, array('ellipsis' => '...')); ?></td>
                     <td><?php echo h($product['Product']['product_price']); ?>&nbsp;</td>
@@ -46,9 +47,9 @@ $this->start('manageRightContent');
                         <?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $product['Product']['id'])); ?>
                         <?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $product['Product']['id']), null, __('Are you sure you want to delete # %s?', $product['Product']['product_name'])); ?>
                     </td>
-        </tr>
-    <?php endforeach; ?>
-	</tbody>
+                </tr>
+            <?php endforeach; ?>
+        </tbody>
     </table>
     <p>
         <?php
@@ -59,9 +60,9 @@ $this->start('manageRightContent');
 
     <div class="paging">
         <?php
-   //     echo $this->Paginator->prev('< ' . __('previous'), array(), null, array('class' => 'prev disabled'));
-   //     echo $this->Paginator->numbers(array('separator' => ''));
-   //     echo $this->Paginator->next(__('next') . ' >', array(), null, array('class' => 'next disabled'));
+        //     echo $this->Paginator->prev('< ' . __('previous'), array(), null, array('class' => 'prev disabled'));
+        //     echo $this->Paginator->numbers(array('separator' => ''));
+        //     echo $this->Paginator->next(__('next') . ' >', array(), null, array('class' => 'next disabled'));
         ?>
     </div>
 </div>

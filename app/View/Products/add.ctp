@@ -1,16 +1,17 @@
 <?php
 $this->extend('/Common/AdminAdd');
-$this->assign('LeftProduct','LeftMenuActions');
-$this->assign('LeftCustomer','');
-$this->assign('LeftNews','');
-$this->assign('LeftEvent','');
+$this->assign('LeftProduct', 'LeftMenuActions');
+$this->assign('LeftCustomer', '');
+$this->assign('LeftNews', '');
+$this->assign('LeftEvent', '');
 $this->start('manageRightMenu');
 ?>
 <div class="manageRightMenu" >
     <ul>
-        <li><?php echo $this->Html->link(__('Tour'),  array('controller' => 'Tours', 'action' => 'index')); ?></li>
+        <li><?php echo $this->Html->link(__('Tour'), array('controller' => 'Tours', 'action' => 'index')); ?></li>
         <li class='active '><?php echo $this->Html->link(__('Product'), array('action' => 'index')); ?></li>
         <li><?php echo $this->Html->link(__('Cooking Class'), array('controller' => 'cookingclasses', 'action' => 'index')); ?></li>
+        <li><?php echo $this->Html->link(__('Gift Voucher'), array('controller' => 'giftvouchers', 'action' => 'index')); ?></li>        
     </ul>
 </div>
 <div class="mangeRightSubMenu"> 
@@ -25,13 +26,13 @@ $this->start('manageRightContent');
 <div class="Products form">
     <?php echo $this->Form->create('Product'); ?>
     <fieldset>
-	<?php
-		echo $this->Form->input('product_name');
-		echo $this->Form->input('product_description', array('id' => 'product_description', 'class' => 'ckeditor'));
-		echo $this->Form->input('product_price',array('type'=>'number'));
-		echo $this->Form->input('product_thumbnail', array('id' => 'xFilePath', 'class' => 'ckeditor', 'style' => 'width:500px'));
+        <?php
+        echo $this->Form->input('product_name');
+        echo $this->Form->input('product_description', array('id' => 'product_description', 'class' => 'ckeditor'));
+        echo $this->Form->input('product_price', array('type' => 'number'));
+        echo $this->Form->input('product_thumbnail', array('id' => 'xFilePath', 'class' => 'ckeditor', 'style' => 'width:500px'));
         echo $this->Form->button('Browse Server', array('onclick' => 'BrowseServer()', 'type' => 'button', 'style' => 'padding:5px;margin-top:-55px; margin-left:530px;float:left'));
-	?>
+        ?>
     </fieldset>
     <?php echo $this->Form->end(__('Submit')); ?>
 </div>
@@ -41,8 +42,8 @@ $this->start('manageRightContent');
         filebrowserWindowWidth : '600',
         filebrowserWindowHeight : '300'
     } ); 
-   CKFinder.SetupCKEditor( ck_newsContent, 'ckfinder/') ;
-   function BrowseServer()
+    CKFinder.SetupCKEditor( ck_newsContent, 'ckfinder/') ;
+    function BrowseServer()
     {
         var finder = new CKFinder();
         finder.basePath = '../';	

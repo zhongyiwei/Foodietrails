@@ -1,9 +1,9 @@
 <?php
 $this->extend('/Common/AdminEdit');
-$this->assign('LeftProduct','LeftMenuActions');
-$this->assign('LeftCustomer','');
-$this->assign('LeftNews','');
-$this->assign('LeftEvent','');
+$this->assign('LeftProduct', 'LeftMenuActions');
+$this->assign('LeftCustomer', '');
+$this->assign('LeftNews', '');
+$this->assign('LeftEvent', '');
 $this->start('LeftEditMenu');
 ?>
 <li><?php echo $this->Html->link(__('View this Tour'), array('action' => 'view', $this->Form->value('Tour.id'))); ?></li>
@@ -17,6 +17,7 @@ $this->start('manageRightMenu');
         <li class='active '><?php echo $this->Html->link(__('Tour'), array('action' => 'index')); ?></li>
         <li><?php echo $this->Html->link(__('Product'), array('controller' => 'products', 'action' => 'index')); ?></li>
         <li><?php echo $this->Html->link(__('Cooking Class'), array('controller' => 'cookingclasses', 'action' => 'index')); ?></li>
+        <li><?php echo $this->Html->link(__('Gift Voucher'), array('controller' => 'giftvouchers', 'action' => 'index')); ?></li>
     </ul>
 </div>
 <div class="mangeRightSubMenu"> 
@@ -47,7 +48,7 @@ $this->start('manageRightContent');
         echo $this->Form->input('tour_weather');
         echo $this->Form->input('tour_spectator');
         echo $this->Form->input('tour_max_num_on_day');
-        echo $this->Form->input('tour_type',array('options'=>$tourType,'default'=>'Public'));
+        echo $this->Form->input('tour_type', array('options' => $tourType, 'default' => 'Public'));
         echo $this->Form->input('tour_thumbnail', array('id' => 'xFilePath', 'class' => 'ckeditor', 'style' => 'width:500px'));
         echo $this->Form->button('Browse Server', array('onclick' => 'BrowseServer()', 'type' => 'button', 'style' => 'padding:5px;margin-top:-55px; margin-left:530px'));
         ?>
