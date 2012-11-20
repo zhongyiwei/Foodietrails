@@ -130,6 +130,43 @@ class CheckoutController extends AppController {
                     $this->Cookie->write("Cart.cartData$maxArrayKeyId", $currentProduct);
                 }
             }
+        } else if ($identifier == 'GiftVoucher') {
+            if ($this->Cookie->read('Cart') != null) {
+                for ($i = 0; $i < count($this->Cookie->read('Cart')); $i++) {
+                    $currentCart[$i] = $this->Cookie->read("Cart.cartData$i");
+                }
+            } else {
+                $currentCart[0] = null;
+            }
+            $currentGiftVoucher = $this->GiftVoucher->read(null, $id);
+            if ($currentCart[0] == null && $id != null) {
+                $currentProduct['Identifier'] = "GiftVoucher";
+                $currentProduct['GiftVoucher']['id'] = $currentGiftVoucher['GiftVoucher']['id'];
+                $currentProduct['GiftVoucher']['gift_voucher_name'] = $currentGiftVoucher['GiftVoucher']['gift_voucher_name'];
+                $currentProduct['GiftVoucher']['gift_price'] = $currentGiftVoucher['GiftVoucher']['gift_price'];
+                $currentProduct['Qty'] = 1;
+                $currentProduct['subTotal'] = $currentProduct['Qty'] * $currentProduct['GiftVoucher']['gift_price'];
+                $this->Cookie->write('Cart.cartData0', $currentProduct);
+            } else if ($currentCart[0] != null && $id != null) {
+                $maxArrayKeyId = count($this->Cookie->read('Cart'));
+                $insertStatus = true;
+                for ($i = 0; $i < $maxArrayKeyId; $i++) {
+                    if ($currentCart[$i]['Identifier'] == 'GiftVoucher') {
+                        if ($currentCart[$i]['GiftVoucher']['id'] == $id) {
+                            $insertStatus = false;
+                        }
+                    }
+                }
+                if ($insertStatus == true) {
+                    $currentProduct['Identifier'] = "GiftVoucher";
+                    $currentProduct['GiftVoucher']['id'] = $currentGiftVoucher['GiftVoucher']['id'];
+                    $currentProduct['GiftVoucher']['gift_voucher_name'] = $currentGiftVoucher['GiftVoucher']['gift_voucher_name'];
+                    $currentProduct['GiftVoucher']['gift_price'] = $currentGiftVoucher['GiftVoucher']['gift_price'];
+                    $currentProduct['Qty'] = 1;
+                    $currentProduct['subTotal'] = $currentProduct['Qty'] * $currentProduct['GiftVoucher']['gift_price'];
+                    $this->Cookie->write("Cart.cartData$maxArrayKeyId", $currentProduct);
+                }
+            }
         }
         $this->set('SC', $this->Cookie->read("Cart"));
         if ($this->request->is('post')) {
@@ -152,6 +189,11 @@ class CheckoutController extends AppController {
                         $postName = $currentCart[$i]['Product']['id'] . 'PQty';
                         $currentCart[$i]['Qty'] = $this->request->data($postName);
                         $currentCart[$i]['subTotal'] = $currentCart[$i]['Qty'] * $currentCart[$i]['Product']['product_price'];
+                        $this->Cookie->write("Cart.cartData$i", $currentCart[$i]);
+                    } else if ($currentCart[$i]['Identifier'] == 'GiftVoucher') {
+                        $postName = $currentCart[$i]['GiftVoucher']['id'] . 'GQty';
+                        $currentCart[$i]['Qty'] = $this->request->data($postName);
+                        $currentCart[$i]['subTotal'] = $currentCart[$i]['Qty'] * $currentCart[$i]['GiftVoucher']['gift_price'];
                         $this->Cookie->write("Cart.cartData$i", $currentCart[$i]);
                     }
                 }
@@ -206,6 +248,15 @@ class CheckoutController extends AppController {
                     }
                 }
             }
+            if ($identifier == 'GiftVoucher') {
+                for ($i = 0; $i < count($currentCart); $i++) {
+                    if ($currentCart[$i]['Identifier'] == 'GiftVoucher') {
+                        if ($currentCart[$i]['GiftVoucher']['id'] == $id) {
+                            unset($currentCart[$i]);
+                        }
+                    }
+                }
+            }
             array_splice($currentCart, count($currentCart), 1);
             debug($currentCart);
             for ($i = 0; $i < count($currentCart); $i++) {
@@ -219,12 +270,13 @@ class CheckoutController extends AppController {
             $this->redirect(array('action' => $redirectLink));
         }
     }
+
     var $uses = array('DisclaimerForm');
+
     public function confirmCheckout() {
         $this->set('disclaimerForm', $this->DisclaimerForm->find('all', array('limit' => 1)));
         $this->set('SC', $this->Cookie->read('Cart'));
     }
-
 }
 
 ?>

@@ -47,7 +47,7 @@ class GiftVouchersController extends AppController {
 				$this->Session->setFlash(__('The gift voucher could not be saved. Please, try again.'));
 			}
 		}
-		$users = $this->GiftVoucher->User->find('list');
+//		$users = $this->GiftVoucher->User->find('list');
 		$this->set(compact('users'));
 	}
 
@@ -73,7 +73,7 @@ class GiftVouchersController extends AppController {
 		} else {
 			$this->request->data = $this->GiftVoucher->read(null, $id);
 		}
-		$users = $this->GiftVoucher->User->find('list');
+//		$users = $this->GiftVoucher->User->find('list');
 		$this->set(compact('users'));
 	}
 

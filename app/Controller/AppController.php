@@ -45,7 +45,7 @@ class AppController extends Controller {
 //      public function beforeFilter1() {
 //         $this->Auth->allow('index', 'view');
 //     }
-    var $uses = array('Tour', 'Event', 'Cookingclass', 'Product', 'User', 'Feedback', 'News');
+    var $uses = array('Tour', 'Event', 'Cookingclass', 'Product', 'User', 'Feedback', 'News', 'GiftVoucher');
 
     function beforeFilter() {
         Security::setHash('sha1');
@@ -55,13 +55,17 @@ class AppController extends Controller {
         $this->set('menu5', $menus5);
         $menus6 = $this->Tour->find('all', array('conditions' => array('tour_type' => 'International')));
         $this->set('menu6', $menus6);
-        $this->Auth->allow('display', 'tourDetail', 'cookingclass_detail', 'aboutCompany', 'contactUs', 'login', 'event_detail', 'checkout', 'logout', 'customerLogin', 'deleteCheckoutItem', 'customerPayment', 'existingCustomerLogin', 'check', 'confirmCheckout', 'sendEmail', 'sendSuccessful', 'news_detail','askedsuccessful');
+        $this->Auth->allow('display', 'tourDetail', 'cookingclass_detail', 'aboutCompany', 'contactUs', 'login', 'event_detail', 'checkout', 'logout', 'customerLogin', 'deleteCheckoutItem', 'customerPayment', 'existingCustomerLogin', 'check', 'confirmCheckout', 'sendEmail', 'sendSuccessful', 'news_detail', 'askedsuccessful');
         $menus2 = $this->Event->find('all');
         $this->set('menu2', $menus2);
         $menus3 = $this->Cookingclass->find('all');
         $this->set('menu3', $menus3);
         $menus4 = $this->News->find('all');
         $this->set('menu4', $menus4);
+        $menus7 = $this->GiftVoucher->find('all');
+        $this->set('giftVoucher', $menus7);
+        $menus8 = $this->Product->find('all');
+        $this->set('menu8', $menus8);
         $this->Auth->authenticate = array(
             'Form' => array('userModel' => 'User',
                 'fields' => array('username' => 'user_email', 'password' => 'user_password'),

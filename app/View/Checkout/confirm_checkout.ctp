@@ -54,6 +54,17 @@
                     <td><?php echo $SC["cartData$i"]['subTotal']; ?> AU$</td>
                 </tr>
                 <?php
+            } else if ($SC["cartData$i"]['Identifier'] == "GiftVoucher") {
+                ?><tr>
+                    <td></td>
+                    <td><?php echo $SC["cartData$i"]['GiftVoucher']['gift_voucher_name']; ?></td>
+                    <td><?php echo $SC["cartData$i"]['GiftVoucher']['gift_price']; ?> AU$</td>
+                    <td>
+                        <?php echo $SC["cartData$i"]['Qty']; ?>
+                    </td>
+                    <td><?php echo $SC["cartData$i"]['subTotal']; ?> AU$</td>
+                </tr>
+                <?php
             }
         }
         ?>

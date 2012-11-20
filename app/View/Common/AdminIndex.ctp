@@ -3,6 +3,7 @@ echo $this->Html->css('admin');
 echo $this->Html->script('jquery.dataTables.min.js');
 echo $this->Html->css('jquery.dataTables.css');
 ?>
+
 <table width="auto" border="1">
     <tr>
         <td rowspan="2">
@@ -28,12 +29,13 @@ echo $this->Html->css('jquery.dataTables.css');
     <tr>
         <td>
             <div class="index"><?php echo $this->Session->flash(); ?></div>
-            <?php echo $this->fetch('manageRightContent'); ?>
+            <div id="showTable"><?php echo $this->fetch('manageRightContent'); ?></div>
         </td>
     </tr>
 </table>
 <script>
     $(document).ready(function(){
         $('#js-datatable').dataTable();
+        document.getElementById('showTable').style.display = 'block';
     });
 </script>

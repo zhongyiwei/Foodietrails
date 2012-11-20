@@ -186,3 +186,11 @@ dd:last-child{
 .touradvisor, #CDSWIDSSP .widSSPData{
 display:none;
 }
+
+#showTable{
+    display:none;
+}
+div.index{
+    padding:0px 2%;
+    
+}

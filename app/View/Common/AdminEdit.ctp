@@ -29,6 +29,7 @@ echo $this->Html->css('admin');
     </tr>
     <tr>
         <td>
+            <div class="index"><?php echo $this->Session->flash(); ?></div>
             <?php echo $this->fetch('manageRightContent'); ?>
         </td>
     </tr>

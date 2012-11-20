@@ -78,6 +78,25 @@
                         <td><a href="<?php echo $this->webroot; ?>checkout/deleteCheckoutItem/?def=Product&id=<?php echo $SC["cartData$i"]['Product']['id']; ?>" >Delete</a> </td>
                     </tr>
                     <?php
+                } else if ($SC["cartData$i"]['Identifier'] == "GiftVoucher") {
+                    ?><tr>
+                        <td></td>
+                        <td><?php echo $SC["cartData$i"]['GiftVoucher']['gift_voucher_name']; ?></td>
+                        <td><?php echo $SC["cartData$i"]['GiftVoucher']['gift_price']; ?> AU$</td>
+                        <td>
+                            <input type="textField" name="<?php echo $SC["cartData$i"]['GiftVoucher']['id']; ?>GQty" style="width:30px;" value="<?php
+            if ($SC["cartData$i"]['Qty'] == "") {
+                echo 1;
+            } else {
+                echo $SC["cartData$i"]['Qty'];
+            }
+                    ?>"/>
+
+                        </td>
+                        <td><?php echo $SC["cartData$i"]['subTotal']; ?> AU$</td>
+                        <td><a href="<?php echo $this->webroot; ?>checkout/deleteCheckoutItem/?def=GiftVoucher&id=<?php echo $SC["cartData$i"]['GiftVoucher']['id']; ?>" >Delete</a> </td>
+                    </tr>
+                    <?php
                 }
             }
             ?>
@@ -90,6 +109,6 @@
     <button type="button" title="Proceed to Checkout" style="padding: 5px; font-size:14px;" onclick="window.location='<?php echo $this->webroot; ?>users/customerLogin';">Proceed to Check Out</button>
     <?php
 } else {
-    echo "<p>You have not book anything yet.</p><p>Please click " . $this->Html->link(__('here'), array('controller' => 'home', 'action' => 'display')) . " to continue your browsing.</p>";
+    echo "</table><p>You have not book anything yet.</p><p>Please click " . $this->Html->link(__('here'), array('controller' => 'home', 'action' => 'display')) . " to continue your browsing.</p>";
 };
 ?>
