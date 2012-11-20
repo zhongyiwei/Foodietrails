@@ -8,7 +8,7 @@ $this->start('manageRightMenu');
 ?>
 <div class="manageRightMenu" >
     <ul>
-        <li><?php echo $this->Html->link(__('Tour'), array('controller' => 'tours','action' => 'index')); ?></li>
+        <li><?php echo $this->Html->link(__('Tour'), array('controller' => 'tours', 'action' => 'index')); ?></li>
         <li><?php echo $this->Html->link(__('Product'), array('controller' => 'products', 'action' => 'index')); ?></li>
         <li><?php echo $this->Html->link(__('Cooking Class'), array('controller' => 'cookingclasses', 'action' => 'index')); ?></li>
         <li class='active '><?php echo $this->Html->link(__('Gift Voucher'), array('controller' => 'giftvouchers', 'action' => 'index')); ?></li>
@@ -27,9 +27,10 @@ $this->start('manageRightContent');
     <?php echo $this->Form->create('GiftVoucher'); ?>
     <fieldset>
         <?php
-        echo $this->Form->input('user_id', array('style'=>'display:none','label'=>false));
-        echo $this->Form->input('gift_message',array('id' => 'gift_message', 'class' => 'ckeditor'));
-        echo $this->Form->input('gift_recipient_name');
+//        echo $this->Form->input('user_id', array('style' => 'display:none', 'label' => false));
+        echo $this->Form->input('gift_voucher_name');
+        echo $this->Form->input('gift_message', array('id' => 'gift_message', 'class' => 'ckeditor'));
+        echo $this->Form->input('gift_price');
         ?>
     </fieldset>
     <?php echo $this->Form->end(__('Submit')); ?>

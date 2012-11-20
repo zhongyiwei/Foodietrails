@@ -20,13 +20,6 @@
 
     <body>
         <div class="container">
-            <div class="touradvisor">
-                <div id="TA_selfserveprop495" class="TA_selfserveprop" style="border-radius:10px;">
-                    <ul id="HUhi3hDhjOU" class="TA_links krJduqL">
-                        <li id="rF2wPI" class="DYM4Z7d">2 reviews of <a target="_blank" href="http://www.tripadvisor.com.au/Attraction_Review-g255100-d2513377-Reviews-Foodie_Trails-Melbourne_Victoria.html">Foodie Trails</a> in Melbourne</li>
-                    </ul>
-                </div>
-            </div>
             <div class="header">
                 <?php
                 echo $this->Html->image("LOGO.jpg", array("alt" => "Foodie Trails Logo", 'name' => "Foodie Trails Logo", 'height' => "90", 'style' => "background: #FFF; display:block; float:left", 'url' => array('controller' => 'Home', 'action' => 'display')));
@@ -50,7 +43,6 @@
                 <ul>
                     <li class="active"><?php echo $this->Html->link(__('Home'), array('controller' => 'Home', 'action' => 'display')); ?></li>
                     <li class='has-sub'><a>Tours</a>
-
                         <div class="menuhorizontal">
                             <ul>
                                 <li class='has-sub2'><a>Public Tours</a>
@@ -98,7 +90,17 @@
                             <?php } ?>
                         </ul>
                     </li>
-                    <li><a>Product</a></li>
+                     <li class='has-sub'><a>Product</a>
+                        <ul>
+                            <?php for ($i = 0; $i < count($menu8); $i++) { ?>
+                                <li> <?php
+                            $product= $menu8[$i]['Product']['product_name'];
+                            echo $this->Html->link(__($product), array('controller' => 'Products', 'action' => 'product_details', $menu8[$i]['Product']['id']));
+                                ?>
+                                </li>
+                            <?php } ?>
+                        </ul>
+                    </li>
                     <li class='has-sub'><a>Media</a>
                         <ul>
                             <?php for ($i = 0; $i < count($menu4); $i++) { ?>
@@ -121,6 +123,18 @@
                             <?php } ?>
                         </ul>
                     </li>
+                    <li class='has-sub'><a>Gift Voucher</a>
+                                    <ul>
+                                        <?php for ($i = 0; $i < count($menu3); $i++) { ?>
+                                            <li> <?php
+                                        $giftVoucherName = $giftVoucher[$i]['GiftVoucher']['gift_voucher_name'];
+                                        $id = $giftVoucher[$i]['GiftVoucher']['id'];
+                                        echo $this->Html->link(__($giftVoucherName), array('controller' => 'checkout', 'action' => 'index', '?' => array('def' => 'GiftVoucher', 'id' => "$id")));
+                                            ?>
+                                            </li>
+<?php } ?>
+                                    </ul>
+                    </li>
                     <li class='has-sub'><a>About Us</a>
                         <ul>
 <!--                            <li><a href='#'><span>FAQ</span></a></li>
@@ -134,7 +148,7 @@
                 </ul>
             </div>
             <div class="content">
-                <?php echo $this->fetch('content'); ?>
+<?php echo $this->fetch('content'); ?>
             </div>
 
             <script src="http://www.jscache.com/wejs?wtype=selfserveprop&amp;uniq=495&amp;locationId=2513377&amp;lang=en_AU&amp;rating=true&amp;nreviews=5&amp;writereviewlink=true&amp;popIdx=true&amp;iswide=false&amp;border=false"></script>
@@ -161,14 +175,13 @@
             </div>
             <script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid=julianssss"></script>
             <script type="text/javascript">var addthis_config = {"data_track_addressbar":true};
-                //                var addthis_share ={"title":"Foodie Trails is amazing!","note":"Hey friend, I thought you should check this website out, it is simply the best food tourism website I have evern tried."};   
-                //                                var addthis_share = { "email_template":"Foodie_Trails_Template" };
-                //                var addthis_share ={"templates":"Foodie_Trails_Template"};   
-                //                var addthis_share = { email_template: "FTT" };
-                var addthis_share = {url:"http://foodietrails.com.au"};
-                var addthis_share = {"title":"Foodie Trails is amazing!"};
+            //                var addthis_share ={"title":"Foodie Trails is amazing!","note":"Hey friend, I thought you should check this website out, it is simply the best food tourism website I have evern tried."};   
+            //                                var addthis_share = { "email_template":"Foodie_Trails_Template" };
+            //                var addthis_share ={"templates":"Foodie_Trails_Template"};   
+            //                var addthis_share = { email_template: "FTT" };
+            var addthis_share = {url:"http://foodietrails.com.au"};
+            var addthis_share = {"title":"Foodie Trails is amazing!"};
             </script>
-
             <!-- AddThis Button END -->
 
             <div class="footer">
@@ -183,8 +196,8 @@
                         </td>
                         <td style="vertical-align:middle" align="right">
                             <a href="http://beaconholidays.com.au/"><?php
-                echo $this->Html->image("BH.png", array("alt" => "Beacon Holiday", 'name' => "Beacon Holiday Logo", 'width' => "60"));
-                ?></a>
+echo $this->Html->image("BH.png", array("alt" => "Beacon Holiday", 'name' => "Beacon Holiday Logo", 'width' => "60"));
+?></a>
 
                         </td>
                     </tr>
