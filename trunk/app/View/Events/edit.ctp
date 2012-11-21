@@ -30,7 +30,6 @@ $this->start('manageRightContent');
 <div class="events form">
 <?php echo $this->Form->create('Event'); ?>
 	<fieldset>
-		<legend><?php echo __('Edit Event'); ?></legend>
 	<?php
 		echo $this->Form->input('id');
 		echo $this->Form->input('event_name');

@@ -6,6 +6,7 @@
 ?>
 <h1 class="aboutUsHeading">We have a passion for food…its evolution and its history</h1><img src="<?php echo $this->webroot;?>img/AboutCompanyP1.png" width="180" style="border-radius:5px;margin-top: -5px;
 margin-right: 15px;" title="" alt="" align="right" style="margin: -8px 25px 20px 5px; " />
+
 <p class="aboutP">It all started when
     2 sisters Rushina (Gastronome Writer) and Himanshi (Travel Consultant) got
     together and came up with Masala Trails - A unique tour that combines travel

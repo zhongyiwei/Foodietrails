@@ -14,7 +14,7 @@ $this->start('manageRightMenu');
 </div>
 <div class="mangeRightSubMenu"> 
     <div class="selected"><?php echo $this->Html->link(__('FAQs List'), array('action' => 'index')); ?></div>
-    <!--<div class="unselected"><?php echo $this->Html->link(__('Add FAQs'), array('action' => 'add')); ?></div>-->
+    <div class="unselected"><?php echo $this->Html->link(__('Add FAQs'), array('action' => 'add')); ?></div>
 </div>
 <?php
 $this->end();
@@ -25,12 +25,9 @@ $this->start('manageRightContent');
 	<table cellpadding="0" cellspacing="0" id="js-datatable">
 	<thead>
 	<tr>
-			    <!--<th>User ID</th>-->
 				<th>Question</th>
 				<th>Answer</th>
                 <th>Status</th>
-			<!--<th>FAQs Date</th>-->
-			<!--<th>event_thumbnail</th>-->
 			<th class="actions"><?php echo __('Actions'); ?></th>
 	</tr>
 	</thead>
@@ -44,7 +41,7 @@ $this->start('manageRightContent');
 		<td class="actions">
 			<?php echo $this->Html->link(__('View'), array('action' => 'view', $faq['Faq']['id'])); ?>
 			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $faq['Faq']['id'])); ?>
-			<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $faq['Faq']['id']), null, __('Are you sure you want to delete # %s?', $faq['Faq']['question'])); ?>
+			<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $faq['Faq']['id']), null, __('Are you sure you want to delete # %s?', $faq['Faq']['id'])); ?>
 		</td>
 	</tr>
 <?php endforeach; ?>

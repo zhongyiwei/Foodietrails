@@ -493,6 +493,10 @@ form .submit input[type="submit"]:hover, table td.actions a:hover {
 input, textarea {
     font-family:arial;
 }
+.indent_sitemap2 {
+    margin-left: 100px;
+    list-style-type: square;
+}
 .indent_sitemap {
     margin-left: 50px;
     list-style-type: circle;

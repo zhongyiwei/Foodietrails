@@ -1,25 +1,44 @@
-<h1 class="tourHeader">Frequently Asked Questions</h1>
-<h2 class="tourParticipantGuide">Question and Answer</h2>
-<p><?php foreach ($faqs as $faq): ?>
-<tr>
-    <td>
-        Q: <?php echo $faq['Faq']['question']; ?><br />
-        A: <?php echo $faq['Faq']['answer']; ?>"<p />
-    </td>
-</tr>
-<?php endforeach; ?></p>
-<?php // echo $this->Session->flash(); ?>
+<?php
+$this->extend('/Common/AdminAdd');
+$this->assign('LeftProduct','');
+$this->assign('LeftCustomer','');
+$this->assign('LeftNews','');
+$this->assign('LeftEvent','');
+$this->assign('LeftFaq','LeftMenuActions');
+$this->start('manageRightMenu');
+?>
+<div class="manageRightMenu" >
+    <ul>
+        <li class='active '><?php echo $this->Html->link(__('Faqs'), array('action' => 'index')); ?></li>
+    </ul>
+</div>
+<div class="mangeRightSubMenu"> 
+    <div class="unselected"><?php echo $this->Html->link(__('FAQs List'), array('action' => 'index')); ?></div>
+    <div class="selected"><?php echo $this->Html->link(__('Add FAQs'), array('action' => 'add')); ?></div>
+</div>
+<?php
+$this->end();
 
+$this->start('manageRightContent');
+?>
 <?php echo $this->Form->create('Faq'); ?>
 <fieldset>
     <?php
-    echo $this->Form->input('question', array('id' => 'question', 'class' => 'ckeditor'));
+	$statusType = array('Show' => 'Show', 'Hide' => 'Hide');
+		echo $this->Form->input('question', array('id' => 'question1', 'class' => 'ckeditor'));
+		echo $this->Form->input('answer', array('id' => 'answer1', 'class' => 'ckeditor'));
+		echo $this->Form->input('faq_status', array('options' => $statusType));
     ?>
     <?php echo $this->Form->end(__('Submit')); ?>
 </fieldset>
 
 <script type="text/javascript">
-    var ck_newsContent = CKEDITOR.replace( 'question',{
+    var ck_newsContent = CKEDITOR.replace( 'question1',{
+	        filebrowserBrowseUrl : '/js/ckfinder/ckfinder.html',
+        filebrowserWindowWidth : '600',
+        filebrowserWindowHeight : '300'
+    } ); 
+	var ck_newsContent = CKEDITOR.replace( 'answer1',{
         filebrowserBrowseUrl : '/js/ckfinder/ckfinder.html',
         filebrowserWindowWidth : '600',
         filebrowserWindowHeight : '300'

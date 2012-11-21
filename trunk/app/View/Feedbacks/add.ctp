@@ -2,7 +2,7 @@
     <?php echo $this->Form->create('Feedback'); ?>
     <fieldset>
 		<?php
-		echo $this->Form->input('full_name');
+		echo $this->Form->input('first_name');
 		echo $this->Form->input('feedback_description');
         ?>
     </fieldset>
