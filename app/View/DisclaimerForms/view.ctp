@@ -16,7 +16,10 @@ $this->start('manageRightMenu');
 
 <div class="manageRightMenu" >
     <ul>
-        <li class='active '><?php echo $this->Html->link(__('Disclaimer Form'), array('action' => 'index')); ?></li>
+        <li class='active '><?php echo $this->Html->link(__('Disclaimer Form'), array('controller' => 'disclaimerforms', 'action' => 'index')); ?></li>
+        <li><?php echo $this->Html->link(__('Home Page Image'), array('controller' => 'homepageimages', 'action' => 'index')); ?></li>
+        <li><?php echo $this->Html->link(__('Home Page List'), array('controller' => 'homepagelists', 'action' => 'index')); ?></li>
+        <li><?php echo $this->Html->link(__('About Us'), array('controller' => 'aboutuspages', 'action' => 'index')); ?></li>
     </ul>
 </div>
 
@@ -31,17 +34,17 @@ $this->end();
 $this->start('manageRightContent');
 ?>
 <div class="disclaimerForms view">
-	<dl>
+    <dl>
 <!--		<dt><?php echo __('Id'); ?></dt>
-		<dd>
-			<?php echo h($disclaimerForm['DisclaimerForm']['id']); ?>
-			&nbsp;
-		</dd>-->
-		<dt><?php echo __('Form Name'); ?></dt>
-		<dd>
-			<?php echo h($disclaimerForm['DisclaimerForm']['form_name']); ?>
-			&nbsp;
-		</dd>
-	</dl>
+            <dd>
+        <?php echo h($disclaimerForm['DisclaimerForm']['id']); ?>
+                    &nbsp;
+            </dd>-->
+        <dt><?php echo __('Form Name'); ?></dt>
+        <dd>
+            <?php echo h($disclaimerForm['DisclaimerForm']['form_name']); ?>
+            &nbsp;
+        </dd>
+    </dl>
 </div>
 <?php $this->end(); ?>

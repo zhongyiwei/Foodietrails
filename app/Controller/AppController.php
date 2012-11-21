@@ -49,22 +49,29 @@ class AppController extends Controller {
 
     function beforeFilter() {
         Security::setHash('sha1');
-        $menus = $this->Tour->find('all', array('conditions' => array('tour_type' => 'Public')));
+        $allTours = $this->Tour->find('list', array('fields' => 'id, tour_name'));
+        $this->set('allTours', $allTours);
+        $allCookingClass= $this->Cookingclass->find('list', array('fields' => 'id, cooking_class_name'));
+        $this->set('allCookingClasses', $allCookingClass);
+        $allProducts = $this->Product->find('list', array('fields' => 'id, product_name'));
+        $this->set('allProducts', $allProducts);
+
+        $menus = $this->Tour->find('all', array('fields' => 'id, tour_name', 'conditions' => array('tour_type' => 'Public')));
         $this->set('menu', $menus);
-        $menus5 = $this->Tour->find('all', array('conditions' => array('tour_type' => 'Private')));
+        $menus5 = $this->Tour->find('all', array('fields' => 'id, tour_name', 'conditions' => array('tour_type' => 'Private')));
         $this->set('menu5', $menus5);
-        $menus6 = $this->Tour->find('all', array('conditions' => array('tour_type' => 'International')));
+        $menus6 = $this->Tour->find('all', array('fields' => 'id, tour_name', 'conditions' => array('tour_type' => 'International')));
         $this->set('menu6', $menus6);
-        $this->Auth->allow('display', 'tourDetail', 'cookingclass_detail', 'aboutCompany', 'contactUs', 'login', 'event_detail', 'checkout', 'logout', 'customerLogin', 'deleteCheckoutItem', 'customerPayment', 'existingCustomerLogin', 'check', 'confirmCheckout', 'sendEmail', 'sendSuccessful', 'news_detail','askedsuccessful', 'faq_view');
-        $menus2 = $this->Event->find('all');
+        $this->Auth->allow('display', 'tourDetail', 'cookingclass_detail', 'aboutCompany', 'contactUs', 'login', 'event_detail', 'checkout', 'logout', 'customerLogin', 'deleteCheckoutItem', 'customerPayment', 'existingCustomerLogin', 'check', 'confirmCheckout', 'sendEmail', 'sendSuccessful', 'news_detail', 'askedsuccessful', 'faq_view');
+        $menus2 = $this->Event->find('all', array('fields' => 'id, event_name'));
         $this->set('menu2', $menus2);
-        $menus3 = $this->Cookingclass->find('all');
+        $menus3 = $this->Cookingclass->find('all', array('fields' => 'id, cooking_class_name'));
         $this->set('menu3', $menus3);
-        $menus4 = $this->News->find('all');
+        $menus4 = $this->News->find('all', array('fields' => 'id, news_title'));
         $this->set('menu4', $menus4);
-        $menus7 = $this->GiftVoucher->find('all');
+        $menus7 = $this->GiftVoucher->find('all', array('fields' => 'id, gift_voucher_name'));
         $this->set('giftVoucher', $menus7);
-        $menus8 = $this->Product->find('all');
+        $menus8 = $this->Product->find('all', array('fields' => 'id, product_name'));
         $this->set('menu8', $menus8);
         $this->Auth->authenticate = array(
             'Form' => array('userModel' => 'User',

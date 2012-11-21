@@ -12,11 +12,6 @@ require_once('recaptchalib.php');
 class AboutController extends AppController {
 
     var $uses = array('About');
-
-    public function aboutCompany() {
-        
-    }
-
     public function contactUs() {
         $this->About->set($this->request->data);
         if ($this->request->is('post')) {
