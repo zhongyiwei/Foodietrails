@@ -5,11 +5,12 @@ $this->assign('LeftCustomer','');
 $this->assign('LeftNews','');
 $this->assign('LeftEvent','LeftMenuActions');
 $this->assign('LeftFaq','');
+$this->assign('LeftWebsite', '');
 $this->start('manageRightMenu');
 ?>
 <div class="manageRightMenu" >
  <ul>
-        <li class='active '><?php echo $this->Html->link(__('Events'), array('action' => 'index')); ?></li>
+        <li class='active '><?php echo $this->Html->link(__('Event'), array('action' => 'index')); ?></li>
  </ul>
 </div>
 <div class="mangeRightSubMenu"> 
@@ -54,3 +55,4 @@ $this->start('manageRightContent');
     }
 </script>
 <?php $this->end(); ?>
+

@@ -32,7 +32,7 @@ $this->start('manageRightContent');
 	<fieldset>
 	<?php
 		//echo $this->Form->input('page_id', $tours);
-		echo $this->Form->input('full_name');
+		echo $this->Form->input('first_name');
 		echo $this->Form->input('feedback_description');
 		$status = array('Show'=>'Show','Hide'=>'Hide');
 		echo $this->Form->input('feedback_status',array('options'=>$status,'default'=>'Hide'));

@@ -37,7 +37,7 @@ $this->start('manageRightContent');
                <tr>
                     <!--<td><?php echo h($feedback['Feedback']['id']); ?>&nbsp;</td>-->
                     <!--<td><?php echo h($feedback['Feedback']['page_id']); ?>&nbsp;</td>--> 
-					<td><?php echo h($feedback['Feedback']['full_name']); ?>&nbsp;</td>
+					<td><?php echo h($feedback['Feedback']['first_name']); ?>&nbsp;</td>
                     <td><?php echo $this->Text->truncate(h($feedback['Feedback']['feedback_description']),20,array('ellipsis'=>'...')); ?>&nbsp;</td>
 					<td><?php echo h($feedback['Feedback']['feedback_status']); ?>&nbsp;</td>
 					<td><?php echo h($feedback['Feedback']['feedback_type']); ?>&nbsp;</td>

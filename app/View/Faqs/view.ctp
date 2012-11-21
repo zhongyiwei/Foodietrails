@@ -20,7 +20,7 @@ $this->start('manageRightMenu');
 </div>
 <div class="mangeRightSubMenu"> 
     <div class="unselected"><?php echo $this->Html->link(__('FAQs List'), array('action' => 'index')); ?></div>
-    <!--<div class="selected"><?php echo $this->Html->link(__('Add FAQ'), array('action' => 'add')); ?></div>-->
+    <div class="selected"><?php echo $this->Html->link(__('Add FAQ'), array('action' => 'add')); ?></div>
 </div>
 <?php
 $this->end();

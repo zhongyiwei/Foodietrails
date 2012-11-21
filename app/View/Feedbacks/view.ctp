@@ -42,7 +42,7 @@ $this->start('manageRightContent');
 		</dd>-->
 		<dt><?php echo __('Full Name'); ?></dt>
 		<dd>
-			<?php echo h($feedback['Feedback']['full_name']); ?>
+			<?php echo h($feedback['Feedback']['first_name']); ?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('Description'); ?></dt>

@@ -37,6 +37,6 @@ echo $this->Html->link(__(''), array('controller' => 'feedbacks', 'action' => 'a
 <h2 class="tourParticipantGuide">Feedback</h2>
 <p><?php foreach ($feedbacks as $feedback): ?>
                <tr>
-					<!--<td><?php echo $feedback['Feedback']['full_name']; ?> said --> "<?php echo $feedback['Feedback']['feedback_description']; ?>"<p /></td>
+					<td><?php echo $feedback['Feedback']['first_name']; ?> said "<?php echo $feedback['Feedback']['feedback_description']; ?>"<p /></td>
 				</tr>
 <?php endforeach; ?></p>

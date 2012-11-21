@@ -142,7 +142,7 @@
                             <li><?php echo $this->Html->link(__('Contact Us'), array('controller' => 'About', 'action' => 'contactUs')); ?></li>
                             <li><a href="http://foodietrails.com.au/blogweb/index.php">Blogs</a></li>
                             <li><?php echo $this->Html->link(__('About Foodie Trails Inc.'), array('controller' => 'About', 'action' => 'aboutCompany')); ?></li>
-                            <li><?php echo $this->Html->link(__('FAQs.'), array('controller' => 'Faqs', 'action' => 'add')); ?></li>
+                            <li><?php echo $this->Html->link(__('FAQs.'), array('controller' => 'Faqs', 'action' => 'faq_view')); ?></li>
                         </ul>
                     </li>
                 </ul>

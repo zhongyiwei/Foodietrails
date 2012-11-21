@@ -1,9 +1,21 @@
 <h1 class="tourHeader">Sitemap</h1>
 <ul><li class="parent_sitemap"><?php echo $this->Html->link(__('Home'), array('controller' => 'Home', 'action' => 'display')); ?></li></ul>
-<ul><li class="parent_sitemap">Tours</li>
+<ul><li class="parent_sitemap"> Tours</li>
+<ul><li class="indent_sitemap"> Public Tours</li>
 <?php for ($i = 0; $i < count($menu); $i++) { ?>
-  <ul><li class="indent_sitemap"> <?php $tourName = $menu[$i]['Tour']['tour_name'];
-   echo $this->Html->link(__($tourName), array('controller' => 'Tours', 'action' => 'tourDetail', $menu[$i]['Tour']['id']));
+  <ul><li class="indent_sitemap2"> <?php $publicTourName = $menu[$i]['Tour']['tour_name'];
+  echo $this->Html->link(__($publicTourName), array('controller' => 'Tours', 'action' => 'tourDetail', $menu[$i]['Tour']['id']));
+                                ?></li></ul>
+<?php } ?>
+<ul><li class="indent_sitemap">Private Tours</li><?php for ($i = 0; $i < count($menu); $i++) { ?>
+  <ul><li class="indent_sitemap2"> <?php $privateTourName = $menu5[$i]['Tour']['tour_name'];
+   echo $this->Html->link(__($privateTourName), array('controller' => 'Tours', 'action' => 'tourDetail', $menu5[$i]['Tour']['id']));
+                                ?></li></ul>
+<?php } ?>
+<ul><li class="indent_sitemap">International Tours</li>
+<?php for ($i = 0; $i < count($menu); $i++) { ?>
+  <ul><li class="indent_sitemap2"> <?php $internationalTourName = $menu6[$i]['Tour']['tour_name'];
+   echo $this->Html->link(__($internationalTourName), array('controller' => 'Tours', 'action' => 'tourDetail', $menu6[$i]['Tour']['id']));
                                 ?></li></ul>
 <?php } ?>
 
@@ -15,8 +27,25 @@
 
 <?php } ?>
 </ul>
+<ul><li class="parent_sitemap">Product</li>
+<ul><li class="parent_sitemap">Media</li>
+<?php for ($i = 0; $i < count($menu4); $i++) { ?>
+    <ul><li class="indent_sitemap"> <?php $mediaName = $menu4[$i]['News']['news_title'];
+                            echo $this->Html->link(__($mediaName), array('controller' => 'News', 'action' => 'news_detail', $menu4[$i]['News']['id']));
+                                ?></li></ul>
+
+<?php } ?>
+<ul><li class="parent_sitemap">Cooking Classes</li>
+<?php for ($i = 0; $i < count($menu3); $i++) { ?>
+    <ul><li class="indent_sitemap"> <?php $cookingClassName = $menu3[$i]['Cookingclass']['cooking_class_name'];
+                            echo $this->Html->link(__($cookingClassName), array('controller' => 'Cookingclasses', 'action' => 'cookingclass_detail', $menu3[$i]['Cookingclass']['id']));
+                                ?></li></ul>
+
+<?php } ?>
+</ul>
 <ul><li class="parent_sitemap">About Us</li>
 <ul><li class="indent_sitemap"><?php echo $this->Html->link(__('Contact Us'), array('controller' => 'About', 'action' => 'contactUs')); ?></li></ul>
 <ul><li class="indent_sitemap"><a href="http://foodietrails.com.au/blogweb/index.php">Blogs</a></li></ul>
 <ul><li class="indent_sitemap"><?php echo $this->Html->link(__('About Foodie Trails Inc.'), array('controller' => 'About', 'action' => 'aboutCompany')); ?></li></ul>
+<ul><li class="indent_sitemap"><?php echo $this->Html->link(__('FAQs.'), array('controller' => 'Faqs', 'action' => 'faq_view')); ?></li></ul>
 </ul>

@@ -43,6 +43,18 @@ class FaqsController extends AppController {
  * @return void
  */
 	public function add() {
+	if ($this->request->is('post')) {
+			$this->Faq->create();
+			if ($this->Faq->save($this->request->data)) {
+				$this->Session->setFlash(__('The faq has been saved'));
+				$this->redirect(array('action' => 'index'));
+			} else {
+				$this->Session->setFlash(__('The event could not be saved. Please, try again.'));
+			}
+		}
+	}
+	
+	public function faq_view() {
 	//$currentUser = $this->Auth->user();
 		if ($this->request->is('post')) {
 			//$this->request->data['Faq']['user_id'] = $currentUser;

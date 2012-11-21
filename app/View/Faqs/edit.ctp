@@ -20,7 +20,7 @@ $this->start('manageRightMenu');
 </div>
 <div class="mangeRightSubMenu"> 
     <div class="unselected"><?php echo $this->Html->link(__('FAQs List'), array('action' => 'index')); ?></div>
-    <!--<div class="unselected"><?php echo $this->Html->link(__('Add FAQs'), array('action' => 'add')); ?></div>-->
+    <div class="unselected"><?php echo $this->Html->link(__('Add FAQs'), array('action' => 'add')); ?></div>
 </div>
 <?php
 $this->end();
@@ -31,7 +31,6 @@ $this->start('manageRightContent');
 <?php echo $this->Form->create('Faq'); ?>
 	<fieldset>
 	<?php
-		//echo $this->Form->input('user_id', array('id'=>''))
 		echo $this->Form->input('question');
 		echo $this->Form->input('answer');
 		$status = array('Show'=>'Show','Hide'=>'Hide');
