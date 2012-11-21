@@ -278,7 +278,7 @@ body {
     height: 30px;
 }
 .title2 {
-    height: 33px;
+    height: 28px;
     border-top-right-radius: 10px;
     text-align: left;
     padding: 10px 0px 0px 10px;
@@ -287,28 +287,28 @@ body {
     width:230px;
     margin-bottom: 10px;
     color:white;
-/*    background:#3366BB;
-    background:-moz-linear-gradient(top, #45b2d2 0%, #3366BB 100%);
-    background:-webkit-gradient(linear, left top, left bottom, color-stop(0%, #45b2d2), color-stop(100%, #3366BB));
-    background:-webkit-linear-gradient(top, #45b2d2 0%, #3366BB 100%);
-    background:-o-linear-gradient(top, #45b2d2 0%, #3366BB 100%);
-    background:-ms-linear-gradient(top, #45b2d2 0%, #3366BB 100%);
-    background:linear-gradient(top, #45b2d2 0%, #3366BB 100%);
-    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#45b2d2', endColorstr='#3366BB', GradientType=0);*/
-background-image: linear-gradient(bottom, rgb(255,107,38) 19%, rgb(255,162,0) 78%, rgb(255,170,0) 89%);
-background-image: -o-linear-gradient(bottom, rgb(255,107,38) 19%, rgb(255,162,0) 78%, rgb(255,170,0) 89%);
-background-image: -moz-linear-gradient(bottom, rgb(255,107,38) 19%, rgb(255,162,0) 78%, rgb(255,170,0) 89%);
-background-image: -webkit-linear-gradient(bottom, rgb(255,107,38) 19%, rgb(255,162,0) 78%, rgb(255,170,0) 89%);
-background-image: -ms-linear-gradient(bottom, rgb(255,107,38) 19%, rgb(255,162,0) 78%, rgb(255,170,0) 89%);
+    /*    background:#3366BB;
+        background:-moz-linear-gradient(top, #45b2d2 0%, #3366BB 100%);
+        background:-webkit-gradient(linear, left top, left bottom, color-stop(0%, #45b2d2), color-stop(100%, #3366BB));
+        background:-webkit-linear-gradient(top, #45b2d2 0%, #3366BB 100%);
+        background:-o-linear-gradient(top, #45b2d2 0%, #3366BB 100%);
+        background:-ms-linear-gradient(top, #45b2d2 0%, #3366BB 100%);
+        background:linear-gradient(top, #45b2d2 0%, #3366BB 100%);
+        filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#45b2d2', endColorstr='#3366BB', GradientType=0);*/
+    background-image: linear-gradient(bottom, rgb(255,107,38) 19%, rgb(255,162,0) 78%, rgb(255,170,0) 89%);
+    background-image: -o-linear-gradient(bottom, rgb(255,107,38) 19%, rgb(255,162,0) 78%, rgb(255,170,0) 89%);
+    background-image: -moz-linear-gradient(bottom, rgb(255,107,38) 19%, rgb(255,162,0) 78%, rgb(255,170,0) 89%);
+    background-image: -webkit-linear-gradient(bottom, rgb(255,107,38) 19%, rgb(255,162,0) 78%, rgb(255,170,0) 89%);
+    background-image: -ms-linear-gradient(bottom, rgb(255,107,38) 19%, rgb(255,162,0) 78%, rgb(255,170,0) 89%);
 
-background-image: -webkit-gradient(
-	linear,
-	right bottom,
-	right top,
-	color-stop(0.19, rgb(255,107,38)),
-	color-stop(0.78, rgb(255,162,0)),
-	color-stop(0.89, rgb(255,170,0))
-);
+    background-image: -webkit-gradient(
+        linear,
+        right bottom,
+        right top,
+        color-stop(0.19, rgb(255,107,38)),
+        color-stop(0.78, rgb(255,162,0)),
+        color-stop(0.89, rgb(255,170,0))
+        );
 }
 .sidetab p {
     float:left;
@@ -388,6 +388,26 @@ a:hover, a:active, a:focus { /* 此组选择器将为键盘导航者提供与鼠
     font-size: 25px;
     color: #FF850D;
     font-weight: bold;
+    
+/*    border-radius:5px;
+    padding: 5px 550px 5px 20px;
+    background-image: linear-gradient(bottom, rgb(255,107,38) 19%, rgb(255,162,0) 78%, rgb(255,170,0) 89%);
+    background-image: -o-linear-gradient(bottom, rgb(255,107,38) 19%, rgb(255,162,0) 78%, rgb(255,170,0) 89%);
+    background-image: -moz-linear-gradient(bottom, rgb(255,107,38) 19%, rgb(255,162,0) 78%, rgb(255,170,0) 89%);
+    background-image: -webkit-linear-gradient(bottom, rgb(255,107,38) 19%, rgb(255,162,0) 78%, rgb(255,170,0) 89%);
+    background-image: -ms-linear-gradient(bottom, rgb(255,107,38) 19%, rgb(255,162,0) 78%, rgb(255,170,0) 89%);
+
+    background-image: -webkit-gradient(
+        linear,
+        right bottom,
+        right top,
+        color-stop(0.19, rgb(255,107,38)),
+        color-stop(0.78, rgb(255,162,0)),
+        color-stop(0.89, rgb(255,170,0))
+        );*/
+}
+.homeTitle{
+    /*padding-left: 15px;*/
 }
 .tourPrice {
     font-size:35px;
