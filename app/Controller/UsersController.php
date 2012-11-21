@@ -29,7 +29,7 @@ class UsersController extends AppController {
                     $this->redirect(array('controller' => 'checkout', 'action' => 'confirmCheckout'));
                 }
             } else {
-                $this->Session->setFlash(__('Invalid email or password, try again'));
+                $this->Session->setFlash(__('Invalid email or password, try again'),'failure-message');
             }
         }
     }
@@ -58,7 +58,7 @@ class UsersController extends AppController {
     public function view($id = null) {
         $this->User->id = $id;
         if (!$this->User->exists()) {
-            throw new NotFoundException(__('Invalid user'));
+            throw new NotFoundException(__('The user that you are currently searching is not found','failure-message'));
         }
         $this->set('user', $this->User->read(null, $id));
     }
@@ -71,6 +71,7 @@ class UsersController extends AppController {
     public function add() {
         if ($this->request->is('post')) {
             $this->User->create();
+            $customerData = $this->request->data;
             if ($customerData['User']['user_emailsubscription'] != 'Yes') {
                 $customerData['User']['user_emailsubscription'] = 'No';
             }
@@ -78,7 +79,7 @@ class UsersController extends AppController {
                 $this->Session->setFlash(__('The user has been saved'));
                 $this->redirect(array('action' => 'index'));
             } else {
-                $this->Session->setFlash(__('The user could not be saved. Please, try again.'));
+                $this->Session->setFlash(__('The user could not be saved. Please, try again'),'failure-message');
             }
         }
         $countries = $this->User->Country->find('list', array('fields' => 'country_name'));
@@ -97,7 +98,7 @@ class UsersController extends AppController {
     public function edit($id = null) {
         $this->User->id = $id;
         if (!$this->User->exists()) {
-            throw new NotFoundException(__('Invalid user'));
+            throw new NotFoundException(__('The user could not be saved. Please, try again'),'failure-message');
         }
         $userData = $this->User->read(null, $id);
         $subscription = $userData['User']['user_emailsubscription'];
@@ -107,7 +108,7 @@ class UsersController extends AppController {
                 $this->Session->setFlash(__('The user has been saved'));
                 $this->redirect(array('action' => 'index'));
             } else {
-                $this->Session->setFlash(__('The user could not be saved. Please, try again.'));
+                $this->Session->setFlash(__('The user could not be saved. Please, try again','failure-message'));
             }
         } else {
             $this->request->data = $this->User->read(null, $id);
@@ -132,13 +133,13 @@ class UsersController extends AppController {
         }
         $this->User->id = $id;
         if (!$this->User->exists()) {
-            throw new NotFoundException(__('Invalid user'));
+            throw new NotFoundException(__('The user could not be saved. Please, try again'),'failure-message');
         }
         if ($this->User->delete()) {
-            $this->Session->setFlash(__('User deleted'));
+            $this->Session->setFlash(__('User deleted Succesful'));
             $this->redirect(array('action' => 'index'));
         }
-        $this->Session->setFlash(__('User was not deleted'));
+        $this->Session->setFlash(__('User was not deleted','failure-message'));
         $this->redirect(array('action' => 'index'));
     }
 
@@ -259,10 +260,10 @@ class UsersController extends AppController {
                             $this->redirect(array('controller' => 'checkout', 'action' => 'confirmCheckout'));
                         }
                     } else {
-                        $this->Session->setFlash(__('Invalid email or password, try again'));
+                        $this->Session->setFlash(__('Invalid email or password, try again','failure-message'));
                     }
                 } else {
-                    $this->Session->setFlash(__('The user could not be saved. Please, try again.'));
+                    $this->Session->setFlash(__('The user could not be saved. Please, try again','failure-message'));
                 }
             }
             $countries = $this->User->Country->find('list', array('fields' => 'country_name'));

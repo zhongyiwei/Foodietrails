@@ -388,23 +388,23 @@ a:hover, a:active, a:focus { /* 此组选择器将为键盘导航者提供与鼠
     font-size: 25px;
     color: #FF850D;
     font-weight: bold;
-    
-/*    border-radius:5px;
-    padding: 5px 550px 5px 20px;
-    background-image: linear-gradient(bottom, rgb(255,107,38) 19%, rgb(255,162,0) 78%, rgb(255,170,0) 89%);
-    background-image: -o-linear-gradient(bottom, rgb(255,107,38) 19%, rgb(255,162,0) 78%, rgb(255,170,0) 89%);
-    background-image: -moz-linear-gradient(bottom, rgb(255,107,38) 19%, rgb(255,162,0) 78%, rgb(255,170,0) 89%);
-    background-image: -webkit-linear-gradient(bottom, rgb(255,107,38) 19%, rgb(255,162,0) 78%, rgb(255,170,0) 89%);
-    background-image: -ms-linear-gradient(bottom, rgb(255,107,38) 19%, rgb(255,162,0) 78%, rgb(255,170,0) 89%);
 
-    background-image: -webkit-gradient(
-        linear,
-        right bottom,
-        right top,
-        color-stop(0.19, rgb(255,107,38)),
-        color-stop(0.78, rgb(255,162,0)),
-        color-stop(0.89, rgb(255,170,0))
-        );*/
+    /*    border-radius:5px;
+        padding: 5px 550px 5px 20px;
+        background-image: linear-gradient(bottom, rgb(255,107,38) 19%, rgb(255,162,0) 78%, rgb(255,170,0) 89%);
+        background-image: -o-linear-gradient(bottom, rgb(255,107,38) 19%, rgb(255,162,0) 78%, rgb(255,170,0) 89%);
+        background-image: -moz-linear-gradient(bottom, rgb(255,107,38) 19%, rgb(255,162,0) 78%, rgb(255,170,0) 89%);
+        background-image: -webkit-linear-gradient(bottom, rgb(255,107,38) 19%, rgb(255,162,0) 78%, rgb(255,170,0) 89%);
+        background-image: -ms-linear-gradient(bottom, rgb(255,107,38) 19%, rgb(255,162,0) 78%, rgb(255,170,0) 89%);
+    
+        background-image: -webkit-gradient(
+            linear,
+            right bottom,
+            right top,
+            color-stop(0.19, rgb(255,107,38)),
+            color-stop(0.78, rgb(255,162,0)),
+            color-stop(0.89, rgb(255,170,0))
+            );*/
 }
 .homeTitle{
     /*padding-left: 15px;*/
@@ -678,7 +678,7 @@ input[type="checkbox"]{
     opacity: 1;
     display: block;
 }
-.success{
+.success, .message{
     background-image: linear-gradient(left bottom, rgb(110,179,20) 22%, rgb(190,234,69) 61%, rgb(228,255,97) 81%);
     background-image: -o-linear-gradient(left bottom, rgb(110,179,20) 22%, rgb(190,234,69) 61%, rgb(228,255,97) 81%);
     background-image: -moz-linear-gradient(left bottom, rgb(110,179,20) 22%, rgb(190,234,69) 61%, rgb(228,255,97) 81%);
@@ -694,8 +694,9 @@ input[type="checkbox"]{
         color-stop(0.81, rgb(228,255,97))
         );
     border: solid 1px #ccc;
+    margin-bottom: 5px;
 }
-.message, .cake-error, p.error, .error-message{
+.cake-error, p.error, .error-message, .failure-message{
     /*    background-image: linear-gradient(left bottom, rgb(18,126,168) 19%, rgb(56,194,255) 60%);
         background-image: -o-linear-gradient(left bottom, rgb(18,126,168) 19%, rgb(56,194,255) 60%);
         background-image: -moz-linear-gradient(left bottom, rgb(18,126,168) 19%, rgb(56,194,255) 60%);
@@ -723,6 +724,7 @@ input[type="checkbox"]{
         color-stop(0.83, rgb(255,176,190))
         );
     border: solid 1px #ccc;
+    margin-bottom: 5px;
 }
 .facebookstyle, .fbConnectWidgetTopmost {
     border: 0px solid #CCC;
