@@ -45,7 +45,7 @@
     <div class="contentChooser"> </div>
 </div>
 <table width="200" border="1">
-    <tr><td style="border:0px"><span class="homePageTitle">Tours</span></td>
+    <tr><td style="border:0px" class="homePageTitle"><span class="homeTitle">Tours</span></td>
             <td rowspan="<?php echo (count($tourData)+count($cookingClassData)+2); ?>" style="height:855px; vertical-align:top;border-bottom: none;border-left:1px solid #DDD;">
             <div class="sidetab">
                 <div class="title2">Social Feeds</div>
@@ -118,7 +118,7 @@ echo $description;
             </td>
         </tr>
     <?php } ?>
-    <tr><td style="border:0px;"><span class="homePageTitle">Cooking Classes</span></td></tr>
+    <tr><td style="border:0px;" class="homePageTitle"><span class="homeTitle">Cooking Classes</span></td></tr>
     <?php for ($i = 0; $i < count($cookingClassData); $i++) { ?>
         <tr>
             <td style="border-bottom: none"><div style="width: 650px" class="line">
@@ -149,8 +149,8 @@ $("#slideshow").craftyslide(
     'width': 850,
     'height': 250,
     'pagination': false,
-    'fadetime': 500,
-    'delay': 5000
+    'fadetime': 600,
+    'delay': 7000
 });
 </script>
 <?php
