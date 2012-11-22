@@ -1,6 +1,7 @@
 <?php
 $this->extend('/Common/AdminIndex');
 $this->assign('LeftProduct', 'LeftMenuActions');
+$this->assign('LeftOrder', '');
 $this->assign('LeftCustomer', '');
 $this->assign('LeftNews', '');
 $this->assign('LeftEvent', '');
@@ -31,6 +32,7 @@ $this->start('manageRightContent');
             <tr>
                 <!--<th><?php echo $this->Paginator->sort('id'); ?></th>-->
                 <th>Gift Voucher Name</th>
+				<th>Gifter's Name </th>
                 <th>Gift Message</th>
 <!--                <th>Gift Recipient Name</th>-->
                 <th class="actions"><?php echo __('Actions'); ?></th>
