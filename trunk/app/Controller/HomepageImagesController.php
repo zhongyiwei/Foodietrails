@@ -44,7 +44,7 @@ class HomepageImagesController extends AppController {
 				$this->Session->setFlash(__('The homepage image has been saved'));
 				$this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The homepage image could not be saved. Please, try again.'));
+				$this->Session->setFlash(__('The homepage image could not be saved. Please, try again.'),'failure-message');
 			}
 		}
 	}
@@ -66,7 +66,7 @@ class HomepageImagesController extends AppController {
 				$this->Session->setFlash(__('The homepage image has been saved'));
 				$this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The homepage image could not be saved. Please, try again.'));
+				$this->Session->setFlash(__('The homepage image could not be saved. Please, try again.'),'failure-message');
 			}
 		} else {
 			$this->request->data = $this->HomepageImage->read(null, $id);
@@ -93,7 +93,7 @@ class HomepageImagesController extends AppController {
 			$this->Session->setFlash(__('Homepage image deleted'));
 			$this->redirect(array('action' => 'index'));
 		}
-		$this->Session->setFlash(__('Homepage image was not deleted'));
+		$this->Session->setFlash(__('Homepage image was not deleted'),'failure-message');
 		$this->redirect(array('action' => 'index'));
 	}
 }

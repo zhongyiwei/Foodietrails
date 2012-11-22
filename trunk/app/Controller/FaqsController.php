@@ -49,7 +49,7 @@ class FaqsController extends AppController {
 				$this->Session->setFlash(__('The faq has been saved'));
 				$this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The event could not be saved. Please, try again.'));
+				$this->Session->setFlash(__('The event could not be saved. Please, try again.'),'failure-message');
 			}
 		}
 	}
@@ -64,7 +64,7 @@ class FaqsController extends AppController {
 //				$this->Session->setFlash(__('The faq has been send for review, you might later see the answer in faq page.'));
 				$this->redirect(array('action' => 'askedsuccessful'));
 			} else {
-				$this->Session->setFlash(__('The faq could not be saved. Please, try again.'));
+				$this->Session->setFlash(__('The faq could not be saved. Please, try again.'),'failure-message');
 			}
 		}
 		$this->set('faqs', $this->Faq->find('all',array('conditions' => array('faq_status'=>"show"))));
@@ -89,7 +89,7 @@ class FaqsController extends AppController {
 				$this->Session->setFlash(__('The faq has been saved'));
 				$this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The faq could not be saved. Please, try again.'));
+				$this->Session->setFlash(__('The faq could not be saved. Please, try again.'),'failure-message');
 			}
 		} else {
 			$this->request->data = $this->Faq->read(null, $id);
@@ -116,7 +116,7 @@ class FaqsController extends AppController {
 			$this->Session->setFlash(__('Faq deleted'));
 			$this->redirect(array('action' => 'index'));
 		}
-		$this->Session->setFlash(__('Faq was not deleted'));
+		$this->Session->setFlash(__('Faq was not deleted'),'failure-message');
 		$this->redirect(array('action' => 'index'));
 	}
 }

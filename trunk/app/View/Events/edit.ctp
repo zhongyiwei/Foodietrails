@@ -1,6 +1,7 @@
 <?php
 $this->extend('/Common/AdminEdit');
 $this->assign('LeftProduct','');
+$this->assign('LeftOrder', '');
 $this->assign('LeftCustomer','');
 $this->assign('LeftNews','');
 $this->assign('LeftEvent','LeftMenuActions');
