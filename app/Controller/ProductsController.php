@@ -45,7 +45,7 @@ public function add() {
                 $this->Session->setFlash(__('The product has been saved'));
                 $this->redirect(array('action' => 'index'));
             } else {
-                $this->Session->setFlash(__('The product could not be saved. Please, try again.'));
+                $this->Session->setFlash(__('The product could not be saved. Please, try again.'),'failure-message');
             }
         }
 	}
@@ -67,7 +67,7 @@ public function add() {
 				$this->Session->setFlash(__('The product has been saved'));
 				$this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The product could not be saved. Please, try again.'));
+				$this->Session->setFlash(__('The product could not be saved. Please, try again.'),'failure-message');
 			}
 		} else {
 			$this->request->data = $this->Product->read(null, $id);
@@ -94,7 +94,7 @@ public function add() {
 			$this->Session->setFlash(__('Product deleted'));
 			$this->redirect(array('action' => 'index'));
 		}
-		$this->Session->setFlash(__('Product was not deleted'));
+		$this->Session->setFlash(__('Product was not deleted'),'failure-message');
 		$this->redirect(array('action' => 'index'));
 	}
 }

@@ -44,7 +44,7 @@ class ProductOrdersController extends AppController {
 				$this->Session->setFlash(__('The product order has been saved'));
 				$this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The product order could not be saved. Please, try again.'));
+				$this->Session->setFlash(__('The product order could not be saved. Please, try again.'),'failure-message');
 			}
 		}
 		$products = $this->ProductOrder->Product->find('list');
@@ -69,7 +69,7 @@ class ProductOrdersController extends AppController {
 				$this->Session->setFlash(__('The product order has been saved'));
 				$this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The product order could not be saved. Please, try again.'));
+				$this->Session->setFlash(__('The product order could not be saved. Please, try again.'),'failure-message');
 			}
 		} else {
 			$this->request->data = $this->ProductOrder->read(null, $id);
@@ -99,7 +99,7 @@ class ProductOrdersController extends AppController {
 			$this->Session->setFlash(__('Product order deleted'));
 			$this->redirect(array('action' => 'index'));
 		}
-		$this->Session->setFlash(__('Product order was not deleted'));
+		$this->Session->setFlash(__('Product order was not deleted'),'failure-message');
 		$this->redirect(array('action' => 'index'));
 	}
 }

@@ -74,7 +74,7 @@ class ToursController extends AppController {
                 $this->Session->setFlash(__('The tour has been saved'));
                 $this->redirect(array('action' => 'index'));
             } else {
-                $this->Session->setFlash(__('The tour could not be saved. Please, try again.'));
+                $this->Session->setFlash(__('The tour could not be saved. Please, try again.'),'failure-message');
             }
         }
     }
@@ -96,7 +96,7 @@ class ToursController extends AppController {
                 $this->Session->setFlash(__('The tour has been saved'));
                 $this->redirect(array('action' => 'index'));
             } else {
-                $this->Session->setFlash(__('The tour could not be saved. Please, try again.'));
+                $this->Session->setFlash(__('The tour could not be saved. Please, try again.'),'failure-message');
             }
         } else {
             $this->request->data = $this->Tour->read(null, $id);
@@ -123,7 +123,7 @@ class ToursController extends AppController {
             $this->Session->setFlash(__('Tour deleted'));
             $this->redirect(array('action' => 'index'));
         }
-        $this->Session->setFlash(__('Tour was not deleted'));
+        $this->Session->setFlash(__('Tour was not deleted'),'failure-message');
         $this->redirect(array('action' => 'index'));
     }
 

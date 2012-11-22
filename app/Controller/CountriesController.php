@@ -44,7 +44,7 @@ class CountriesController extends AppController {
 				$this->Session->setFlash(__('The country has been saved'));
 				$this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The country could not be saved. Please, try again.'));
+				$this->Session->setFlash(__('The country could not be saved. Please, try again.'),'failure-message');
 			}
 		}
 	}
@@ -66,7 +66,7 @@ class CountriesController extends AppController {
 				$this->Session->setFlash(__('The country has been saved'));
 				$this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The country could not be saved. Please, try again.'));
+				$this->Session->setFlash(__('The country could not be saved. Please, try again.'),'failure-message');
 			}
 		} else {
 			$this->request->data = $this->Country->read(null, $id);
@@ -93,7 +93,7 @@ class CountriesController extends AppController {
 			$this->Session->setFlash(__('Country deleted'));
 			$this->redirect(array('action' => 'index'));
 		}
-		$this->Session->setFlash(__('Country was not deleted'));
+		$this->Session->setFlash(__('Country was not deleted'),'failure-message');
 		$this->redirect(array('action' => 'index'));
 	}
 }

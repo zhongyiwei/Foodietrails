@@ -58,7 +58,7 @@ class FeedbacksController extends AppController {
 				$this->redirect(array('controller'=>'CookingClasses','action' => "cookingclass_detail/$id"));
 				}
 			} else {
-				$this->Session->setFlash(__('Your Feedback could not be saved. Please, try again.'));
+				$this->Session->setFlash(__('Your Feedback could not be saved. Please, try again.'),'failure-message');
 			}
 		}
 	}
@@ -80,7 +80,7 @@ class FeedbacksController extends AppController {
                 $this->Session->setFlash(__('Your Feedback has been saved'));
                 $this->redirect(array('action' => 'index'));
             } else {
-                $this->Session->setFlash(__('Your feedback could not be saved. Please, try again.'));
+                $this->Session->setFlash(__('Your feedback could not be saved. Please, try again.'),'failure-message');
             }
         } else {
             $this->request->data = $this->Feedback->read(null, $id);
@@ -107,7 +107,7 @@ class FeedbacksController extends AppController {
 			$this->Session->setFlash(__('Feedback deleted'));
 			$this->redirect(array('action' => 'index'));
 		}
-		$this->Session->setFlash(__('Feedback was not deleted'));
+		$this->Session->setFlash(__('Feedback was not deleted'),'failure-message');
 		$this->redirect(array('action' => 'index'));
 	}
 }

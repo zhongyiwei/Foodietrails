@@ -44,7 +44,7 @@ class DisclaimerFormsController extends AppController {
 				$this->Session->setFlash(__('The disclaimer form has been saved'));
 				$this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The disclaimer form could not be saved. Please, try again.'));
+				$this->Session->setFlash(__('The disclaimer form could not be saved. Please, try again.'),'failure-message');
 			}
 		}
 	}
@@ -66,7 +66,7 @@ class DisclaimerFormsController extends AppController {
 				$this->Session->setFlash(__('The disclaimer form has been saved'));
 				$this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The disclaimer form could not be saved. Please, try again.'));
+				$this->Session->setFlash(__('The disclaimer form could not be saved. Please, try again.'),'failure-message');
 			}
 		} else {
 			$this->request->data = $this->DisclaimerForm->read(null, $id);
@@ -93,7 +93,7 @@ class DisclaimerFormsController extends AppController {
 			$this->Session->setFlash(__('Disclaimer form deleted'));
 			$this->redirect(array('action' => 'index'));
 		}
-		$this->Session->setFlash(__('Disclaimer form was not deleted'));
+		$this->Session->setFlash(__('Disclaimer form was not deleted'),'failure-message');
 		$this->redirect(array('action' => 'index'));
 	}
 }

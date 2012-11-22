@@ -44,7 +44,7 @@ class TourOrdersController extends AppController {
 				$this->Session->setFlash(__('The tour order has been saved'));
 				$this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The tour order could not be saved. Please, try again.'));
+				$this->Session->setFlash(__('The tour order could not be saved. Please, try again.'),'failure-message');
 			}
 		}
 		$tours = $this->TourOrder->Tour->find('list');
@@ -69,7 +69,7 @@ class TourOrdersController extends AppController {
 				$this->Session->setFlash(__('The tour order has been saved'));
 				$this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The tour order could not be saved. Please, try again.'));
+				$this->Session->setFlash(__('The tour order could not be saved. Please, try again.'),'failure-message');
 			}
 		} else {
 			$this->request->data = $this->TourOrder->read(null, $id);
