@@ -27,7 +27,7 @@
                 <div class="headerRight">
                     <?php if ($logged_in == true) { ?>
                         <p style="color:#3589A1" class="adminLogin">Welcome <?php
-                    echo $current_user['user_surname'] . '&nbsp;&nbsp;';
+                    echo $current_user['user_first_name'] . '&nbsp;&nbsp;';
                     echo $this->Html->link('Logout', array('controller' => 'users', 'action' => 'logout'), array('style' => 'color:#3589A1;'))
                         ?></p>
                     <?php }; ?>
@@ -90,16 +90,16 @@
                             <?php } ?>
                         </ul>
                     </li>
-                     <li class='has-sub'><a>Product</a>
-                        <ul>
+                    <li><?php echo $this->Html->link(__('products'), array('controller' => 'Products', 'action' => 'product_details'))?>
+<!--                        <ul>
                             <?php for ($i = 0; $i < count($menu8); $i++) { ?>
                                 <li> <?php
                             $product= $menu8[$i]['Product']['product_name'];
-                            echo $this->Html->link(__($product), array('controller' => 'Products', 'action' => 'product_details', $menu8[$i]['Product']['id']));
+                            echo $this->Html->link(__($product), array('controller' => 'Products', 'action' => 'product_details'));
                                 ?>
                                 </li>
                             <?php } ?>
-                        </ul>
+                        </ul>-->
                     </li>
                     <li class='has-sub'><a>Media</a>
                         <ul>
@@ -125,7 +125,7 @@
                     </li>
                     <li class='has-sub'><a>Gift Voucher</a>
                                     <ul>
-                                        <?php for ($i = 0; $i < count($menu3); $i++) { ?>
+                                        <?php for ($i = 0; $i < count($giftVoucher); $i++) { ?>
                                             <li> <?php
                                         $giftVoucherName = $giftVoucher[$i]['GiftVoucher']['gift_voucher_name'];
                                         $id = $giftVoucher[$i]['GiftVoucher']['id'];
