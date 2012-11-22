@@ -97,4 +97,10 @@ public function add() {
 		$this->Session->setFlash(__('Product was not deleted'),'failure-message');
 		$this->redirect(array('action' => 'index'));
 	}
+	
+	public function product_details() {
+     
+        
+  
+    }
 }
