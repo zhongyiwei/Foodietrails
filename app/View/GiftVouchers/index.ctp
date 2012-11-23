@@ -30,24 +30,20 @@ $this->start('manageRightContent');
     <table cellpadding="0" cellspacing="0" id="js-datatable">
         <thead>
             <tr>
-                <!--<th><?php echo $this->Paginator->sort('id'); ?></th>-->
                 <th>Gift Voucher Name</th>
-				<th>Gifter's Name </th>
                 <th>Gift Message</th>
-<!--                <th>Gift Recipient Name</th>-->
+                <th>Gift Price</th>
+                <th>Gift Type</th>
                 <th class="actions"><?php echo __('Actions'); ?></th>
             </tr>
         </thead>
         <tbody>
             <?php foreach ($giftVouchers as $giftVoucher): ?>
                 <tr>
-    <!--                    <td><?php echo h($giftVoucher['GiftVoucher']['id']); ?>&nbsp;</td> -->
                     <td><?php echo h($giftVoucher['GiftVoucher']['gift_voucher_name']); ?>&nbsp;</td>
-    <!--                    <td>
-                    <?php echo $this->Html->link($giftVoucher['User']['id'], array('controller' => 'users', 'action' => 'view', $giftVoucher['User']['id'])); ?>
-                    </td>-->
                     <td><?php echo $this->Text->truncate($giftVoucher['GiftVoucher']['gift_message'], 20, array('ellipsis' => '...')); ?>&nbsp;</td>
-                    <!--<td><?php echo h($giftVoucher['GiftVoucher']['gift_recipient_name']); ?>&nbsp;</td>-->
+                    <td><?php echo h($giftVoucher['GiftVoucher']['gift_price']); ?>
+                    <td><?php echo h($giftVoucher['GiftVoucher']['gift_type']); ?>               
                     <td class="actions">
                         <?php echo $this->Html->link(__('View'), array('action' => 'view', $giftVoucher['GiftVoucher']['id'])); ?>
                         <?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $giftVoucher['GiftVoucher']['id'])); ?>

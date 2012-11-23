@@ -200,22 +200,5 @@ class Tour extends AppModel {
  *
  * @var array
  */
-	public $hasAndBelongsToMany = array(
-		'Date' => array(
-			'className' => 'Date',
-			'joinTable' => 'date_tours',
-			'foreignKey' => 'tour_id',
-			'associationForeignKey' => 'tour_dates_id',
-			'unique' => 'keepExisting',
-			'conditions' => '',
-			'fields' => '',
-			'order' => '',
-			'limit' => '',
-			'offset' => '',
-			'finderQuery' => '',
-			'deleteQuery' => '',
-			'insertQuery' => ''
-		)
-	);
 
 }

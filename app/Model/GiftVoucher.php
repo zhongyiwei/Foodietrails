@@ -3,10 +3,16 @@ App::uses('AppModel', 'Model');
 /**
  * GiftVoucher Model
  *
- * @property User $User
- * @property TourGiftvoucher $TourGiftvoucher
+ * @property GiftvoucherOrder $GiftvoucherOrder
  */
 class GiftVoucher extends AppModel {
+
+/**
+ * Display field
+ *
+ * @var string
+ */
+	public $displayField = 'gift_voucher_name';
 
 /**
  * Validation rules
@@ -14,17 +20,47 @@ class GiftVoucher extends AppModel {
  * @var array
  */
 	public $validate = array(
-//		'user_id' => array(
-//			'numeric' => array(
-//				'rule' => array('numeric'),
-//				//'message' => 'Your custom message here',
-//				//'allowEmpty' => false,
-//				//'required' => false,
-//				//'last' => false, // Stop validation after this rule
-//				//'on' => 'create', // Limit validation to 'create' or 'update' operations
-//			),
-//		),
+		'id' => array(
+			'numeric' => array(
+				'rule' => array('numeric'),
+				//'message' => 'Your custom message here',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),
+		'gift_message' => array(
+			'notempty' => array(
+				'rule' => array('notempty'),
+				//'message' => 'Your custom message here',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),
 		'gift_voucher_name' => array(
+			'notempty' => array(
+				'rule' => array('notempty'),
+				//'message' => 'Your custom message here',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),
+		'gift_price' => array(
+			'decimal' => array(
+				'rule' => array('decimal'),
+				//'message' => 'Your custom message here',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),
+		'gift_type' => array(
 			'notempty' => array(
 				'rule' => array('notempty'),
 				//'message' => 'Your custom message here',
@@ -39,28 +75,13 @@ class GiftVoucher extends AppModel {
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
 
 /**
- * belongsTo associations
- *
- * @var array
- */
-//	public $belongsTo = array(
-//		'User' => array(
-//			'className' => 'User',
-//			'foreignKey' => 'user_id',
-//			'conditions' => '',
-//			'fields' => '',
-//			'order' => ''
-//		)
-//	);
-
-/**
  * hasMany associations
  *
  * @var array
  */
 	public $hasMany = array(
-		'UserGiftvoucher' => array(
-			'className' => 'UserGiftvoucher',
+		'GiftvoucherOrder' => array(
+			'className' => 'GiftvoucherOrder',
 			'foreignKey' => 'gift_voucher_id',
 			'dependent' => false,
 			'conditions' => '',

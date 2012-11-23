@@ -1,38 +1,57 @@
+<?php
+$this->extend('/Common/AdminView');
+$this->assign('LeftProduct', '');
+$this->assign('LeftOrder', 'LeftMenuActions');
+$this->assign('LeftCustomer', '');
+$this->assign('LeftNews', '');
+$this->assign('LeftEvent', '');
+$this->start('LeftEditMenu');
+?>
+<li><?php echo $this->Html->link(__('Edit This Order'), array('action' => 'edit', $tourOrder['TourOrder']['id'])); ?> </li>
+<li><?php echo $this->Form->postLink(__('Delete This Order'), array('action' => 'delete', $tourOrder['Tour']['id']), null, __('Are you sure you want to delete # %s?', $tourOrder['TourOrder']['id'])); ?> </li>
+<?php
+$this->end();
+$this->start('manageRightMenu');
+?>
+<div class="manageRightMenu" >
+    <ul>
+        <li class='active '><?php echo $this->Html->link(__('Tour Order'), array('controller' => 'tourorders', 'action' => 'index')); ?></li>
+        <li><?php echo $this->Html->link(__('Product Order'), array('controller' => 'productorders', 'action' => 'index')); ?></li>
+        <li><?php echo $this->Html->link(__('Cooking Class Order'), array('controller' => 'cookingclassorders', 'action' => 'index')); ?></li>
+        <li><?php echo $this->Html->link(__('Gift Voucher Order'), array('controller' => 'giftvoucherorders', 'action' => 'index')); ?></li>
+    </ul>
+</div>
+<div class="mangeRightSubMenu"> 
+    <div class="unselected"><?php echo $this->Html->link(__('Tour Order List'), array('action' => 'index')); ?></div>
+    <div class="unselected"><?php echo $this->Html->link(__('Add Tour Order'), array('action' => 'add')); ?></div>
+</div>
+<?php
+$this->end();
+
+$this->start('manageRightContent');
+?>
 <div class="tourOrders view">
-<h2><?php  echo __('Tour Order'); ?></h2>
-	<dl>
-		<dt><?php echo __('Id'); ?></dt>
-		<dd>
-			<?php echo h($tourOrder['TourOrder']['id']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Tour'); ?></dt>
-		<dd>
-			<?php echo $this->Html->link($tourOrder['Tour']['id'], array('controller' => 'tours', 'action' => 'view', $tourOrder['Tour']['id'])); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('User'); ?></dt>
-		<dd>
-			<?php echo $this->Html->link($tourOrder['User'][''], array('controller' => 'users', 'action' => 'view', $tourOrder['User']['y'])); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Tour Purchase Quantity'); ?></dt>
-		<dd>
-			<?php echo h($tourOrder['TourOrder']['tour_purchase_quantity']); ?>
-			&nbsp;
-		</dd>
-	</dl>
+    <dl>
+        <dt><?php echo __('Tour'); ?></dt>
+        <dd>
+            <?php echo $this->Html->link($tourOrder['Tour']['tour_name'], array('controller' => 'tours', 'action' => 'view', $tourOrder['Tour']['id'])); ?>
+            &nbsp;
+        </dd>
+        <dt><?php echo __('User'); ?></dt>
+        <dd>
+            <?php echo $this->Html->link($tourOrder['User']['user_email'], array('controller' => 'users', 'action' => 'view', $tourOrder['User']['id'])); ?>
+            &nbsp;
+        </dd>
+        <dt><?php echo __('Tour Holding Date'); ?></dt>
+        <dd>
+            <?php echo $this->Html->link($tourOrder['TourDate']['tour_date'], array('controller' => 'tourdates', 'action' => 'view', $tourOrder['TourDate']['id'])); ?>
+            &nbsp;
+        </dd>
+        <dt><?php echo __('Tour Purchase Quantity'); ?></dt>
+        <dd>
+            <?php echo h($tourOrder['TourOrder']['tour_purchase_quantity']); ?>
+            &nbsp;
+        </dd>
+    </dl>
 </div>
-<div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
-	<ul>
-		<li><?php echo $this->Html->link(__('Edit Tour Order'), array('action' => 'edit', $tourOrder['TourOrder']['id'])); ?> </li>
-		<li><?php echo $this->Form->postLink(__('Delete Tour Order'), array('action' => 'delete', $tourOrder['TourOrder']['id']), null, __('Are you sure you want to delete # %s?', $tourOrder['TourOrder']['id'])); ?> </li>
-		<li><?php echo $this->Html->link(__('List Tour Orders'), array('action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Tour Order'), array('action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Tours'), array('controller' => 'tours', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Tour'), array('controller' => 'tours', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Users'), array('controller' => 'users', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New User'), array('controller' => 'users', 'action' => 'add')); ?> </li>
-	</ul>
-</div>
+<?php $this->end(); ?>

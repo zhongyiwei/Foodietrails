@@ -10,7 +10,7 @@ echo $this->Html->css('jquery.dataTables.css');
             <div class="actions">
                 <h3><?php echo __('Menu'); ?></h3>
                 <ul>
-                    <li class="<?php echo $this->fetch('LeftProduct'); ?>"><?php echo $this->Html->link(__('Product Management'), array('controller' => 'tours', 'action' => 'index')); ?></li
+                    <li class="<?php echo $this->fetch('LeftProduct'); ?>"><?php echo $this->Html->link(__('Product Management'), array('controller' => 'tours', 'action' => 'index')); ?></li>
                     <li class="<?php echo $this->fetch('LeftOrder'); ?>"><?php echo $this->Html->link(__('Order Management'), array('controller' => 'tourorders', 'action' => 'index')); ?></li>
                     <li class="<?php echo $this->fetch('LeftCustomer'); ?>"><?php echo $this->Html->link(__('User Management'), array('controller' => 'users', 'action' => 'index')); ?></li>
                     <!--<li><?php echo $this->Html->link(__('Report Management'), array('controller' => 'reports', 'action' => 'index')); ?></li>-->

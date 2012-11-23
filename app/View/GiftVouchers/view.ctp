@@ -1,14 +1,14 @@
 <?php
 $this->extend('/Common/AdminView');
-$this->assign('LeftProduct','LeftMenuActions');
+$this->assign('LeftProduct', 'LeftMenuActions');
 $this->assign('LeftOrder', '');
-$this->assign('LeftCustomer','');
-$this->assign('LeftNews','');
-$this->assign('LeftEvent','');
+$this->assign('LeftCustomer', '');
+$this->assign('LeftNews', '');
+$this->assign('LeftEvent', '');
 $this->start('LeftEditMenu');
 ?>
-<li><?php echo $this->Html->link(__('Edit This Vourcher'), array('action' => 'edit', $giftVoucher['GiftVoucher']['id'])); ?> </li>
-<li><?php echo $this->Form->postLink(__('Delete This Vourcher'), array('action' => 'delete', $giftVoucher['GiftVoucher']['id']), null, __('Are you sure you want to delete # %s?', $giftVoucher['GiftVoucher']['id'])); ?> </li>
+<li><?php echo $this->Html->link(__('Edit This Vourcher'), array('action' => 'edit', $giftVoucherOrder['GiftVoucher']['id'])); ?> </li>
+<li><?php echo $this->Form->postLink(__('Delete This Vourcher'), array('action' => 'delete', $giftVoucherOrder['GiftVoucher']['id']), null, __('Are you sure you want to delete # %s?', $giftVoucherOrder['GiftVoucher']['id'])); ?> </li>
 <?php
 $this->end();
 $this->start('manageRightMenu');
@@ -18,7 +18,7 @@ $this->start('manageRightMenu');
         <li><?php echo $this->Html->link(__('Tour'), array('action' => 'index')); ?></li>
         <li><?php echo $this->Html->link(__('Product'), array('controller' => 'products', 'action' => 'index')); ?></li>
         <li><?php echo $this->Html->link(__('Cooking Class'), array('controller' => 'cookingclasses', 'action' => 'index')); ?></li>
-         <li class='active '><?php echo $this->Html->link(__('Gift Voucher'), array('controller' => 'giftvouchers', 'action' => 'index')); ?></li>
+        <li class='active '><?php echo $this->Html->link(__('Gift Voucher'), array('controller' => 'giftvouchers', 'action' => 'index')); ?></li>
     </ul>
 </div>
 <div class="mangeRightSubMenu"> 
@@ -31,27 +31,28 @@ $this->end();
 $this->start('manageRightContent');
 ?>
 <div class="giftVouchers view">
-	<dl>
-		<dt><?php echo __('Id'); ?></dt>
-		<dd>
-			<?php echo h($giftVoucher['GiftVoucher']['id']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('User'); ?></dt>
-		<dd>
-			<?php echo $this->Html->link($giftVoucher['User']['id'], array('controller' => 'users', 'action' => 'view', $giftVoucher['User']['id'])); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Gift Message'); ?></dt>
-		<dd>
-			<?php echo ($giftVoucher['GiftVoucher']['gift_message']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Gift Recipient Name'); ?></dt>
-		<dd>
-			<?php echo h($giftVoucher['GiftVoucher']['gift_recipient_name']); ?>
-			&nbsp;
-		</dd>
-	</dl>
+    <dl>
+        <dt>Gift Voucher Name</dt>
+        <dd>
+            <?php // echo $this->Html->link($giftVoucher['GiftVoucher']['gift_voucher_name']); ?>
+            <?php echo ($giftVoucher['GiftVoucher']['gift_voucher_name']); ?>
+            &nbsp;
+        </dd>
+        <dt>Gift Message</dt>
+        <dd>
+            <?php echo ($giftVoucher['GiftVoucher']['gift_message']); ?>
+            &nbsp;
+        </dd>
+        <dt>Gift Price</dt>
+        <dd>
+            <?php echo h($giftVoucher['GiftVoucher']['gift_price']); ?>
+            &nbsp;
+        </dd>
+        <dt>Gift Type</dt>
+        <dd>
+            <?php echo h($giftVoucher['GiftVoucher']['gift_type']); ?>
+            &nbsp;
+        </dd>
+    </dl>
 </div>
 <?php $this->end(); ?>
