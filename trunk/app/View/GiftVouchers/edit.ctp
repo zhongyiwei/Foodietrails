@@ -33,9 +33,11 @@ $this->start('manageRightContent');
 <div class="giftVoucher form">
     <?php echo $this->Form->create('GiftVoucher'); ?>
     <?php
+        $productType = array('Tour' => 'Tour', 'Cooking Class' => 'Cooking Class', 'Product' => 'Product');
         echo $this->Form->input('gift_voucher_name');
         echo $this->Form->input('gift_message', array('id' => 'gift_message', 'class' => 'ckeditor'));
         echo $this->Form->input('gift_price');
+        echo $this->Form->input('gift_type', array('type' => 'select', 'options' => $productType));
     ?>
     <?php echo $this->Form->end(__('Submit')); ?>
 </div>

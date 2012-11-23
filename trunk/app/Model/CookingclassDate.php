@@ -1,12 +1,11 @@
 <?php
 App::uses('AppModel', 'Model');
 /**
- * ProductOrder Model
+ * CookingclassDate Model
  *
- * @property Product $Product
- * @property User $User
+ * @property Cookingclass $Cookingclass
  */
-class ProductOrder extends AppModel {
+class CookingclassDate extends AppModel {
 
 /**
  * Validation rules
@@ -14,7 +13,7 @@ class ProductOrder extends AppModel {
  * @var array
  */
 	public $validate = array(
-		'product_id' => array(
+		'cookingclass_id' => array(
 			'numeric' => array(
 				'rule' => array('numeric'),
 				//'message' => 'Your custom message here',
@@ -24,9 +23,9 @@ class ProductOrder extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-		'user_id' => array(
-			'numeric' => array(
-				'rule' => array('numeric'),
+		'cookingclass_date' => array(
+			'date' => array(
+				'rule' => array('date'),
 				//'message' => 'Your custom message here',
 				//'allowEmpty' => false,
 				//'required' => false,
@@ -34,19 +33,9 @@ class ProductOrder extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-		'product_purchase_quantity' => array(
-			'numeric' => array(
-				'rule' => array('numeric'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
-			),
-		),
-		'product_purchase_date' => array(
-			'datetime' => array(
-				'rule' => array('datetime'),
+		'cookingclass_time' => array(
+			'time' => array(
+				'rule' => array('time'),
 				//'message' => 'Your custom message here',
 				//'allowEmpty' => false,
 				//'required' => false,
@@ -64,16 +53,9 @@ class ProductOrder extends AppModel {
  * @var array
  */
 	public $belongsTo = array(
-		'Product' => array(
-			'className' => 'Product',
-			'foreignKey' => 'product_id',
-			'conditions' => '',
-			'fields' => '',
-			'order' => ''
-		),
-		'User' => array(
-			'className' => 'User',
-			'foreignKey' => 'user_id',
+		'Cookingclass' => array(
+			'className' => 'Cookingclass',
+			'foreignKey' => 'cookingclass_id',
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''

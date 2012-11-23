@@ -1,20 +1,12 @@
 <?php
 App::uses('AppModel', 'Model');
 /**
- * TourOrder Model
+ * GiftvoucherOrder Model
  *
- * @property Tour $Tour
  * @property User $User
- * @property TourDate $TourDate
+ * @property GiftVoucher $GiftVoucher
  */
-class TourOrder extends AppModel {
-
-/**
- * Display field
- *
- * @var string
- */
-	public $displayField = 'id';
+class GiftvoucherOrder extends AppModel {
 
 /**
  * Validation rules
@@ -22,26 +14,6 @@ class TourOrder extends AppModel {
  * @var array
  */
 	public $validate = array(
-		'id' => array(
-			'numeric' => array(
-				'rule' => array('numeric'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
-			),
-		),
-		'tour_id' => array(
-			'numeric' => array(
-				'rule' => array('numeric'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
-			),
-		),
 		'user_id' => array(
 			'numeric' => array(
 				'rule' => array('numeric'),
@@ -52,7 +24,7 @@ class TourOrder extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-		'tour_date_id' => array(
+		'gift_voucher_id' => array(
 			'numeric' => array(
 				'rule' => array('numeric'),
 				//'message' => 'Your custom message here',
@@ -62,7 +34,7 @@ class TourOrder extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-		'tour_purchase_quantity' => array(
+		'gift_purchase_quantity' => array(
 			'numeric' => array(
 				'rule' => array('numeric'),
 				//'message' => 'Your custom message here',
@@ -72,7 +44,7 @@ class TourOrder extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-		'tour_purchase_date' => array(
+		'gift_purchase_date' => array(
 			'datetime' => array(
 				'rule' => array('datetime'),
 				//'message' => 'Your custom message here',
@@ -92,13 +64,6 @@ class TourOrder extends AppModel {
  * @var array
  */
 	public $belongsTo = array(
-		'Tour' => array(
-			'className' => 'Tour',
-			'foreignKey' => 'tour_id',
-			'conditions' => '',
-			'fields' => '',
-			'order' => ''
-		),
 		'User' => array(
 			'className' => 'User',
 			'foreignKey' => 'user_id',
@@ -106,9 +71,9 @@ class TourOrder extends AppModel {
 			'fields' => '',
 			'order' => ''
 		),
-		'TourDate' => array(
-			'className' => 'TourDate',
-			'foreignKey' => 'tour_date_id',
+		'GiftVoucher' => array(
+			'className' => 'GiftVoucher',
+			'foreignKey' => 'gift_voucher_id',
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''
