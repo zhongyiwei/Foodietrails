@@ -31,7 +31,11 @@ class GiftvoucherOrdersController extends AppController {
         if (!$this->GiftvoucherOrder->exists()) {
             throw new NotFoundException(__('Invalid giftvoucher order'));
         }
+        $data = $this->GiftvoucherOrder->find("all",array('condition'=>array("GiftvoucherOrder.id"=>"$id")));
+        $recipientID = $data[0]['GiftvoucherOrder']['recipient_id'];
+        $recipientEmail = $this->User->find('list', array('fields' => 'user_email', 'conditions'=>array("User.id"=>"$recipientID")));
         $this->set('giftvoucherOrder', $this->GiftvoucherOrder->read(null, $id));
+        $this->set('recipientEmail',$recipientEmail);
     }
 
     /**
@@ -42,6 +46,8 @@ class GiftvoucherOrdersController extends AppController {
     public function add() {
         if ($this->request->is('post')) {
             $this->GiftvoucherOrder->create();
+            $this->request->data['GiftvoucherOrder']['gift_purchase_date'] = date('Y-m-d H:i:s');
+            $this->request->data['GiftvoucherOrder']['gift_due_date'] = date('Y-m-d H:i:s', strtotime('+1 year'));
             if ($this->GiftvoucherOrder->save($this->request->data)) {
                 $this->Session->setFlash(__('The giftvoucher order has been saved'));
                 $this->redirect(array('action' => 'index'));
@@ -53,7 +59,7 @@ class GiftvoucherOrdersController extends AppController {
         $giftVouchers = $this->GiftvoucherOrder->GiftVoucher->find('list');
         $userEmail = $this->GiftvoucherOrder->User->find('list', array('fields' => 'user_email'));
         $giftName = $this->GiftvoucherOrder->GiftVoucher->find('list', array('fields' => 'gift_voucher_name'));
-        $this->set(compact('users', 'giftVouchers','userEmail','giftName'));
+        $this->set(compact('users', 'giftVouchers', 'userEmail', 'giftName'));
     }
 
     /**
@@ -82,7 +88,7 @@ class GiftvoucherOrdersController extends AppController {
         $giftVouchers = $this->GiftvoucherOrder->GiftVoucher->find('list');
         $userEmail = $this->GiftvoucherOrder->User->find('list', array('fields' => 'user_email'));
         $giftName = $this->GiftvoucherOrder->GiftVoucher->find('list', array('fields' => 'gift_voucher_name'));
-        $this->set(compact('users', 'giftVouchers','userEmail','giftName'));
+        $this->set(compact('users', 'giftVouchers', 'userEmail', 'giftName'));
     }
 
     /**

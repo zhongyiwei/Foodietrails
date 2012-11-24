@@ -32,9 +32,14 @@ $this->start('manageRightContent');
 ?>
 <div class="giftvoucherOrders view">
     <dl>
-        <dt>User Email</dt>
+        <dt>Gifter Email</dt>
         <dd>
             <?php echo $this->Html->link($giftvoucherOrder['User']['user_email'], array('controller' => 'users', 'action' => 'view', $giftvoucherOrder['User']['id'])); ?>
+            &nbsp;
+        </dd>
+        <dt>Recipient Email</dt>
+        <dd>
+            <?php if ($giftvoucherOrder['GiftvoucherOrder']['recipient_id'] != null){$recipientID = $giftvoucherOrder['GiftvoucherOrder']['recipient_id']; echo $this->Html->link($recipientEmail[$recipientID], array('controller' => 'users', 'action' => 'view', $giftvoucherOrder['GiftvoucherOrder']['recipient_id'])); }?>
             &nbsp;
         </dd>
         <dt>Gift Voucher</dt>
@@ -42,14 +47,25 @@ $this->start('manageRightContent');
             <?php echo $this->Html->link($giftvoucherOrder['GiftVoucher']['gift_voucher_name'], array('controller' => 'gift_vouchers', 'action' => 'view', $giftvoucherOrder['GiftVoucher']['id'])); ?>
             &nbsp;
         </dd>
-        <dt>Purchase Quantity</dt>
-        <dd>
-            <?php echo h($giftvoucherOrder['GiftvoucherOrder']['gift_purchase_quantity']); ?>
-            &nbsp;
-        </dd>
+
         <dt><?php echo __('Gift Purchase Date'); ?></dt>
         <dd>
             <?php echo h($giftvoucherOrder['GiftvoucherOrder']['gift_purchase_date']); ?>
+            &nbsp;
+        </dd>
+                <dt><?php echo __('Gift Due Date'); ?></dt>
+        <dd>
+            <?php echo h($giftvoucherOrder['GiftvoucherOrder']['gift_due_date']); ?>
+            &nbsp;
+        </dd>
+        <dt><?php echo __('Gift Redeem Code'); ?></dt>
+        <dd>
+            <?php echo h($giftvoucherOrder['GiftvoucherOrder']['gift_redeem_code']); ?>
+            &nbsp;
+        </dd>
+        <dt><?php echo __('Gift Redeem Status'); ?></dt>
+        <dd>
+            <?php echo h($giftvoucherOrder['GiftvoucherOrder']['gift_redeem_status']); ?>
             &nbsp;
         </dd>
     </dl>

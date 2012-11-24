@@ -6,7 +6,7 @@
  */
 ?>
 <h1 class="tourHeader"><?php echo $tour['Tour']['tour_name'] ?></h1>
-<table width="200px" border="1" style="width:250px; ">
+<table width="200px" border="1" style="width:250px; margin-bottom: 20px;">
     <tr>
         <td style="vertical-align:middle;">Price Per Person</td>
         <td><div class="tourPrice"><?php echo $tour['Tour']['tour_price_per_certificate']; ?></div></td>
@@ -20,7 +20,8 @@ echo $this->Html->link(__(''), array('controller' => 'checkout', 'action' => 'in
 echo $this->Html->link(__(''), array('controller' => 'feedbacks', 'action' => 'add', '?' => array('def' => 'Tour', 'id' => "$id")), array("class" => "feedback"));
 //echo $this->Html->image("feedback_button.jpg", array("alt" => "Feedback", 'name' => "Feedback", 'height' => "100", 'width' => "150", 'url' => array('controller' => 'feedbacks', 'action' => 'add',$tour['Tour']['id'])));
 
-
+//echo $this->Html->link(__('Redeem this tour with your gift voucher!'), array('controller' => 'giftvouchers', 'action' => 'redeem', '?' => array('def' => 'Tour','id' => "$id")), array("class" => "redeem", 'style'=>'color:#1872a3;font-weight:normal;'));
+echo $this->Html->link(__('Redeem this tour with your gift voucher!'), array('controller' => 'users', 'action' => 'redeemLogin', '?' => array('def'=>'Tour','id' => "$id")), array("class" => "redeem", 'style'=>'color:#1872a3;font-weight:normal;'));
 ?>
 <?php echo $tour['Tour']['tour_description']; ?>
 <h2 class="tourParticipantGuide">Participant Guidelines</h2>
