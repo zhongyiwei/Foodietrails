@@ -29,32 +29,32 @@ $this->start('manageRightContent');
 <div class="giftvoucherOrders index">
     <table cellpadding="0" cellspacing="0"  id="js-datatable">
         <thead>
-        <tr>
-            <th>User Email</th>
-            <th>Gift Voucher</th>
-            <th>Quantity</th>
-            <th>Gift Purchase Date</th>
-            <th class="actions"><?php echo __('Actions'); ?></th>
-        </tr>
+            <tr>
+                <th>Gifter Email</th>
+                <th>Gift Voucher</th>
+                <th>Due Date</th>
+                <th>Redeem Status</th>
+                <th class="actions"><?php echo __('Actions'); ?></th>
+            </tr>
         </thead>
         <tbody>
-        <?php foreach ($giftvoucherOrders as $giftvoucherOrder): ?>
-            <tr>
-                <td>
-                    <?php echo $this->Html->link($giftvoucherOrder['User']['user_email'], array('controller' => 'users', 'action' => 'view', $giftvoucherOrder['User']['id'])); ?>
-                </td>
-                <td>
-                    <?php echo $this->Html->link($giftvoucherOrder['GiftVoucher']['gift_voucher_name'], array('controller' => 'gift_vouchers', 'action' => 'view', $giftvoucherOrder['GiftVoucher']['id'])); ?>
-                </td>
-                <td><?php echo h($giftvoucherOrder['GiftvoucherOrder']['gift_purchase_quantity']); ?>&nbsp;</td>
-                <td><?php echo h($giftvoucherOrder['GiftvoucherOrder']['gift_purchase_date']); ?>&nbsp;</td>
-                <td class="actions">
-                    <?php echo $this->Html->link(__('View'), array('action' => 'view', $giftvoucherOrder['GiftvoucherOrder']['id'])); ?>
-                    <?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $giftvoucherOrder['GiftvoucherOrder']['id'])); ?>
-                    <?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $giftvoucherOrder['GiftvoucherOrder']['id']), null, __('Are you sure you want to delete # %s?', $giftvoucherOrder['GiftvoucherOrder']['id'])); ?>
-                </td>
-            </tr>
-        <?php endforeach; ?>
+            <?php foreach ($giftvoucherOrders as $giftvoucherOrder): ?>
+                <tr>
+                    <td>
+                        <?php echo $this->Html->link($giftvoucherOrder['User']['user_email'], array('controller' => 'users', 'action' => 'view', $giftvoucherOrder['User']['id'])); ?>
+                    </td>
+                    <td>
+                        <?php echo $this->Html->link($giftvoucherOrder['GiftVoucher']['gift_voucher_name'], array('controller' => 'gift_vouchers', 'action' => 'view', $giftvoucherOrder['GiftVoucher']['id'])); ?>
+                    </td>
+                    <td><?php echo h($giftvoucherOrder['GiftvoucherOrder']['gift_due_date']); ?>&nbsp;</td>
+                    <td><?php echo h($giftvoucherOrder['GiftvoucherOrder']['gift_redeem_status']); ?>&nbsp;</td>
+                    <td class="actions">
+                        <?php echo $this->Html->link(__('View'), array('action' => 'view', $giftvoucherOrder['GiftvoucherOrder']['id'])); ?>
+                        <?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $giftvoucherOrder['GiftvoucherOrder']['id'])); ?>
+                        <?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $giftvoucherOrder['GiftvoucherOrder']['id']), null, __('Are you sure you want to delete # %s?', $giftvoucherOrder['GiftvoucherOrder']['id'])); ?>
+                    </td>
+                </tr>
+            <?php endforeach; ?>
         </tbody> 
     </table>
 </div>

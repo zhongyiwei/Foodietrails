@@ -427,7 +427,7 @@ a:hover, a:active, a:focus { /* 此组选择器将为键盘导航者提供与鼠
 .tourBook {
     position:absolute;
     margin-left: 600px;
-    margin-top: -120px;
+    margin-top: -140px;
     height:80px;
     width: 150px;
     background: url('../img/Book.png');
@@ -438,7 +438,7 @@ a:hover, a:active, a:focus { /* 此组选择器将为键盘导航者提供与鼠
 .feedback {
     position:absolute;
     margin-left: 750px;
-    margin-top: -120px;
+    margin-top: -140px;
     height:80px;
     width: 150px;
     background: url('../img/FeedBack.png');
@@ -738,4 +738,14 @@ input[type="checkbox"]{
 }
 body.transparent_widget{
     background: #fff;
+}
+.redeem{
+    font-size: 18px;
+    position: absolute;
+    margin: -60px 0px 0px 567px;
+    padding: 10px;
+    border-radius: 10px;
+    /*border: 1px dotted #CCC;*/
+    /*background:#ccc;*/
+
 }

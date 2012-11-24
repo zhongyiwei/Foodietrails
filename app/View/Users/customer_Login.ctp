@@ -1,8 +1,5 @@
 <?php
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+            echo $this->Html->css('loginPage.css');
 ?>
 <h1>CHECKOUT</h1>
 <p>1. Check Out Method</p>
@@ -25,10 +22,10 @@
             echo $this->Form->input('user_postcode');
             echo $this->Form->input('user_state');
             echo $this->Form->input('country_id', array('type' => 'select', 'options' => $countries));
-            echo $this->Form->checkbox('user_emailsubscription', array( 'value' => 'Yes' )); 
+//            echo $this->Form->checkbox('user_emailsubscription', array( 'value' => 'Yes' )); 
 //		echo $this->Form->input('Event');
 //		echo $this->Form->input('News');
-            ?>Subscribe to our News
+            ?>
 
             <?php echo $this->Form->end(__('Submit')); ?>
         </td>

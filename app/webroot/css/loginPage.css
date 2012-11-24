@@ -1,0 +1,10 @@
+label{
+    font-weight: normal;
+}
+input{
+    padding:0px;
+}
+form div{
+    margin-bottom: 0px;
+    padding-bottom: 2px;
+}
