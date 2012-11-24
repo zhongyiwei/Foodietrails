@@ -1,6 +1,7 @@
 <?php
 $this->extend('/Common/AdminView');
 $this->assign('LeftProduct', '');
+$this->assign('LeftDate', '');
 $this->assign('LeftOrder', 'LeftMenuActions');
 $this->assign('LeftCustomer', '');
 $this->assign('LeftNews', '');
