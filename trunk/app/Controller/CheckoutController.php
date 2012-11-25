@@ -13,6 +13,7 @@ class CheckoutController extends AppController {
         if (!empty($this->params['url']['def'])) {
             $identifier = $this->params['url']['def'];
             $id = $this->params['url']['id'];
+            $dateId = $this->params['url']['dateId'];
         } else {
             $identifier = null;
             $id = null;
@@ -33,6 +34,7 @@ class CheckoutController extends AppController {
                 $currentProduct['Tour']['tour_name'] = $currentTour['Tour']['tour_name'];
                 $currentProduct['Tour']['tour_price_per_certificate'] = $currentTour['Tour']['tour_price_per_certificate'];
                 $currentProduct['Qty'] = 1;
+                $currentProduct['DateId'] = $dateId;
                 $currentProduct['subTotal'] = $currentProduct['Qty'] * $currentProduct['Tour']['tour_price_per_certificate'];
                 $this->Cookie->write('Cart.cartData0', $currentProduct);
             } else if ($currentCart[0] != null && $id != null) {
@@ -51,6 +53,7 @@ class CheckoutController extends AppController {
                     $currentProduct['Tour']['tour_name'] = $currentTour['Tour']['tour_name'];
                     $currentProduct['Tour']['tour_price_per_certificate'] = $currentTour['Tour']['tour_price_per_certificate'];
                     $currentProduct['Qty'] = 1;
+                    $currentProduct['DateId'] = $dateId;
                     $currentProduct['subTotal'] = $currentProduct['Qty'] * $currentProduct['Tour']['tour_price_per_certificate'];
                     $this->Cookie->write("Cart.cartData$maxArrayKeyId", $currentProduct);
                 }
@@ -71,6 +74,7 @@ class CheckoutController extends AppController {
                 $currentProduct['Cookingclass']['cooking_class_name'] = $currentTour['Cookingclass']['cooking_class_name'];
                 $currentProduct['Cookingclass']['cooking_class_price'] = $currentTour['Cookingclass']['cooking_class_price'];
                 $currentProduct['Qty'] = 1;
+                $currentProduct['DateId'] = $dateId;
                 $currentProduct['subTotal'] = $currentProduct['Qty'] * $currentProduct['Cookingclass']['cooking_class_price'];
                 $this->Cookie->write('Cart.cartData0', $currentProduct);
             } else if ($currentCart[0] != null && $id != null) {
@@ -89,6 +93,7 @@ class CheckoutController extends AppController {
                     $currentProduct['Cookingclass']['cooking_class_name'] = $currentTour['Cookingclass']['cooking_class_name'];
                     $currentProduct['Cookingclass']['cooking_class_price'] = $currentTour['Cookingclass']['cooking_class_price'];
                     $currentProduct['Qty'] = 1;
+                    $currentProduct['DateId'] = $dateId;
                     $currentProduct['subTotal'] = $currentProduct['Qty'] * $currentProduct['Cookingclass']['cooking_class_price'];
                     $this->Cookie->write("Cart.cartData$maxArrayKeyId", $currentProduct);
                 }
@@ -108,6 +113,7 @@ class CheckoutController extends AppController {
                 $currentProduct['Product']['product_name'] = $currentTour['Product']['product_name'];
                 $currentProduct['Product']['product_price'] = $currentTour['Product']['product_price'];
                 $currentProduct['Qty'] = 1;
+                $currentProduct['DateId'] = $dateId;
                 $currentProduct['subTotal'] = $currentProduct['Qty'] * $currentProduct['Product']['product_price'];
                 $this->Cookie->write('Cart.cartData0', $currentProduct);
             } else if ($currentCart[0] != null && $id != null) {
@@ -126,6 +132,7 @@ class CheckoutController extends AppController {
                     $currentProduct['Product']['product_name'] = $currentTour['Product']['product_name'];
                     $currentProduct['Product']['product_price'] = $currentTour['Product']['product_price'];
                     $currentProduct['Qty'] = 1;
+                    $currentProduct['DateId'] = $dateId;
                     $currentProduct['subTotal'] = $currentProduct['Qty'] * $currentProduct['Product']['product_price'];
                     $this->Cookie->write("Cart.cartData$maxArrayKeyId", $currentProduct);
                 }
@@ -145,6 +152,7 @@ class CheckoutController extends AppController {
                 $currentProduct['GiftVoucher']['gift_voucher_name'] = $currentGiftVoucher['GiftVoucher']['gift_voucher_name'];
                 $currentProduct['GiftVoucher']['gift_price'] = $currentGiftVoucher['GiftVoucher']['gift_price'];
                 $currentProduct['Qty'] = 1;
+                $currentProduct['DateId'] = $dateId;
                 $currentProduct['subTotal'] = $currentProduct['Qty'] * $currentProduct['GiftVoucher']['gift_price'];
                 $this->Cookie->write('Cart.cartData0', $currentProduct);
             } else if ($currentCart[0] != null && $id != null) {
@@ -163,6 +171,7 @@ class CheckoutController extends AppController {
                     $currentProduct['GiftVoucher']['gift_voucher_name'] = $currentGiftVoucher['GiftVoucher']['gift_voucher_name'];
                     $currentProduct['GiftVoucher']['gift_price'] = $currentGiftVoucher['GiftVoucher']['gift_price'];
                     $currentProduct['Qty'] = 1;
+                    $currentProduct['DateId'] = $dateId;
                     $currentProduct['subTotal'] = $currentProduct['Qty'] * $currentProduct['GiftVoucher']['gift_price'];
                     $this->Cookie->write("Cart.cartData$maxArrayKeyId", $currentProduct);
                 }
@@ -277,6 +286,7 @@ class CheckoutController extends AppController {
         $this->set('disclaimerForm', $this->DisclaimerForm->find('all', array('limit' => 1)));
         $this->set('SC', $this->Cookie->read('Cart'));
     }
+
 }
 
 ?>

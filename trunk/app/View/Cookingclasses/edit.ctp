@@ -38,7 +38,7 @@ $this->start('manageRightContent');
         echo $this->Form->input('cooking_class_name');
         echo $this->Form->input('cooking_class_description', array('id' => 'cooking_class_description', 'class' => 'ckeditor'));
         echo $this->Form->input('cooking_class_price');
-        echo $this->Form->input('cooking_class_location');
+        echo $this->Form->input('cooking_class_max_num_on_day');
         echo $this->Form->input('cooking_class_thumbnail', array('id' => 'xFilePath', 'class' => 'ckeditor', 'style' => 'width:500px'));
         echo $this->Form->button('Browse Server', array('onclick' => 'BrowseServer()', 'type' => 'button', 'style' => 'padding:5px;margin-top:-55px; margin-left:530px'));
         ?>

@@ -457,8 +457,8 @@ a:hover, a:active, a:focus { /* 此组选择器将为键盘导航者提供与鼠
 }
 .tourBook {
     position:absolute;
-    margin-left: 600px;
-    margin-top: -140px;
+    margin-left: 620px;
+    margin-top: -160px;
     height:80px;
     width: 150px;
     background: url('../img/Book.png');
@@ -468,10 +468,10 @@ a:hover, a:active, a:focus { /* 此组选择器将为键盘导航者提供与鼠
 }
 .feedback {
     position:absolute;
-    margin-left: 750px;
-    margin-top: -140px;
-    height:80px;
-    width: 150px;
+    margin-left: 770px;
+    margin-top: -160px;
+    height:69px;
+    width: 149px;
     background: url('../img/FeedBack.png');
 }
 .feedback:hover {
@@ -773,7 +773,7 @@ body.transparent_widget{
 .redeem{
     font-size: 18px;
     position: absolute;
-    margin: -60px 0px 0px 567px;
+    margin: -49px 0px 0px 280px;
     padding: 10px;
     border-radius: 10px;
     /*border: 1px dotted #CCC;*/
