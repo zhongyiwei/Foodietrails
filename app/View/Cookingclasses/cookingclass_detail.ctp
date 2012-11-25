@@ -35,8 +35,8 @@ echo $this->Html->css('detailPage.css');
 </table>
 <table width="200px" border="1" style="width:250px; ">
     <tr>
-        <td style="vertical-align:middle;">Price Per Person</td>
-        <td><div class="tourPrice"><?php echo $cookingclass['Cookingclass']['cooking_class_price']; ?></div></td>
+        <td style="vertical-align:middle;border-bottom: 0px;">Price Per Person</td>
+        <td  style="border-bottom: 0px;"><div class="tourPrice"><?php echo $cookingclass['Cookingclass']['cooking_class_price']; ?></div></td>
     </tr>
 </table>
 <?php
