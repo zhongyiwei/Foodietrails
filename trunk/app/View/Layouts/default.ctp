@@ -80,6 +80,7 @@
 
                     </li>
                     <li class='has-sub'><a>Events</a>
+                         <div class="menuhorizontal">
                         <ul>
                             <?php for ($i = 0; $i < count($menu2); $i++) { ?>
                                 <li> <?php
@@ -89,66 +90,76 @@
                                 </li>
                             <?php } ?>
                         </ul>
-                    </li>
-                    <li><?php echo $this->Html->link(__('products'), array('controller' => 'Products', 'action' => 'product_details'))?>
-<!--                        <ul>
+                        </div>
+                        <li><?php echo $this->Html->link(__('products'), array('controller' => 'Products', 'action' => 'product_details')) ?>
+                            <!--                        <ul>
                             <?php for ($i = 0; $i < count($menu8); $i++) { ?>
-                                <li> <?php
-                            $product= $menu8[$i]['Product']['product_name'];
+                                                                    <li> <?php
+                            $product = $menu8[$i]['Product']['product_name'];
                             echo $this->Html->link(__($product), array('controller' => 'Products', 'action' => 'product_details'));
                                 ?>
-                                </li>
+                                                                    </li>
                             <?php } ?>
-                        </ul>-->
-                    </li>
-                    <li class='has-sub'><a>Media</a>
-                        <ul>
-                            <?php for ($i = 0; $i < count($menu4); $i++) { ?>
-                                <li> <?php
-                            $news = $menu4[$i]['News']['news_title'];
-                            echo $this->Html->link(__($news), array('controller' => 'News', 'action' => 'news_detail', $menu4[$i]['News']['id']));
-                                ?>
-                                </li>
-                            <?php } ?>
-                        </ul>
-                    </li>
-                    <li class='has-sub'><a>Cooking Classes</a>
-                        <ul>
-                            <?php for ($i = 0; $i < count($menu3); $i++) { ?>
-                                <li> <?php
-                            $cookingClassName = $menu3[$i]['Cookingclass']['cooking_class_name'];
-                            echo $this->Html->link(__($cookingClassName), array('controller' => 'CookingClasses', 'action' => 'cookingclass_detail', $menu3[$i]['Cookingclass']['id']));
-                                ?>
-                                </li>
-                            <?php } ?>
-                        </ul>
-                    </li>
-                    <li class='has-sub'><a>Gift Voucher</a>
-                                    <ul>
-                                        <?php for ($i = 0; $i < count($giftVoucher); $i++) { ?>
-                                            <li> <?php
-                                        $giftVoucherName = $giftVoucher[$i]['GiftVoucher']['gift_voucher_name'];
-                                        $id = $giftVoucher[$i]['GiftVoucher']['id'];
-                                        echo $this->Html->link(__($giftVoucherName), array('controller' => 'checkout', 'action' => 'index', '?' => array('def' => 'GiftVoucher', 'id' => "$id")));
-                                            ?>
-                                            </li>
-<?php } ?>
-                                    </ul>
-                    </li>
-                    <li class='has-sub'><a>About Us</a>
-                        <ul>
-<!--                            <li><a href='#'><span>FAQ</span></a></li>
-                            <li><a href='#'><span>Feedbacks</span></a></li>-->
-                            <li><?php echo $this->Html->link(__('Contact Us'), array('controller' => 'About', 'action' => 'contactUs')); ?></li>
-                            <li><a href="http://foodietrails.com.au/blogweb/index.php">Blogs</a></li>
-                            <li><?php echo $this->Html->link(__('About Foodie Trails Inc.'), array('controller' => 'aboutuspages', 'action' => 'aboutCompany')); ?></li>
-                            <li><?php echo $this->Html->link(__('FAQs.'), array('controller' => 'Faqs', 'action' => 'faq_view')); ?></li>
-                        </ul>
-                    </li>
+                                                    </ul>-->
+                        </li>
+                        <li class='has-sub'><a>Media</a>
+                            <div class="menuhorizontal">
+                                <ul>
+                                    <li class='has-sub2'><a>Newsletter Subscription</a>
+                                        <ul>
+                                            <li><?php echo $this->Html->link(__('Subscribe'), array('controller' => 'Subscriptions', 'action' => 'subscribe')); ?></li>
+                                            <li><?php echo $this->Html->link(__('Unsubscribe'), array('controller' => 'Subscriptions', 'action' => 'unsubscribe')); ?></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                                <ul>
+                                    <?php for ($i = 0; $i < count($menu4); $i++) { ?>
+                                        <li> <?php
+                                    $news = $menu4[$i]['News']['news_title'];
+                                    echo $this->Html->link(__($news), array('controller' => 'News', 'action' => 'news_detail', $menu4[$i]['News']['id']));
+                                        ?>
+                                        </li>
+                                    <?php } ?>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class='has-sub'><a>Cooking Classes</a>
+                            <ul>
+                                <?php for ($i = 0; $i < count($menu3); $i++) { ?>
+                                    <li> <?php
+                                $cookingClassName = $menu3[$i]['Cookingclass']['cooking_class_name'];
+                                echo $this->Html->link(__($cookingClassName), array('controller' => 'CookingClasses', 'action' => 'cookingclass_detail', $menu3[$i]['Cookingclass']['id']));
+                                    ?>
+                                    </li>
+                                <?php } ?>
+                            </ul>
+                        </li>
+                        <li class='has-sub'><a>Gift Voucher</a>
+                            <ul>
+                                <?php for ($i = 0; $i < count($giftVoucher); $i++) { ?>
+                                    <li> <?php
+                                $giftVoucherName = $giftVoucher[$i]['GiftVoucher']['gift_voucher_name'];
+                                $id = $giftVoucher[$i]['GiftVoucher']['id'];
+                                echo $this->Html->link(__($giftVoucherName), array('controller' => 'checkout', 'action' => 'index', '?' => array('def' => 'GiftVoucher', 'id' => "$id")));
+                                    ?>
+                                    </li>
+                                <?php } ?>
+                            </ul>
+                        </li>
+                        <li class='has-sub'><a>About Us</a>
+                            <ul>
+    <!--                            <li><a href='#'><span>FAQ</span></a></li>
+                                <li><a href='#'><span>Feedbacks</span></a></li>-->
+                                <li><?php echo $this->Html->link(__('Contact Us'), array('controller' => 'About', 'action' => 'contactUs')); ?></li>
+                                <li><a href="http://foodietrails.com.au/blogweb/index.php">Blogs</a></li>
+                                <li><?php echo $this->Html->link(__('About Foodie Trails Inc.'), array('controller' => 'aboutuspages', 'action' => 'aboutCompany')); ?></li>
+                                <li><?php echo $this->Html->link(__('FAQs.'), array('controller' => 'Faqs', 'action' => 'faq_view')); ?></li>
+                            </ul>
+                        </li>
                 </ul>
             </div>
             <div class="content">
-<?php echo $this->fetch('content'); ?>
+                <?php echo $this->fetch('content'); ?>
             </div>
 
             <script src="http://www.jscache.com/wejs?wtype=selfserveprop&amp;uniq=495&amp;locationId=2513377&amp;lang=en_AU&amp;rating=true&amp;nreviews=5&amp;writereviewlink=true&amp;popIdx=true&amp;iswide=false&amp;border=false"></script>
@@ -175,12 +186,12 @@
             </div>
             <script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid=julianssss"></script>
             <script type="text/javascript">var addthis_config = {"data_track_addressbar":true};
-            //                var addthis_share ={"title":"Foodie Trails is amazing!","note":"Hey friend, I thought you should check this website out, it is simply the best food tourism website I have evern tried."};   
-            //                                var addthis_share = { "email_template":"Foodie_Trails_Template" };
-            //                var addthis_share ={"templates":"Foodie_Trails_Template"};   
-            //                var addthis_share = { email_template: "FTT" };
-            var addthis_share = {url:"http://foodietrails.com.au"};
-            var addthis_share = {"title":"Foodie Trails is amazing!"};
+                //                var addthis_share ={"title":"Foodie Trails is amazing!","note":"Hey friend, I thought you should check this website out, it is simply the best food tourism website I have evern tried."};   
+                //                                var addthis_share = { "email_template":"Foodie_Trails_Template" };
+                //                var addthis_share ={"templates":"Foodie_Trails_Template"};   
+                //                var addthis_share = { email_template: "FTT" };
+                var addthis_share = {url:"http://foodietrails.com.au"};
+                var addthis_share = {"title":"Foodie Trails is amazing!"};
             </script>
             <!-- AddThis Button END -->
 
@@ -196,8 +207,8 @@
                         </td>
                         <td style="vertical-align:middle" align="right">
                             <a href="http://beaconholidays.com.au/"><?php
-echo $this->Html->image("BH.png", array("alt" => "Beacon Holiday", 'name' => "Beacon Holiday Logo", 'width' => "60"));
-?></a>
+                echo $this->Html->image("BH.png", array("alt" => "Beacon Holiday", 'name' => "Beacon Holiday Logo", 'width' => "60"));
+                ?></a>
 
                         </td>
                     </tr>
