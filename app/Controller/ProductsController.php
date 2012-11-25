@@ -99,8 +99,6 @@ public function add() {
 	}
 	
 	public function product_details() {
-     
-        
-  
+                $this->set('products', $this->paginate());
     }
 }
