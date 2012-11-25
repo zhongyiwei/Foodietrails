@@ -8,8 +8,8 @@ $this->assign('LeftNews', '');
 $this->assign('LeftEvent', '');
 $this->start('LeftEditMenu');
 ?>
-<li><?php echo $this->Html->link(__('Edit This Date'), array('action' => 'edit', $tourDate['TourDate']['id'])); ?> </li>
-<li><?php echo $this->Form->postLink(__('Delete This Date'), array('action' => 'delete', $tourDate['Tour']['id']), null, __('Are you sure you want to delete # %s?', $tourDate['TourDate']['id'])); ?> </li>
+<li><?php echo $this->Html->link(__('Edit This Date'), array('action' => 'edit', $cookingclassDate['CookingclassDate']['id'])); ?> </li>
+<li><?php echo $this->Form->postLink(__('Delete This Date'), array('action' => 'delete', $cookingclassDate['CookingclassDate']['id']), null, __('Are you sure you want to delete', $cookingclassDate['CookingclassDate']['id']),'?'); ?> </li>
 
 <?php
 $this->end();
@@ -17,36 +17,39 @@ $this->start('manageRightMenu');
 ?>
 <div class="manageRightMenu" >
     <ul>
-        <li class='active '><?php echo $this->Html->link(__('Tour Date'), array('controller' => 'tourdates', 'action' => 'index')); ?></li>
-        <li><?php echo $this->Html->link(__('Product Date'), array('controller' => 'productdates', 'action' => 'index')); ?></li>
-        <li><?php echo $this->Html->link(__('Cooking Class Date'), array('controller' => 'cookingclassdates', 'action' => 'index')); ?></li>
-        <li><?php echo $this->Html->link(__('Gift Voucher Date'), array('controller' => 'giftvoucherdates', 'action' => 'index')); ?></li>
+        <li ><?php echo $this->Html->link(__('Tour Date'), array('controller' => 'tourdates', 'action' => 'index')); ?></li>
+        <li class='active '><?php echo $this->Html->link(__('Cooking Class Date'), array('controller' => 'cookingclassdates', 'action' => 'index')); ?></li>
     </ul>
 </div>
 <div class="mangeRightSubMenu"> 
-    <div class="unselected"><?php echo $this->Html->link(__('Tour Date List'), array('action' => 'index')); ?></div>
-    <div class="unselected"><?php echo $this->Html->link(__('Add a Tour Date'), array('action' => 'add')); ?></div>
+    <div class="unselected"><?php echo $this->Html->link(__('Cooking Class Date List'), array('action' => 'index')); ?></div>
+    <div class="unselected"><?php echo $this->Html->link(__('Add a Cooking Class Date'), array('action' => 'add')); ?></div>
 </div>
 <?php
 $this->end();
 
 $this->start('manageRightContent');
 ?>
-<div class="tourDates view">
+<div class="cookingclassDates view">
     <dl>
-        <dt><?php echo __('Tour'); ?></dt>
+        <dt><?php echo __('Cooking Class Name'); ?></dt>
         <dd>
-            <?php echo $this->Html->link($tourDate['Tour']['tour_name'], array('controller' => 'tourdates', 'action' => 'view', $tourDate['Tour']['id'])); ?>
+            <?php echo $this->Html->link($cookingclassDate['Cookingclass']['cooking_class_name'], array('controller' => 'cooking_classes', 'action' => 'view', $cookingclassDate['Cookingclass']['id'])); ?>
             &nbsp;
         </dd>
-        <dt><?php echo __('Tour Holding Date'); ?></dt>
+        <dt><?php echo __('Cooking Class Holding Date'); ?></dt>
         <dd>
-            <?php echo $this->Html->link($tourDate['TourDate']['tour_date'], array('controller' => 'tourdates', 'action' => 'view', $tourDate['TourDate']['id'])); ?>
+            <?php echo h($cookingclassDate['CookingclassDate']['cookingclass_date']); ?>
             &nbsp;
         </dd>
-        <dt><?php echo __('Tour Holding Time'); ?></dt>
+        <dt><?php echo __('Cooking Class Holding Time'); ?></dt>
         <dd>
-            <?php echo h($tourDate['TourDate']['tour_time']); ?>
+            <?php echo h($cookingclassDate['CookingclassDate']['cookingclass_time']); ?>
+            &nbsp;
+        </dd>
+        <dt><?php echo __('Cooking Class Progress'); ?></dt>
+        <dd>
+            <?php echo h($cookingclassDate['CookingclassDate']['cooking_class_progress']); ?>
             &nbsp;
         </dd>
     </dl>
