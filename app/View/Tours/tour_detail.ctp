@@ -36,15 +36,20 @@ echo $this->Html->css('detailPage.css');
         for ($i = 0; $i < count($tourDateArray); $i++) {
             $status = true;
             for ($j = 0; $j < count($tourDateData); $j++) {
-                if ($tourDateArray[$i] == $tourDateData[$j]['TourDate']['tour_date'] && $tourDateData[$j]['display']==true) {
+                if ($tourDateArray[$i] == $tourDateData[$j]['TourDate']['tour_date'] && $tourDateData[$j]['display'] == true) {
                     $tourDateId = $tourDateData[$j]['TourDate']['id'];
-                   
+
                     echo "<td><p class='calendarP' style='margin-left: 0px;'>";
 //                echo "<input type='radio' name='dateChoosen' id='date$tourDateId' style='padding:20px' value='4' onclick='formSubmit()' >";
-                    echo $this->Html->image("Book.png", array("alt" => "Click to Book", 'name' => "Foodie Trails Logo", 'width' => "90", 'style' => "", 'url' => array('controller' => 'checkout', 'action' => 'index', '?' => array('def' => 'Tour', 'id' => "$id", 'dateId' => "$tourDateId"))));
+                    echo $this->Html->image("Book.png", array("alt" => "Click to Book", 'name' => "Click to Book", 'width' => "90", 'style' => "", 'url' => array('controller' => 'checkout', 'action' => 'index', '?' => array('def' => 'Tour', 'id' => "$id", 'dateId' => "$tourDateId"))));
                     echo "</p></td>";
                     $status = false;
                     break;
+                } else if ($tourDateArray[$i] == $tourDateData[$j]['TourDate']['tour_date'] && $tourDateData[$j]['display'] == false) {
+                    echo "<td><p class='calendarP' style='margin-left: 0px;'>";
+                    echo $this->Html->image("soldout.png", array("alt" => "This tour has sold out", 'name' => "This tour has sold out", 'width' => "90", 'style' => ""));
+                    echo "</p></td>";
+                    $status = false;
                 }
             }
             if ($status == true) {
