@@ -47,7 +47,7 @@ $this->start('manageRightContent');
                         if ($news['News']['send_status'] == 'false') {
                             echo $this->Html->link(__('Send to subscribers'), array('action' => 'emailsubscriber', $news['News']['id']));
                         } else {
-                            echo $this->Html->link(__('Resend this news'), array('action' => 'emailsubscriber', $news['News']['id']),array('style'=>'padding-left:13px; padding-right:13px;'),__('The sending of the email will take a long time depending on the number of subscribers, are you sure you want to send?'));
+                            echo $this->Html->link(__('Resend this news'), array('action' => 'emailsubscriber', $news['News']['id']),array('style'=>'padding-left:13px; padding-right:13px;'),__('Sending email will take some time due to large amount of subscribers, are you sure you want to proceed?'));
                         }
                         ?>
                     </td>

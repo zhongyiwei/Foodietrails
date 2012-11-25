@@ -88,7 +88,6 @@ class GiftVouchersController extends AppController {
      * @param string $id
      * @return void
      */
-    var $uses = array('GiftvoucherOrder');
 
     public function delete($id = null) {
         if (!$this->request->is('post')) {
@@ -135,12 +134,29 @@ class GiftVouchersController extends AppController {
             $currentUser = $this->Auth->user();
             $currentUserId = $currentUser['id'];
 //            print_r($currentUser);
+//            debug($identifier);
             if ($redeemStatus == true) {
                 $giftVoucherOrderId = $redeemData['GiftvoucherOrder']['id'];
                 $this->request->data['GiftvoucherOrder']['gift_redeem_status'] = 'Redeemed';
                 $this->request->data['GiftvoucherOrder']['recipient_id'] = "$currentUserId";
                 $this->request->data['GiftvoucherOrder']['id'] = "$giftVoucherOrderId";
                 $this->GiftvoucherOrder->save($this->request->data);
+
+                if ($identifier == 'Tour') {
+                    $this->request->data['TourOrder']['tour_id'] = "$id";
+                    $this->request->data['TourOrder']['user_id'] = "$currentUserId";
+                    $this->request->data['TourOrder']['tour_date_id'] = "2";
+                    $this->request->data['TourOrder']['tour_purchase_quantity'] = "1";
+                    $this->request->data['TourOrder']['tour_purchase_date'] = date('Y-m-d H:i:s');
+                    $this->TourOrder->save($this->request->data);
+                } else if ($identifier == "Cooking Class") {
+                    $this->request->data['CookingclassOrder']['cooking_class_id'] = "$id";
+                    $this->request->data['CookingclassOrder']['user_id'] = "$currentUserId";
+                    $this->request->data['CookingclassOrder']['cooking_class_date_id'] = "1";
+                    $this->request->data['CookingclassOrder']['cooking_class_order_quantity'] = "1";
+                    $this->request->data['CookingclassOrder']['cooking_class_order_date'] = date('Y-m-d H:i:s');
+                    $this->CookingclassOrder->save($this->request->data);
+                }
 
                 $this->redirect(array('action' => "redeem_status/?id=$giftVoucherOrderId"));
             }
@@ -164,14 +180,9 @@ class GiftVouchersController extends AppController {
             $gift_voucher_name = $redeemData['GiftVoucher']['gift_voucher_name'];
             $gift_redeem_status = $redeemData['GiftvoucherOrder']['gift_redeem_status'];
             $currrentUser_email = $currentUser['user_email'];
-            $transactionID = $redeemData['GiftvoucherOrder']['id'];
+//            $transactionID = $redeemData['GiftvoucherOrder']['id'];
 
             $redeemMessage = '<div style="font-family: Arial;"><p>Below are the confirmation information: </p><table border="0px" style="width: 600px; padding:10px;">' . "
-                 <tr>
-            <td style='border-right: 1px solid #DDD;border-bottom: 1px solid #DDD;font-family: Arial;'>Transaction Number</td>
-            <td style='border-bottom: 1px solid #DDD;font-family: Arial;'>$transactionID</td>
-        </tr>
-        <tr>
             <td style='border-right: 1px solid #DDD;border-bottom: 1px solid #DDD;font-family: Arial;'>Gifter Name</td>
             <td style='border-bottom: 1px solid #DDD;font-family: Arial;'>$user_first_name $user_last_name</td>
         </tr>

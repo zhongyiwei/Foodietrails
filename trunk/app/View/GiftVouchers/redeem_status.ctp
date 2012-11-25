@@ -12,7 +12,7 @@
             <td>Gifter Name</td>
             <td><?php
 if ($redeemData != null) {
-    echo $redeemData['User']['user_first_name'] . $redeemData['User']['user_surname'];
+    echo $redeemData['User']['user_first_name'] .' '. $redeemData['User']['user_surname'];
 }
 ?></td>
         </tr>

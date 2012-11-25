@@ -20,6 +20,7 @@ echo $this->Html->link(__(''), array('controller' => 'checkout', 'action' => 'in
 echo $this->Html->link(__(''), array('controller' => 'feedbacks', 'action' => 'add', '?' => array('def' => 'CookingClass', 'id' => "$id")), array("class" => "feedback"));
 //echo $this->Html->image("feedback_button.jpg", array("alt" => "Feedback", 'name' => "Feedback", 'height' => "100", 'width' => "150", 'url' => array('controller' => 'feedbacks', 'action' => 'add',$cookingclass['Cookingclass']['id'])));
 echo $this->Html->link(__(''), array('controller' => 'feedbacks', 'action' => 'add'));
+echo $this->Html->link(__('Redeem this cooking class with your gift voucher!'), array('controller' => 'users', 'action' => 'redeemLogin', '?' => array('def'=>'Cooking Class','id' => "$id")), array("class" => "redeem", 'style'=>'color:#1872a3;font-weight:normal; margin-left:486px;'));
 ?>
 <p><?php echo $cookingclass['Cookingclass']['cooking_class_description']; ?></p>
 <h2 class="tourParticipantGuide">Location</h2>
