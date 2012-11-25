@@ -29,7 +29,7 @@ $this->start('manageRightContent');
     <fieldset>
         <?php
 //        echo $this->Form->input('user_id', array('style' => 'display:none', 'label' => false));
-        $productType = array('Tour' => 'Tour', 'Cooking Class' => 'Cooking Class', 'Product' => 'Product');
+        $productType = array('Tour' => 'Tour', 'Cooking Class' => 'Cooking Class');
         echo $this->Form->input('gift_voucher_name');
         echo $this->Form->input('gift_message', array('id' => 'gift_message', 'class' => 'ckeditor'));
         echo $this->Form->input('gift_price');

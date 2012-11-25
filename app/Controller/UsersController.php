@@ -303,7 +303,7 @@ class UsersController extends AppController {
 //            $events = $this->User->Event->find('list');
             $this->set(compact('countries', 'events', 'news'));
         } else {
-            $this->redirect(array('controller' => 'checkout', 'action' => "/confirmCheckout/"));
+            $this->redirect(array('controller' => 'giftvouchers', 'action' => "redeem?def=$identifier&id=$id"));
         }
     }
 
