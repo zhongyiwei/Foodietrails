@@ -58,6 +58,11 @@ $this->start('manageRightContent');
 			<?php echo h($cookingclass['Cookingclass']['cooking_class_location']); ?>
 			&nbsp;
 		</dd>
+                		<dt><?php echo __('Cooking Class Maxmium People on Day'); ?></dt>
+		<dd>
+			<?php echo h($cookingclass['Cookingclass']['cooking_class_max_num_on_day']); ?>
+			&nbsp;
+		</dd>
 		<dt><?php echo __('Cooking Class Thumbnail'); ?></dt>
         <dd>
             <img src="<?php echo ($cookingclass['Cookingclass']['cooking_class_thumbnail']);?>" height="100px">

@@ -1,0 +1,11 @@
+.calendarP{
+    margin:0px;
+    text-align: center;
+    color:#108094;
+}
+.dateP{
+    font-size:11px;
+}
+label{
+    display: none;
+}
