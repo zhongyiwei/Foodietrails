@@ -35,12 +35,12 @@ $this->start('manageRightContent');
 
 <script type="text/javascript">
     var ck_newsContent = CKEDITOR.replace( 'question1',{
-	        filebrowserBrowseUrl : '/js/ckfinder/ckfinder.html',
+	        filebrowserBrowseUrl : '<?php echo $pathForFinder?>/js/ckfinder/ckfinder.html',
         filebrowserWindowWidth : '600',
         filebrowserWindowHeight : '300'
     } ); 
 	var ck_newsContent = CKEDITOR.replace( 'answer1',{
-        filebrowserBrowseUrl : '/js/ckfinder/ckfinder.html',
+        filebrowserBrowseUrl : '<?php echo $pathForFinder?>/js/ckfinder/ckfinder.html',
         filebrowserWindowWidth : '600',
         filebrowserWindowHeight : '300'
     } ); 
