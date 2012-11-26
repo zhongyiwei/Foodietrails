@@ -33,12 +33,12 @@ $this->start('manageRightContent');
     <?php echo $this->Form->create('TourDate'); ?>
 
     <?php
+    $progressStatus = array('Incomplete' => 'Incomplete', 'Completed' => 'Completed');
     echo $this->Form->input('tour_id', array('type' => 'select', 'options' => $tourName));
-   // debug($tours);
+    // debug($tours);
     echo $this->Form->input('tour_date');
     echo $this->Form->input('tour_time');
-    echo $this->Form->input('tour_progress');
-
+    echo $this->Form->input('tour_progress', array('type' => 'select', 'options' => $progressStatus));
     ?>
     <?php echo $this->Form->end(__('Submit')); ?>
 </div>

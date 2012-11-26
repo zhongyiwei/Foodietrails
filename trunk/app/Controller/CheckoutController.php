@@ -113,7 +113,6 @@ class CheckoutController extends AppController {
                 $currentProduct['Product']['product_name'] = $currentTour['Product']['product_name'];
                 $currentProduct['Product']['product_price'] = $currentTour['Product']['product_price'];
                 $currentProduct['Qty'] = 1;
-                $currentProduct['DateId'] = $dateId;
                 $currentProduct['subTotal'] = $currentProduct['Qty'] * $currentProduct['Product']['product_price'];
                 $this->Cookie->write('Cart.cartData0', $currentProduct);
             } else if ($currentCart[0] != null && $id != null) {
@@ -132,7 +131,6 @@ class CheckoutController extends AppController {
                     $currentProduct['Product']['product_name'] = $currentTour['Product']['product_name'];
                     $currentProduct['Product']['product_price'] = $currentTour['Product']['product_price'];
                     $currentProduct['Qty'] = 1;
-                    $currentProduct['DateId'] = $dateId;
                     $currentProduct['subTotal'] = $currentProduct['Qty'] * $currentProduct['Product']['product_price'];
                     $this->Cookie->write("Cart.cartData$maxArrayKeyId", $currentProduct);
                 }
@@ -152,7 +150,6 @@ class CheckoutController extends AppController {
                 $currentProduct['GiftVoucher']['gift_voucher_name'] = $currentGiftVoucher['GiftVoucher']['gift_voucher_name'];
                 $currentProduct['GiftVoucher']['gift_price'] = $currentGiftVoucher['GiftVoucher']['gift_price'];
                 $currentProduct['Qty'] = 1;
-                $currentProduct['DateId'] = $dateId;
                 $currentProduct['subTotal'] = $currentProduct['Qty'] * $currentProduct['GiftVoucher']['gift_price'];
                 $this->Cookie->write('Cart.cartData0', $currentProduct);
             } else if ($currentCart[0] != null && $id != null) {
@@ -171,7 +168,6 @@ class CheckoutController extends AppController {
                     $currentProduct['GiftVoucher']['gift_voucher_name'] = $currentGiftVoucher['GiftVoucher']['gift_voucher_name'];
                     $currentProduct['GiftVoucher']['gift_price'] = $currentGiftVoucher['GiftVoucher']['gift_price'];
                     $currentProduct['Qty'] = 1;
-                    $currentProduct['DateId'] = $dateId;
                     $currentProduct['subTotal'] = $currentProduct['Qty'] * $currentProduct['GiftVoucher']['gift_price'];
                     $this->Cookie->write("Cart.cartData$maxArrayKeyId", $currentProduct);
                 }

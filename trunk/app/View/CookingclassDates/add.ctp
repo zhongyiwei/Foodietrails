@@ -26,13 +26,12 @@ $this->start('manageRightContent');
 <div class="cookingclassDates form">
     <?php echo $this->Form->create('CookingclassDate'); ?>
     <?php
+    $progressStatus = array('Incomplete' => 'Incomplete', 'Completed' => 'Completed');
     echo $this->Form->input('cookingclass_id', array('type' => 'select', 'options' => $cookingclassName));
     echo $this->Form->input('cookingclass_date');
     echo $this->Form->input('cookingclass_time');
-    echo $this->Form->input('cooking_class_progress');
-
+    echo $this->Form->input('cooking_class_progress', array('type' => 'select', 'options' => $progressStatus));
     ?>
     <?php echo $this->Form->end(__('Submit')); ?>
 </div>
 <?php $this->end(); ?>
-

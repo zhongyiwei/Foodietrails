@@ -1,5 +1,5 @@
-
-<?php echo $this->Form->create('User_subscription'); ?>
+<?php echo $this->Session->flash(); ?>
+<?php echo $this->Form->create('UserSubscription'); ?>
 <fieldset>
     <?php
     echo $this->Form->input('user_email');
