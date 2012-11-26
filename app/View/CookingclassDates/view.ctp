@@ -49,7 +49,7 @@ $this->start('manageRightContent');
         </dd>
         <dt><?php echo __('Cooking Class Progress'); ?></dt>
         <dd>
-            <?php echo h($cookingclassDate['CookingclassDate']['cooking_class_progress']); ?>
+            <?php echo h($cookingclassDate['CookingclassDate']['cookingclass_progress']); ?>
             &nbsp;
         </dd>
     </dl>

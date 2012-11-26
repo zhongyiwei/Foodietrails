@@ -107,8 +107,8 @@
                                 <ul>
                                     <li class='has-sub2'><a>Newsletter Subscription</a>
                                         <ul>
-                                            <li><?php echo $this->Html->link(__('Subscribe'), array('controller' => 'Subscriptions', 'action' => 'subscribe')); ?></li>
-                                            <li><?php echo $this->Html->link(__('Unsubscribe'), array('controller' => 'Subscriptions', 'action' => 'unsubscribe')); ?></li>
+                                            <li><?php echo $this->Html->link(__('Subscribe'), array('controller' => 'UserSubscriptions', 'action' => 'subscribe')); ?></li>
+                                            <li><?php echo $this->Html->link(__('Unsubscribe'), array('controller' => 'UserSubscriptions', 'action' => 'unsubscribe')); ?></li>
                                         </ul>
                                     </li>
                                 </ul>
