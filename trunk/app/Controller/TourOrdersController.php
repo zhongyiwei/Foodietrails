@@ -42,11 +42,12 @@ class TourOrdersController extends AppController {
     public function add() {
         if ($this->request->is('post')) {
             $this->TourOrder->create();
+            $this->request->data['TourOrder']['tour_purchase_date'] = date('Y-m-d H:i:s');
             if ($this->TourOrder->save($this->request->data)) {
                 $this->Session->setFlash(__('The tour order has been saved'));
                 $this->redirect(array('action' => 'index'));
             } else {
-                $this->Session->setFlash(__('The tour order could not be saved. Please, try again.','failure-message'));
+                $this->Session->setFlash(__('The tour order could not be saved. Please, try again.', 'failure-message'));
             }
         }
         $tours = $this->TourOrder->Tour->find('list');
@@ -55,7 +56,7 @@ class TourOrdersController extends AppController {
         $tourName = $this->TourOrder->Tour->find('list', array('fields' => 'tour_name'));
         $userEmail = $this->TourOrder->User->find('list', array('fields' => 'user_email'));
         $tourHoldingDate = $this->TourOrder->TourDate->find('list', array('fields' => 'tour_date'));
-        $this->set(compact('tours', 'users', 'tourDates', 'tourName','userEmail','tourHoldingDate'));
+        $this->set(compact('tours', 'users', 'tourDates', 'tourName', 'userEmail', 'tourHoldingDate'));
     }
 
     /**
@@ -75,7 +76,7 @@ class TourOrdersController extends AppController {
                 $this->Session->setFlash(__('The tour order has been saved'));
                 $this->redirect(array('action' => 'index'));
             } else {
-                $this->Session->setFlash(__('The tour order could not be saved. Please, try again.','failure-message'));
+                $this->Session->setFlash(__('The tour order could not be saved. Please, try again.', 'failure-message'));
             }
         } else {
             $this->request->data = $this->TourOrder->read(null, $id);
@@ -86,7 +87,7 @@ class TourOrdersController extends AppController {
         $tourName = $this->TourOrder->Tour->find('list', array('fields' => 'tour_name'));
         $userEmail = $this->TourOrder->User->find('list', array('fields' => 'user_email'));
         $tourHoldingDate = $this->TourOrder->TourDate->find('list', array('fields' => 'tour_date'));
-        $this->set(compact('tours', 'users', 'tourDates', 'tourName','userEmail','tourHoldingDate'));
+        $this->set(compact('tours', 'users', 'tourDates', 'tourName', 'userEmail', 'tourHoldingDate'));
     }
 
     /**
@@ -112,4 +113,5 @@ class TourOrdersController extends AppController {
         $this->Session->setFlash(__('Tour order was not deleted'));
         $this->redirect(array('action' => 'index'));
     }
+
 }

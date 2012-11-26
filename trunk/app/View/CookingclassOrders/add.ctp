@@ -31,7 +31,7 @@ $this->start('manageRightContent');
     echo $this->Form->input('user_id', array('type' => 'select', 'options' => $userEmail));
     echo $this->Form->input('cooking_class_date_id', array('type' => 'select', 'options' => $cookingclassDate));
     echo $this->Form->input('cooking_class_order_quantity');
-    echo $this->Form->input('cooking_class_order_date', array('label' => 'Cooking Class Purchase Date'));
+//    echo $this->Form->input('cooking_class_order_date', array('label' => 'Cooking Class Purchase Date'));
     ?>
     <?php echo $this->Form->end(__('Submit')); ?>
 </div>

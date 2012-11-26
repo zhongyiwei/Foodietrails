@@ -42,6 +42,7 @@ class ProductOrdersController extends AppController {
     public function add() {
         if ($this->request->is('post')) {
             $this->ProductOrder->create();
+            $this->request->data['ProductOrder']['product_purchase_date'] = date('Y-m-d H:i:s');
             if ($this->ProductOrder->save($this->request->data)) {
                 $this->Session->setFlash(__('The product order has been saved'));
                 $this->redirect(array('action' => 'index'));
@@ -53,7 +54,7 @@ class ProductOrdersController extends AppController {
         $productName = $this->ProductOrder->Product->find('list', array('fields' => 'product_name'));
         $users = $this->ProductOrder->User->find('list');
         $userEmail = $this->ProductOrder->User->find('list', array('fields' => 'user_email'));
-        $this->set(compact('products', 'users','productName','userEmail'));
+        $this->set(compact('products', 'users', 'productName', 'userEmail'));
     }
 
     /**
@@ -82,7 +83,7 @@ class ProductOrdersController extends AppController {
         $productName = $this->ProductOrder->Product->find('list', array('fields' => 'product_name'));
         $users = $this->ProductOrder->User->find('list');
         $userEmail = $this->ProductOrder->User->find('list', array('fields' => 'user_email'));
-        $this->set(compact('products', 'users','productName','userEmail'));
+        $this->set(compact('products', 'users', 'productName', 'userEmail'));
     }
 
     /**
