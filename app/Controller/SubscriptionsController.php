@@ -21,16 +21,15 @@ class SubscriptionsController extends AppController {
         }
     }
 
-    public function unsubscribe($id=null) {
+    public function unsubscribe($id = null) {
+        $id = $this->request['User_subscription']['id'];
         if ($this->request->is('post')) {
             $email = $this->request->data['User_subscription']['user_email'];
-            $checkEmail = $this->User_subscription->find('all', array('conditions' => array('user_email' => "$email")));
-             print_r($checkEmail);
-            if ($checkEmail != null) {
-                $this->request->data['User_subscription']['id'] = "$checkEmail";
+            $temp = $this->User_subscription->find('all', array('conditions' => array('user_email' => "$email")));
+            if ($temp != $email) {
+                $this->request->data['User_subscription']['user_email'];
                 $this->request->data['User_subscription']['subscription_status'] = 'No';
                 if ($this->User_subscription->save($this->request->data)) {
-                    $this->Session->setFlash(__('The faq has been saved'));
                     $this->redirect(array('action' => 'askedsuccessful'));
                 }
             } else {
