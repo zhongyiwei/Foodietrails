@@ -771,7 +771,7 @@ body.transparent_widget{
 .redeem{
     font-size: 18px;
     position: absolute;
-    margin: -49px 0px 0px 280px;
+    margin: -64px 0px 0px 5px;
     padding: 10px;
     border-radius: 10px;
     /*border: 1px dotted #CCC;*/

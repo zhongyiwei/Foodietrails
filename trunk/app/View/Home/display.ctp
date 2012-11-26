@@ -77,8 +77,8 @@
                 <div class="tourDetails"> <b>Location: </b> <?php echo $tourData[0]['Tour']['tour_location']; ?><br>
                     <b>Duration: </b><?php echo $tourData[0]['Tour']['tour_duration']; ?> Day<br>
                     <b>Description: </b> <span id="gv1_ctl18_lblDescription"><?php
-                $description = $this->Text->truncate($tourData[0]['Tour']['tour_description'], 100, array('ellipsis' => '...'));
-                echo $description;
+                $description = $this->Text->truncate($tourData[0]['Tour']['tour_long_description'], 100, array('ellipsis' => '...'));
+                echo h($description);
                 ?></span> 
                     <?php echo $this->Html->link(__('Read More'), array('controller' => 'Tours', 'action' => 'tourDetail', $tourData[0]['Tour']['id']), array('class' => 'homePageLink')); ?>
                     <!--                    <div class="countingBox">
@@ -106,8 +106,8 @@
                     <div class="tourDetails"> <b>Location: </b> <?php echo $tourData[$i]['Tour']['tour_location']; ?><br>
                         <b>Duration: </b><?php echo $tourData[$i]['Tour']['tour_duration']; ?> Day<br>
                         <b>Description: </b> <span id="gv1_ctl18_lblDescription"><?php
-    $description = $this->Text->truncate($tourData[$i]['Tour']['tour_description'], 100, array('ellipsis' => '...'));
-    echo $description;
+    $description = $this->Text->truncate($tourData[$i]['Tour']['tour_long_description'], 100, array('ellipsis' => '...'));
+    echo h($description);
         ?></span>        <?php echo $this->Html->link(__('Read More'), array('controller' => 'Tours', 'action' => 'tourDetail', $tourData[$i]['Tour']['id']), array('class' => 'homePageLink')); ?> <br>
                         <!--                        <div class="countingBox">
                                                     <div class="countingBoxAlignment"><span class="countingBoxFont">1 of 3</span></div>
@@ -133,7 +133,7 @@
                     <div class="tourDetails"> <b>Location: </b> <?php echo $cookingClassData[$i]['Cookingclass']['cooking_class_location']; ?><br>
                         <b>Description: </b> <span id="gv1_ctl18_lblDescription"><?php
     $description = $this->Text->truncate($cookingClassData[$i]['Cookingclass']['cooking_class_description'], 100, array('ellipsis' => '...'));
-    echo $description;
+    echo h($description);
         ?></span>        <?php echo $this->Html->link(__('Read More'), array('controller' => 'Cookingclasses', 'action' => 'cookingclass_detail', $cookingClassData[$i]['Cookingclass']['id']), array('class' => 'homePageLink')); ?> <br>
                         <br>
                     </div>
@@ -156,7 +156,7 @@
                     <div class="tourDetails">
                         <b>Description: </b> <span id="gv1_ctl18_lblDescription"><?php
     $description = $this->Text->truncate($productData[$i]['Product']['product_description'], 102, array('ellipsis' => '...'));
-    echo $description;
+    echo h($description);
         ?></span>        <?php echo $this->Html->link(__('Read More'), array('controller' => 'Product', 'action' => 'product_detail', $productData[$i]['Product']['id']), array('class' => 'homePageLink')); ?> <br>
                         <br>
                     </div>
