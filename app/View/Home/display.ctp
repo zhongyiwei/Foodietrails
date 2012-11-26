@@ -50,7 +50,7 @@
 </div>
 <table width="200" border="1">
     <tr><td style="border:0px" class="homePageTitle"><span class="homeTitle"><?php if ($tourData[0]['Tour']['tour_name'] != '') { ?>Tours<?php } ?></span></td>
-        <td rowspan="<?php echo (count($tourData) + count($cookingClassData) + count($productData)+ 3); ?>" style="height:855px; vertical-align:top;border-bottom: none;border-left:1px solid #DDD;">
+        <td rowspan="<?php echo (count($tourData) + count($cookingClassData) + count($productData) + 3); ?>" style="height:855px; vertical-align:top;border-bottom: none;border-left:1px solid #DDD;">
             <div class="sidetab">
                 <div class="title2">Social Feeds</div>
                 <div class="touradvisor">
@@ -60,8 +60,9 @@
                         </ul>
                     </div>
                     <div class="fb-activity facebookstyle" data-site="http://www.foodietrails.com.au/" data-width="240" data-height="200" data-header="true" data-linktarget="_parent" data-border-color="#ccc" data-font="segoe ui" data-recommendations="false"></div>
-                    <a class="twitter-timeline" width="240px" height="150px" href="https://twitter.com/foodietrails" data-widget-id="270741683187093507">Tweets by @foodietrails</a>
+                    <a class="twitter-timeline" width="240px" height="150px" href="https://twitter.com/foodietrails" data-widget-id="270879491256098816">Tweets by @foodietrails</a>
                     <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
                 </div>
             </div>
         </td>
@@ -71,12 +72,12 @@
                 <div class="tourTitle"> <span><?php echo $tourData[0]['Tour']['tour_name']; ?></span> </div>
                 <div class="tourImage"><?php $tourThumbnail = $tourData[0]['Tour']['tour_thumbnail']; ?>
                     <img src='<?php echo $tourThumbnail ?>' alt = "<?php echo $tourData[0]['Tour']['tour_name']; ?>" title = '<?php echo $tourData[0]['Tour']['tour_name']; ?>' height = '125px' width = '175px' border = 0/></div>
-                                    <!--<div class="tourDetails"> <b>Country: </b>Australia <?php // print_r($tour);               ?><br>-->
+                                    <!--<div class="tourDetails"> <b>Country: </b>Australia <?php // print_r($tour);                ?><br>-->
 
                 <div class="tourDetails"> <b>Location: </b> <?php echo $tourData[0]['Tour']['tour_location']; ?><br>
                     <b>Duration: </b><?php echo $tourData[0]['Tour']['tour_duration']; ?> Day<br>
                     <b>Description: </b> <span id="gv1_ctl18_lblDescription"><?php
-                $description = $this->Text->truncate($tourData[0]['Tour']['tour_description'], 10, array('ellipsis' => '...'));
+                $description = $this->Text->truncate($tourData[0]['Tour']['tour_description'], 100, array('ellipsis' => '...'));
                 echo $description;
                 ?></span> 
                     <?php echo $this->Html->link(__('Read More'), array('controller' => 'Tours', 'action' => 'tourDetail', $tourData[0]['Tour']['id']), array('class' => 'homePageLink')); ?>
@@ -100,7 +101,7 @@
                     <div class="tourTitle"> <span><?php echo $tourData[$i]['Tour']['tour_name']; ?></span> </div>
                     <div class="tourImage"><?php $tourThumbnail2 = $tourData[$i]['Tour']['tour_thumbnail']; ?>
                         <img src='<?php echo $tourThumbnail2 ?>' alt = "<?php echo $tourData[$i]['Tour']['tour_name']; ?>" title = '<?php echo $tourData[$i]['Tour']['tour_name']; ?>' height = '125px' width = '175px' border = 0/></div>
-                                         <!--<div class="tourDetails"> <b>Country: </b>Australia <?php // print_r($tour);               ?><br>-->
+                                         <!--<div class="tourDetails"> <b>Country: </b>Australia <?php // print_r($tour);                ?><br>-->
 
                     <div class="tourDetails"> <b>Location: </b> <?php echo $tourData[$i]['Tour']['tour_location']; ?><br>
                         <b>Duration: </b><?php echo $tourData[$i]['Tour']['tour_duration']; ?> Day<br>
@@ -122,7 +123,7 @@
             </td>
         </tr>
     <?php } ?>
-    <tr><td style="border:0px;" class="homePageTitle"><span class="homeTitle"><?php if ($cookingClassData[0]['Cookingclass']['cooking_class_name'] != '') { ?>Cooking Classes<?php }?></span></td></tr>
+    <tr><td style="border:0px;" class="homePageTitle"><span class="homeTitle"><?php if ($cookingClassData[0]['Cookingclass']['cooking_class_name'] != '') { ?>Cooking Classes<?php } ?></span></td></tr>
     <?php for ($i = 0; $i < count($cookingClassData); $i++) { ?>
         <tr>
             <td style="border-bottom: none"><div style="width: 650px" class="line">
@@ -145,7 +146,7 @@
             </td>
         </tr>
     <?php } ?>     
-    <tr><td style="border:0px;" class="homePageTitle"><span class="homeTitle"><?php if ($productData[0]['Product']['product_name'] != '') { ?>Product<?php }?></span></td></tr>
+    <tr><td style="border:0px;" class="homePageTitle"><span class="homeTitle"><?php if ($productData[0]['Product']['product_name'] != '') { ?>Product<?php } ?></span></td></tr>
     <?php for ($i = 0; $i < count($productData); $i++) { ?>
         <tr>
             <td style="border-bottom: none"><div style="width: 650px" class="line">
