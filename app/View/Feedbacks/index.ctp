@@ -10,7 +10,9 @@ $this->start('manageRightMenu');
 <div class="manageRightMenu" >
 	<ul>
 		<li><?php echo $this->Html->link(__('User'),  array('controller' => 'Users', 'action' => 'index')); ?></li>
-        <li class='active '><?php echo $this->Html->link(__('Feedback'), array('action' => 'index')); ?></li>
+                <li  class='active '><?php echo $this->Html->link(__('Feedback'), array('action' => 'index')); ?></li>
+                <li><?php echo $this->Html->link(__('Country'), array('controller' => 'Countries','action' => 'index')); ?></li>
+                <li><?php echo $this->Html->link(__('Subscription'), array('controller' => 'UserSubscriptions','action' => 'index')); ?></li>
     </ul>
 </div>
 <div class="mangeRightSubMenu"> 
