@@ -109,7 +109,7 @@ class UserSubscriptionsController extends AppController {
                 $this->request->data['UserSubscription']['subscription_status'] = 'Yes';
                 $this->UserSubscription->create();
                 if ($this->UserSubscription->save($this->request->data)) {
-                    $this->redirect(array('action' => 'askedsuccessful'));
+                    $this->redirect(array('action' => 'successfulsubscription'));
                 } else {
                     $this->Session->setFlash(__('The event could not be saved. Please, try again.'), 'failure-message');
                 }
@@ -126,7 +126,7 @@ class UserSubscriptionsController extends AppController {
                 $this->request->data['UserSubscription']['id'] = $temp[0]['UserSubscription']['id'];
                 $this->request->data['UserSubscription']['subscription_status'] = 'No';
                 if ($this->UserSubscription->save($this->request->data)) {
-                    $this->redirect(array('action' => 'askedsuccessful'));
+                    $this->redirect(array('action' => 'successfulunsubscription'));
                 }
             } else {
                 $this->Session->setFlash(__('You are not subscribed to recieve newsletters'), 'failure-message');
@@ -134,7 +134,10 @@ class UserSubscriptionsController extends AppController {
         }
     }
 
-    public function askedsuccessful() {
+    public function successfulsubscription() {
+        
+    }
+    public function successfulunsubscription() {
         
     }
 
