@@ -49,11 +49,11 @@ $this->start('manageRightContent');
 //                    echo $this->Form->input('Date');
         ?>
     </fieldset>
-    <?php echo $this->Form->end(__('Submit')); ?>
+    <?php echo $this->Form->end(__('Submit')); echo $pathForFinder;?>
 </div>
 <script type="text/javascript">
     var ck_newsContent = CKEDITOR.replace( 'tour_description',{
-        filebrowserBrowseUrl : '/js/ckfinder/ckfinder.html',
+        filebrowserBrowseUrl : '<?php echo $pathForFinder?>/js/ckfinder/ckfinder.html',
         filebrowserWindowWidth : '600',
         filebrowserWindowHeight : '300'
     } ); 

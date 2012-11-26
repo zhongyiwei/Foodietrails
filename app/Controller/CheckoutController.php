@@ -13,13 +13,13 @@ class CheckoutController extends AppController {
         if (!empty($this->params['url']['def'])) {
             $identifier = $this->params['url']['def'];
             $id = $this->params['url']['id'];
-            $dateId = $this->params['url']['dateId'];
         } else {
             $identifier = null;
             $id = null;
         }
 
         if ($identifier == 'Tour') {
+            $dateId = $this->params['url']['dateId'];
             if ($this->Cookie->read('Cart') != null) {
                 for ($i = 0; $i < count($this->Cookie->read('Cart')); $i++) {
                     $currentCart[$i] = $this->Cookie->read("Cart.cartData$i");
@@ -60,6 +60,7 @@ class CheckoutController extends AppController {
             }
             //debug($this->Cookie->read('Cart.cartData0'));
         } else if ($identifier == 'CookingClass') {
+            $dateId = $this->params['url']['dateId'];
             if ($this->Cookie->read('Cart') != null) {
                 for ($i = 0; $i < count($this->Cookie->read('Cart')); $i++) {
                     $currentCart[$i] = $this->Cookie->read("Cart.cartData$i");
