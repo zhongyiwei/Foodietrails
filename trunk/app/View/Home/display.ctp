@@ -41,7 +41,7 @@
                     $imageAddress = $ImageData[$i]['HomePageImage']['image_name'];
                     $imageDesc = $ImageData[$i]['HomePageImage']['image_description'];
                     ?>      
-                    <li><?php echo $this->Html->image("$imageAddress", array("alt" => "$imageDesc", 'title' => "$imageDesc", 'width' => 700)); ?></li>
+                    <li> <img src='<?php echo $imageAddress ?>' alt = "<?php echo $imageDesc; ?>" title = '<?php echo $imageDesc; ?>' width = '700px' /></li>
                 <?php } ?>
             </ul>
         </div>

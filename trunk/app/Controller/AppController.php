@@ -81,6 +81,7 @@ class AppController extends Controller {
         );
         $this->set('logged_in', $this->Auth->loggedIn());
         $this->set('current_user', $this->Auth->user());
+        $this->set('pathForFinder', "/project35/review3");
     }
 
     public function isAuthorized($user) {
