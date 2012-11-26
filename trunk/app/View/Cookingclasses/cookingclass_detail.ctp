@@ -20,7 +20,7 @@ echo $this->Html->css('detailPage.css');
                 if ($cookingclassDateArray[$i] == $cookingclassDateData[$j]['CookingclassDate']['cookingclass_date'] && $cookingclassDateData[$j]['display'] == true) {
                     $tourDateId = $cookingclassDateData[$j]['CookingclassDate']['id'];
                     echo "<td><p class='calendarP' style='margin-left: 0px;'>";
-                    echo $this->Html->image("Book.png", array("alt" => "Click to Book", 'name' => "Click to Book", 'width' => "90", 'style' => "", 'url' => array('controller' => 'checkout', 'action' => 'index', '?' => array('def' => 'Cooking Class', 'id' => "$id", 'dateId' => "$tourDateId"))));
+                    echo $this->Html->image("Book.png", array("alt" => "Click to Book", 'name' => "Click to Book", 'width' => "90", 'style' => "", 'url' => array('controller' => 'checkout', 'action' => 'index', '?' => array('def' => 'CookingClass', 'id' => "$id", 'dateId' => "$tourDateId"))));
                     echo "</p></td>";
                     $status = false;
                     break;
