@@ -91,7 +91,7 @@
                             <?php } ?>
                         </ul>
                         </div>
-                        <li><?php echo $this->Html->link(__('products'), array('controller' => 'Products', 'action' => 'product_details')) ?>
+                        <li><?php echo $this->Html->link(__('Products'), array('controller' => 'Products', 'action' => 'product_details')) ?>
                             <!--                        <ul>
                             <?php for ($i = 0; $i < count($menu8); $i++) { ?>
                                                                     <li> <?php
