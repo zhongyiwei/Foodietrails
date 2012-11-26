@@ -115,7 +115,7 @@ class NewsController extends AppController {
         $this->set('news', $this->News->read(null, $id));
         $this->request->data['News']['send_status'] = 'true';
         $this->News->saveField('send_status', $this->request->data['News']['send_status']);
-        $subscribers = $this->User->find('all', array('conditions' => array('user_emailsubscription =' => 'Yes')));
+        $subscribers = $this->UserSubscription->find('all', array('conditions' => array('subscription_status =' => 'Yes')));
 //        $subscribers = $this->NewsUser->find('all', array('conditions' => array('news_id =' => $id)));
 ////        debug($subscribers);
 //        for ($i = 0; $i < count($subscribers); $i++) {
