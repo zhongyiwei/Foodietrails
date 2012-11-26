@@ -47,12 +47,12 @@ $this->start('manageRightContent');
 		echo $this->Form->input('country_id', array('type'=>'select','options'=>$countries));
 		//echo $this->Form->input('Event');
 		//echo $this->Form->input('News');
-                                     if ($subscriptionStatus=="Yes"){
-                                        echo $this->Form->checkbox('user_emailsubscription', array( 'value' => 'Yes','checked'=>true ));         
-                                     }else{
-                                       echo $this->Form->checkbox('user_emailsubscription', array( 'value' => 'Yes' ));                            
-                                     }
-	?>Subscribe to our News
+//                                     if ($subscriptionStatus=="Yes"){
+//                                        echo $this->Form->checkbox('user_emailsubscription', array( 'value' => 'Yes','checked'=>true ));         
+//                                     }else{
+//                                       echo $this->Form->checkbox('user_emailsubscription', array( 'value' => 'Yes' ));                            
+//                                     }
+	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Submit')); ?>
 </div>

@@ -7,7 +7,7 @@ for ($i = 0; $i < count($subscribers); $i++) {
 //    $email->setHeaders($headers);
     $email->emailFormat('html');
     $email->from(array('noreply@foodietrails.com' => 'Foodie Trails.com'));
-    $subscribersName = $subscribers[$i]['User']['user_email'];
+    $subscribersName = $subscribers[$i]['UserSubscription']['user_email'];
     $email->to("$subscribersName");
 //    debug($subscribersName);
 //    debug($news);
