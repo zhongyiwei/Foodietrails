@@ -59,7 +59,7 @@ echo $this->Html->css('detailPage.css');
         ?>
     </tr>
 </table>
-<table width="200px" border="1" style="width:250px; margin-bottom: 0px;margin-left: 10px;">
+<table width="200px" border="1" style="width:250px; margin-bottom: 0px;margin-left: 665px;">
     <tr>
         <td style="vertical-align:middle; border-bottom: 0px">Price Per Person</td>
         <td style="border-bottom: 0px;"><div class="tourPrice"><?php echo $tour['Tour']['tour_price_per_certificate']; ?></div></td>

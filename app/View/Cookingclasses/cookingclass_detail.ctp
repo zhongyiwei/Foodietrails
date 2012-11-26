@@ -38,7 +38,7 @@ echo $this->Html->css('detailPage.css');
         ?>
     </tr>
 </table>
-<table width="200px" border="1" style="width:250px; ">
+<table width="200px" border="1" style="width:250px; margin-left: 665px">
     <tr>
         <td style="vertical-align:middle;border-bottom: 0px;">Price Per Person</td>
         <td  style="border-bottom: 0px;"><div class="tourPrice"><?php echo $cookingclass['Cookingclass']['cooking_class_price']; ?></div></td>
@@ -51,7 +51,7 @@ echo $this->Html->css('detailPage.css');
 echo $this->Html->link(__(''), array('controller' => 'feedbacks', 'action' => 'add', '?' => array('def' => 'CookingClass', 'id' => "$id")), array("class" => "feedback"));
 //echo $this->Html->image("feedback_button.jpg", array("alt" => "Feedback", 'name' => "Feedback", 'height' => "100", 'width' => "150", 'url' => array('controller' => 'feedbacks', 'action' => 'add',$cookingclass['Cookingclass']['id'])));
 //echo $this->Html->link(__(''), array('controller' => 'feedbacks', 'action' => 'add'));
-echo $this->Html->link(__('Redeem this cooking class with your gift voucher!'), array('controller' => 'users', 'action' => 'redeemLogin', '?' => array('def' => 'Cooking Class', 'id' => "$id")), array("class" => "redeem", 'style' => 'color:#1872a3;font-weight:normal; margin-left:260px;'));
+echo $this->Html->link(__('Redeem this cooking class with your gift voucher!'), array('controller' => 'users', 'action' => 'redeemLogin', '?' => array('def' => 'Cooking Class', 'id' => "$id")), array("class" => "redeem", 'style' => 'color:#1872a3;font-weight:normal; '));
 ?>
 <p><?php echo $cookingclass['Cookingclass']['cooking_class_description']; ?></p>
 <h2 class="tourParticipantGuide">Location</h2>
