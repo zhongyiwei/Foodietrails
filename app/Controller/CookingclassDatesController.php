@@ -51,7 +51,9 @@ class CookingclassDatesController extends AppController {
             }
         }
         $cookingclasses = $this->CookingclassDate->Cookingclass->find('list');
-        $this->set(compact('cookingclasses'));
+        $cookingclassName = $this->CookingclassDate->Cookingclass->find('list', array('fields' => 'cooking_class_name'));
+        $this->set(compact('cookingclasses', 'cookingclassName'));
+        ;
     }
 
     /**
@@ -77,7 +79,8 @@ class CookingclassDatesController extends AppController {
             $this->request->data = $this->CookingclassDate->read(null, $id);
         }
         $cookingclasses = $this->CookingclassDate->Cookingclass->find('list');
-        $this->set(compact('cookingclasses'));
+        $cookingclassName = $this->CookingclassDate->Cookingclass->find('list', array('fields' => 'cooking_class_name'));
+        $this->set(compact('cookingclasses', 'cookingclassName'));
     }
 
     /**
