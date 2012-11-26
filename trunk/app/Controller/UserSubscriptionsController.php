@@ -102,10 +102,19 @@ class UserSubscriptionsController extends AppController {
     public function subscribe() {
         if ($this->request->is('post')) {
             $email = $this->request->data['UserSubscription']['user_email'];
-            $temp = $this->UserSubscription->find('all', array('conditions' => array('user_email' => "$email",'subscription_status'=>'Yes')));
+            $temp = $this->UserSubscription->find('all', array('conditions' => array('user_email' => "$email")));
             if ($temp != null) {
+                $substatus = $temp[0]['UserSubscription']['subscription_status'];
+            }
+            if ($temp != null && $substatus == 'Yes') {
                 $this->Session->setFlash(__('You have alerady subscribed to our newsletters'), 'failure-message');
-            } else {
+            } else if ($temp != null && $substatus == 'No') {
+                $this->request->data['UserSubscription']['subscription_status'] = 'Yes';
+                $this->request->data['UserSubscription']['id'] = $temp[0]['UserSubscription']['id'];
+                if ($this->UserSubscription->save($this->request->data)) {
+                    $this->redirect(array('action' => 'successfulsubscription'));
+                }
+            } else if ($temp == null) {
                 $this->request->data['UserSubscription']['subscription_status'] = 'Yes';
                 $this->UserSubscription->create();
                 if ($this->UserSubscription->save($this->request->data)) {
@@ -137,6 +146,7 @@ class UserSubscriptionsController extends AppController {
     public function successfulsubscription() {
         
     }
+
     public function successfulunsubscription() {
         
     }
