@@ -43,7 +43,7 @@ $this->start('manageRightContent');
 </div>
 <script type="text/javascript">
     var ck_newsContent = CKEDITOR.replace( 'gift_message',{
-        filebrowserBrowseUrl : '/js/ckfinder/ckfinder.html',
+        filebrowserBrowseUrl : '<?php echo $pathForFinder?>/js/ckfinder/ckfinder.html',
         filebrowserWindowWidth : '600',
         filebrowserWindowHeight : '300'
     } ); 
