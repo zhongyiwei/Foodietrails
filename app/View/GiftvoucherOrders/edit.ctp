@@ -40,6 +40,8 @@ $this->start('manageRightContent');
     echo $this->Form->input('gift_voucher_id', array('type' => 'select', 'options' => $giftName));
     echo $this->Form->input('gift_redeem_code');
     echo $this->Form->input('gift_redeem_status', array('type' => 'select', 'options' => $redeemStatus));
+    echo $this->Form->input('gift_purchase_date');
+    echo $this->Form->input('gift_due_date');
     ?>
     <?php echo $this->Form->end(__('Submit')); ?>
 </div>

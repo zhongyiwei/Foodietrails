@@ -42,6 +42,7 @@ class CookingclassOrdersController extends AppController {
     public function add() {
         if ($this->request->is('post')) {
             $this->CookingclassOrder->create();
+            $this->request->data['CookingclassOrder']['cooking_class_order_date'] = date('Y-m-d H:i:s');
             if ($this->CookingclassOrder->save($this->request->data)) {
                 $this->Session->setFlash(__('The cookingclass order has been saved'));
                 $this->redirect(array('action' => 'index'));
@@ -52,11 +53,11 @@ class CookingclassOrdersController extends AppController {
         $cookingClasses = $this->CookingclassOrder->CookingClass->find('list');
         $users = $this->CookingclassOrder->User->find('list');
         $cookingClassDates = $this->CookingclassOrder->CookingClassDate->find('list');
-        
+
         $userEmail = $this->CookingclassOrder->User->find('list', array('fields' => 'user_email'));
         $cookingclassName = $this->CookingclassOrder->CookingClass->find('list', array('fields' => 'cooking_class_name'));
         $cookingclassDate = $this->CookingclassOrder->CookingClassDate->find('list', array('fields' => 'cookingclass_date'));
-        $this->set(compact('cookingClasses', 'users', 'cookingClassDates','userEmail','cookingclassName','cookingclassDate'));
+        $this->set(compact('cookingClasses', 'users', 'cookingClassDates', 'userEmail', 'cookingclassName', 'cookingclassDate'));
     }
 
     /**
@@ -84,11 +85,11 @@ class CookingclassOrdersController extends AppController {
         $cookingClasses = $this->CookingclassOrder->CookingClass->find('list');
         $users = $this->CookingclassOrder->User->find('list');
         $cookingClassDates = $this->CookingclassOrder->CookingClassDate->find('list');
-        
+
         $userEmail = $this->CookingclassOrder->User->find('list', array('fields' => 'user_email'));
         $cookingclassName = $this->CookingclassOrder->CookingClass->find('list', array('fields' => 'cooking_class_name'));
         $cookingclassDate = $this->CookingclassOrder->CookingClassDate->find('list', array('fields' => 'cookingclass_date'));
-        $this->set(compact('cookingClasses', 'users', 'cookingClassDates','userEmail','cookingclassName','cookingclassDate'));
+        $this->set(compact('cookingClasses', 'users', 'cookingClassDates', 'userEmail', 'cookingclassName', 'cookingclassDate'));
     }
 
     /**
