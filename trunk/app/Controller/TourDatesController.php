@@ -51,7 +51,8 @@ class TourDatesController extends AppController {
             }
         }
         $tours = $this->TourDate->Tour->find('list');
-        $this->set(compact('tours'));
+        $tourName = $this->TourDate->Tour->find('list', array('fields' => 'tour_name'));
+        $this->set(compact('tours', 'tourName'));
     }
 
     /**
@@ -78,6 +79,8 @@ class TourDatesController extends AppController {
         }
         $tours = $this->TourDate->Tour->find('list');
         $this->set(compact('tours'));
+        $tourName = $this->TourDate->Tour->find('list', array('fields' => 'tour_name'));
+        $this->set(compact('tours', 'tourName'));
     }
 
     /**
