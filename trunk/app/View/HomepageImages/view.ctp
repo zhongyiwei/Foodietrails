@@ -25,8 +25,8 @@ $this->start('manageRightMenu');
 </div>
 
 <div class="mangeRightSubMenu"> 
-    <div class="unselected"><?php echo $this->Html->link(__('Disclaimer Form List'), array('action' => 'index')); ?></div>
-    <div class="unselected"><?php echo $this->Html->link(__('Add Disclaimer Form'), array('action' => 'add')); ?></div>
+    <div class="unselected"><?php echo $this->Html->link(__('Home Page Image List'), array('action' => 'index')); ?></div>
+    <div class="unselected"><?php echo $this->Html->link(__('Add Home Page Image'), array('action' => 'add')); ?></div>
 </div>
 
 <?php
