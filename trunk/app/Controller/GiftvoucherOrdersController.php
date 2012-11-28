@@ -47,7 +47,7 @@ class GiftvoucherOrdersController extends AppController {
         if ($this->request->is('post')) {
             $id = $this->request->data['GiftvoucherOrder']['user_id'];
             $users = $this->User->find("all", array('conditions' => array("User.id" => "$id")));
-            $redeemCode = $users[0]['User']['user_first_name'].date('YmdHis');
+            $redeemCode = "FT".$users[0]['User']['user_first_name'].date('YmdHis');
 //            print_r($users);
             $this->GiftvoucherOrder->create();
             $this->request->data['GiftvoucherOrder']['gift_purchase_date'] = date('Y-m-d H:i:s');
