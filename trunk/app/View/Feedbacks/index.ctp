@@ -47,7 +47,7 @@ $this->start('manageRightContent');
                     <td class="actions">
                         <?php echo $this->Html->link(__('View'), array('action' => 'view', $feedback['Feedback']['id'])); ?>
                         <?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $feedback['Feedback']['id'])); ?>
-                        <?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $feedback['Feedback']['id']), null, __('Are you sure you want to delete # %s?',$feedback['Feedback']['id'])); ?>
+                        <?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $feedback['Feedback']['id']), null, __('Are you sure you want to delete # %s feedback?',$feedback['Feedback']['first_name'])); ?>
                     </td>
                 </tr>
             <?php endforeach; ?>

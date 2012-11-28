@@ -42,32 +42,31 @@ if (isset($validationErrorsArray['first_name'])) {
         <tr>
             <td>Inquiring About</td>
             <td><?php
-                $options['Public Tour'] = '';
-                $options['Private Tour'] = '';
-                $options['International Tour'] = '';
+                $options['Tour'] = '';
                 $options['Event'] = '';
                 $options['Cooking Class'] = '';
 
                 $publicTourName = array();
-                for ($i = 0; $i < count($menu); $i++) {
-                    $name = $menu[$i]['Tour']['tour_name'];
+//                print_r($allTours);
+                for ($i = 0; $i < count($allToursContactUs); $i++) {
+                    $name = $allToursContactUs[$i]['Tour']['tour_name'];
                     $publicTourName["$name"] = $name;
                 }
-                $options['Public Tour'] = $publicTourName;
+                $options['Tour'] = $allTours;
 
-                $privateTourName = array();
-                for ($i = 0; $i < count($menu5); $i++) {
-                    $name = $menu5[$i]['Tour']['tour_name'];
-                    $privateTourName["$name"] = $name;
-                }
-                $options['Private Tour'] = $privateTourName;
-
-                $internationalTourName = array();
-                for ($i = 0; $i < count($menu6); $i++) {
-                    $name = $menu6[$i]['Tour']['tour_name'];
-                    $internationalTourName["$name"] = $name;
-                }
-                $options['International Tour'] = $internationalTourName;
+//                $privateTourName = array();
+//                for ($i = 0; $i < count($menu5); $i++) {
+//                    $name = $menu5[$i]['Tour']['tour_name'];
+//                    $privateTourName["$name"] = $name;
+//                }
+//                $options['Private Tour'] = $privateTourName;
+//
+//                $internationalTourName = array();
+//                for ($i = 0; $i < count($menu6); $i++) {
+//                    $name = $menu6[$i]['Tour']['tour_name'];
+//                    $internationalTourName["$name"] = $name;
+//                }
+//                $options['International Tour'] = $internationalTourName;
 
                 $eventName = array();
                 for ($i = 0; $i < count($menu2); $i++) {

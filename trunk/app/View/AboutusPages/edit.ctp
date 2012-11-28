@@ -9,7 +9,7 @@ $this->assign('LeftWebsite', 'LeftMenuActions');
 $this->start('LeftEditMenu');
 ?>
 <li><?php echo $this->Html->link(__('View this about Us'), array('action' => 'view', $this->Form->value('AboutusPage.id'))); ?></li>
-<li><?php echo $this->Form->postLink(__('Delete this about Us'), array('action' => 'delete', $this->Form->value('AboutusPage.id')), null, __('Are you sure you want to delete # %s?', $this->Form->value('AboutusPage.id'))); ?></li>
+<li><?php echo $this->Form->postLink(__('Delete this about Us'), array('action' => 'delete', $this->Form->value('AboutusPage.id')), null, __('Are you sure you want to delete this about page detal?')); ?></li>
 <?php
 $this->end();
 $this->start('manageRightMenu');

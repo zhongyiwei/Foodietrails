@@ -8,7 +8,7 @@ $this->assign('LeftEvent', '');
 $this->start('LeftEditMenu');
 ?>
 <li><?php echo $this->Html->link(__('View this Product'), array('action' => 'view', $this->Form->value('Product.id'))); ?></li>
-<li><?php echo $this->Form->postLink(__('Delete this Product'), array('action' => 'delete', $this->Form->value('Product.id')), null, __('Are you sure you want to delete # %s?', $this->Form->value('Tour.tour_name'))); ?></li>
+<li><?php echo $this->Form->postLink(__('Delete this Product'), array('action' => 'delete', $this->Form->value('Product.id')), null, __('Are you sure you want to delete # %s?', $this->Form->value('Product.product_name'))); ?></li>
 <?php
 $this->end();
 $this->start('manageRightMenu');

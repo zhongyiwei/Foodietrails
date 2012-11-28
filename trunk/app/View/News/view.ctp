@@ -8,7 +8,7 @@ $this->assign('LeftEvent','');
 $this->start('LeftEditMenu');
 ?>
 <li><?php echo $this->Html->link(__('Edit This News'), array('action' => 'edit', $news['News']['id'])); ?> </li>
-<li><?php echo $this->Form->postLink(__('Delete This News'), array('action' => 'delete', $news['News']['id']), null, __('Are you sure you want to delete # %s?', $news['News']['id'])); ?> </li>
+<li><?php echo $this->Form->postLink(__('Delete This News'), array('action' => 'delete', $news['News']['id']), null, __('Are you sure you want to delete # %s?', $news['News']['news_title'])); ?> </li>
 <?php
 $this->end();
 $this->start('manageRightMenu');

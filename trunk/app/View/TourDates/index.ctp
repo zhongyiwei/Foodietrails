@@ -48,7 +48,7 @@ $this->start('manageRightContent');
                     <td class="actions">
                         <?php echo $this->Html->link(__('View'), array('action' => 'view', $tourDate['TourDate']['id'])); ?>
                         <?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $tourDate['TourDate']['id'])); ?>
-                        <?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $tourDate['TourDate']['id']), null, __('Are you sure you want to delete # %s?', $tourDate['TourDate']['id'])); ?>
+                        <?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $tourDate['TourDate']['id']), null, __('Are you sure you want to delete # %s?', $tourDate['TourDate']['tour_date'])); ?>
                         <?php
                         if ($tourDate['TourDate']['tour_progress'] == "Completed") {
                             echo $this->Html->link(__('Send Feedback Email  '), array('action' => 'requestFeedback', $tourDate['TourDate']['id']), array('style' => 'padding:2px 9px;'), __('Sending email will take some time due to large amount of people, are you sure you want to proceed?'));

@@ -42,7 +42,7 @@ $this->start('manageRightContent');
 		<td class="actions">
 			<?php echo $this->Html->link(__('View'), array('action' => 'view', $userSubscription['UserSubscription']['id'])); ?>
 			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $userSubscription['UserSubscription']['id'])); ?>
-			<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $userSubscription['UserSubscription']['id']), null, __('Are you sure you want to delete # %s?', $userSubscription['UserSubscription']['id'])); ?>
+			<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $userSubscription['UserSubscription']['id']), null, __('Are you sure you want to delete # %s?', $userSubscription['UserSubscription']['user_email'])); ?>
 		</td>
 	</tr>
 <?php endforeach; ?>

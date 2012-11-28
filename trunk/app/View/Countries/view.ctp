@@ -8,7 +8,7 @@ $this->assign('LeftEvent', '');
 $this->start('LeftEditMenu');
 ?>
 <li><?php echo $this->Html->link(__('Edit Country'), array('action' => 'edit', $country['Country']['id'])); ?> </li>
-<li><?php echo $this->Form->postLink(__('Delete Country'), array('action' => 'delete', $country['Country']['id']), null, __('Are you sure you want to delete # %s?', $country['Country']['id'])); ?> </li>
+<li><?php echo $this->Form->postLink(__('Delete Country'), array('action' => 'delete', $country['Country']['id']), null, __('Are you sure you want to delete # %s?', $country['Country']['country_name'])); ?> </li>
 <?php
 $this->end();
 $this->start('manageRightMenu');

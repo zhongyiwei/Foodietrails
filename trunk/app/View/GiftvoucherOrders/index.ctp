@@ -51,7 +51,7 @@ $this->start('manageRightContent');
                     <td class="actions">
                         <?php echo $this->Html->link(__('View'), array('action' => 'view', $giftvoucherOrder['GiftvoucherOrder']['id'])); ?>
                         <?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $giftvoucherOrder['GiftvoucherOrder']['id'])); ?>
-                        <?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $giftvoucherOrder['GiftvoucherOrder']['id']), null, __('Are you sure you want to delete # %s?', $giftvoucherOrder['GiftvoucherOrder']['id'])); ?>
+                        <?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $giftvoucherOrder['GiftvoucherOrder']['id']), null, __('Are you sure you want to delete # %s gift voucher?', $giftvoucherOrder['User']['user_email'])); ?>
                     </td>
                 </tr>
             <?php endforeach; ?>

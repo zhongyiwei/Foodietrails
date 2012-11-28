@@ -55,7 +55,7 @@ $this->start('manageRightContent');
                     <td class="actions">
                         <?php echo $this->Html->link(__('View'), array('action' => 'view', $cookingclassOrder['CookingclassOrder']['id'])); ?>
                         <?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $cookingclassOrder['CookingclassOrder']['id'])); ?>
-                        <?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $cookingclassOrder['CookingclassOrder']['id']), null, __('Are you sure you want to delete # %s?', $cookingclassOrder['CookingclassOrder']['id'])); ?>
+                        <?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $cookingclassOrder['CookingclassOrder']['id']), null, __('Are you sure you want to delete # % s order?', $cookingclassOrder['User']['user_email'])); ?>
                     </td>
                 </tr>
             <?php endforeach; ?>

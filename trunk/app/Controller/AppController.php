@@ -45,25 +45,27 @@ class AppController extends Controller {
 //      public function beforeFilter1() {
 //         $this->Auth->allow('index', 'view');
 //     }
-    var $uses = array('Tour', 'Event', 'Cookingclass', 'Product', 'User', 'Feedback', 'News', 'GiftVoucher','GiftvoucherOrder', 'TourOrder','CookingclassOrder','TourDate','UserSubscription','CookingclassDate');
-
+    var $uses = array('Tour', 'Event', 'Cookingclass', 'Product', 'User', 'Feedback', 'News', 'GiftVoucher', 'GiftvoucherOrder', 'TourOrder', 'CookingclassOrder', 'TourDate', 'UserSubscription', 'CookingclassDate', 'TourType');
 
     function beforeFilter() {
         Security::setHash('sha1');
         $allTours = $this->Tour->find('list', array('fields' => 'id, tour_name'));
         $this->set('allTours', $allTours);
-        $allCookingClass= $this->Cookingclass->find('list', array('fields' => 'id, cooking_class_name'));
+        $allCookingClass = $this->Cookingclass->find('list', array('fields' => 'id, cooking_class_name'));
         $this->set('allCookingClasses', $allCookingClass);
         $allProducts = $this->Product->find('list', array('fields' => 'id, product_name'));
         $this->set('allProducts', $allProducts);
 
-        $menus = $this->Tour->find('all', array('fields' => 'id, tour_name', 'conditions' => array('tour_type' => 'Public')));
-        $this->set('menu', $menus);
-        $menus5 = $this->Tour->find('all', array('fields' => 'id, tour_name', 'conditions' => array('tour_type' => 'Private')));
-        $this->set('menu5', $menus5);
-        $menus6 = $this->Tour->find('all', array('fields' => 'id, tour_name', 'conditions' => array('tour_type' => 'International')));
-        $this->set('menu6', $menus6);
-        $this->Auth->allow('display', 'tourDetail', 'cookingclass_detail', 'aboutCompany', 'contactUs', 'login', 'event_detail', 'checkout', 'logout', 'customerLogin', 'deleteCheckoutItem', 'customerPayment', 'existingCustomerLogin', 'check', 'confirmCheckout', 'sendEmail', 'sendSuccessful', 'news_detail', 'askedsuccessful', 'faq_view','redeem','redeemLogin','loginForRedeem','redeem_status','product_details','subscribe','unsubscribe','successfulsubscription','successfulunsubscription');
+        $tourTypeData = $this->TourType->find("all");
+        $this->set('tourTypeData', $tourTypeData);
+        $tourMenu=null;
+        for ($i = 0; $i < count($tourTypeData); $i++) {
+            $tourTypeId = $tourTypeData[$i]['TourType']['id'];
+            $tourMenu[$i] = $this->Tour->find('all', array('fields' => 'id, tour_name', 'conditions' => array('Tour.tour_type_id' => "$tourTypeId")));
+//            print_r($tourMenu);
+        }
+        $this->set("tourMenu", $tourMenu);
+        $this->Auth->allow('display', 'tourDetail', 'cookingclass_detail', 'aboutCompany', 'contactUs', 'login', 'event_detail', 'checkout', 'logout', 'customerLogin', 'deleteCheckoutItem', 'customerPayment', 'existingCustomerLogin', 'check', 'confirmCheckout', 'sendEmail', 'sendSuccessful', 'news_detail', 'askedsuccessful', 'faq_view', 'redeem', 'redeemLogin', 'loginForRedeem', 'redeem_status', 'product_details', 'subscribe', 'unsubscribe', 'successfulsubscription', 'successfulunsubscription');
         $menus2 = $this->Event->find('all', array('fields' => 'id, event_name'));
         $this->set('menu2', $menus2);
         $menus3 = $this->Cookingclass->find('all', array('fields' => 'id, cooking_class_name'));

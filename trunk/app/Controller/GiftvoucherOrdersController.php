@@ -31,11 +31,11 @@ class GiftvoucherOrdersController extends AppController {
         if (!$this->GiftvoucherOrder->exists()) {
             throw new NotFoundException(__('Invalid giftvoucher order'));
         }
-        $data = $this->GiftvoucherOrder->find("all",array('condition'=>array("GiftvoucherOrder.id"=>"$id")));
+        $data = $this->GiftvoucherOrder->find("all", array('conditions' => array("GiftvoucherOrder.id" => "$id")));
         $recipientID = $data[0]['GiftvoucherOrder']['recipient_id'];
-        $recipientEmail = $this->User->find('list', array('fields' => 'user_email', 'conditions'=>array("User.id"=>"$recipientID")));
+        $recipientEmail = $this->User->find('list', array('fields' => 'user_email', 'conditions' => array("User.id" => "$recipientID")));
         $this->set('giftvoucherOrder', $this->GiftvoucherOrder->read(null, $id));
-        $this->set('recipientEmail',$recipientEmail);
+        $this->set('recipientEmail', $recipientEmail);
     }
 
     /**
@@ -45,9 +45,14 @@ class GiftvoucherOrdersController extends AppController {
      */
     public function add() {
         if ($this->request->is('post')) {
+            $id = $this->request->data['GiftvoucherOrder']['user_id'];
+            $users = $this->User->find("all", array('conditions' => array("User.id" => "$id")));
+            $redeemCode = $users[0]['User']['user_first_name'].date('YmdHis');
+//            print_r($users);
             $this->GiftvoucherOrder->create();
             $this->request->data['GiftvoucherOrder']['gift_purchase_date'] = date('Y-m-d H:i:s');
             $this->request->data['GiftvoucherOrder']['gift_due_date'] = date('Y-m-d H:i:s', strtotime('+1 year'));
+            $this->request->data['GiftvoucherOrder']['gift_redeem_code'] = "$redeemCode";
             if ($this->GiftvoucherOrder->save($this->request->data)) {
                 $this->Session->setFlash(__('The giftvoucher order has been saved'));
                 $this->redirect(array('action' => 'index'));

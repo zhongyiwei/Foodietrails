@@ -9,7 +9,7 @@ $this->assign('LeftEvent', '');
 $this->start('LeftEditMenu');
 ?>
 <li><?php echo $this->Html->link(__('Edit This Date'), array('action' => 'edit', $cookingclassDate['CookingclassDate']['id'])); ?> </li>
-<li><?php echo $this->Form->postLink(__('Delete This Date'), array('action' => 'delete', $cookingclassDate['CookingclassDate']['id']), null, __('Are you sure you want to delete', $cookingclassDate['CookingclassDate']['id']),'?'); ?> </li>
+<li><?php echo $this->Form->postLink(__('Delete This Date'), array('action' => 'delete', $cookingclassDate['CookingclassDate']['id']), null, __('Are you sure you want to delete this cooking class?')); ?> </li>
 
 <?php
 $this->end();

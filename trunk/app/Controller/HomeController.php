@@ -20,17 +20,17 @@ class HomeController extends AppController {
         for ($i = 0; $i < count($homeList); $i++) {
             if ($homeList[$i]['HomePageList']['list_type'] == 'Tour') {
                 $TourIds = $homeList[$i]['HomePageList']['product_id'];
-                $temp = $this->Tour->find('all', array('conditions' => array('id' => "$TourIds")));
+                $temp = $this->Tour->find('all', array('conditions' => array('Tour.id' => "$TourIds")));
                 $tourArray[$TourCount] = $temp[0];
                 $TourCount++;
             } else if ($homeList[$i]['HomePageList']['list_type'] == 'Cooking Class') {
                 $cookingClassId = $homeList[$i]['HomePageList']['product_id'];
-                $temp = $this->Cookingclass->find('all', array('conditions' => array('id' => "$cookingClassId")));
+                $temp = $this->Cookingclass->find('all', array('conditions' => array('Cookingclass.id' => "$cookingClassId")));
                 $cookingClassArray[$cookingClassCount] = $temp[0];
                 $cookingClassCount++;
             } else if ($homeList[$i]['HomePageList']['list_type'] == 'Product') {
                 $productId = $homeList[$i]['HomePageList']['product_id'];
-                $temp = $this->Product->find('all', array('conditions' => array('id' => "$productId")));
+                $temp = $this->Product->find('all', array('conditions' => array('Product.id' => "$productId")));
                 $productArray[$productIdCount] = $temp[0];
                 $productIdCount++;
             }

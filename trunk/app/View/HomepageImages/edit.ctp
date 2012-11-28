@@ -9,7 +9,7 @@ $this->assign('LeftWebsite', 'LeftMenuActions');
 $this->start('LeftEditMenu');
 ?>
 <li><?php echo $this->Html->link(__('View this Image'), array('action' => 'view', $this->Form->value('HomepageImage.id'))); ?></li>
-<li><?php echo $this->Form->postLink(__('Delete this Image'), array('action' => 'delete', $this->Form->value('HomepageImages.id')), null, __('Are you sure you want to delete # %s?', $this->Form->value('HomepageImage.id'))); ?></li>
+<li><?php echo $this->Form->postLink(__('Delete this Image'), array('action' => 'delete', $this->Form->value('HomepageImages.id')), null, __('Are you sure you want to delete this image?')); ?></li>
 <?php
 $this->end();
 $this->start('manageRightMenu');

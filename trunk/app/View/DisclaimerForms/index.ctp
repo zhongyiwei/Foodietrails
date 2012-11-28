@@ -44,7 +44,7 @@ $this->start('manageRightContent');
                     <td class="actions">
                         <?php echo $this->Html->link(__('View'), array('action' => 'view', $disclaimerForm['DisclaimerForm']['id'])); ?>
                         <?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $disclaimerForm['DisclaimerForm']['id'])); ?>
-                        <?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $disclaimerForm['DisclaimerForm']['id']), null, __('Are you sure you want to delete # %s?', $disclaimerForm['DisclaimerForm']['id'])); ?>
+                        <?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $disclaimerForm['DisclaimerForm']['id']), null, __('Are you sure you want to delete this disclaimer form?')); ?>
                     </td>
                 </tr>
             <?php endforeach; ?>
