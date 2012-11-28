@@ -49,7 +49,7 @@
 
     <?php } ?>
 <p /></ul>
-<ul><li class="parent_sitemap"> <?php echo $this->Html->link(__('Products'), array('controller' => 'Products', 'action' => 'product_details')); ?><p /><p /></li>
+<ul><li class="parent_sitemap"><?php echo $this->Html->link(__('Products'), array('controller' => 'Products', 'action' => 'product_details')); ?><p /></li></ul>
     <ul><li class="parent_sitemap">Media</li>
         <?php for ($i = 0; $i < count($menu4); $i++) { ?>
             <ul><li class="indent_sitemap"> <?php
