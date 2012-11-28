@@ -32,8 +32,8 @@ class ToursController extends AppController {
 
     public function beforeFilter() {
         parent::beforeFilter();
-        $this->Cookie->name = 'shoppingCart';
-        $this->Cookie->time = 60 * 60 * 24 * 30;
+//        $this->Cookie->name = 'shoppingCart';
+//        $this->Cookie->time = 60 * 60 * 24 * 30;
     }
 
     /**
@@ -145,10 +145,10 @@ class ToursController extends AppController {
         for ($i = 0; $i < count($tourDateData); $i++) {
             $tourDateId = $tourDateData[$i]['TourDate']['id'];
             $tourOrderData = $this->TourOrder->find('all', array('conditions' => array('TourOrder.tour_date_id' => "$tourDateId", 'TourOrder.tour_id' => "$id")));
-            if (count($tourOrderData)>= $tourData[0]['Tour']['tour_max_num_on_day']){
-                $tourDateData[$i]['display']=false;
-            }else{
-                $tourDateData[$i]['display']=true;
+            if (count($tourOrderData) >= $tourData[0]['Tour']['tour_max_num_on_day']) {
+                $tourDateData[$i]['display'] = false;
+            } else {
+                $tourDateData[$i]['display'] = true;
             }
         }
 //        print_r($tourDateData);

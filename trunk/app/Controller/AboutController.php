@@ -29,7 +29,7 @@ class AboutController extends AppController {
                     $email->config('default');
                     $email->emailFormat('html');
                     $email->from(array("$emailAddress" => "$emailAddress"));
-                    $email->to("91234@myrp.edu.sg");
+                    $email->to("$this->recipient");
                     $firstName = $this->request->data['first_name'];
                     $lastName = $this->request->data['last_name'];
                     $wantto = $this->request->data['wantto'];

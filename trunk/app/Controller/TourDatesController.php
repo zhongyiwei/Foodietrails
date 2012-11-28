@@ -47,7 +47,7 @@ class TourDatesController extends AppController {
                 $this->Session->setFlash(__('The tour date has been saved'));
                 $this->redirect(array('action' => 'index'));
             } else {
-                $this->Session->setFlash(__('The tour date could not be saved. Please, try again.'));
+                $this->Session->setFlash(__('The tour date could not be saved. Please, try again.'), 'failure-message');
             }
         }
         $tours = $this->TourDate->Tour->find('list');
@@ -72,7 +72,7 @@ class TourDatesController extends AppController {
                 $this->Session->setFlash(__('The tour date has been saved'));
                 $this->redirect(array('action' => 'index'));
             } else {
-                $this->Session->setFlash(__('The tour date could not be saved. Please, try again.'));
+                $this->Session->setFlash(__('The tour date could not be saved. Please, try again.'), 'failure-message');
             }
         } else {
             $this->request->data = $this->TourDate->read(null, $id);
@@ -111,7 +111,7 @@ class TourDatesController extends AppController {
         $tourDateData = $this->TourDate->find('all', array('conditions' => array('TourDate.id' => "$id")));
         $tourId = $tourDateData[0]['TourDate']['tour_id'];
         $tourOrderData = $this->TourOrder->find('all', array('conditions' => array('TourOrder.tour_date_id' => "$id", 'TourOrder.tour_id' => "$tourId")));
-
+        $this->Session->setFlash(__('Email requesting for customer feedback has been sent successfully'));
         for ($i = 0; $i < count($tourOrderData); $i++) {
             $recipient = $tourOrderData[$i]['User']['user_email'];
             $tourName = $tourOrderData[$i]['Tour']['tour_name'];
@@ -120,7 +120,7 @@ class TourDatesController extends AppController {
             $email = new CakeEmail();
             $email->config('default');
             $email->emailFormat('html');
-            $email->from(array("sippoujulian@gmail.com" => "Foodie Trails.com"));
+            $email->from(array("$this->sender" => "$this->senderTag"));
             $email->to("$recipient");
             $email->subject("Thanks for supporting foodie trails, tell us your experience via feedback.");
             $feedbackMessage = "
@@ -141,19 +141,20 @@ class TourDatesController extends AppController {
         $tourDateData = $this->TourDate->find('all', array('conditions' => array('TourDate.id' => "$id")));
         $tourId = $tourDateData[0]['TourDate']['tour_id'];
         $tourOrderData = $this->TourOrder->find('all', array('conditions' => array('TourOrder.tour_date_id' => "$id", 'TourOrder.tour_id' => "$tourId")));
-
+        $this->Session->setFlash(__('Email notification has been sent successfully'));
+//        print_r($tourOrderData);
         for ($i = 0; $i < count($tourOrderData); $i++) {
             $recipient = $tourOrderData[$i]['User']['user_email'];
             $tourName = $tourOrderData[$i]['Tour']['tour_name'];
             $tourId = $tourOrderData[$i]['Tour']['id'];
-            $tourDate = $tourDateData[$i]['TourDate']['tour_date'];
-            $tourTime = $tourDateData[$i]['TourDate']['tour_time'];
+            $tourDate = $tourOrderData[$i]['TourDate']['tour_date'];
+            $tourTime = $tourOrderData[$i]['TourDate']['tour_time'];
             $tourLocation = $tourOrderData[$i]['Tour']['tour_location'];
             $tourLink = "<a href=" . Router::url("/tours/tourDetail/$tourId", true) . ">Detailed Tour Information</a>";
             $email = new CakeEmail();
             $email->config('default');
             $email->emailFormat('html');
-            $email->from(array("sippoujulian@gmail.com" => "Foodie Trails.com"));
+            $email->from(array("$this->sender" => "$this->senderTag"));
             $email->to("$recipient");
             $email->subject("A gentle reminder: Prior notice for upcoming trip");
             $notificationMessage = "
@@ -165,7 +166,7 @@ class TourDatesController extends AppController {
                  <p>For Any Inquiries, Please telephone 0452660748 or visit FAQ section at www.foodietrails.com.au</p>
                  </div>
 ";
-            $email->send($notificationMessage);
+//            $email->send($notificationMessage);
         }
         $this->redirect(array('action' => 'index'));
     }

@@ -45,7 +45,7 @@ $this->start('manageRightContent');
                         <?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $news['News']['id']), null, __('Are you sure you want to delete # %s?', $news['News']['news_title'])); ?>
                         <?php
                         if ($news['News']['send_status'] == 'false') {
-                            echo $this->Html->link(__('Send to subscribers'), array('action' => 'emailsubscriber', $news['News']['id']));
+                            echo $this->Html->link(__('Send to subscribers'), array('action' => 'emailsubscriber', $news['News']['id']),null,__('Sending email will take some time due to large amount of subscribers, are you sure you want to proceed?'));;
                         } else {
                             echo $this->Html->link(__('Resend this news'), array('action' => 'emailsubscriber', $news['News']['id']),array('style'=>'padding-left:13px; padding-right:13px;'),__('Sending email will take some time due to large amount of subscribers, are you sure you want to proceed?'));
                         }

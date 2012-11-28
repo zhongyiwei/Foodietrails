@@ -42,13 +42,13 @@ $this->start('manageRightContent');
             <?php foreach ($cookingclassOrders as $cookingclassOrder): ?>
                 <tr>
                     <td>
+                        <?php echo $this->Html->link($cookingclassOrder['CookingClassDate']['cookingclass_date'], array('controller' => 'cookingclassdates', 'action' => 'view', $cookingclassOrder['CookingClassDate']['id'])); ?>
+                    </td>
+                    <td>
                         <?php echo $this->Html->link($cookingclassOrder['CookingClass']['cooking_class_name'], array('controller' => 'cooking_classes', 'action' => 'view', $cookingclassOrder['CookingClass']['id'])); ?>
                     </td>
                     <td>
                         <?php echo $this->Html->link($cookingclassOrder['User']['user_email'], array('controller' => 'users', 'action' => 'view', $cookingclassOrder['User']['id'])); ?>
-                    </td>
-                    <td>
-                        <?php echo $this->Html->link($cookingclassOrder['CookingClassDate']['cookingclass_date'], array('controller' => 'cookingclassdates', 'action' => 'view', $cookingclassOrder['CookingClassDate']['id'])); ?>
                     </td>
                     <td><?php echo h($cookingclassOrder['CookingclassOrder']['cooking_class_order_quantity']); ?>&nbsp;</td>
                     <td><?php echo h($cookingclassOrder['CookingclassOrder']['cooking_class_order_date']); ?>&nbsp;</td>

@@ -47,7 +47,7 @@ class CookingclassOrdersController extends AppController {
                 $this->Session->setFlash(__('The cookingclass order has been saved'));
                 $this->redirect(array('action' => 'index'));
             } else {
-                $this->Session->setFlash(__('The cookingclass order could not be saved. Please, try again.'));
+                $this->Session->setFlash(__('The cookingclass order could not be saved. Please, try again.'), 'failure-message');
             }
         }
         $cookingClasses = $this->CookingclassOrder->CookingClass->find('list');
@@ -77,7 +77,7 @@ class CookingclassOrdersController extends AppController {
                 $this->Session->setFlash(__('The cookingclass order has been saved'));
                 $this->redirect(array('action' => 'index'));
             } else {
-                $this->Session->setFlash(__('The cookingclass order could not be saved. Please, try again.'));
+                $this->Session->setFlash(__('The cookingclass order could not be saved. Please, try again.'), 'failure-message');
             }
         } else {
             $this->request->data = $this->CookingclassOrder->read(null, $id);
@@ -112,7 +112,7 @@ class CookingclassOrdersController extends AppController {
             $this->Session->setFlash(__('Cookingclass order deleted'));
             $this->redirect(array('action' => 'index'));
         }
-        $this->Session->setFlash(__('Cookingclass order was not deleted'));
+        $this->Session->setFlash(__('Cookingclass order was not deleted successfully, Please try again'), 'failure-message');
         $this->redirect(array('action' => 'index'));
     }
 

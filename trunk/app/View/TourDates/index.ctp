@@ -39,10 +39,10 @@ $this->start('manageRightContent');
         <tbody>
             <?php foreach ($tourDates as $tourDate): ?>
                 <tr>
+                    <td><?php echo h($tourDate['TourDate']['tour_date']); ?>&nbsp;</td>
                     <td>
                         <?php echo $this->Html->link($tourDate['Tour']['tour_name'], array('controller' => 'tours', 'action' => 'view', $tourDate['Tour']['id'])); ?>
                     </td>
-                    <td><?php echo h($tourDate['TourDate']['tour_date']); ?>&nbsp;</td>
                     <td><?php echo h($tourDate['TourDate']['tour_time']); ?>&nbsp;</td>
                     <td><?php echo h($tourDate['TourDate']['tour_progress']); ?>&nbsp;</td>
                     <td class="actions">
@@ -51,9 +51,9 @@ $this->start('manageRightContent');
                         <?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $tourDate['TourDate']['id']), null, __('Are you sure you want to delete # %s?', $tourDate['TourDate']['id'])); ?>
                         <?php
                         if ($tourDate['TourDate']['tour_progress'] == "Completed") {
-                            echo $this->Html->link(__('Send Feedback Email  '), array('action' => 'requestFeedback', $tourDate['TourDate']['id']),array('style'=>'padding:2px 9px;'),__('Sending email will take some time due to large amount of people, are you sure you want to proceed?'));
+                            echo $this->Html->link(__('Send Feedback Email  '), array('action' => 'requestFeedback', $tourDate['TourDate']['id']), array('style' => 'padding:2px 9px;'), __('Sending email will take some time due to large amount of people, are you sure you want to proceed?'));
                         } else {
-                            echo $this->Html->link(__('Send Notification Email'), array('action' => 'notification', $tourDate['TourDate']['id']),null,__('Sending email will take some time due to large amount of people, are you sure you want to proceed?'));
+                            echo $this->Html->link(__('Send Notification Email'), array('action' => 'notification', $tourDate['TourDate']['id']), null, __('Sending email will take some time due to large amount of people, are you sure you want to proceed?'));
                         }
                         ?>
                     </td>

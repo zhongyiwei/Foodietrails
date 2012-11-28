@@ -40,7 +40,6 @@ class HomeController extends AppController {
         $this->set('cookingClassData', $cookingClassArray);
         $this->set('productData', $productArray);
     }
-
 }
 
 ?>

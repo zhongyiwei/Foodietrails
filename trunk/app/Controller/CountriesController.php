@@ -1,5 +1,7 @@
 <?php
+
 App::uses('AppController', 'Controller');
+
 /**
  * Countries Controller
  *
@@ -7,93 +9,94 @@ App::uses('AppController', 'Controller');
  */
 class CountriesController extends AppController {
 
-/**
- * index method
- *
- * @return void
- */
-	public function index() {
-		$this->Country->recursive = 0;
-		$this->set('countries', $this->paginate());
-	}
+    /**
+     * index method
+     *
+     * @return void
+     */
+    public function index() {
+        $this->Country->recursive = 0;
+        $this->set('countries', $this->paginate());
+    }
 
-/**
- * view method
- *
- * @throws NotFoundException
- * @param string $id
- * @return void
- */
-	public function view($id = null) {
-		$this->Country->id = $id;
-		if (!$this->Country->exists()) {
-			throw new NotFoundException(__('Invalid country'));
-		}
-		$this->set('country', $this->Country->read(null, $id));
-	}
+    /**
+     * view method
+     *
+     * @throws NotFoundException
+     * @param string $id
+     * @return void
+     */
+    public function view($id = null) {
+        $this->Country->id = $id;
+        if (!$this->Country->exists()) {
+            throw new NotFoundException(__('Invalid country'));
+        }
+        $this->set('country', $this->Country->read(null, $id));
+    }
 
-/**
- * add method
- *
- * @return void
- */
-	public function add() {
-		if ($this->request->is('post')) {
-			$this->Country->create();
-			if ($this->Country->save($this->request->data)) {
-				$this->Session->setFlash(__('The country has been saved'));
-				$this->redirect(array('action' => 'index'));
-			} else {
-				$this->Session->setFlash(__('The country could not be saved. Please, try again.'),'failure-message');
-			}
-		}
-	}
+    /**
+     * add method
+     *
+     * @return void
+     */
+    public function add() {
+        if ($this->request->is('post')) {
+            $this->Country->create();
+            if ($this->Country->save($this->request->data)) {
+                $this->Session->setFlash(__('The country has been saved'));
+                $this->redirect(array('action' => 'index'));
+            } else {
+                $this->Session->setFlash(__('The country could not be saved. Please, try again.'), 'failure-message');
+            }
+        }
+    }
 
-/**
- * edit method
- *
- * @throws NotFoundException
- * @param string $id
- * @return void
- */
-	public function edit($id = null) {
-		$this->Country->id = $id;
-		if (!$this->Country->exists()) {
-			throw new NotFoundException(__('Invalid country'));
-		}
-		if ($this->request->is('post') || $this->request->is('put')) {
-			if ($this->Country->save($this->request->data)) {
-				$this->Session->setFlash(__('The country has been saved'));
-				$this->redirect(array('action' => 'index'));
-			} else {
-				$this->Session->setFlash(__('The country could not be saved. Please, try again.'),'failure-message');
-			}
-		} else {
-			$this->request->data = $this->Country->read(null, $id);
-		}
-	}
+    /**
+     * edit method
+     *
+     * @throws NotFoundException
+     * @param string $id
+     * @return void
+     */
+    public function edit($id = null) {
+        $this->Country->id = $id;
+        if (!$this->Country->exists()) {
+            throw new NotFoundException(__('Invalid country'));
+        }
+        if ($this->request->is('post') || $this->request->is('put')) {
+            if ($this->Country->save($this->request->data)) {
+                $this->Session->setFlash(__('The country has been saved'));
+                $this->redirect(array('action' => 'index'));
+            } else {
+                $this->Session->setFlash(__('The country could not be saved. Please, try again.'), 'failure-message');
+            }
+        } else {
+            $this->request->data = $this->Country->read(null, $id);
+        }
+    }
 
-/**
- * delete method
- *
- * @throws MethodNotAllowedException
- * @throws NotFoundException
- * @param string $id
- * @return void
- */
-	public function delete($id = null) {
-		if (!$this->request->is('post')) {
-			throw new MethodNotAllowedException();
-		}
-		$this->Country->id = $id;
-		if (!$this->Country->exists()) {
-			throw new NotFoundException(__('Invalid country'));
-		}
-		if ($this->Country->delete()) {
-			$this->Session->setFlash(__('Country deleted'));
-			$this->redirect(array('action' => 'index'));
-		}
-		$this->Session->setFlash(__('Country was not deleted'),'failure-message');
-		$this->redirect(array('action' => 'index'));
-	}
+    /**
+     * delete method
+     *
+     * @throws MethodNotAllowedException
+     * @throws NotFoundException
+     * @param string $id
+     * @return void
+     */
+    public function delete($id = null) {
+        if (!$this->request->is('post')) {
+            throw new MethodNotAllowedException();
+        }
+        $this->Country->id = $id;
+        if (!$this->Country->exists()) {
+            throw new NotFoundException(__('Invalid country'));
+        }
+        if ($this->Country->delete()) {
+            $this->Session->setFlash(__('Country deleted'));
+            $this->redirect(array('action' => 'index'));
+        }
+        $this->Session->setFlash(__('Country was not deleted'), 'failure-message');
+        $this->redirect(array('action' => 'index'));
+    }
+
 }

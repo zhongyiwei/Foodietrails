@@ -47,7 +47,7 @@ class CookingclassDatesController extends AppController {
                 $this->Session->setFlash(__('The cookingclass date has been saved'));
                 $this->redirect(array('action' => 'index'));
             } else {
-                $this->Session->setFlash(__('The cookingclass date could not be saved. Please, try again.'));
+                $this->Session->setFlash(__('The cooking class date could not be saved. Please, try again.'), 'failure-message');
             }
         }
         $cookingclasses = $this->CookingclassDate->Cookingclass->find('list');
@@ -73,7 +73,7 @@ class CookingclassDatesController extends AppController {
                 $this->Session->setFlash(__('The cookingclass date has been saved'));
                 $this->redirect(array('action' => 'index'));
             } else {
-                $this->Session->setFlash(__('The cookingclass date could not be saved. Please, try again.'));
+                $this->Session->setFlash(__('The cooking class date could not be saved. Please, try again.'), 'failure-message');
             }
         } else {
             $this->request->data = $this->CookingclassDate->read(null, $id);
@@ -100,10 +100,10 @@ class CookingclassDatesController extends AppController {
             throw new NotFoundException(__('Invalid cookingclass date'));
         }
         if ($this->CookingclassDate->delete()) {
-            $this->Session->setFlash(__('Cookingclass date deleted'));
+            $this->Session->setFlash(__('Cooking class date deleted'));
             $this->redirect(array('action' => 'index'));
         }
-        $this->Session->setFlash(__('Cookingclass date was not deleted'));
+        $this->Session->setFlash(__('Cookingclass date was not deleted successfully, Please try again'), 'failure-message');
         $this->redirect(array('action' => 'index'));
     }
 
@@ -111,8 +111,8 @@ class CookingclassDatesController extends AppController {
         $cookingClassDateData = $this->CookingclassDate->find('all', array('conditions' => array('CookingclassDate.id' => "$id")));
         $cookingclass_id = $cookingClassDateData[0]['CookingclassDate']['cookingclass_id'];
         $cookingclassOrderData = $this->CookingclassOrder->find('all', array('conditions' => array('CookingclassOrder.cooking_class_date_id' => "$id", 'CookingclassOrder.cooking_class_id' => "$cookingclass_id")));
-
-        print_r($cookingclassOrderData);
+        $this->Session->setFlash(__('Email requesting for customer feedback has been sent successfully'));
+//        print_r($cookingclassOrderData);
         for ($i = 0; $i < count($cookingclassOrderData); $i++) {
             $recipient = $cookingclassOrderData[$i]['User']['user_email'];
             $cookingclassName = $cookingclassOrderData[$i]['CookingClass']['cooking_class_name'];
@@ -121,7 +121,7 @@ class CookingclassDatesController extends AppController {
             $email = new CakeEmail();
             $email->config('default');
             $email->emailFormat('html');
-            $email->from(array("sippoujulian@gmail.com" => "Foodie Trails.com"));
+            $email->from(array("$this->sender" => "$this->senderTag"));
             $email->to("$recipient");
             $email->subject("Thanks for supporting foodie trails, tell us your experience via feedback.");
             $feedbackMessage = "
@@ -142,19 +142,20 @@ class CookingclassDatesController extends AppController {
         $cookingClassDateData = $this->CookingclassDate->find('all', array('conditions' => array('CookingclassDate.id' => "$id")));
         $cookingclass_id = $cookingClassDateData[0]['CookingclassDate']['cookingclass_id'];
         $cookingclassOrderData = $this->CookingclassOrder->find('all', array('conditions' => array('CookingclassOrder.cooking_class_date_id' => "$id", 'CookingclassOrder.cooking_class_id' => "$cookingclass_id")));
-
+//        print_r($cookingclassOrderData);
+        $this->Session->setFlash(__('Email notification has been sent successfully'));
         for ($i = 0; $i < count($cookingclassOrderData); $i++) {
             $recipient = $cookingclassOrderData[$i]['User']['user_email'];
             $cookingclassName = $cookingclassOrderData[$i]['CookingClass']['cooking_class_name'];
             $cookingclassId = $cookingclassOrderData[$i]['CookingClass']['id'];
-            $cookingclassDate = $cookingClassDateData[$i]['CookingclassDate']['cookingclass_date'];
-            $cookingclassTime = $cookingClassDateData[$i]['CookingclassDate']['cookingclass_time'];
+            $cookingclassDate = $cookingclassOrderData[$i]['CookingClassDate']['cookingclass_date'];
+            $cookingclassTime = $cookingclassOrderData[$i]['CookingClassDate']['cookingclass_time'];
             $cookingclass_Location = $cookingclassOrderData[$i]['CookingClass']['cooking_class_location'];
             $cookingclassLink = "<a href=" . Router::url("/CookingClasses/cookingclass_detail/$cookingclassId", true) . ">Detailed Cooking Class Information</a>";
             $email = new CakeEmail();
             $email->config('default');
             $email->emailFormat('html');
-            $email->from(array("sippoujulian@gmail.com" => "Foodie Trails.com"));
+            $email->from(array("$this->sender" => "$this->senderTag"));
             $email->to("$recipient");
             $email->subject("A gentle reminder: Prior notice for upcoming trip");
             $notificationMessage = "
