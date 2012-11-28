@@ -114,8 +114,7 @@ if (isset($validationErrorsArray['first_name'])) {
 ?>" style="padding:0px;margin-bottom: 0px">
                      <?php
                      require_once('recaptchalib.php');
-                     $publickey = "6LeF-dcSAAAAAJpOKKcC_TuETypGQgUPXwNZTHyh";
-                     echo recaptcha_get_html($publickey);
+                     echo recaptcha_get_html($this->publicKey);
                      if (isset($Error)) {
                          echo $Error[0];
                      }

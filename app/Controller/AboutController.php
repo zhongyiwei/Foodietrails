@@ -18,8 +18,8 @@ class AboutController extends AppController {
         $this->set('allToursContactUs', $allTours);
         $this->About->set($this->request->data);
         if ($this->request->is('post')) {
-            $privatekey = "6LeF-dcSAAAAAN8F73OXFhuMguH5xdJbofrtNxfP";
-            $resp = recaptcha_check_answer($privatekey, $_SERVER["REMOTE_ADDR"], $_POST["recaptcha_challenge_field"], $_POST["recaptcha_response_field"]);
+          
+            $resp = recaptcha_check_answer($this->privateKey, $_SERVER["REMOTE_ADDR"], $_POST["recaptcha_challenge_field"], $_POST["recaptcha_response_field"]);
             if (!$resp->is_valid) {
                 $errorMessage[0] = "Validation code is not valid";
                 $errorMessage[1] = "input text required error";

@@ -87,6 +87,8 @@ class AppController extends Controller {
         $this->sender = "sippoujulian@gmail.com";
         $this->senderTag = "Foodie Trails.com";
         $this->recipient = "91234@myrp.edu.sg";
+        $this->publicKey = "6Lfn_9cSAAAAACpNz0uOiOlgLpVACvGjFKgmNMYS";
+        $this->privateKey = "6Lfn_9cSAAAAAKjnoH1uQM9pU_pZ1_lqL825v10X";
     }
 
     public function isAuthorized($user) {
