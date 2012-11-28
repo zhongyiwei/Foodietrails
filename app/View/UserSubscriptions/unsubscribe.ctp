@@ -4,6 +4,6 @@
     <?php
     echo $this->Form->input('user_email');
     ?>
-    <?php echo $this->Form->end(__('Submit')); ?>
+    <?php echo $this->Form->end(__('Unsubscribe News')); ?>
 </fieldset>
 <?php $this->end(); ?>
