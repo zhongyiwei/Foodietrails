@@ -50,7 +50,7 @@ $this->start('manageRightContent');
                     <td class="actions">
                         <?php echo $this->Html->link(__('View'), array('action' => 'view', $homepageLists[$i]['HomepageList']['id'])); ?>
                         <?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $homepageLists[$i]['HomepageList']['id'])); ?>
-    <?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $homepageLists[$i]['HomepageList']['id']), null, __('Are you sure you want to delete # %s?', $homepageLists[$i]['HomepageList']['id'])); ?>
+    <?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $homepageLists[$i]['HomepageList']['id']), null, __('Are you sure you want to delete this list?')); ?>
                     </td>
                 </tr>
 <?php }; ?>

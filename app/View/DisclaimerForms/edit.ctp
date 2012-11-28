@@ -9,7 +9,7 @@ $this->assign('LeftWebsite', 'LeftMenuActions');
 $this->start('LeftEditMenu');
 ?>
 <li><?php echo $this->Html->link(__('View this Form'), array('action' => 'view', $this->Form->value('DisclaimerForm.id'))); ?></li>
-<li><?php echo $this->Form->postLink(__('Delete this Form'), array('action' => 'delete', $this->Form->value('DisclaimerForm.id')), null, __('Are you sure you want to delete # %s?', $this->Form->value('DisclaimerForm.id'))); ?></li>
+<li><?php echo $this->Form->postLink(__('Delete this Form'), array('action' => 'delete', $this->Form->value('DisclaimerForm.id')), null, __('Are you sure you want to delete this disclaimer form?')); ?></li>
 <?php
 $this->end();
 $this->start('manageRightMenu');

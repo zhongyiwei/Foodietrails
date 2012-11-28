@@ -31,7 +31,7 @@ $this->start('manageRightContent');
     echo $this->Form->input('user_id', array('label' => 'Gifter Email Address', 'type' => 'select', 'options' => $userEmail));
 //    echo $this->Form->input('recipient_id', array('label' => 'Recipient Email Address', 'type' => 'select', 'options' => $userEmail));
     echo $this->Form->input('gift_voucher_id', array('type' => 'select', 'options' => $giftName));
-    echo $this->Form->input('gift_redeem_code');
+//    echo $this->Form->input('gift_redeem_code');
     echo $this->Form->input('gift_redeem_status', array('type' => 'select', 'options' => $redeemStatus));
     ?>
     <?php echo $this->Form->end(__('Submit')); ?>

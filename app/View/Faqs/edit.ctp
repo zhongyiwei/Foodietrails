@@ -9,7 +9,7 @@ $this->assign('LeftFaq','LeftMenuActions');
 $this->start('LeftEditMenu');
 ?>
 <li><?php echo $this->Html->link(__('View this FAQ'), array('action' => 'view', $this->Form->value('Faq.id'))); ?></li>
-<li><?php echo $this->Form->postLink(__('Delete this FAQ'), array('action' => 'delete', $this->Form->value('Faq.id')), null, __('Are you sure you want to delete # %s?', $this->Form->value('Faq.faq_description'))); ?></li>
+<li><?php echo $this->Form->postLink(__('Delete this FAQ'), array('action' => 'delete', $this->Form->value('Faq.id')), null, __('Are you sure you want to delete # %s?', $this->Form->value('Faq.question'))); ?></li>
 <?php
 $this->end();
 $this->start('manageRightMenu');

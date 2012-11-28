@@ -1,5 +1,6 @@
 <?php
 echo $this->Html->css('loginPage.css');
+echo $this->Session->flash('');
 ?>
 <h1>Gift Voucher Redeem</h1>
 <p>To redeem your gift voucher, register/login is required to verify your identity</p>
@@ -25,7 +26,7 @@ echo $this->Html->css('loginPage.css');
 //		echo $this->Form->input('News');
             ?>
 
-<?php echo $this->Form->end(__('Submit')); ?>
+            <?php echo $this->Form->end(__('Submit')); ?>
         </td>
         <td>
             <?php echo $this->Html->link(__('Existing Customer? Login here'), array('action' => "loginForRedeem?def=$def&id=$id")); ?>

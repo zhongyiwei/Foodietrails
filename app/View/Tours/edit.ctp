@@ -15,15 +15,18 @@ $this->start('manageRightMenu');
 ?>
 <div class="manageRightMenu" >
     <ul>
-        <li class='active '><?php echo $this->Html->link(__('Tour'), array('action' => 'index')); ?></li>
+        <li class='active '><?php echo $this->Html->link(__('Tour'), array('controller' => 'tours', 'action' => 'index')); ?></li>
         <li><?php echo $this->Html->link(__('Product'), array('controller' => 'products', 'action' => 'index')); ?></li>
         <li><?php echo $this->Html->link(__('Cooking Class'), array('controller' => 'cookingclasses', 'action' => 'index')); ?></li>
         <li><?php echo $this->Html->link(__('Gift Voucher'), array('controller' => 'giftvouchers', 'action' => 'index')); ?></li>
     </ul>
 </div>
+
 <div class="mangeRightSubMenu"> 
-    <div class="unselected"><?php echo $this->Html->link(__('Tour List'), array('action' => 'index')); ?></div>
-    <div class="unselected"><?php echo $this->Html->link(__('Add Tour'), array('action' => 'add')); ?></div>
+    <div class="unselected"><?php echo $this->Html->link(__('Tour List'), array('controller' => 'tours', 'action' => 'index')); ?></div>
+    <div class="unselected"><?php echo $this->Html->link(__('Add Tour'), array('controller' => 'tours', 'action' => 'add')); ?></div>
+    <div class="unselected"><?php echo $this->Html->link(__('Tour Type List'), array('controller' => 'tourtypes', 'action' => 'index')); ?></div>
+    <div class="unselected"><?php echo $this->Html->link(__('Add Tour Type'), array('controller' => 'tourtypes', 'action' => 'add')); ?></div>
 </div>
 <?php
 $this->end();
@@ -35,7 +38,7 @@ $this->start('manageRightContent');
     <fieldset>
             <!--<legend><?php echo __('Edit Tour'); ?></legend>-->
         <?php
-        $tourType = array('Private' => 'Private Tours', 'Public' => 'Public Tours', 'International' => 'International Tours');
+//        $tourType = array('Private' => 'Private Tours', 'Public' => 'Public Tours', 'International' => 'International Tours');
         echo $this->Form->input('id');
         echo $this->Form->input('tour_name');
         echo $this->Form->input('tour_description', array('id' => 'tour_description', 'class' => 'ckeditor'));
@@ -49,7 +52,7 @@ $this->start('manageRightContent');
         echo $this->Form->input('tour_weather');
         echo $this->Form->input('tour_spectator');
         echo $this->Form->input('tour_max_num_on_day');
-        echo $this->Form->input('tour_type', array('options' => $tourType, 'default' => 'Public'));
+        echo $this->Form->input('tour_type_id', array('options' => $tourType, 'default' => 'Public'));
         echo $this->Form->input('tour_thumbnail', array('id' => 'xFilePath', 'class' => 'ckeditor', 'style' => 'width:500px'));
         echo $this->Form->button('Browse Server', array('onclick' => 'BrowseServer()', 'type' => 'button', 'style' => 'padding:5px;margin-top:-55px; margin-left:530px'));
         ?>

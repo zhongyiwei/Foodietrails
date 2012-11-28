@@ -9,7 +9,7 @@ $this->assign('LeftEvent', '');
 $this->start('LeftEditMenu');
 ?>
 <li><?php echo $this->Html->link(__('View this Date'), array('action' => 'view', $this->Form->value('TourDate.id'))); ?></li>
-<li><?php echo $this->Form->postLink(__('Delete this Date'), array('action' => 'delete', $this->Form->value('TourDate.id')), null, __('Are you sure you want to delete # %s?', $this->Form->value('TourDate.tour_name'))); ?></li>
+<li><?php echo $this->Form->postLink(__('Delete this Date'), array('action' => 'delete', $this->Form->value('TourDate.id')), null, __('Are you sure you want to delete # %s?', $this->Form->value('TourDate.tour_date'))); ?></li>
 <?php
 $this->end();
 $this->start('manageRightMenu');

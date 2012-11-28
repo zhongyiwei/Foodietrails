@@ -8,7 +8,7 @@ $this->assign('LeftEvent', '');
 $this->start('LeftEditMenu');
 ?>
 <li><?php echo $this->Html->link(__('Edit Subscription'), array('action' => 'edit', $userSubscription['UserSubscription']['id'])); ?> </li>
-<li><?php echo $this->Form->postLink(__('Delete Subscription'), array('action' => 'delete', $userSubscription['UserSubscription']['id']), null, __('Are you sure you want to delete # %s?', $userSubscription['UserSubscription']['id'])); ?> </li>
+<li><?php echo $this->Form->postLink(__('Delete Subscription'), array('action' => 'delete', $userSubscription['UserSubscription']['id']), null, __('Are you sure you want to delete # %s?', $userSubscription['UserSubscription']['user_email'])); ?> </li>
 <?php
 $this->end();
 $this->start('manageRightMenu');

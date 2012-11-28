@@ -58,7 +58,15 @@ class ToursController extends AppController {
         if (!$this->Tour->exists()) {
             throw new NotFoundException(__('Invalid tour'));
         }
+
         $this->set('tour', $this->Tour->read(null, $id));
+
+        $tourData = $this->Tour->find("all", array('conditions' => array("Tour.id" => "$id")));
+
+//        print_r($tourData);
+        $tourTypeId = $tourData[0]['TourType']['id'];
+        $tourType = $this->Tour->TourType->find('all', array('fields' => 'tour_type_name', 'conditions' => array('TourType.id' => "$tourTypeId")));
+        $this->set(compact('tourType'));
     }
 
     /**
@@ -77,6 +85,8 @@ class ToursController extends AppController {
                 $this->Session->setFlash(__('The tour could not be saved. Please, try again.'), 'failure-message');
             }
         }
+        $tourType = $this->Tour->TourType->find('list', array('fields' => 'tour_type_name'));
+        $this->set(compact('tourType'));
     }
 
     /**
@@ -101,6 +111,8 @@ class ToursController extends AppController {
         } else {
             $this->request->data = $this->Tour->read(null, $id);
         }
+        $tourType = $this->Tour->TourType->find('list', array('fields' => 'tour_type_name'));
+        $this->set(compact('tourType'));
     }
 
     /**

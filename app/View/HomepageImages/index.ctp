@@ -47,7 +47,7 @@ $this->start('manageRightContent');
                     <td class="actions">
                         <?php echo $this->Html->link(__('View'), array('action' => 'view', $homepageImage['HomepageImage']['id'])); ?>
                         <?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $homepageImage['HomepageImage']['id'])); ?>
-                        <?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $homepageImage['HomepageImage']['id']), null, __('Are you sure you want to delete # %s?', $homepageImage['HomepageImage']['id'])); ?>
+                        <?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $homepageImage['HomepageImage']['id']), null, __('Are you sure you want to delete this image?')); ?>
                     </td>
                 </tr>
             <?php endforeach; ?>

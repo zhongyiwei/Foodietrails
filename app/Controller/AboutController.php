@@ -12,7 +12,10 @@ require_once('recaptchalib.php');
 class AboutController extends AppController {
 
     var $uses = array('About');
+
     public function contactUs() {
+        $allTours = $this->Tour->find('all', array('fields' => 'id, tour_name'));
+        $this->set('allToursContactUs', $allTours);
         $this->About->set($this->request->data);
         if ($this->request->is('post')) {
             $privatekey = "6LeF-dcSAAAAAN8F73OXFhuMguH5xdJbofrtNxfP";
@@ -35,7 +38,7 @@ class AboutController extends AppController {
                     $wantto = $this->request->data['wantto'];
                     $phone = $this->request->data['phone'];
                     $wanttoSentence = " want to ";
-                    $newsDesc = '<div style="font-family: Arial;">'."<p>Customer Name: <b>$firstName $lastName </b> </p>";
+                    $newsDesc = '<div style="font-family: Arial;">' . "<p>Customer Name: <b>$firstName $lastName </b> </p>";
 //                    debug($_POST);
                     if ($wantto != '') {
                         for ($i = 0; $i < count($wantto); $i++) {
@@ -46,7 +49,7 @@ class AboutController extends AppController {
                         $wanttoSentence = null;
                     }
 
-                    if ($phone != ''){
+                    if ($phone != '') {
                         $newsDesc .= "<p>Customer Phone Number: <b>$phone</b></p>";
                     }
                     $inquiryAboutSentence = " want to inquiry about ";

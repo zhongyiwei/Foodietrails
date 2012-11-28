@@ -50,19 +50,18 @@
 </div>
 <table width="200" border="1">
     <tr><td style="border:0px" class="homePageTitle"><span class="homeTitle"><?php if ($tourData[0]['Tour']['tour_name'] != '') { ?>Tours<?php } ?></span></td>
-        <td rowspan="<?php echo (count($tourData) + count($cookingClassData) + count($productData) + 3); ?>" style="height:855px; vertical-align:top;border-bottom: none;border-left:1px solid #DDD;">
+        <td rowspan="<?php echo (count($tourData) + count($cookingClassData) + count($productData) + 3); ?>" style="height:925px; vertical-align:top;border-bottom: none;border-left:1px solid #DDD;">
             <div class="sidetab">
                 <div class="title2">Social Feeds</div>
                 <div class="touradvisor">
-                    <div id="TA_selfserveprop495" class="TA_selfserveprop" style="border-radius:10px;">
+                    <div id="TA_selfserveprop495" class="TA_selfserveprop" style="border-radius:10px; padding-bottom: 15px;">
                         <ul id="HUhi3hDhjOU" class="TA_links krJduqL">
                             <li id="rF2wPI" class="DYM4Z7d">2 reviews of <a target="_blank" href="http://www.tripadvisor.com.au/Attraction_Review-g255100-d2513377-Reviews-Foodie_Trails-Melbourne_Victoria.html">Foodie Trails</a> in Melbourne</li>
                         </ul>
                     </div>
-                    <div class="fb-activity facebookstyle" data-site="http://www.foodietrails.com.au/" data-width="240" data-height="200" data-header="true" data-linktarget="_parent" data-border-color="#ccc" data-font="segoe ui" data-recommendations="false"></div>
+                    <div class="fbstyle"><div class="fb-activity facebookstyle" data-site="http://www.foodietrails.com.au/" data-width="240" data-height="200" data-header="true" data-linktarget="_parent" data-border-color="#ccc" data-font="segoe ui" data-recommendations="false"></div></div>
                     <a class="twitter-timeline" width="240px" height="150px" href="https://twitter.com/foodietrails" data-widget-id="270879491256098816">Tweets by @foodietrails</a>
                     <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-
                 </div>
             </div>
         </td>
@@ -70,8 +69,8 @@
     <tr>
         <td style="border-bottom: none; width:500px"><div style="width: 650px" class="line">
                 <div class="tourTitle"> <span><?php echo $tourData[0]['Tour']['tour_name']; ?></span> </div>
-                <div class="tourImage"><?php $tourThumbnail = $tourData[0]['Tour']['tour_thumbnail']; ?>
-                    <img src='<?php echo $tourThumbnail ?>' alt = "<?php echo $tourData[0]['Tour']['tour_name']; ?>" title = '<?php echo $tourData[0]['Tour']['tour_name']; ?>' height = '125px' width = '175px' border = 0/></div>
+                <div class="tourImage"><?php $tourThumbnail = $tourData[0]['Tour']['tour_thumbnail']; $tourId = $tourData[0]['Tour']['id'];?>
+                    <a href="<?php echo $this->webroot."tours/tourDetail/$tourId"; ?>"><img src='<?php echo $tourThumbnail ?>' alt = "<?php echo $tourData[0]['Tour']['tour_name']; ?>" title = '<?php echo $tourData[0]['Tour']['tour_name']; ?>' height = '125px' width = '175px' border = 0/></a></div>
                                     <!--<div class="tourDetails"> <b>Country: </b>Australia <?php // print_r($tour);                ?><br>-->
 
                 <div class="tourDetails"> <b>Location: </b> <?php echo $tourData[0]['Tour']['tour_location']; ?><br>
@@ -99,8 +98,8 @@
         <tr>
             <td style="border-bottom: none"><div style="width: 650px" class="line">
                     <div class="tourTitle"> <span><?php echo $tourData[$i]['Tour']['tour_name']; ?></span> </div>
-                    <div class="tourImage"><?php $tourThumbnail2 = $tourData[$i]['Tour']['tour_thumbnail']; ?>
-                        <img src='<?php echo $tourThumbnail2 ?>' alt = "<?php echo $tourData[$i]['Tour']['tour_name']; ?>" title = '<?php echo $tourData[$i]['Tour']['tour_name']; ?>' height = '125px' width = '175px' border = 0/></div>
+                    <div class="tourImage"><?php $tourThumbnail2 = $tourData[$i]['Tour']['tour_thumbnail']; $tourId = $tourData[$i]['Tour']['id']; ?>
+                        <a href="<?php echo $this->webroot."tours/tourDetail/$tourId"; ?>"><img src='<?php echo $tourThumbnail2 ?>' alt = "<?php echo $tourData[$i]['Tour']['tour_name']; ?>" title = '<?php echo $tourData[$i]['Tour']['tour_name']; ?>' height = '125px' width = '175px' border = 0/></a></div>
                                          <!--<div class="tourDetails"> <b>Country: </b>Australia <?php // print_r($tour);                ?><br>-->
 
                     <div class="tourDetails"> <b>Location: </b> <?php echo $tourData[$i]['Tour']['tour_location']; ?><br>
@@ -128,8 +127,8 @@
         <tr>
             <td style="border-bottom: none"><div style="width: 650px" class="line">
                     <div class="tourTitle"> <span><?php echo $cookingClassData[$i]['Cookingclass']['cooking_class_name']; ?></span> </div>
-                    <div class="tourImage"><?php $cookingClassThumbnail = $cookingClassData[$i]['Cookingclass']['cooking_class_thumbnail']; ?>
-                        <img src='<?php echo $cookingClassThumbnail ?>' alt = "<?php echo $cookingClassData[$i]['Cookingclass']['cooking_class_name']; ?>" title = '<?php echo $cookingClassData[$i]['Cookingclass']['cooking_class_name']; ?>' height = '125px' width = '175px' border = 0/></div>
+                    <div class="tourImage"><?php $cookingClassThumbnail = $cookingClassData[$i]['Cookingclass']['cooking_class_thumbnail']; $cookingclassId = $cookingClassData[$i]['Cookingclass']['id']; ?>
+                        <a href="<?php echo $this->webroot."Cookingclasses/cookingclass_detail/$cookingclassId"; ?>"><img src='<?php echo $cookingClassThumbnail ?>' alt = "<?php echo $cookingClassData[$i]['Cookingclass']['cooking_class_name']; ?>" title = '<?php echo $cookingClassData[$i]['Cookingclass']['cooking_class_name']; ?>' height = '125px' width = '175px' border = 0/></a></div>
                     <div class="tourDetails"> <b>Location: </b> <?php echo $cookingClassData[$i]['Cookingclass']['cooking_class_location']; ?><br>
                         <b>Description: </b> <span id="gv1_ctl18_lblDescription"><?php
     $description = $this->Text->truncate($cookingClassData[$i]['Cookingclass']['cooking_class_description'], 100, array('ellipsis' => '...'));
@@ -151,8 +150,8 @@
         <tr>
             <td style="border-bottom: none"><div style="width: 650px" class="line">
                     <div class="tourTitle"> <span><?php echo $productData[$i]['Product']['product_name']; ?></span> </div>
-                    <div class="tourImage"><?php $productThumbnail = $productData[$i]['Product']['product_thumbnail']; ?>
-                        <img src='<?php echo $productThumbnail ?>' alt = "<?php echo $productData[$i]['Product']['product_name']; ?>" title = '<?php echo $productData[$i]['Product']['product_name']; ?>' height = '125px' width = '175px' border = 0/></div>
+                    <div class="tourImage"><?php $productThumbnail = $productData[$i]['Product']['product_thumbnail']; $productId = $productData[$i]['Product']['id']; ?>
+                        <a href="<?php echo $this->webroot."products/product_detail/$productId"; ?>"><img src='<?php echo $productThumbnail ?>' alt = "<?php echo $productData[$i]['Product']['product_name']; ?>" title = '<?php echo $productData[$i]['Product']['product_name']; ?>' height = '125px' width = '175px' border = 0/></a></div>
                     <div class="tourDetails">
                         <b>Description: </b> <span id="gv1_ctl18_lblDescription"><?php
     $description = $this->Text->truncate($productData[$i]['Product']['product_description'], 102, array('ellipsis' => '...'));

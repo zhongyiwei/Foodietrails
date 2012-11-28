@@ -8,7 +8,7 @@ $this->assign('LeftEvent', '');
 $this->start('LeftEditMenu');
 ?>
 <li><?php echo $this->Html->link(__('View this Voucher'), array('action' => 'view', $this->Form->value('GiftVoucher.id'))); ?></li>
-<li><?php echo $this->Form->postLink(__('Delete this Voucher'), array('action' => 'delete', $this->Form->value('GiftVoucher.id')), null, __('Are you sure you want to delete # %s?', $this->Form->value('GiftVoucher.id'))); ?></li>
+<li><?php echo $this->Form->postLink(__('Delete this Voucher'), array('action' => 'delete', $this->Form->value('GiftVoucher.id')), null, __('Are you sure you want to delete # %s?', $this->Form->value('GiftVoucher.gift_voucher_name'))); ?></li>
 <?php
 $this->end();
 $this->start('manageRightMenu');
@@ -33,7 +33,7 @@ $this->start('manageRightContent');
 <div class="giftVoucher form">
     <?php echo $this->Form->create('GiftVoucher'); ?>
     <?php
-        $productType = array('Tour' => 'Tour', 'Cooking Class' => 'Cooking Class');
+        $productType = array('Tour' => 'Tour', 'Cooking Class' => 'Cooking Class','Mixed'=>'Mixed');
         echo $this->Form->input('gift_voucher_name');
         echo $this->Form->input('gift_message', array('id' => 'gift_message', 'class' => 'ckeditor'));
         echo $this->Form->input('gift_price');

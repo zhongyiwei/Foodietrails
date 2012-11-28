@@ -8,7 +8,7 @@ $this->assign('LeftEvent', '');
 $this->start('LeftEditMenu');
 ?>
 <li><?php echo $this->Html->link(__('Edit This Order'), array('action' => 'edit', $giftvoucherOrder['GiftvoucherOrder']['id'])); ?> </li>
-<li><?php echo $this->Form->postLink(__('Delete This Order'), array('action' => 'delete', $giftvoucherOrder['GiftvoucherOrder']['id']), null, __('Are you sure you want to delete # %s?', $giftvoucherOrder['GiftvoucherOrder']['id'])); ?> </li>
+<li><?php echo $this->Form->postLink(__('Delete This Order'), array('action' => 'delete', $giftvoucherOrder['GiftvoucherOrder']['id']), null, __('Are you sure you want to delete # %s gift voucher order?', $giftvoucherOrder['User']['user_email'])); ?> </li>
 <?php
 $this->end();
 $this->start('manageRightMenu');

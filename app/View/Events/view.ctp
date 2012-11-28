@@ -9,7 +9,7 @@ $this->assign('LeftFaq','');
 $this->start('LeftEditMenu');
 ?>
 <li><?php echo $this->Html->link(__('Edit This Event'), array('action' => 'edit', $event['Event']['id'])); ?> </li>
-<li><?php echo $this->Form->postLink(__('Delete This Event'), array('action' => 'delete', $event['Event']['id']), null, __('Are you sure you want to delete # %s?', $event['Event']['id'])); ?> </li>
+<li><?php echo $this->Form->postLink(__('Delete This Event'), array('action' => 'delete', $event['Event']['id']), null, __('Are you sure you want to delete # %s?', $event['Event']['event_name'])); ?> </li>
 <?php
 $this->end();
 $this->start('manageRightMenu');

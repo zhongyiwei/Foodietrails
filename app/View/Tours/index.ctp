@@ -9,7 +9,7 @@ $this->start('manageRightMenu');
 ?>
 <div class="manageRightMenu" >
     <ul>
-        <li class='active '><?php echo $this->Html->link(__('Tour'), array('action' => 'index')); ?></li>
+        <li class='active '><?php echo $this->Html->link(__('Tour'), array('controller' => 'tours', 'action' => 'index')); ?></li>
         <li><?php echo $this->Html->link(__('Product'), array('controller' => 'products', 'action' => 'index')); ?></li>
         <li><?php echo $this->Html->link(__('Cooking Class'), array('controller' => 'cookingclasses', 'action' => 'index')); ?></li>
         <li><?php echo $this->Html->link(__('Gift Voucher'), array('controller' => 'giftvouchers', 'action' => 'index')); ?></li>
@@ -17,8 +17,10 @@ $this->start('manageRightMenu');
 </div>
 
 <div class="mangeRightSubMenu"> 
-    <div class="selected"><?php echo $this->Html->link(__('Tour List'), array('action' => 'index')); ?></div>
-    <div class="unselected"><?php echo $this->Html->link(__('Add Tour'), array('action' => 'add')); ?></div>
+    <div class="selected"><?php echo $this->Html->link(__('Tour List'), array('controller' => 'tours', 'action' => 'index')); ?></div>
+    <div class="unselected"><?php echo $this->Html->link(__('Add Tour'), array('controller' => 'tours', 'action' => 'add')); ?></div>
+    <div class="unselected"><?php echo $this->Html->link(__('Tour Type List'), array('controller' => 'tourtypes', 'action' => 'index')); ?></div>
+    <div class="unselected"><?php echo $this->Html->link(__('Add Tour Type'), array('controller' => 'tourtypes', 'action' => 'add')); ?></div>
 </div>
 
 <?php
@@ -63,7 +65,7 @@ $this->start('manageRightContent');
                     <!--<td><?php echo h($tour['Tour']['tour_weather']); ?>&nbsp;</td>-->
                     <td><?php echo $this->Text->truncate(h($tour['Tour']['tour_spectator']), 10, array('ellipsis' => '...')); ?>&nbsp;</td>
                     <td><?php echo h($tour['Tour']['tour_max_num_on_day']); ?>&nbsp;</td>
-                    <td><?php echo h($tour['Tour']['tour_type']); ?>&nbsp;</td>
+                    <td><?php echo h($tour['TourType']['tour_type_name']); ?>&nbsp;</td>
                     <td class="actions">
                         <?php echo $this->Html->link(__('View'), array('action' => 'view', $tour['Tour']['id'])); ?>
                         <?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $tour['Tour']['id'])); ?>

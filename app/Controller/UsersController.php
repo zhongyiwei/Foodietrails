@@ -281,17 +281,10 @@ class UsersController extends AppController {
                 $this->User->create();
                 $customerData = $this->request->data;
                 $customerData['User']['user_role'] = 'Customer';
-
                 if ($this->User->save($customerData)) {
                     $this->Session->setFlash(__('The user has been saved'));
                     if ($this->Auth->login()) {
-                        $currentUser = $this->Auth->user();
-                        if ($currentUser['user_role'] == 'Admin') {
-                            $this->redirect(array('controller' => 'giftvouchers', 'action' => "redeem?def=$identifier&id=$id"));
-                        } else {
-                            $this->redirect(array('controller' => 'giftvouchers', 'action' => "redeem?def=$identifier&id=$id"));
-//                            $this->redirect(array('controller' => 'tours', 'action' => "tour_details/$id"));
-                        }
+                            $this->redirect(array('controller' => 'giftvouchers', 'action' => "chooseDate?def=$identifier&id=$id"));
                     } else {
                         $this->Session->setFlash(__('Invalid email or password, try again', 'failure-message'));
                     }
@@ -300,10 +293,9 @@ class UsersController extends AppController {
                 }
             }
             $countries = $this->User->Country->find('list', array('fields' => 'country_name'));
-//            $events = $this->User->Event->find('list');
             $this->set(compact('countries', 'events', 'news'));
         } else {
-            $this->redirect(array('controller' => 'giftvouchers', 'action' => "redeem?def=$identifier&id=$id"));
+                $this->redirect(array('controller' => 'giftvouchers', 'action' => "chooseDate?def=$identifier&id=$id"));
         }
     }
 
@@ -311,14 +303,8 @@ class UsersController extends AppController {
         $id = $this->params['url']['id'];
         $identifier = $this->params['url']['def'];
         if ($this->request->is('post')) {
-//            debug($this->Auth);
             if ($this->Auth->login()) {
-                $currentUser = $this->Auth->user();
-                if ($currentUser['user_role'] == 'Admin') {
-                    $this->redirect(array('controller' => 'giftvouchers', 'action' => "redeem?def=$identifier&id=$id"));
-                } else {
-                    $this->redirect(array('controller' => 'giftvouchers', 'action' => "redeem?def=$identifier&id=$id"));
-                }
+                    $this->redirect(array('controller' => 'giftvouchers', 'action' => "chooseDate?def=$identifier&id=$id"));
             } else {
                 $this->Session->setFlash(__('Invalid email or password, try again'), 'failure-message');
             }

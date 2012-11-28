@@ -1,5 +1,6 @@
 <?php
             echo $this->Html->css('loginPage.css');
+            echo $this->Session->flash(''); 
 ?>
 <h1>CHECKOUT</h1>
 <p>1. Check Out Method</p>
