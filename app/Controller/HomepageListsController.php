@@ -81,7 +81,7 @@ class HomepageListsController extends AppController {
                 $this->Session->setFlash(__('The homepage list has been saved'));
                 $this->redirect(array('action' => 'index'));
             } else {
-                $this->Session->setFlash(__('The homepage list could not be saved. Please, try again.'),'failure-message');
+                $this->Session->setFlash(__('The homepage list could not be saved. Please, try again.'), 'failure-message');
             }
         }
     }
@@ -103,7 +103,7 @@ class HomepageListsController extends AppController {
                 $this->Session->setFlash(__('The homepage list has been saved'));
                 $this->redirect(array('action' => 'index'));
             } else {
-                $this->Session->setFlash(__('The homepage list could not be saved. Please, try again.'),'failure-message');
+                $this->Session->setFlash(__('The homepage list could not be saved. Please, try again.'), 'failure-message');
             }
         } else {
             $this->request->data = $this->HomepageList->read(null, $id);
@@ -130,7 +130,7 @@ class HomepageListsController extends AppController {
             $this->Session->setFlash(__('Homepage list deleted'));
             $this->redirect(array('action' => 'index'));
         }
-        $this->Session->setFlash(__('Homepage list was not deleted'),'failure-message');
+        $this->Session->setFlash(__('Homepage list was not deleted'), 'failure-message');
         $this->redirect(array('action' => 'index'));
     }
 

@@ -46,7 +46,7 @@ class UserSubscriptionsController extends AppController {
                 $this->Session->setFlash(__('The user subscription has been saved'));
                 $this->redirect(array('action' => 'index'));
             } else {
-                $this->Session->setFlash(__('The user subscription could not be saved. Please, try again.'));
+                $this->Session->setFlash(__('The user subscription could not be saved. Please, try again.'), 'failure-message');
             }
         }
     }
@@ -68,7 +68,7 @@ class UserSubscriptionsController extends AppController {
                 $this->Session->setFlash(__('The user subscription has been saved'));
                 $this->redirect(array('action' => 'index'));
             } else {
-                $this->Session->setFlash(__('The user subscription could not be saved. Please, try again.'));
+                $this->Session->setFlash(__('The user subscription could not be saved. Please, try again.'), 'failure-message');
             }
         } else {
             $this->request->data = $this->UserSubscription->read(null, $id);

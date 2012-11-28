@@ -48,7 +48,7 @@ class NewsController extends AppController {
                 $this->Session->setFlash(__('The news has been saved'));
                 $this->redirect(array('action' => 'index'));
             } else {
-                $this->Session->setFlash(__('The news could not be saved. Please, try again.'),'failure-message');
+                $this->Session->setFlash(__('The news could not be saved. Please, try again.'), 'failure-message');
             }
         }
         $this->set(compact('users'));
@@ -71,7 +71,7 @@ class NewsController extends AppController {
                 $this->Session->setFlash(__('The news has been saved'));
                 $this->redirect(array('action' => 'index'));
             } else {
-                $this->Session->setFlash(__('The news could not be saved. Please, try again.'),'failure-message');
+                $this->Session->setFlash(__('The news could not be saved. Please, try again.'), 'failure-message');
             }
         } else {
             $this->request->data = $this->News->read(null, $id);
@@ -99,32 +99,39 @@ class NewsController extends AppController {
             $this->Session->setFlash(__('News deleted'));
             $this->redirect(array('action' => 'index'));
         }
-        $this->Session->setFlash(__('News was not deleted'),'failure-message');
+        $this->Session->setFlash(__('News was not deleted'), 'failure-message');
         $this->redirect(array('action' => 'index'));
     }
 
-	public function news_detail($id = null) {
+    public function news_detail($id = null) {
         $this->News->id = $id;
         if (!$this->News->exists()) {
             throw new NotFoundException(__('Invalid news'));
         }
         $this->set('news', $this->News->read(null, $id));
     }
+
     public function emailsubscriber($id = null) {
+        $this->Session->setFlash(__('The emails has been successfully sent to subscribers.'));
         $this->News->id = $id;
-        $this->set('news', $this->News->read(null, $id));
+        $news = $this->News->read(null, $id);
         $this->request->data['News']['send_status'] = 'true';
         $this->News->saveField('send_status', $this->request->data['News']['send_status']);
         $subscribers = $this->UserSubscription->find('all', array('conditions' => array('subscription_status =' => 'Yes')));
-//        $subscribers = $this->NewsUser->find('all', array('conditions' => array('news_id =' => $id)));
-////        debug($subscribers);
-//        for ($i = 0; $i < count($subscribers); $i++) {
-//            $id = $subscribers[$i]['NewsUser']['user_id'];
-//            $subscribers2[$i] = $this->User->read(null, $id);
-//        }
-////        debug($subscribers2);
-        $this->set('subscribers', $subscribers);
-//        $this->redirect(array('action' => 'index'));
+        
+        for ($i = 0; $i < count($subscribers); $i++) {
+            $email = new CakeEmail();
+            $email->config('default');
+            $email->emailFormat('html');
+            $email->from(array("$this->sender" => "$this->senderTag"));
+            $subscribersName = $subscribers[$i]['UserSubscription']['user_email'];
+            $email->to("$subscribersName");
+            $newsTitle = $news['News']['news_title'];
+            $newsDesc = $news['News']['news_description'];
+            $email->subject($newsTitle);
+            $email->send($newsDesc);
+        }
+        $this->redirect(array('action' => 'index'));
     }
 
 }

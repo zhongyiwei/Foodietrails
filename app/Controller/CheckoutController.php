@@ -176,7 +176,7 @@ class CheckoutController extends AppController {
         }
         $this->set('SC', $this->Cookie->read("Cart"));
         if ($this->request->is('post')) {
-            if ($identifier == 'Tour') {
+            if ($identifier == 'Update') {
                 for ($i = 0; $i < count($this->Cookie->read('Cart')); $i++) {
                     $currentCart[$i] = $this->Cookie->read("Cart.cartData$i");
                 }

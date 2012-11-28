@@ -15,7 +15,7 @@
             <td style="font-weight: bold">Subtotal</td>
             <td style="font-weight: bold">Remove</td>
         </tr>
-        <form method="post" action="<?php echo $this->webroot; ?>checkout/?def=Tour&id=<?php echo "#" ?>">
+        <form method="post" action="<?php echo $this->webroot; ?>checkout/?def=Update&id=<?php echo "#" ?>">
             <?php
             $total = 0;
             for ($i = 0; $i < count($SC); $i++) {

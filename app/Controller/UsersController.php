@@ -58,7 +58,7 @@ class UsersController extends AppController {
     public function view($id = null) {
         $this->User->id = $id;
         if (!$this->User->exists()) {
-            throw new NotFoundException(__('The user that you are currently searching is not found', 'failure-message'));
+            throw new NotFoundException(__('The user that you are currently searching is not found'), 'failure-message');
         }
         $this->set('user', $this->User->read(null, $id));
     }
@@ -98,10 +98,10 @@ class UsersController extends AppController {
     public function edit($id = null) {
         $this->User->id = $id;
         if (!$this->User->exists()) {
-            throw new NotFoundException(__('The user could not be saved. Please, try again'), 'failure-message');
+            throw new NotFoundException(__('The user could not be saved. Please, try again'));
         }
-       // $userData = $this->User->read(null, $id);
-       // $subscription = $userData['User']['user_emailsubscription'];
+        // $userData = $this->User->read(null, $id);
+        // $subscription = $userData['User']['user_emailsubscription'];
         //$this->set('subscriptionStatus', $subscription);
         if ($this->request->is('post') || $this->request->is('put')) {
             if ($this->User->save($this->request->data)) {
@@ -133,7 +133,7 @@ class UsersController extends AppController {
         }
         $this->User->id = $id;
         if (!$this->User->exists()) {
-            throw new NotFoundException(__('The user could not be saved. Please, try again'), 'failure-message');
+            throw new NotFoundException(__('The user could not be saved. Please, try again'));
         }
         if ($this->User->delete()) {
             $this->Session->setFlash(__('User deleted Succesful'));

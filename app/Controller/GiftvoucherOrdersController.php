@@ -52,7 +52,7 @@ class GiftvoucherOrdersController extends AppController {
                 $this->Session->setFlash(__('The giftvoucher order has been saved'));
                 $this->redirect(array('action' => 'index'));
             } else {
-                $this->Session->setFlash(__('The giftvoucher order could not be saved. Please, try again.'));
+                $this->Session->setFlash(__('The giftvoucher order could not be saved. Please, try again.'), 'failure-message');
             }
         }
         $users = $this->GiftvoucherOrder->User->find('list');
@@ -79,7 +79,7 @@ class GiftvoucherOrdersController extends AppController {
                 $this->Session->setFlash(__('The giftvoucher order has been saved'));
                 $this->redirect(array('action' => 'index'));
             } else {
-                $this->Session->setFlash(__('The giftvoucher order could not be saved. Please, try again.'));
+                $this->Session->setFlash(__('The giftvoucher order could not be saved. Please, try again.'), 'failure-message');
             }
         } else {
             $this->request->data = $this->GiftvoucherOrder->read(null, $id);
@@ -111,7 +111,7 @@ class GiftvoucherOrdersController extends AppController {
             $this->Session->setFlash(__('Giftvoucher order deleted'));
             $this->redirect(array('action' => 'index'));
         }
-        $this->Session->setFlash(__('Giftvoucher order was not deleted'));
+        $this->Session->setFlash(__('Giftvoucher order was not deleted'), 'failure-message');
         $this->redirect(array('action' => 'index'));
     }
 

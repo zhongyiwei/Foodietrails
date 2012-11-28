@@ -39,11 +39,11 @@ $this->start('manageRightContent');
         <tbody>
             <?php foreach ($cookingclassDates as $cookingclassDate): ?>
                 <tr>
+                    <td><?php echo h($cookingclassDate['CookingclassDate']['cookingclass_date']); ?>&nbsp;</td>
                     <td>
                         <?php echo $this->Html->link($cookingclassDate['Cookingclass']['cooking_class_name'], array('controller' => 'cooking_classes', 'action' => 'view', $cookingclassDate['Cookingclass']['id'])); ?>
 
                     </td>
-                    <td><?php echo h($cookingclassDate['CookingclassDate']['cookingclass_date']); ?>&nbsp;</td>
                     <td><?php echo h($cookingclassDate['CookingclassDate']['cookingclass_time']); ?>&nbsp;</td>
                     <td><?php echo h($cookingclassDate['CookingclassDate']['cookingclass_progress']); ?>&nbsp;</td>
                     <td class="actions">

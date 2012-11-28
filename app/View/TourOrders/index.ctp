@@ -42,13 +42,13 @@ $this->start('manageRightContent');
             <?php foreach ($tourOrders as $tourOrder): ?>
                 <tr>
                     <td>
+                        <?php echo $this->Html->link($tourOrder['TourDate']['tour_date'], array('controller' => 'tourdates', 'action' => 'view', $tourOrder['TourDate']['id'])); ?>
+                    </td>
+                    <td>
                         <?php echo $this->Html->link($tourOrder['Tour']['tour_name'], array('controller' => 'tours', 'action' => 'view', $tourOrder['Tour']['id'])); ?>
                     </td>
                     <td>
                         <?php echo $this->Html->link($tourOrder['User']['user_email'], array('controller' => 'users', 'action' => 'view', $tourOrder['User']['id'])); ?>
-                    </td>
-                    <td>
-                        <?php echo $this->Html->link($tourOrder['TourDate']['tour_date'], array('controller' => 'tourdates', 'action' => 'view', $tourOrder['TourDate']['id'])); ?>
                     </td>
                     <td><?php echo h($tourOrder['TourOrder']['tour_purchase_quantity']); ?>&nbsp;</td>
                     <td><?php echo h($tourOrder['TourOrder']['tour_purchase_date']); ?>&nbsp;</td>
