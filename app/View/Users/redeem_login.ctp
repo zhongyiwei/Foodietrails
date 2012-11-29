@@ -1,6 +1,6 @@
 <?php
 echo $this->Html->css('loginPage.css');
-echo $this->Session->flash('');
+echo $this->Session->flash();
 ?>
 <h1>Gift Voucher Redeem</h1>
 <p>To redeem your gift voucher, register/login is required to verify your identity</p>
