@@ -65,7 +65,7 @@ $this->start('manageRightContent');
                     <!--<td><?php echo h($tour['Tour']['tour_weather']); ?>&nbsp;</td>-->
                     <td><?php echo $this->Text->truncate(h($tour['Tour']['tour_spectator']), 10, array('ellipsis' => '...')); ?>&nbsp;</td>
                     <td><?php echo h($tour['Tour']['tour_max_num_on_day']); ?>&nbsp;</td>
-                    <td><?php echo h($tour['TourType']['tour_type_name']); ?>&nbsp;</td>
+                    <td><?php echo h($tour['Tour']['tour_type']); ?>&nbsp;</td>
                     <td class="actions">
                         <?php echo $this->Html->link(__('View'), array('action' => 'view', $tour['Tour']['id'])); ?>
                         <?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $tour['Tour']['id'])); ?>
