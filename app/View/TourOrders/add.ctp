@@ -1,7 +1,8 @@
 <?php
 $this->extend('/Common/AdminAdd');
-$this->assign('LeftProduct', 'LeftMenuActions');
+$this->assign('LeftProduct', '');
 $this->assign('LeftCustomer', '');
+$this->assign('LeftOrder', 'LeftMenuActions');
 $this->assign('LeftNews', '');
 $this->assign('LeftEvent', '');
 $this->start('manageRightMenu');

@@ -81,7 +81,7 @@ class CookingclassesController extends AppController {
             throw new NotFoundException(__('Invalid tour'));
         }
 
-        for ($i = 0; $i < 7; $i++) {
+        for ($i = 0; $i < 28; $i++) {
             $weekArray[$i] = date('D', strtotime("+$i day"));
             $dateArray[$i] = date('jS M', strtotime("+ $i day"));
             $cookingclassDateArray[$i] = date('Y-m-d', strtotime("+$i day"));

@@ -43,7 +43,8 @@ $this->start('manageRightContent');
             </dd>-->
         <dt><?php echo __('Form Name'); ?></dt>
         <dd>
-            <?php echo h($disclaimerForm['DisclaimerForm']['form_name']); ?>
+            <a href="<?php echo $disclaimerForm['DisclaimerForm']['form_name']; ?>"  target="_blank" style="margin-top:20px;">Click the link to check disclaimer form</a>
+            <?php // echo h($disclaimerForm['DisclaimerForm']['form_name']); ?>
             &nbsp;
         </dd>
     </dl>

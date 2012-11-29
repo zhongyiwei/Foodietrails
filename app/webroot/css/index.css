@@ -467,7 +467,7 @@ a:hover, a:active, a:focus { /* 此组选择器将为键盘导航者提供与鼠
 .feedback {
     position:absolute;
     margin-left: 770px;
-    margin-top: -160px;
+    margin-top: -180px;
     height:69px;
     width: 149px;
     background: url('../img/FeedBack.png');
@@ -780,4 +780,9 @@ body.transparent_widget{
 }
 .fbstyle{
     margin-bottom: 15px;
+}
+#showTable, #detailD{
+    display:none;
+}.detailData{
+    margin-top: -110px;
 }

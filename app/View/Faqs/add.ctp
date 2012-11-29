@@ -1,11 +1,11 @@
 <?php
 $this->extend('/Common/AdminAdd');
-$this->assign('LeftProduct','');
+$this->assign('LeftProduct', '');
 $this->assign('LeftOrder', '');
-$this->assign('LeftCustomer','');
-$this->assign('LeftNews','');
-$this->assign('LeftEvent','');
-$this->assign('LeftFaq','LeftMenuActions');
+$this->assign('LeftCustomer', '');
+$this->assign('LeftNews', '');
+$this->assign('LeftEvent', '');
+$this->assign('LeftFaq', 'LeftMenuActions');
 $this->start('manageRightMenu');
 ?>
 <div class="manageRightMenu" >
@@ -22,26 +22,25 @@ $this->end();
 
 $this->start('manageRightContent');
 ?>
+<div class="tours form">
 <?php echo $this->Form->create('Faq'); ?>
-<fieldset>
-    <?php
-	$statusType = array('Show' => 'Show', 'Hide' => 'Hide');
-		echo $this->Form->input('question', array('id' => 'question1', 'class' => 'ckeditor'));
-		echo $this->Form->input('answer', array('id' => 'answer1', 'class' => 'ckeditor'));
-		echo $this->Form->input('faq_status', array('options' => $statusType));
-    ?>
-    <?php echo $this->Form->end(__('Submit')); ?>
-</fieldset>
-
+<?php
+$statusType = array('Show' => 'Show', 'Hide' => 'Hide');
+echo $this->Form->input('question', array('id' => 'question1', 'class' => 'ckeditor'));
+echo $this->Form->input('answer', array('id' => 'answer1', 'class' => 'ckeditor'));
+echo $this->Form->input('faq_status', array('options' => $statusType));
+?>
+<?php echo $this->Form->end(__('Submit')); ?>
+</div>
 <script type="text/javascript">
     var ck_newsContent = CKEDITOR.replace( 'question1',{
-	        filebrowserBrowseUrl : '<?php echo $pathForFinder?>/js/ckfinder/ckfinder.html',
-        filebrowserWindowWidth : '600',
+        filebrowserBrowseUrl : '<?php echo $pathForFinder ?>/js/ckfinder/ckfinder.html',
+        filebrowserWindowWidth : '400',
         filebrowserWindowHeight : '300'
     } ); 
-	var ck_newsContent = CKEDITOR.replace( 'answer1',{
-        filebrowserBrowseUrl : '<?php echo $pathForFinder?>/js/ckfinder/ckfinder.html',
-        filebrowserWindowWidth : '600',
+    var ck_newsContent = CKEDITOR.replace( 'answer1',{
+        filebrowserBrowseUrl : '<?php echo $pathForFinder ?>/js/ckfinder/ckfinder.html',
+        filebrowserWindowWidth : '400',
         filebrowserWindowHeight : '300'
     } ); 
     CKFinder.SetupCKEditor( ck_newsContent, 'ckfinder/') ;

@@ -22,8 +22,8 @@ $this->start('manageRightMenu');
     </ul>
 </div>
 <div class="mangeRightSubMenu"> 
-    <div class="unselected"><?php echo $this->Html->link(__('User List'), array('action' => 'index')); ?></div>
-    <div class="unselected"><?php echo $this->Html->link(__('Add User'), array('action' => 'add')); ?></div>
+    <div class="unselected"><?php echo $this->Html->link(__('Country List'), array('action' => 'index')); ?></div>
+    <div class="unselected"><?php echo $this->Html->link(__('Add Country'), array('action' => 'add')); ?></div>
 </div>
 <?php
 $this->end();
