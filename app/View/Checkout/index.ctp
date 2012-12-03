@@ -109,6 +109,6 @@
     <button type="button" title="Proceed to Checkout" style="padding: 5px; font-size:14px;" onclick="window.location='<?php echo $this->webroot; ?>users/customerLogin';">Proceed to Check Out</button>
     <?php
 } else {
-    echo "</table><p>You have not book anything yet.</p><p>Please click " . $this->Html->link(__('here'), array('controller' => 'home', 'action' => 'display')) . " to continue your browsing.</p>";
+    echo "</table><p>You have not book anything yet.</p><p>Please click " . $this->Html->link(__('here'), array('controller' => 'home', 'action' => 'index')) . " to continue your browsing.</p>";
 };
 ?>

@@ -78,6 +78,6 @@
     </table>
     <?php
 } else {
-    echo "<p>You have not book anything yet.</p><p>Please click " . $this->Html->link(__('here'), array('controller' => 'home', 'action' => 'display')) . " to continue your browsing.</p>";
+    echo "<p>You have not book anything yet.</p><p>Please click " . $this->Html->link(__('here'), array('controller' => 'home', 'action' => 'index')) . " to continue your browsing.</p>";
 };
 ?>

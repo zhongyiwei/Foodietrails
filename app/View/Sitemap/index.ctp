@@ -1,5 +1,5 @@
 <h1 class="tourHeader">Sitemap</h1>
-<ul><li class="parent_sitemap"><?php echo $this->Html->link(__('Home'), array('controller' => 'Home', 'action' => 'display')); ?><p /></li></ul>
+<ul><li class="parent_sitemap"><?php echo $this->Html->link(__('Home'), array('controller' => 'Home', 'action' => 'index')); ?><p /></li></ul>
 <ul><li class="parent_sitemap"> Tours</li>
     <ul><li class="indent_sitemap"> Public Tours</li>
         <?php if ($menu != null) { ?><ul>
