@@ -149,14 +149,14 @@
     <?php for ($i = 0; $i < count($productData); $i++) { ?>
         <tr>
             <td style="border-bottom: none"><div style="width: 650px" class="line">
-                    <div class="tourTitle"> <span><?php echo $productData[$i]['Product']['product_name']; ?></span> </div>
-                    <div class="tourImage"><?php $productThumbnail = $productData[$i]['Product']['product_thumbnail']; $productId = $productData[$i]['Product']['id']; ?>
-                        <a href="<?php echo $this->webroot."products/product_detail/$productId"; ?>"><img src='<?php echo $productThumbnail ?>' alt = "<?php echo $productData[$i]['Product']['product_name']; ?>" title = '<?php echo $productData[$i]['Product']['product_name']; ?>' height = '125px' width = '175px' border = 0/></a></div>
+                    <a href="<?php $productId = $productData[$i]['Product']['id']; echo $this->webroot."products/more_detail/$productId"; ?>"><div class="tourTitle"> <span><?php echo $productData[$i]['Product']['product_name']; ?></span> </div>
+                    <div class="tourImage"><?php $productThumbnail = $productData[$i]['Product']['product_thumbnail'];  ?>
+                        <img src='<?php echo $productThumbnail ?>' alt = "<?php echo $productData[$i]['Product']['product_name']; ?>" title = '<?php echo $productData[$i]['Product']['product_name']; ?>' height = '125px' width = '175px' border = 0/></div></a>
                     <div class="tourDetails">
                         <b>Description: </b> <span id="gv1_ctl18_lblDescription"><?php
     $description = $this->Text->truncate($productData[$i]['Product']['product_description'], 102, array('ellipsis' => '...'));
     echo h($description);
-        ?></span>        <?php echo $this->Html->link(__('Read More'), array('controller' => 'Product', 'action' => 'product_detail', $productData[$i]['Product']['id']), array('class' => 'homePageLink')); ?> <br>
+        ?></span>        <?php echo $this->Html->link(__('Read More'), array('controller' => 'products', 'action' => 'more_detail', $productData[$i]['Product']['id']), array('class' => 'homePageLink')); ?> <br>
                         <br>
                     </div>
                     <div class="price"><span style="font-size: 16px;">from </span><br>

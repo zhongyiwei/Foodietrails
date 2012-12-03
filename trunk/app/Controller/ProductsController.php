@@ -101,7 +101,25 @@ class ProductsController extends AppController {
     }
 
     public function product_details() {
-        $this->set('products', $this->paginate());
+        $products = $this->Product->find('all', array('conditions' => array('publish_status' => "Published")));
+        $this->set('products', $products);
+    }
+
+    public function more_detail($id = null) {
+        $this->Product->id = $id;
+        if (!$this->Product->exists()) {
+            throw new NotFoundException(__('Invalid product'));
+        }
+        $this->set('product', $this->Product->read(null, $id));
+//        $this->set('feedbacks', $this->Feedback->find('all', array('conditions' => array('AND' => array('feedback.page_id' => $id), 'feedback.feedback_type' => "Product", 'feedback_status' => "show"))));
+    }
+
+    public function preview($id = null) {
+        $this->Product->id = $id;
+        if (!$this->Product->exists()) {
+            throw new NotFoundException(__('Invalid product'));
+        }
+        $this->set('product', $this->Product->read(null, $id));
     }
 
 }

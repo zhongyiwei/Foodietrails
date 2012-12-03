@@ -106,5 +106,13 @@ class EventsController extends AppController {
         }
         $this->set('event', $this->Event->read(null, $id));
     }
+    
+        public function preview($id = null) {
+        $this->Event->id = $id;
+        if (!$this->Event->exists()) {
+            throw new NotFoundException(__('Invalid event'));
+        }
+        $this->set('event', $this->Event->read(null, $id));
+    }
 
 }

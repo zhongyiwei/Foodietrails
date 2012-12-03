@@ -47,24 +47,11 @@ $this->start('manageRightContent');
                         <?php echo $this->Html->link(__('View'), array('action' => 'view', $product['Product']['id'])); ?>
                         <?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $product['Product']['id'])); ?>
                         <?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $product['Product']['id']), null, __('Are you sure you want to delete # %s?', $product['Product']['product_name'])); ?>
+                        <?php echo $this->Html->link(__('Preview'), array('action' => 'preview', $product['Product']['id'])); ?>
                     </td>
                 </tr>
             <?php endforeach; ?>
         </tbody>
     </table>
-    <p>
-        <?php
-//        echo $this->Paginator->counter(array(
-//            'format' => __('Page {:page} of {:pages}, showing {:current} records out of {:count} total, starting on record {:start}, ending on {:end}')
-//        ));
-        ?>	</p>
-
-    <div class="paging">
-        <?php
-        //     echo $this->Paginator->prev('< ' . __('previous'), array(), null, array('class' => 'prev disabled'));
-        //     echo $this->Paginator->numbers(array('separator' => ''));
-        //     echo $this->Paginator->next(__('next') . ' >', array(), null, array('class' => 'next disabled'));
-        ?>
-    </div>
 </div>
 <?php $this->end(); ?>

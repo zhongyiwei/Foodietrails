@@ -70,6 +70,7 @@ $this->start('manageRightContent');
                         <?php echo $this->Html->link(__('View'), array('action' => 'view', $tour['Tour']['id'])); ?>
                         <?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $tour['Tour']['id'])); ?>
                         <?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $tour['Tour']['id']), null, __('Are you sure you want to delete # %s?', $tour['Tour']['tour_name'])); ?>
+                        <?php echo $this->Html->link(__('Preview'), array('action' => 'preview', $tour['Tour']['id'])); ?>
                     </td>
                 </tr>
             <?php endforeach; ?>

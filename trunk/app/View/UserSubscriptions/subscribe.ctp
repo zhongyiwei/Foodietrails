@@ -4,6 +4,19 @@
     <?php
     echo $this->Form->input('user_email');
     ?>
+    <div class="<?php
+    if (isset($Error)) {
+        echo $Error[1];
+    }
+    ?>" style="padding:0px;margin-bottom: 0px">
+        <?php
+        require_once('recaptchalib.php');
+        echo recaptcha_get_html($publicKey);
+        if (isset($Error)) {
+            echo $Error[0];
+        }
+        ?>
+    </div>
     <?php echo $this->Form->end(__('Subscribe News')); ?>
 </fieldset>
 <?php $this->end(); ?>

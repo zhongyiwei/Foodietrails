@@ -15,49 +15,6 @@ echo $this->Html->script('easySlider1.7.js');
 <div id="slider" >
     <ul id="showTable">
         <?php
-//        for ($f = 0; $f < 4; $f++) {
-        ?>
-        <!--            <li>
-                        <table width="200" border="1" style="width:650px; margin-left: 25px" class="detailT"  >
-                            <tr style="border-top:1px solid #DDD;">   --> 
-        <?php
-//                        for ($i = $f * 7; $i < (count($weekArray) + $f*count($weekArray)) / 4; $i++) {
-//                            echo "<td><p class='calendarP week'>" . $weekArray[$i] . "</p><p class='calendarP dateP'>" . $dateArray[$i] . "</p></td>";
-//                        }
-        ?>
-        <!--                    </tr>
-                            <tr>-->
-        <?php
-//                        $id = $cookingclass['Cookingclass']['id'];
-//
-//                        for ($i = $f * 7; $i < (count($cookingclassDateArray) + $f * count($cookingclassDateArray) ) / 4; $i++) {
-//                            $status = true;
-//                            for ($j = 0; $j < count($cookingclassDateData); $j++) {
-//                                if ($cookingclassDateArray[$i] == $cookingclassDateData[$j]['CookingclassDate']['cookingclass_date'] && $cookingclassDateData[$j]['display'] == true) {
-//                                    $tourDateId = $cookingclassDateData[$j]['CookingclassDate']['id'];
-//                                    echo "<td><p class='calendarP' style='margin-left: 0px;'>";
-//                                    echo $this->Html->image("Book.png", array("alt" => "Click to Book", 'name' => "Click to Book", 'width' => "90", 'style' => "", 'url' => array('controller' => 'checkout', 'action' => 'index', '?' => array('def' => 'CookingClass', 'id' => "$id", 'dateId' => "$tourDateId"))));
-//                                    echo "</p></td>";
-//                                    $status = false;
-//                                    break;
-//                                } else if ($cookingclassDateArray[$i] == $cookingclassDateData[$j]['CookingclassDate']['cookingclass_date'] && $cookingclassDateData[$j]['display'] == false) {
-//                                    echo "<td><p class='calendarP' style='margin-left: 0px;'>";
-//                                    echo $this->Html->image("soldout.png", array("alt" => "This cooking class has sold out", 'name' => "This cooking class has sold out", 'width' => "90", 'style' => ""));
-//                                    echo "</p></td>";
-//                                    $status = false;
-//                                }
-//                            }
-//                            if ($status == true) {
-//                                echo "<td style='height:35px'></td>";
-//                            }
-//                        }
-        ?>
-        <!--                    </tr>
-                        </table>
-                    </li>-->
-        <?php // } ?>
-
-        <?php
         $id = $cookingclass['Cookingclass']['id'];
         for ($j = 0; $j < count($cookingclassDateData); $j++) {
             $cookingclassDateId = $cookingclassDateData[$j]['CookingclassDate']['id'];
@@ -131,22 +88,10 @@ echo $this->Html->script('easySlider1.7.js');
         </tr>
     </table>
     <?php
-//                echo $this->Html->image("Book.png", array("alt" => "Book", 'name' => "Book", 'height' => "100", 'width' => "150", 'url' => array('controller' => 'tours', 'action' => 'checkout',$tour['Tour']['id'])));
-//echo $this->Html->link(__(''), array('controller' => 'checkout', 'action' => 'index', '?' => array('def' => 'CookingClass', 'id' => "$id")), array("class" => "tourBook"));
-//echo $this->Html->link(__(''), array('controller' => 'tours', 'action' => 'checkout', $tour['Tour']['id']), array("class" => "tourBook"));
     echo $this->Html->link(__(''), array('controller' => 'feedbacks', 'action' => 'add', '?' => array('def' => 'CookingClass', 'id' => "$id")), array("class" => "feedback"));
-//echo $this->Html->image("feedback_button.jpg", array("alt" => "Feedback", 'name' => "Feedback", 'height' => "100", 'width' => "150", 'url' => array('controller' => 'feedbacks', 'action' => 'add',$cookingclass['Cookingclass']['id'])));
-//echo $this->Html->link(__(''), array('controller' => 'feedbacks', 'action' => 'add'));
     echo $this->Html->link(__('Redeem this cooking class with your gift voucher!'), array('controller' => 'users', 'action' => 'redeemLogin', '?' => array('def' => 'Cooking Class', 'id' => "$id")), array("class" => "redeem", 'style' => 'color:#1872a3;font-weight:normal; '));
     ?>
     <p><?php echo $cookingclass['Cookingclass']['cooking_class_description']; ?></p>
     <h2 class="tourParticipantGuide">Location</h2>
     <p><?php echo $cookingclass['Cookingclass']['cooking_class_location']; ?></p>
-
-    <h2 class="tourParticipantGuide">Feedback</h2>
-    <p><?php foreach ($feedbacks as $feedback): ?>
-        <tr>
-                                 <!--<td><?php echo $feedback['Feedback']['full_name']; ?> said --> "<?php echo $feedback['Feedback']['feedback_description']; ?>"<p /></td>
-    </tr>
-<?php endforeach; ?></p>
 </div>

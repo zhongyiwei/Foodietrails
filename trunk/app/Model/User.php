@@ -125,7 +125,7 @@ class User extends AppModel {
         'user_email' => array(
             'email' => array(
                 'rule' => array('email'),
-                'message' => 'The Email cannot be Empty.',
+                'message' => 'The Email must be valid.',
             //'allowEmpty' => false,
             //'required' => false,
             //'last' => false, // Stop validation after this rule

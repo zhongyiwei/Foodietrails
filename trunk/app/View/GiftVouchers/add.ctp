@@ -26,21 +26,20 @@ $this->start('manageRightContent');
 ?>
 <div class="giftVouchers form">
     <?php echo $this->Form->create('GiftVoucher'); ?>
-    <fieldset>
-        <?php
-//        echo $this->Form->input('user_id', array('style' => 'display:none', 'label' => false));
-        $productType = array('Tour' => 'Tour', 'Cooking Class' => 'Cooking Class','Mixed'=>'Mixed');
-        echo $this->Form->input('gift_voucher_name');
-        echo $this->Form->input('gift_message', array('id' => 'gift_message', 'class' => 'ckeditor'));
-        echo $this->Form->input('gift_price');
-        echo $this->Form->input('gift_type', array('type' => 'select', 'options' => $productType));
-        ?>
-    </fieldset>
+    <?php
+    $publishStatus = array('Private' => 'Private', 'Published' => 'Published');
+    $productType = array('Tour' => 'Tour', 'Cooking Class' => 'Cooking Class', 'Mixed' => 'Mixed');
+    echo $this->Form->input('gift_voucher_name');
+    echo $this->Form->input('gift_message', array('id' => 'gift_message', 'class' => 'ckeditor'));
+    echo $this->Form->input('gift_price');
+    echo $this->Form->input('gift_type', array('type' => 'select', 'options' => $productType));
+    echo $this->Form->input('publish_status', array('options' => $publishStatus, 'default' => 'Private'));
+    ?>
     <?php echo $this->Form->end(__('Submit')); ?>
 </div>
 <script type="text/javascript">
     var ck_newsContent = CKEDITOR.replace( 'gift_message',{
-        filebrowserBrowseUrl : '<?php echo $pathForFinder?>/js/ckfinder/ckfinder.html',
+        filebrowserBrowseUrl : '<?php echo $pathForFinder ?>/js/ckfinder/ckfinder.html',
         filebrowserWindowWidth : '600',
         filebrowserWindowHeight : '300'
     } ); 

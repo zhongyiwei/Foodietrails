@@ -248,6 +248,17 @@ body {
     width: 175px;
     height: 200px;
 }
+.productImage2 {
+    float: left;
+    width: 135px;
+    height: 69px;
+    background: url('../img/Book2.png');
+    margin-left: 620px;
+    margin-top: -86px;
+}
+.productImage2:hover{
+    background: url('../img/BookHover.png');
+}
 .productDetails {
     text-align: left;
     font-size: 14px;

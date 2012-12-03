@@ -145,29 +145,73 @@ class ToursController extends AppController {
             throw new NotFoundException(__('Invalid tour'));
         }
 
-        for ($i = 0; $i < 28; $i++) {
-            $weekArray[$i] = date('D', strtotime("+$i day"));
-            $dateArray[$i] = date('jS M', strtotime("+ $i day"));
-            $tourDateArray[$i] = date('Y-m-d', strtotime("+$i day"));
-        }
-        $tourDateData = $this->TourDate->find("all", array('conditions' => array('tour_progress' => 'Incomplete', 'TourDate.tour_id' => "$id")));
-//        $tourDateList = $this->TourDate->find("list",array( 'fields' => array('TourDate.id'),'conditions' => array('tour_progress' => 'Incomplete','TourDate.tour_id'=>"$id")));
+//        for ($i = 0; $i < 28; $i++) {
+//            $weekArray[$i] = date('D', strtotime("+$i day"));
+//            $dateArray[$i] = date('jS M', strtotime("+ $i day"));
+//            $tourDateArray[$i] = date('Y-m-d', strtotime("+$i day"));
+//        }
+        $tourDateData = $this->TourDate->find("all", array('conditions' => array('tour_progress' => 'Incomplete', 'TourDate.tour_id' => "$id", 'TourDate.tour_date >=' => date('Y-m-d H:i:s'))));
+////        $tourDateList = $this->TourDate->find("list",array( 'fields' => array('TourDate.id'),'conditions' => array('tour_progress' => 'Incomplete','TourDate.tour_id'=>"$id")));
         $tourData = $this->Tour->find("all", array('conditions' => array('Tour.id' => "$id")));
-//        print_r($tourData);
+////        print_r($tourData);
         for ($i = 0; $i < count($tourDateData); $i++) {
             $tourDateId = $tourDateData[$i]['TourDate']['id'];
             $tourOrderData = $this->TourOrder->find('all', array('conditions' => array('TourOrder.tour_date_id' => "$tourDateId", 'TourOrder.tour_id' => "$id")));
-            if (count($tourOrderData) >= $tourData[0]['Tour']['tour_max_num_on_day']) {
+            $Booked = 0;
+            for ($j = 0; $j < count($tourOrderData); $j++) {
+                $Booked = $Booked + $tourOrderData[$i]['TourOrder']['tour_purchase_quantity'];
+            }
+            $tourDateData[$i]['vacancy'] = $tourData[0]['Tour']['tour_max_num_on_day'] - $Booked;
+            if ($tourDateData[$i]['vacancy'] < 0) {
+                $tourDateData[$i]['vacancy'] = 0;
+            }
+
+            if ($Booked >= $tourData[0]['Tour']['tour_max_num_on_day']) {
                 $tourDateData[$i]['display'] = false;
             } else {
                 $tourDateData[$i]['display'] = true;
             }
         }
 //        print_r($tourDateData);
-        $this->set(compact('weekArray', 'dateArray', 'tourDateArray', 'tourDateData'));
+//        $this->set(compact('weekArray', 'dateArray', 'tourDateArray', 'tourDateData'));
 
-        $this->set('tour', $this->Tour->read(null, $id));
+        $this->set(compact('tourDateData'));
+        $tour = $this->Tour->find('all', array('conditions' => array('Tour.id' => "$id", 'Tour.publish_status' => "Published")));
+        if ($tour == null) {
+            $this->redirect(array('controller' => 'home', 'action' => 'display'));
+        }
+        $this->set('tour', $tour[0]);
         $this->set('feedbacks', $this->Feedback->find('all', array('conditions' => array('AND' => array('feedback.page_id' => $id), 'feedback.feedback_type' => "Tour", 'feedback_status' => "show"))));
+    }
+
+        public function preview($id = null) {
+        $this->Tour->id = $id;
+        if (!$this->Tour->exists()) {
+            throw new NotFoundException(__('Invalid tour'));
+        }
+        $tourDateData = $this->TourDate->find("all", array('conditions' => array('tour_progress' => 'Incomplete', 'TourDate.tour_id' => "$id", 'TourDate.tour_date >=' => date('Y-m-d H:i:s'))));
+        $tourData = $this->Tour->find("all", array('conditions' => array('Tour.id' => "$id")));
+        for ($i = 0; $i < count($tourDateData); $i++) {
+            $tourDateId = $tourDateData[$i]['TourDate']['id'];
+            $tourOrderData = $this->TourOrder->find('all', array('conditions' => array('TourOrder.tour_date_id' => "$tourDateId", 'TourOrder.tour_id' => "$id")));
+            $Booked = 0;
+            for ($j = 0; $j < count($tourOrderData); $j++) {
+                $Booked = $Booked + $tourOrderData[$i]['TourOrder']['tour_purchase_quantity'];
+            }
+            $tourDateData[$i]['vacancy'] = $tourData[0]['Tour']['tour_max_num_on_day'] - $Booked;
+            if ($tourDateData[$i]['vacancy'] < 0) {
+                $tourDateData[$i]['vacancy'] = 0;
+            }
+
+            if ($Booked >= $tourData[0]['Tour']['tour_max_num_on_day']) {
+                $tourDateData[$i]['display'] = false;
+            } else {
+                $tourDateData[$i]['display'] = true;
+            }
+        }
+        $this->set(compact('tourDateData'));
+        $tour = $this->Tour->find('all', array('conditions' => array('Tour.id' => "$id")));
+        $this->set('tour', $tour[0]);
     }
 
 }

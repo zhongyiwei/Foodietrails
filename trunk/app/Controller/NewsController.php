@@ -111,6 +111,14 @@ class NewsController extends AppController {
         $this->set('news', $this->News->read(null, $id));
     }
 
+    public function preview($id = null) {
+        $this->News->id = $id;
+        if (!$this->News->exists()) {
+            throw new NotFoundException(__('Invalid news'));
+        }
+        $this->set('news', $this->News->read(null, $id));
+    }
+
     public function emailsubscriber($id = null) {
         $this->Session->setFlash(__('The emails has been successfully sent to subscribers.'));
         $this->News->id = $id;
@@ -118,7 +126,7 @@ class NewsController extends AppController {
         $this->request->data['News']['send_status'] = 'true';
         $this->News->saveField('send_status', $this->request->data['News']['send_status']);
         $subscribers = $this->UserSubscription->find('all', array('conditions' => array('subscription_status =' => 'Yes')));
-        
+
         for ($i = 0; $i < count($subscribers); $i++) {
             $email = new CakeEmail();
             $email->config('default');

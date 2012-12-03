@@ -5,15 +5,16 @@
         <?php $productThumbnail = $product['Product']['product_thumbnail']; ?>
         <tr>
             <td style="border-bottom: none; width:500px"><div style="width: 900px" class="line">
-                    <div class="productTitle"> <span><?php echo h($product['Product']['product_name']); ?></span> </div>
+                    <a href="<?php $productId = $product['Product']['id']; echo $this->webroot."products/more_detail/$productId"; ?>"><div class="productTitle"> <span><?php echo h($product['Product']['product_name']); ?></span> </div>
                     <div class="productImage">
                         <img src='<?php echo $productThumbnail ?>' alt = "<?php echo $product['Product']['product_name']; ?>" title = '<?php echo $product['Product']['product_name']; ?>' height = '150px' width = '200px' border = 0/>
-                    </div>
+                    </div></a>
                     <div class="productDetails">
                         <?php
                         $description = $this->Text->truncate($product['Product']['product_description'], 200, array('ellipsis' => '...'));
                         echo $description;
                         ?>
+                         <?php echo $this->Html->link(__('Read More'), array('controller' => 'products', 'action' => 'more_detail', $product['Product']['id']), array('class' => 'homePageLink')); ?>
                     </div>
                     <div class="productPrice">
                         AU $<?php echo $product['Product']['product_price']; ?><br>

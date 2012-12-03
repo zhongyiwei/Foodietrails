@@ -34,6 +34,7 @@ $this->start('manageRightContent');
     <?php echo $this->Form->create('Cookingclass'); ?>
     <fieldset>
         <?php
+        $publishStatus = array('Private' => 'Private', 'Published' => 'Published');
         echo $this->Form->input('id');
         echo $this->Form->input('cooking_class_name');
         echo $this->Form->input('cooking_class_description', array('id' => 'cooking_class_description', 'class' => 'ckeditor'));
@@ -41,13 +42,14 @@ $this->start('manageRightContent');
         echo $this->Form->input('cooking_class_max_num_on_day');
         echo $this->Form->input('cooking_class_thumbnail', array('id' => 'xFilePath', 'class' => 'ckeditor', 'style' => 'width:500px'));
         echo $this->Form->button('Browse Server', array('onclick' => 'BrowseServer()', 'type' => 'button', 'style' => 'padding:5px;margin-top:-55px; margin-left:530px'));
+        echo $this->Form->input('publish_status', array('options' => $publishStatus, 'default' => 'Private'));
         ?>
     </fieldset>
     <?php echo $this->Form->end(__('Submit')); ?>
 </div>
 <script type="text/javascript">
     var ck_newsContent = CKEDITOR.replace( 'cooking_class_description',{
-        filebrowserBrowseUrl : '<?php echo $pathForFinder?>/js/ckfinder/ckfinder.html',
+        filebrowserBrowseUrl : '<?php echo $pathForFinder ?>/js/ckfinder/ckfinder.html',
         filebrowserWindowWidth : '600',
         filebrowserWindowHeight : '300'
     } ); 
