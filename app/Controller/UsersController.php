@@ -407,9 +407,6 @@ class UsersController extends AppController {
                 'user_email',
                 'user_dietary_requirement',
                 'user_spl_assistance',
-                'user_referee',
-                'user_postcode',
-                'user_state',
             ),
             'contain' => false));
 //        print_r($result);
@@ -423,9 +420,6 @@ class UsersController extends AppController {
                 'user_email' => 'Email',
                 'user_dietary_requirement' => 'Dietary Requirements',
                 'user_spl_assistance' => 'SPL Assistance',
-                'user_referee' => 'Referee',
-                'user_postcode' => 'Post Code',
-                'user_state' => 'State',
             )
         );
         array_unshift($result, $header_row);
@@ -433,5 +427,4 @@ class UsersController extends AppController {
 //        $this->set(compact('data'));
         $this->set('data', $result);
     }
-
 }

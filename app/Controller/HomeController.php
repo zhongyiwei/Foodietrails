@@ -4,7 +4,7 @@ class HomeController extends AppController {
 
     var $uses = array('Tour', 'Country', 'Cookingclass', 'HomePageImage', 'HomePageList');
 
-    public function display() {
+    public function index() {
         $this->set('ImageData', $this->HomePageImage->find('all', array('conditions' => array('publish_status' => 'Show'))));
 
         $homeList = $this->HomePageList->find('all');

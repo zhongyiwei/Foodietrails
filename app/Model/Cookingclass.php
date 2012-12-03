@@ -44,16 +44,6 @@ class Cookingclass extends AppModel {
             //'on' => 'create', // Limit validation to 'create' or 'update' operations
             ),
         ),
-        'cooking_class_price' => array(
-            'notempty' => array(
-                'rule' => array('notempty'),
-                'message' => 'The Cooking Class Price cannot be Empty',
-            //'allowEmpty' => false,
-            //'required' => false,
-            //'last' => false, // Stop validation after this rule
-            //'on' => 'create', // Limit validation to 'create' or 'update' operations
-            ),
-        ),
         'cooking_class_thumbnail' => array(
             'notempty' => array(
                 'rule' => array('notempty'),
@@ -65,5 +55,32 @@ class Cookingclass extends AppModel {
             ),
         ),
     );
-
+    public $hasMany = array(
+        'CookingClassDate' => array(
+            'className' => 'CookingClassDate',
+            'foreignKey' => 'cookingclass_id',
+            'dependent' => false,
+            'conditions' => '',
+            'fields' => '',
+            'order' => '',
+            'limit' => '',
+            'offset' => '',
+            'exclusive' => '',
+            'finderQuery' => '',
+            'counterQuery' => ''
+        ),
+        'CookingclassOrder' => array(
+            'className' => 'CookingclassOrder',
+            'foreignKey' => 'cooking_class_id',
+            'dependent' => false,
+            'conditions' => '',
+            'fields' => '',
+            'order' => '',
+            'limit' => '',
+            'offset' => '',
+            'exclusive' => '',
+            'finderQuery' => '',
+            'counterQuery' => ''
+        )
+    );
 }

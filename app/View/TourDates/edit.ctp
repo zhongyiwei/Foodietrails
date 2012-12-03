@@ -38,6 +38,7 @@ $this->start('manageRightContent');
     // debug($tours);
     echo $this->Form->input('tour_date');
     echo $this->Form->input('tour_time');
+    echo $this->Form->input('tour_price_per_certificate');
     echo $this->Form->input('tour_progress', array('type' => 'select', 'options' => $progressStatus));
     ?>
     <?php echo $this->Form->end(__('Submit')); ?>

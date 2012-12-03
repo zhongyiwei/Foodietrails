@@ -31,7 +31,7 @@ $this->start('manageRightContent');
                             <!--<th>id</th>-->
                 <th>Cooking Class Name</th>
                 <th>Cooking Class Description</th>
-                <th>Cooking Class Price</th>
+                <!--<th>Cooking Class Price</th>-->
                 <th>Cooking Class Location</th>
                 <th class="actions"><?php echo __('Actions'); ?></th>
             </tr>
@@ -42,7 +42,7 @@ $this->start('manageRightContent');
                         <!--<td><?php echo h($cookingclass['Cookingclass']['id']); ?>&nbsp;</td>-->
                     <td><?php echo h($cookingclass['Cookingclass']['cooking_class_name']); ?>&nbsp;</td>
                     <td><?php echo $this->Text->truncate($cookingclass['Cookingclass']['cooking_class_description'], 50, array('ellipsis' => '...')); ?>&nbsp;</td>
-                    <td><?php echo h($cookingclass['Cookingclass']['cooking_class_price']); ?>&nbsp;</td>
+                    <!--<td><?php echo h($cookingclass['Cookingclass']['cooking_class_price']); ?>&nbsp;</td>-->
                     <td><?php echo $this->Text->truncate(h($cookingclass['Cookingclass']['cooking_class_location']), 50, array('ellipsis' => '...')); ?>&nbsp;</td>
                     <td class="actions">
                         <?php echo $this->Html->link(__('View'), array('action' => 'view', $cookingclass['Cookingclass']['id'])); ?>
