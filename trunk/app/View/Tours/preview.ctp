@@ -26,6 +26,7 @@ echo $this->Html->script('easySlider1.7.js');
                 $date = date_create_from_format('Y-m-d H:i:s', $dateTime);
                 $month = date_format($date, 'F');
                 $vacancy = $tourDateData[$j]['vacancy'];
+                $tourPrice = $tourDateData[$j]['TourDate']['tour_price_per_certificate'];
                 if ($tourDateData[$j]['display'] == true) {
                     $bookImage = $this->Html->image("Book.png", array("alt" => "Click to Book", 'name' => "Click to Book", 'width' => "130", 'style' => "", 'url' => array('controller' => 'checkout', 'action' => 'index', '?' => array('def' => 'Tour', 'id' => "$id", 'dateId' => "$tourDateId"))));
                     echo "<li><table border='0' style='width:650px; margin-left: 25px' class='detailT'>
@@ -45,6 +46,12 @@ echo $this->Html->script('easySlider1.7.js');
                                 <td>
                                 Time: $tourTime
                                 </td>
+                                </tr>
+                                </table>
+                                <table width='200px' border='1' style='width:250px; margin-bottom: 0px;margin-left: 665px;margin-top: 25px;'>
+                                <tr>
+                                    <td style='vertical-align:middle; border-bottom: 0px'>Price Per Person</td>
+                                    <td style='border-bottom: 0px;'><div class='tourPrice'>$tourPrice</div></td>
                                 </tr>
                                 </table>
                                 </li>
@@ -70,6 +77,12 @@ echo $this->Html->script('easySlider1.7.js');
                                 </td>
                                 </tr>
                                 </table>
+                                <table width='200px' border='1' style='width:250px; margin-bottom: 0px;margin-left: 665px;margin-top: 25px;'>
+                                <tr>
+                                    <td style='vertical-align:middle; border-bottom: 0px'>Price Per Person</td>
+                                    <td style='border-bottom: 0px;'><div class='tourPrice'>$tourPrice</div></td>
+                                </tr>
+                                </table>
                                 </li>
                                 ";
                 }
@@ -81,12 +94,6 @@ echo $this->Html->script('easySlider1.7.js');
     </ul>
 </div>
 <div class="detailData" id="detailD">
-    <table width="200px" border="1" style="width:250px; margin-bottom: 0px;margin-left: 665px;">
-        <tr>
-            <td style="vertical-align:middle; border-bottom: 0px">Price Per Person</td>
-            <td style="border-bottom: 0px;"><div class="tourPrice"><?php echo $tour['Tour']['tour_price_per_certificate']; ?></div></td>
-        </tr>
-    </table>
     <?php
     echo $this->Html->link(__(''), array('controller' => 'feedbacks', 'action' => 'add', '?' => array('def' => 'Tour', 'id' => "$id")), array("class" => "feedback"));
     echo $this->Html->link(__('Redeem this tour with your gift voucher!'), array('controller' => 'users', 'action' => 'redeemLogin', '?' => array('def' => 'Tour', 'id' => "$id")), array("class" => "redeem", 'style' => 'color:#1872a3;font-weight:normal;'));
