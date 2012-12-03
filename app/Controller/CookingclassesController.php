@@ -78,33 +78,88 @@ class CookingclassesController extends AppController {
     public function cookingclass_detail($id = null) {
         $this->Cookingclass->id = $id;
         if (!$this->Cookingclass->exists()) {
-            throw new NotFoundException(__('Invalid tour'));
+            throw new NotFoundException(__('Invalid Cooking Class'));
         }
 
-        for ($i = 0; $i < 28; $i++) {
-            $weekArray[$i] = date('D', strtotime("+$i day"));
-            $dateArray[$i] = date('jS M', strtotime("+ $i day"));
-            $cookingclassDateArray[$i] = date('Y-m-d', strtotime("+$i day"));
-        }
+//        for ($i = 0; $i < 28; $i++) {
+//            $weekArray[$i] = date('D', strtotime("+$i day"));
+//            $dateArray[$i] = date('jS M', strtotime("+ $i day"));
+//            $cookingclassDateArray[$i] = date('Y-m-d', strtotime("+$i day"));
+//        }
+//        $cookingclassDateData = $this->CookingclassDate->find("all", array('conditions' => array('cookingclass_progress' => 'Incomplete', 'CookingclassDate.cookingclass_id' => "$id")));
+////        $cookingclassDateList = $this->CookingclassDate->find("list",array( 'fields' => array('CookingclassDate.id'),'conditions' => array('cookingclass_progress' => 'Incomplete','CookingclassDate.cookingclass_id'=>"$id")));
+//        $cookingclassData = $this->Cookingclass->find("all", array('conditions' => array('Cookingclass.id' => "$id")));
+//        for ($i = 0; $i < count($cookingclassDateData); $i++) {
+//            $cookingclassDateId = $cookingclassDateData[$i]['CookingclassDate']['id'];
+//            $cookingclassOrderData = $this->CookingclassOrder->find('all', array('conditions' => array('CookingclassOrder.cooking_class_date_id' => "$cookingclassDateId", 'CookingclassOrder.cooking_class_id' => "$id")));
+//            if (count($cookingclassOrderData) >= $cookingclassData[0]['Cookingclass']['cooking_class_max_num_on_day']) {
+//                $cookingclassDateData[$i]['display'] = false;
+//            } else {
+//                $cookingclassDateData[$i]['display'] = true;
+//            }
+//        }
+
         $cookingclassDateData = $this->CookingclassDate->find("all", array('conditions' => array('cookingclass_progress' => 'Incomplete', 'CookingclassDate.cookingclass_id' => "$id")));
-//        $cookingclassDateList = $this->CookingclassDate->find("list",array( 'fields' => array('CookingclassDate.id'),'conditions' => array('cookingclass_progress' => 'Incomplete','CookingclassDate.cookingclass_id'=>"$id")));
-        $cookingclassData = $this->Cookingclass->find("all", array('conditions' => array('Cookingclass.id' => "$id")));
+        
         for ($i = 0; $i < count($cookingclassDateData); $i++) {
             $cookingclassDateId = $cookingclassDateData[$i]['CookingclassDate']['id'];
             $cookingclassOrderData = $this->CookingclassOrder->find('all', array('conditions' => array('CookingclassOrder.cooking_class_date_id' => "$cookingclassDateId", 'CookingclassOrder.cooking_class_id' => "$id")));
-            if (count($cookingclassOrderData) >= $cookingclassData[0]['Cookingclass']['cooking_class_max_num_on_day']) {
+            $cookingclassData = $this->Cookingclass->find("all", array('conditions' => array('Cookingclass.id' => "$id")));
+            $Booked = 0;
+            for ($j = 0; $j < count($cookingclassOrderData); $j++) {
+                $Booked = $Booked + $cookingclassOrderData[$i]['CookingclassOrder']['cooking_class_order_quantity'];
+            }
+            $cookingclassDateData[$i]['vacancy'] = $cookingclassData[0]['Cookingclass']['cooking_class_max_num_on_day'] - $Booked;
+            if ($cookingclassDateData[$i]['vacancy'] < 0) {
+                $cookingclassDateData[$i]['vacancy'] = 0;
+            }
+
+            if ($Booked >= $cookingclassData[0]['Cookingclass']['cooking_class_max_num_on_day']) {
                 $cookingclassDateData[$i]['display'] = false;
             } else {
                 $cookingclassDateData[$i]['display'] = true;
             }
         }
 
-        $this->set(compact('weekArray', 'dateArray', 'cookingclassDateArray', 'cookingclassDateData'));
+//        $this->set(compact('weekArray', 'dateArray', 'cookingclassDateArray', 'cookingclassDateData'));
+        $this->set(compact('cookingclassDateData'));
 
         $this->set('cookingclass', $this->Cookingclass->read(null, $id));
         $this->set('feedbacks', $this->Feedback->find('all', array('conditions' => array('AND' => array('feedback.page_id' => $id), 'feedback.feedback_type' => "CookingClass", 'feedback_status' => "show"))));
     }
 
+    
+        public function preview($id = null) {
+        $this->Cookingclass->id = $id;
+        if (!$this->Cookingclass->exists()) {
+            throw new NotFoundException(__('Invalid Cooking Class'));
+        }
+        $cookingclassDateData = $this->CookingclassDate->find("all", array('conditions' => array('cookingclass_progress' => 'Incomplete', 'CookingclassDate.cookingclass_id' => "$id")));
+        
+        for ($i = 0; $i < count($cookingclassDateData); $i++) {
+            $cookingclassDateId = $cookingclassDateData[$i]['CookingclassDate']['id'];
+            $cookingclassOrderData = $this->CookingclassOrder->find('all', array('conditions' => array('CookingclassOrder.cooking_class_date_id' => "$cookingclassDateId", 'CookingclassOrder.cooking_class_id' => "$id")));
+            $cookingclassData = $this->Cookingclass->find("all", array('conditions' => array('Cookingclass.id' => "$id")));
+            $Booked = 0;
+            for ($j = 0; $j < count($cookingclassOrderData); $j++) {
+                $Booked = $Booked + $cookingclassOrderData[$i]['CookingclassOrder']['cooking_class_order_quantity'];
+            }
+            $cookingclassDateData[$i]['vacancy'] = $cookingclassData[0]['Cookingclass']['cooking_class_max_num_on_day'] - $Booked;
+            if ($cookingclassDateData[$i]['vacancy'] < 0) {
+                $cookingclassDateData[$i]['vacancy'] = 0;
+            }
+
+            if ($Booked >= $cookingclassData[0]['Cookingclass']['cooking_class_max_num_on_day']) {
+                $cookingclassDateData[$i]['display'] = false;
+            } else {
+                $cookingclassDateData[$i]['display'] = true;
+            }
+        }
+        $this->set(compact('cookingclassDateData'));
+
+        $this->set('cookingclass', $this->Cookingclass->read(null, $id));
+    }
+    
     /**
      * delete method
      *

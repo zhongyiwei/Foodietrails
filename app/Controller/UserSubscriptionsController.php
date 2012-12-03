@@ -1,7 +1,7 @@
 <?php
 
 App::uses('AppController', 'Controller');
-
+require_once('recaptchalib.php');
 /**
  * UserSubscriptions Controller
  *
@@ -101,26 +101,33 @@ class UserSubscriptionsController extends AppController {
 
     public function subscribe() {
         if ($this->request->is('post')) {
-            $email = $this->request->data['UserSubscription']['user_email'];
-            $temp = $this->UserSubscription->find('all', array('conditions' => array('user_email' => "$email")));
-            if ($temp != null) {
-                $substatus = $temp[0]['UserSubscription']['subscription_status'];
-            }
-            if ($temp != null && $substatus == 'Yes') {
-                $this->Session->setFlash(__('You have alerady subscribed to our newsletters'), 'failure-message');
-            } else if ($temp != null && $substatus == 'No') {
-                $this->request->data['UserSubscription']['subscription_status'] = 'Yes';
-                $this->request->data['UserSubscription']['id'] = $temp[0]['UserSubscription']['id'];
-                if ($this->UserSubscription->save($this->request->data)) {
-                    $this->redirect(array('action' => 'successfulsubscription'));
+            $resp = recaptcha_check_answer($this->privateKey, $_SERVER["REMOTE_ADDR"], $_POST["recaptcha_challenge_field"], $_POST["recaptcha_response_field"]);
+            if (!$resp->is_valid) {
+                $errorMessage[0] = "Validation code is not valid";
+                $errorMessage[1] = "input text required error";
+                $this->set('Error', $errorMessage);
+            } else {
+                $email = $this->request->data['UserSubscription']['user_email'];
+                $temp = $this->UserSubscription->find('all', array('conditions' => array('user_email' => "$email")));
+                if ($temp != null) {
+                    $substatus = $temp[0]['UserSubscription']['subscription_status'];
                 }
-            } else if ($temp == null) {
-                $this->request->data['UserSubscription']['subscription_status'] = 'Yes';
-                $this->UserSubscription->create();
-                if ($this->UserSubscription->save($this->request->data)) {
-                    $this->redirect(array('action' => 'successfulsubscription'));
-                } else {
-                    $this->Session->setFlash(__('The event could not be saved. Please, try again.'), 'failure-message');
+                if ($temp != null && $substatus == 'Yes') {
+                    $this->Session->setFlash(__('You have alerady subscribed to our newsletters'), 'failure-message');
+                } else if ($temp != null && $substatus == 'No') {
+                    $this->request->data['UserSubscription']['subscription_status'] = 'Yes';
+                    $this->request->data['UserSubscription']['id'] = $temp[0]['UserSubscription']['id'];
+                    if ($this->UserSubscription->save($this->request->data)) {
+                        $this->redirect(array('action' => 'successfulsubscription'));
+                    }
+                } else if ($temp == null) {
+                    $this->request->data['UserSubscription']['subscription_status'] = 'Yes';
+                    $this->UserSubscription->create();
+                    if ($this->UserSubscription->save($this->request->data)) {
+                        $this->redirect(array('action' => 'successfulsubscription'));
+                    } else {
+                        $this->Session->setFlash(__('The event could not be saved. Please, try again.'), 'failure-message');
+                    }
                 }
             }
         }
@@ -129,16 +136,23 @@ class UserSubscriptionsController extends AppController {
     public function unsubscribe($id = null) {
 //        $id = $this->request['User_subscription']['id'];
         if ($this->request->is('post')) {
-            $email = $this->request->data['UserSubscription']['user_email'];
-            $temp = $this->UserSubscription->find('all', array('conditions' => array('user_email' => "$email")));
-            if ($temp != null) {
-                $this->request->data['UserSubscription']['id'] = $temp[0]['UserSubscription']['id'];
-                $this->request->data['UserSubscription']['subscription_status'] = 'No';
-                if ($this->UserSubscription->save($this->request->data)) {
-                    $this->redirect(array('action' => 'successfulunsubscription'));
-                }
+            $resp = recaptcha_check_answer($this->privateKey, $_SERVER["REMOTE_ADDR"], $_POST["recaptcha_challenge_field"], $_POST["recaptcha_response_field"]);
+            if (!$resp->is_valid) {
+                $errorMessage[0] = "Validation code is not valid";
+                $errorMessage[1] = "input text required error";
+                $this->set('Error', $errorMessage);
             } else {
-                $this->Session->setFlash(__('You are not subscribed to recieve newsletters'), 'failure-message');
+                $email = $this->request->data['UserSubscription']['user_email'];
+                $temp = $this->UserSubscription->find('all', array('conditions' => array('user_email' => "$email")));
+                if ($temp != null) {
+                    $this->request->data['UserSubscription']['id'] = $temp[0]['UserSubscription']['id'];
+                    $this->request->data['UserSubscription']['subscription_status'] = 'No';
+                    if ($this->UserSubscription->save($this->request->data)) {
+                        $this->redirect(array('action' => 'successfulunsubscription'));
+                    }
+                } else {
+                    $this->Session->setFlash(__('You are not subscribed to recieve newsletters'), 'failure-message');
+                }
             }
         }
     }

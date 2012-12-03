@@ -34,7 +34,7 @@ $this->start('manageRightContent');
         <!--<legend><?php echo __('Add Tour'); ?></legend>-->
         <?php
 //        $tourType = array('Private' => 'Private Tours', 'Public' => 'Public Tours', 'International' => 'International Tours');
-
+        $publishStatus = array('Private' => 'Private', 'Published' => 'Published');
         echo $this->Form->input('tour_name');
         echo $this->Form->input('tour_description', array('id' => 'tour_description', 'class' => 'ckeditor'));
         echo $this->Form->input('tour_vendor_name');
@@ -47,9 +47,10 @@ $this->start('manageRightContent');
         echo $this->Form->input('tour_weather', array('label' => 'Tour Weather (Desription of weather condition the tour can operate)'));
         echo $this->Form->input('tour_spectator');
         echo $this->Form->input('tour_max_num_on_day');
-        echo $this->Form->input('tour_type_id', array('options' => $tourType, 'default' => 'Public'));
+        echo $this->Form->input('tour_type_id', array('options' => $tourType));
         echo $this->Form->input('tour_thumbnail', array('id' => 'xFilePath', 'class' => 'ckeditor', 'style' => 'width:500px'));
         echo $this->Form->button('Browse Server', array('onclick' => 'BrowseServer()', 'type' => 'button', 'style' => 'padding:5px;margin-top:-55px; margin-left:530px;float:left'));
+        echo $this->Form->input('publish_status', array('options' => $publishStatus, 'default' => 'Private'));
 //                    echo $this->Form->input('Date');
         ?>
     </fieldset>
