@@ -224,3 +224,41 @@ div.index{
     padding:0px 2%;
 
 }
+.exportTitle{
+    font-weight: bold;
+}
+.exportTable{
+    margin-bottom: 50px;
+}
+.exportTable tr td{
+    vertical-align: middle;
+}
+.export input[type="submit"] {
+    /*    	background:#F90;
+                background:-webkit-gradient( linear, left bottom, left top, color-stop(0.44, rgb(255,119,0)), color-stop(0.72, rgb(255,153,0)) );
+                background: -moz-linear-gradient( center bottom, rgb(255,119,0) 44%, rgb(255,153,0) 72% );*/
+    color: white;
+    text-shadow: none;
+    border-color:#30b7ff;
+    background:#30b7ff;
+    text-decoration:none;
+ background-image: linear-gradient(bottom, rgb(33,143,194) 8%, rgb(78,175,224) 62%);
+background-image: -o-linear-gradient(bottom, rgb(33,143,194) 8%, rgb(78,175,224) 62%);
+background-image: -moz-linear-gradient(bottom, rgb(33,143,194) 8%, rgb(78,175,224) 62%);
+background-image: -webkit-linear-gradient(bottom, rgb(33,143,194) 8%, rgb(78,175,224) 62%);
+background-image: -ms-linear-gradient(bottom, rgb(33,143,194) 8%, rgb(78,175,224) 62%);
+
+background-image: -webkit-gradient(
+	linear,
+	left bottom,
+	left top,
+	color-stop(0.08, rgb(33,143,194)),
+	color-stop(0.62, rgb(78,175,224))
+);
+    border-radius: 3px;
+    box-shadow: none;
+}
+.reminder{
+    color:#555;
+    font-size: 12px;
+}

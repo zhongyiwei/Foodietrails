@@ -59,16 +59,6 @@ class Tour extends AppModel {
             //'on' => 'create', // Limit validation to 'create' or 'update' operations
             ),
         ),
-        'tour_price_per_certificate' => array(
-            'notempty' => array(
-                'rule' => array('notempty'),
-                'message' => 'The Tour Price Cannot be Empty.',
-            //'allowEmpty' => false,
-            //'required' => false,
-            //'last' => false, // Stop validation after this rule
-            //'on' => 'create', // Limit validation to 'create' or 'update' operations
-            ),
-        ),
         'tour_notes' => array(
             'notempty' => array(
                 'rule' => array('notempty'),

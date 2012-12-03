@@ -25,10 +25,10 @@ echo $this->Html->script('easySlider1.7.js');
 //                            echo "<td><p class='calendarP week'>" . $weekArray[$i] . "</p><p class='calendarP dateP'>" . $dateArray[$i] . "</p></td>";
 //                        }
         ?>
-<!--        </tr>
-        <tr>-->
-            <?php
-            $id = $tour['Tour']['id'];
+        <!--        </tr>
+                <tr>-->
+        <?php
+        $id = $tour['Tour']['id'];
 //                        for ($i = $f * 7; $i < (count($tourDateArray) + $f * count($tourDateArray)) / 4; $i++) {
 //                            $status = true;
 //                            for ($j = 0; $j < count($tourDateData); $j++) {
@@ -51,18 +51,19 @@ echo $this->Html->script('easySlider1.7.js');
 //                                echo "<td style='height:35px'></td>";
 //                            }
 //                        }
-            for ($j = 0; $j < count($tourDateData); $j++) {
-                $tourDateId = $tourDateData[$j]['TourDate']['id'];
-                $tourDate = $tourDateData[$j]['TourDate']['tour_date'];
-                $tourTime = $tourDateData[$j]['TourDate']['tour_time'];
-                $dateTime = $tourDate . " " . $tourTime;
-                $date = date_create_from_format('Y-m-d H:i:s', $dateTime);
-                $month = date_format($date, 'F');
-                $year = date_format($date, 'Y');
-                $vacancy = $tourDateData[$j]['vacancy'];
-                if ($tourDateData[$j]['display'] == true) {
-                    $bookImage = $this->Html->image("Book.png", array("alt" => "Click to Book", 'name' => "Click to Book", 'width' => "130", 'style' => "", 'url' => array('controller' => 'checkout', 'action' => 'index', '?' => array('def' => 'Tour', 'id' => "$id", 'dateId' => "$tourDateId"))));
-                    echo "<li><table border='0' style='width:650px; margin-left: 25px' class='detailT'>
+        for ($j = 0; $j < count($tourDateData); $j++) {
+            $tourDateId = $tourDateData[$j]['TourDate']['id'];
+            $tourDate = $tourDateData[$j]['TourDate']['tour_date'];
+            $tourTime = $tourDateData[$j]['TourDate']['tour_time'];
+            $dateTime = $tourDate . " " . $tourTime;
+            $date = date_create_from_format('Y-m-d H:i:s', $dateTime);
+            $month = date_format($date, 'F');
+            $year = date_format($date, 'Y');
+            $vacancy = $tourDateData[$j]['vacancy'];
+            $tourPrice =  $tourDateData[$j]['TourDate']['tour_price_per_certificate'];
+            if ($tourDateData[$j]['display'] == true) {
+                $bookImage = $this->Html->image("Book.png", array("alt" => "Click to Book", 'name' => "Click to Book", 'width' => "130", 'style' => "", 'url' => array('controller' => 'checkout', 'action' => 'index', '?' => array('def' => 'Tour', 'id' => "$id", 'dateId' => "$tourDateId"))));
+                echo "<li><table border='0' style='width:650px; margin-left: 25px' class='detailT'>
                                     <tr>
                                     <td colspan='3' style='border-top: 1px solid #DDD; font-weight:bold;'>$month - $year</td>                     
                                     </tr>
@@ -81,12 +82,18 @@ echo $this->Html->script('easySlider1.7.js');
                                 </td>
                                 </tr>
                                 </table>
+                                <table width='200px' border='1' style='width:250px; margin-bottom: 0px;margin-left: 665px;margin-top: 25px;'>
+                                <tr>
+                                    <td style='vertical-align:middle; border-bottom: 0px'>Price Per Person</td>
+                                    <td style='border-bottom: 0px;'><div class='tourPrice'>$tourPrice</div></td>
+                                </tr>
+                                </table>
                                 </li>
                                 ";
 //                echo "<input type='radio' name='dateChoosen' id='date$tourDateId' style='padding:20px' value='4' onclick='formSubmit()' >";
-                } else if ($tourDateData[$j]['display'] == false) {
-                    $bookImage = $this->Html->image("soldout.png", array("alt" => "This tour has sold out", 'name' => "This tour has sold out", 'width' => "130", 'style' => ""));
-                    echo "<li><table border='0' style='width:650px; margin-left: 25px' class='detailT'>
+            } else if ($tourDateData[$j]['display'] == false) {
+                $bookImage = $this->Html->image("soldout.png", array("alt" => "This tour has sold out", 'name' => "This tour has sold out", 'width' => "130", 'style' => ""));
+                echo "<li><table border='0' style='width:650px; margin-left: 25px' class='detailT'>
                                     <tr>
                                     <td colspan='3' style='border-top: 1px solid #DDD; font-weight:bold;'>$month</td>                     
                                     </tr>
@@ -105,23 +112,23 @@ echo $this->Html->script('easySlider1.7.js');
                                 </td>
                                 </tr>
                                 </table>
+                                <table width='200px' border='1' style='width:250px; margin-bottom: 0px;margin-left: 665px;margin-top: 25px;'>
+                                <tr>
+                                    <td style='vertical-align:middle; border-bottom: 0px'>Price Per Person</td>
+                                    <td style='border-bottom: 0px;'><div class='tourPrice'>$tourPrice</div></td>
+                                </tr>
+                                </table>
                                 </li>
                                 ";
-                }
             }
-            if (count($tourDateData) == 0) {
-                echo "<li><div class='noProduct'> No Tours Available Right Now</div></li>";
-            }
-            ?>
+        }
+        if (count($tourDateData) == 0) {
+            echo "<li><div class='noProduct'> No Tours Available Right Now</div></li>";
+        }
+        ?>
     </ul>
 </div>
 <div class="detailData" id="detailD">
-    <table width="200px" border="1" style="width:250px; margin-bottom: 0px;margin-left: 665px;">
-        <tr>
-            <td style="vertical-align:middle; border-bottom: 0px">Price Per Person</td>
-            <td style="border-bottom: 0px;"><div class="tourPrice"><?php echo $tour['Tour']['tour_price_per_certificate']; ?></div></td>
-        </tr>
-    </table>
     <?php
 //                echo $this->Html->image("Book.png", array("alt" => "Book", 'name' => "Book", 'height' => "100", 'width' => "150", 'url' => array('controller' => 'tours', 'action' => 'checkout',$tour['Tour']['id'])));
 //echo $this->Html->link(__(''), array('controller' => 'checkout', 'action' => 'index', '?' => array('def' => 'Tour', 'id' => "$id")), array("class" => "tourBook"));

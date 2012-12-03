@@ -29,9 +29,10 @@ $this->start('manageRightContent');
     <table cellpadding="0" cellspacing="0" id="js-datatable">
         <thead>
             <tr>
-                <th>Tour Name</th>
                 <th>Holding Date</th>
+                <th>Tour Name</th>
                 <th>Holding Time</th>
+                <th>Price</th>
                 <th>Progress</th>
                 <th class="actions"><?php echo __('Actions'); ?></th>
             </tr>
@@ -44,6 +45,7 @@ $this->start('manageRightContent');
                         <?php echo $this->Html->link($tourDate['Tour']['tour_name'], array('controller' => 'tours', 'action' => 'view', $tourDate['Tour']['id'])); ?>
                     </td>
                     <td><?php echo h($tourDate['TourDate']['tour_time']); ?>&nbsp;</td>
+                    <td><?php echo h($tourDate['TourDate']['tour_price_per_certificate']); ?>&nbsp;</td>
                     <td><?php echo h($tourDate['TourDate']['tour_progress']); ?>&nbsp;</td>
                     <td class="actions">
                         <?php echo $this->Html->link(__('View'), array('action' => 'view', $tourDate['TourDate']['id'])); ?>

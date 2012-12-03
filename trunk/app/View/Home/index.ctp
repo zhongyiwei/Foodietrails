@@ -6,6 +6,9 @@
     js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=270684012976952";
     fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
+<?php // print_r($tourData); 
+// print_r($cookingClassData);
+?>
 <div class="search">
     <div class="searchBorder">
         <!--        <div class="searchPanel">
@@ -69,15 +72,18 @@
     <tr>
         <td style="border-bottom: none; width:500px"><div style="width: 650px" class="line">
                 <div class="tourTitle"> <span><?php echo $tourData[0]['Tour']['tour_name']; ?></span> </div>
-                <div class="tourImage"><?php $tourThumbnail = $tourData[0]['Tour']['tour_thumbnail']; $tourId = $tourData[0]['Tour']['id'];?>
-                    <a href="<?php echo $this->webroot."tours/tourDetail/$tourId"; ?>"><img src='<?php echo $tourThumbnail ?>' alt = "<?php echo $tourData[0]['Tour']['tour_name']; ?>" title = '<?php echo $tourData[0]['Tour']['tour_name']; ?>' height = '125px' width = '175px' border = 0/></a></div>
-                                    <!--<div class="tourDetails"> <b>Country: </b>Australia <?php // print_r($tour);                ?><br>-->
+                <div class="tourImage"><?php
+                $tourThumbnail = $tourData[0]['Tour']['tour_thumbnail'];
+                $tourId = $tourData[0]['Tour']['id'];
+                ?>
+                    <a href="<?php echo $this->webroot . "tours/tourDetail/$tourId"; ?>"><img src='<?php echo $tourThumbnail ?>' alt = "<?php echo $tourData[0]['Tour']['tour_name']; ?>" title = '<?php echo $tourData[0]['Tour']['tour_name']; ?>' height = '125px' width = '175px' border = 0/></a></div>
+                                    <!--<div class="tourDetails"> <b>Country: </b>Australia <?php // print_r($tour);                     ?><br>-->
 
                 <div class="tourDetails"> <b>Location: </b> <?php echo $tourData[0]['Tour']['tour_location']; ?><br>
                     <b>Duration: </b><?php echo $tourData[0]['Tour']['tour_duration']; ?> Day<br>
                     <b>Description: </b> <span id="gv1_ctl18_lblDescription"><?php
-                $description = $this->Text->truncate($tourData[0]['Tour']['tour_long_description'], 100, array('ellipsis' => '...'));
-                echo h($description);
+                    $description = $this->Text->truncate($tourData[0]['Tour']['tour_long_description'], 100, array('ellipsis' => '...'));
+                    echo h($description);
                 ?></span> 
                     <?php echo $this->Html->link(__('Read More'), array('controller' => 'Tours', 'action' => 'tourDetail', $tourData[0]['Tour']['id']), array('class' => 'homePageLink')); ?>
                     <!--                    <div class="countingBox">
@@ -86,7 +92,11 @@
                     <br/>
                 </div>
                 <div class="price"><span style="font-size: 16px;">from </span><br>
-                    AU$ <?php echo $tourData[0]['Tour']['tour_price_per_certificate']; ?><br>
+                    AU$ 
+                    <?php
+                    $last = count($tourData[0]['TourDate']) - 1;
+                    echo $tourData[0]['TourDate'][$last]['tour_price_per_certificate'];
+                    ?><br>
                     <br>
                 </div>
                 <div style="clear:both;"></div>
@@ -98,15 +108,18 @@
         <tr>
             <td style="border-bottom: none"><div style="width: 650px" class="line">
                     <div class="tourTitle"> <span><?php echo $tourData[$i]['Tour']['tour_name']; ?></span> </div>
-                    <div class="tourImage"><?php $tourThumbnail2 = $tourData[$i]['Tour']['tour_thumbnail']; $tourId = $tourData[$i]['Tour']['id']; ?>
-                        <a href="<?php echo $this->webroot."tours/tourDetail/$tourId"; ?>"><img src='<?php echo $tourThumbnail2 ?>' alt = "<?php echo $tourData[$i]['Tour']['tour_name']; ?>" title = '<?php echo $tourData[$i]['Tour']['tour_name']; ?>' height = '125px' width = '175px' border = 0/></a></div>
-                                         <!--<div class="tourDetails"> <b>Country: </b>Australia <?php // print_r($tour);                ?><br>-->
+                    <div class="tourImage"><?php
+    $tourThumbnail2 = $tourData[$i]['Tour']['tour_thumbnail'];
+    $tourId = $tourData[$i]['Tour']['id'];
+        ?>
+                        <a href="<?php echo $this->webroot . "tours/tourDetail/$tourId"; ?>"><img src='<?php echo $tourThumbnail2 ?>' alt = "<?php echo $tourData[$i]['Tour']['tour_name']; ?>" title = '<?php echo $tourData[$i]['Tour']['tour_name']; ?>' height = '125px' width = '175px' border = 0/></a></div>
+                                         <!--<div class="tourDetails"> <b>Country: </b>Australia <?php // print_r($tour);                     ?><br>-->
 
                     <div class="tourDetails"> <b>Location: </b> <?php echo $tourData[$i]['Tour']['tour_location']; ?><br>
                         <b>Duration: </b><?php echo $tourData[$i]['Tour']['tour_duration']; ?> Day<br>
                         <b>Description: </b> <span id="gv1_ctl18_lblDescription"><?php
-    $description = $this->Text->truncate($tourData[$i]['Tour']['tour_long_description'], 100, array('ellipsis' => '...'));
-    echo h($description);
+                    $description = $this->Text->truncate($tourData[$i]['Tour']['tour_long_description'], 100, array('ellipsis' => '...'));
+                    echo h($description);
         ?></span>        <?php echo $this->Html->link(__('Read More'), array('controller' => 'Tours', 'action' => 'tourDetail', $tourData[$i]['Tour']['id']), array('class' => 'homePageLink')); ?> <br>
                         <!--                        <div class="countingBox">
                                                     <div class="countingBoxAlignment"><span class="countingBoxFont">1 of 3</span></div>
@@ -114,7 +127,10 @@
                         <br>
                     </div>
                     <div class="price"><span style="font-size: 16px;">from </span><br>
-                        AU$ <?php echo $tourData[$i]['Tour']['tour_price_per_certificate']; ?><br>
+                        AU$ <?php
+                        $last = count($tourData[$i]['TourDate']) - 1;
+                        echo $tourData[$i]['TourDate'][$last]['tour_price_per_certificate'];
+        ?><br>
                         <br>
                     </div>
                     <div style="clear:both;"></div>
@@ -127,17 +143,23 @@
         <tr>
             <td style="border-bottom: none"><div style="width: 650px" class="line">
                     <div class="tourTitle"> <span><?php echo $cookingClassData[$i]['Cookingclass']['cooking_class_name']; ?></span> </div>
-                    <div class="tourImage"><?php $cookingClassThumbnail = $cookingClassData[$i]['Cookingclass']['cooking_class_thumbnail']; $cookingclassId = $cookingClassData[$i]['Cookingclass']['id']; ?>
-                        <a href="<?php echo $this->webroot."Cookingclasses/cookingclass_detail/$cookingclassId"; ?>"><img src='<?php echo $cookingClassThumbnail ?>' alt = "<?php echo $cookingClassData[$i]['Cookingclass']['cooking_class_name']; ?>" title = '<?php echo $cookingClassData[$i]['Cookingclass']['cooking_class_name']; ?>' height = '125px' width = '175px' border = 0/></a></div>
+                    <div class="tourImage"><?php
+    $cookingClassThumbnail = $cookingClassData[$i]['Cookingclass']['cooking_class_thumbnail'];
+    $cookingclassId = $cookingClassData[$i]['Cookingclass']['id'];
+        ?>
+                        <a href="<?php echo $this->webroot . "Cookingclasses/cookingclass_detail/$cookingclassId"; ?>"><img src='<?php echo $cookingClassThumbnail ?>' alt = "<?php echo $cookingClassData[$i]['Cookingclass']['cooking_class_name']; ?>" title = '<?php echo $cookingClassData[$i]['Cookingclass']['cooking_class_name']; ?>' height = '125px' width = '175px' border = 0/></a></div>
                     <div class="tourDetails"> <b>Location: </b> <?php echo $cookingClassData[$i]['Cookingclass']['cooking_class_location']; ?><br>
                         <b>Description: </b> <span id="gv1_ctl18_lblDescription"><?php
-    $description = $this->Text->truncate($cookingClassData[$i]['Cookingclass']['cooking_class_description'], 100, array('ellipsis' => '...'));
-    echo h($description);
+                    $description = $this->Text->truncate($cookingClassData[$i]['Cookingclass']['cooking_class_description'], 100, array('ellipsis' => '...'));
+                    echo h($description);
         ?></span>        <?php echo $this->Html->link(__('Read More'), array('controller' => 'Cookingclasses', 'action' => 'cookingclass_detail', $cookingClassData[$i]['Cookingclass']['id']), array('class' => 'homePageLink')); ?> <br>
                         <br>
                     </div>
                     <div class="price"><span style="font-size: 16px;">from </span><br>
-                        AU$ <?php echo $cookingClassData[$i]['Cookingclass']['cooking_class_price']; ?><br>
+                        AU$ <?php
+                        $last = count($cookingClassData[$i]['CookingClassDate']) - 1;
+                        echo $cookingClassData[$i]['CookingClassDate'][$last]['cooking_class_price'];
+        ?><br>
                         <br>
                     </div>
                     <div style="clear:both;"></div>
@@ -146,17 +168,20 @@
         </tr>
     <?php } ?>     
     <tr><td style="border:0px;" class="homePageTitle"><span class="homeTitle"><?php if ($productData[0]['Product']['product_name'] != '') { ?>Product<?php } ?></span></td></tr>
-    <?php for ($i = 0; $i < count($productData); $i++) { ?>
+<?php for ($i = 0; $i < count($productData); $i++) { ?>
         <tr>
             <td style="border-bottom: none"><div style="width: 650px" class="line">
-                    <a href="<?php $productId = $productData[$i]['Product']['id']; echo $this->webroot."products/more_detail/$productId"; ?>"><div class="tourTitle"> <span><?php echo $productData[$i]['Product']['product_name']; ?></span> </div>
-                    <div class="tourImage"><?php $productThumbnail = $productData[$i]['Product']['product_thumbnail'];  ?>
-                        <img src='<?php echo $productThumbnail ?>' alt = "<?php echo $productData[$i]['Product']['product_name']; ?>" title = '<?php echo $productData[$i]['Product']['product_name']; ?>' height = '125px' width = '175px' border = 0/></div></a>
+                    <a href="<?php
+    $productId = $productData[$i]['Product']['id'];
+    echo $this->webroot . "products/more_detail/$productId";
+    ?>"><div class="tourTitle"> <span><?php echo $productData[$i]['Product']['product_name']; ?></span> </div>
+                        <div class="tourImage"><?php $productThumbnail = $productData[$i]['Product']['product_thumbnail']; ?>
+                            <img src='<?php echo $productThumbnail ?>' alt = "<?php echo $productData[$i]['Product']['product_name']; ?>" title = '<?php echo $productData[$i]['Product']['product_name']; ?>' height = '125px' width = '175px' border = 0/></div></a>
                     <div class="tourDetails">
                         <b>Description: </b> <span id="gv1_ctl18_lblDescription"><?php
     $description = $this->Text->truncate($productData[$i]['Product']['product_description'], 102, array('ellipsis' => '...'));
     echo h($description);
-        ?></span>        <?php echo $this->Html->link(__('Read More'), array('controller' => 'products', 'action' => 'more_detail', $productData[$i]['Product']['id']), array('class' => 'homePageLink')); ?> <br>
+    ?></span>        <?php echo $this->Html->link(__('Read More'), array('controller' => 'products', 'action' => 'more_detail', $productData[$i]['Product']['id']), array('class' => 'homePageLink')); ?> <br>
                         <br>
                     </div>
                     <div class="price"><span style="font-size: 16px;">from </span><br>
@@ -167,7 +192,7 @@
                 </div>
             </td>
         </tr>
-    <?php } ?> 
+<?php } ?> 
 </table>
 
 <script type="text/javascript" charset="utf-8">

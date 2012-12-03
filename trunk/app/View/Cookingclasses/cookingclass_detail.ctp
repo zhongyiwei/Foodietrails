@@ -68,6 +68,7 @@ echo $this->Html->script('easySlider1.7.js');
             $month = date_format($date, 'F');
             $year = date_format($date, 'Y');
             $vacancy = $cookingclassDateData[$j]['vacancy'];
+            $cookingclassPrice = $cookingclassDateData[$j]['CookingclassDate']['cooking_class_price'];
             if ($cookingclassDateData[$j]['display'] == true) {
                 $bookImage = $this->Html->image("Book.png", array("alt" => "Click to Book", 'name' => "Click to Book", 'width' => "130", 'style' => "", 'url' => array('controller' => 'checkout', 'action' => 'index', '?' => array('def' => 'CookingClass', 'id' => "$id", 'dateId' => "$cookingclassDateId"))));
                 echo "<li><table border='0' style='width:650px; margin-left: 25px' class='detailT'>
@@ -89,6 +90,12 @@ echo $this->Html->script('easySlider1.7.js');
                                 </td>
                                 </tr>
                                 </table>
+                                <table width='200px' border='1' style='width:250px; margin-left: 665px;margin-top: 25px;'>
+                                <tr>
+                                    <td style='vertical-align:middle;border-bottom: 0px;'>Price Per Person</td>
+                                    <td  style='border-bottom: 0px;'><div class='tourPrice'>$cookingclassPrice</div></td>
+                                </tr>
+                            </table>
                                 </li>
                                 ";
 //                echo "<input type='radio' name='dateChoosen' id='date$tourDateId' style='padding:20px' value='4' onclick='formSubmit()' >";
@@ -113,6 +120,12 @@ echo $this->Html->script('easySlider1.7.js');
                                 </td>
                                 </tr>
                                 </table>
+                                <table width='200px' border='1' style='width:250px; margin-left: 665px;margin-top: 25px;'>
+                                <tr>
+                                    <td style='vertical-align:middle;border-bottom: 0px;'>Price Per Person</td>
+                                    <td  style='border-bottom: 0px;'><div class='tourPrice'>$cookingclassPrice</div></td>
+                                </tr>
+                            </table>
                                 </li>
                                 ";
             }
@@ -124,12 +137,6 @@ echo $this->Html->script('easySlider1.7.js');
     </ul>
 </div>
 <div class="detailData" id="detailD">
-    <table width="200px" border="1" style="width:250px; margin-left: 665px">
-        <tr>
-            <td style="vertical-align:middle;border-bottom: 0px;">Price Per Person</td>
-            <td  style="border-bottom: 0px;"><div class="tourPrice"><?php echo $cookingclass['Cookingclass']['cooking_class_price']; ?></div></td>
-        </tr>
-    </table>
     <?php
 //                echo $this->Html->image("Book.png", array("alt" => "Book", 'name' => "Book", 'height' => "100", 'width' => "150", 'url' => array('controller' => 'tours', 'action' => 'checkout',$tour['Tour']['id'])));
 //echo $this->Html->link(__(''), array('controller' => 'checkout', 'action' => 'index', '?' => array('def' => 'CookingClass', 'id' => "$id")), array("class" => "tourBook"));

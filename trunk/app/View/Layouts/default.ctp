@@ -22,7 +22,7 @@
         <div class="container">
             <div class="header">
                 <?php
-                echo $this->Html->image("LOGO.jpg", array("alt" => "Foodie Trails Logo", 'name' => "Foodie Trails Logo", 'height' => "90", 'style' => "background: #FFF; display:block; float:left", 'url' => array('controller' => 'Home', 'action' => 'display')));
+                echo $this->Html->image("LOGO.jpg", array("alt" => "Foodie Trails Logo", 'name' => "Foodie Trails Logo", 'height' => "90", 'style' => "background: #FFF; display:block; float:left", 'url' => array('controller' => 'Home', 'action' => 'index')));
                 ?>
                 <div class="headerRight">
                     <?php if ($logged_in == true) { ?>
@@ -41,7 +41,7 @@
             </div>
             <div class="menu">
                 <ul>
-                    <li class="active"><?php echo $this->Html->link(__('Home'), array('controller' => 'Home', 'action' => 'display')); ?></li>
+                    <li class="active"><?php echo $this->Html->link(__('Home'), array('controller' => 'Home', 'action' => 'index')); ?></li>
                     <li class='has-sub'><a>Tours</a>
                         <div class="menuhorizontal">
                             <ul>

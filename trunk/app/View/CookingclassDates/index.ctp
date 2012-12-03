@@ -29,9 +29,10 @@ $this->start('manageRightContent');
     <table cellpadding="0" cellspacing="0"  id="js-datatable">
         <thead>
             <tr>
-                <th>Cooking Class Name</th>
                 <th>Holding Date</th>
-                <th>Holding Time</th>
+                <th>Name</th>
+                <th>Time</th>
+                <th>Price</th>
                 <th>Progress</th>
                 <th class="actions"><?php echo __('Actions'); ?></th>
             </tr>
@@ -44,11 +45,14 @@ $this->start('manageRightContent');
                         <?php echo $this->Html->link($cookingclassDate['Cookingclass']['cooking_class_name'], array('controller' => 'cooking_classes', 'action' => 'view', $cookingclassDate['Cookingclass']['id'])); ?>
                     </td>
                     <td><?php echo h($cookingclassDate['CookingclassDate']['cookingclass_time']); ?>&nbsp;</td>
+                    <td><?php echo h($cookingclassDate['CookingclassDate']['cooking_class_price']); ?>&nbsp;</td>
                     <td><?php echo h($cookingclassDate['CookingclassDate']['cookingclass_progress']); ?>&nbsp;</td>
                     <td class="actions">
                         <?php echo $this->Html->link(__('View'), array('action' => 'view', $cookingclassDate['CookingclassDate']['id'])); ?>
                         <?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $cookingclassDate['CookingclassDate']['id'])); ?>
-                        <?php $info = $cookingclassDate['Cookingclass']['cooking_class_name']." on ".$cookingclassDate['CookingclassDate']['cookingclass_date']; echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $cookingclassDate['CookingclassDate']['id']), null, __('Are you sure you want to delete # %s?', $info)); ?>
+                        <?php $info = $cookingclassDate['Cookingclass']['cooking_class_name'] . " on " . $cookingclassDate['CookingclassDate']['cookingclass_date'];
+                        echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $cookingclassDate['CookingclassDate']['id']), null, __('Are you sure you want to delete # %s?', $info));
+                        ?>
                         <?php
                         if ($cookingclassDate['CookingclassDate']['cookingclass_progress'] == "Completed") {
                             echo $this->Html->link(__('Send Feedback Email'), array('action' => 'requestFeedback', $cookingclassDate['CookingclassDate']['id']), array('style' => 'padding:2px 9px;'), __('Sending email will take some time due to large amount of people, are you sure you want to proceed?'));
@@ -58,7 +62,7 @@ $this->start('manageRightContent');
                         ?>
                     </td>
                 </tr>
-            <?php endforeach; ?>
+<?php endforeach; ?>
         </tbody> 
     </table>
 </div>

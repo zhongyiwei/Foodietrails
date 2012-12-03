@@ -36,7 +36,7 @@ $this->start('manageRightContent');
                 <th>Name</th>
                 <!--<th>tour_description</th>-->
                 <!--<th>vendor</th>-->
-                <th>Price</th>
+                <!--<th>Price</th>-->
                 <!--<th>tour_long_description</th>-->
                 <th>Notes</th>
                 <!--<th>tour_paricipant_guidlines</th>-->
@@ -56,7 +56,7 @@ $this->start('manageRightContent');
                     <td><?php echo h($tour['Tour']['tour_name']); ?>&nbsp;</td>
                     <!--<td><?php echo h($tour['Tour']['tour_description']); ?>&nbsp;</td>-->
                     <!--<td><?php echo h($tour['Tour']['tour_vendor_name']); ?>&nbsp;</td>-->
-                    <td><?php echo h($tour['Tour']['tour_price_per_certificate']); ?>&nbsp;</td>
+                    <!--<td><?php echo h($tour['Tour']['tour_price_per_certificate']); ?>&nbsp;</td>-->
                     <!--<td><?php echo h($tour['Tour']['tour_long_description']); ?>&nbsp;</td>-->
                     <td><?php echo $this->Text->truncate(h($tour['Tour']['tour_notes']), 10, array('ellipsis' => '...')); ?>&nbsp;</td>
                     <!--<td><?php echo h($tour['Tour']['tour_paricipant_guidlines']); ?>&nbsp;</td>-->

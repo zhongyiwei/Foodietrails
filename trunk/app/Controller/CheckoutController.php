@@ -28,21 +28,23 @@ class CheckoutController extends AppController {
                 $currentCart[0] = null;
             }
             $currentTour = $this->Tour->read(null, $id);
+            $currentTourDate = $this->TourDate->find("all", array('conditions' => array('TourDate.id' => "$dateId")));
             if ($currentCart[0] == null && $id != null) {
                 $currentProduct['Identifier'] = "Tour";
                 $currentProduct['Tour']['id'] = $currentTour['Tour']['id'];
                 $currentProduct['Tour']['tour_name'] = $currentTour['Tour']['tour_name'];
-                $currentProduct['Tour']['tour_price_per_certificate'] = $currentTour['Tour']['tour_price_per_certificate'];
+                $currentProduct['TourDate']['tour_price_per_certificate'] = $currentTourDate[0]['TourDate']['tour_price_per_certificate'];
                 $currentProduct['Qty'] = 1;
                 $currentProduct['DateId'] = $dateId;
-                $currentProduct['subTotal'] = $currentProduct['Qty'] * $currentProduct['Tour']['tour_price_per_certificate'];
+                $currentProduct['Date'] = $currentTourDate[0]['TourDate']['tour_date'];
+                $currentProduct['subTotal'] = $currentProduct['Qty'] * $currentTourDate[0]['TourDate']['tour_price_per_certificate'];
                 $this->Cookie->write('Cart.cartData0', $currentProduct);
             } else if ($currentCart[0] != null && $id != null) {
                 $maxArrayKeyId = count($this->Cookie->read('Cart'));
                 $insertStatus = true;
                 for ($i = 0; $i < $maxArrayKeyId; $i++) {
                     if ($currentCart[$i]['Identifier'] == 'Tour') {
-                        if ($currentCart[$i]['Tour']['id'] == $id) {
+                        if ($currentCart[$i]['Tour']['id'] == $id && $currentCart[$i]['DateId'] == $dateId) {
                             $insertStatus = false;
                         }
                     }
@@ -51,10 +53,11 @@ class CheckoutController extends AppController {
                     $currentProduct['Identifier'] = "Tour";
                     $currentProduct['Tour']['id'] = $currentTour['Tour']['id'];
                     $currentProduct['Tour']['tour_name'] = $currentTour['Tour']['tour_name'];
-                    $currentProduct['Tour']['tour_price_per_certificate'] = $currentTour['Tour']['tour_price_per_certificate'];
+                    $currentProduct['TourDate']['tour_price_per_certificate'] = $currentTourDate[0]['TourDate']['tour_price_per_certificate'];
                     $currentProduct['Qty'] = 1;
                     $currentProduct['DateId'] = $dateId;
-                    $currentProduct['subTotal'] = $currentProduct['Qty'] * $currentProduct['Tour']['tour_price_per_certificate'];
+                    $currentProduct['Date'] = $currentTourDate[0]['TourDate']['tour_date'];
+                    $currentProduct['subTotal'] = $currentProduct['Qty'] * $currentTourDate[0]['TourDate']['tour_price_per_certificate'];
                     $this->Cookie->write("Cart.cartData$maxArrayKeyId", $currentProduct);
                 }
             }
@@ -69,21 +72,24 @@ class CheckoutController extends AppController {
                 $currentCart[0] = null;
             }
             $currentTour = $this->Cookingclass->read(null, $id);
+            $currentTourDate = $this->CookingclassDate->find("all", array('conditions' => array('CookingclassDate.id' => "$dateId")));
+//            print_r($currentTourDate);
             if ($currentCart[0] == null && $id != null) {
                 $currentProduct['Identifier'] = "CookingClass";
                 $currentProduct['Cookingclass']['id'] = $currentTour['Cookingclass']['id'];
                 $currentProduct['Cookingclass']['cooking_class_name'] = $currentTour['Cookingclass']['cooking_class_name'];
-                $currentProduct['Cookingclass']['cooking_class_price'] = $currentTour['Cookingclass']['cooking_class_price'];
+                $currentProduct['CookingclassDate']['cooking_class_price'] = $currentTourDate[0]['CookingclassDate']['cooking_class_price'];
                 $currentProduct['Qty'] = 1;
                 $currentProduct['DateId'] = $dateId;
-                $currentProduct['subTotal'] = $currentProduct['Qty'] * $currentProduct['Cookingclass']['cooking_class_price'];
+                $currentProduct['Date'] = $currentTourDate[0]['CookingclassDate']['cookingclass_date'];
+                $currentProduct['subTotal'] = $currentProduct['Qty'] * $currentTourDate[0]['CookingclassDate']['cooking_class_price'];
                 $this->Cookie->write('Cart.cartData0', $currentProduct);
             } else if ($currentCart[0] != null && $id != null) {
                 $maxArrayKeyId = count($this->Cookie->read('Cart'));
                 $insertStatus = true;
                 for ($i = 0; $i < $maxArrayKeyId; $i++) {
                     if ($currentCart[$i]['Identifier'] == 'CookingClass') {
-                        if ($currentCart[$i]['Cookingclass']['id'] == $id) {
+                        if ($currentCart[$i]['Cookingclass']['id'] == $id && $currentCart[$i]['DateId'] == $dateId) {
                             $insertStatus = false;
                         }
                     }
@@ -92,10 +98,11 @@ class CheckoutController extends AppController {
                     $currentProduct['Identifier'] = "CookingClass";
                     $currentProduct['Cookingclass']['id'] = $currentTour['Cookingclass']['id'];
                     $currentProduct['Cookingclass']['cooking_class_name'] = $currentTour['Cookingclass']['cooking_class_name'];
-                    $currentProduct['Cookingclass']['cooking_class_price'] = $currentTour['Cookingclass']['cooking_class_price'];
+                    $currentProduct['CookingclassDate']['cooking_class_price'] = $currentTourDate[0]['CookingclassDate']['cooking_class_price'];
                     $currentProduct['Qty'] = 1;
                     $currentProduct['DateId'] = $dateId;
-                    $currentProduct['subTotal'] = $currentProduct['Qty'] * $currentProduct['Cookingclass']['cooking_class_price'];
+                    $currentProduct['Date'] = $currentTourDate[0]['CookingclassDate']['cookingclass_date'];
+                    $currentProduct['subTotal'] = $currentProduct['Qty'] * $currentTourDate[0]['CookingclassDate']['cooking_class_price'];
                     $this->Cookie->write("Cart.cartData$maxArrayKeyId", $currentProduct);
                 }
             }

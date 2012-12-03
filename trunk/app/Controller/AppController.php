@@ -45,7 +45,7 @@ class AppController extends Controller {
 //      public function beforeFilter1() {
 //         $this->Auth->allow('index', 'view');
 //     }
-    var $uses = array('Tour', 'Event', 'Cookingclass', 'Product', 'User', 'Feedback', 'News', 'GiftVoucher', 'GiftvoucherOrder', 'TourOrder', 'CookingclassOrder', 'TourDate', 'UserSubscription', 'CookingclassDate', 'TourType');
+    var $uses = array('Tour', 'Event', 'Cookingclass', 'Product', 'User', 'Feedback', 'News', 'GiftVoucher', 'GiftvoucherOrder', 'TourOrder', 'CookingclassOrder', 'TourDate', 'UserSubscription', 'CookingclassDate', 'TourType','ProductOrder');
 
     function beforeFilter() {
         Security::setHash('sha1');

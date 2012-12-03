@@ -11,7 +11,7 @@ echo $this->Html->css('jquery.dataTables.css');
                 <h3><?php echo __('Menu'); ?></h3>
                 <ul>
                     <li class="<?php echo $this->fetch('LeftProduct'); ?>"><?php echo $this->Html->link(__('Product Management'), array('controller' => 'tours', 'action' => 'index')); ?></li>
-                                        <li class="<?php echo $this->fetch('LeftDate'); ?>"><?php echo $this->Html->link(__('Date Management'), array('controller' => 'tourdates', 'action' => 'index')); ?></li>
+                    <li class="<?php echo $this->fetch('LeftDate'); ?>"><?php echo $this->Html->link(__('Date Management'), array('controller' => 'tourdates', 'action' => 'index')); ?></li>
 
                     <li class="<?php echo $this->fetch('LeftOrder'); ?>"><?php echo $this->Html->link(__('Order Management'), array('controller' => 'tourorders', 'action' => 'index')); ?></li>
                     <li class="<?php echo $this->fetch('LeftCustomer'); ?>"><?php echo $this->Html->link(__('User Management'), array('controller' => 'users', 'action' => 'index')); ?></li>
@@ -20,6 +20,7 @@ echo $this->Html->css('jquery.dataTables.css');
                     <li class="<?php echo $this->fetch('LeftEvent'); ?>"><?php echo $this->Html->link(__('Events Management'), array('controller' => 'events', 'action' => 'index')); ?></li>  
                     <li class="<?php echo $this->fetch('LeftFaq'); ?>"><?php echo $this->Html->link(__('FAQ Management'), array('controller' => 'Faqs', 'action' => 'index')); ?></li>  
                     <li class="<?php echo $this->fetch('LeftWebsite'); ?>"><?php echo $this->Html->link(__('Website Management'), array('controller' => 'disclaimerforms', 'action' => 'index')); ?></li>
+                    <li class="<?php echo $this->fetch('LeftExport'); ?>"><?php echo $this->Html->link(__('Export Management'), array('controller' => 'exports', 'action' => 'index')); ?></li>
                 </ul>
             </div>
         </td>
