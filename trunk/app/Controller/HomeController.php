@@ -4,6 +4,11 @@ class HomeController extends AppController {
 
     var $uses = array('Tour', 'Country', 'Cookingclass', 'HomePageImage', 'HomePageList');
 
+    public function beforeFilter() {
+        parent::beforeFilter();
+        $this->Auth->allow('index');
+    }
+
     public function index() {
         $this->set('ImageData', $this->HomePageImage->find('all', array('conditions' => array('publish_status' => 'Show'))));
 
@@ -40,6 +45,7 @@ class HomeController extends AppController {
         $this->set('cookingClassData', $cookingClassArray);
         $this->set('productData', $productArray);
     }
+
 }
 
 ?>
