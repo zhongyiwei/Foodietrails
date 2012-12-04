@@ -65,7 +65,7 @@ class TourOrder extends AppModel {
 		'tour_purchase_quantity' => array(
 			'numeric' => array(
 				'rule' => array('numeric'),
-				//'message' => 'Your custom message here',
+				'message' => 'The purchase quantity must be numbers. (e.g. "4")',
 				//'allowEmpty' => false,
 				//'required' => false,
 				//'last' => false, // Stop validation after this rule

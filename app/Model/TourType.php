@@ -15,7 +15,7 @@ class TourType extends AppModel {
 		'tour_type_name' => array(
 			'notempty' => array(
 				'rule' => array('notempty'),
-				//'message' => 'Your custom message here',
+				'message' => 'The Tour Type name Cannot be Blank. ',
 				//'allowEmpty' => false,
 				//'required' => false,
 				//'last' => false, // Stop validation after this rule

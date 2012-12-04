@@ -15,7 +15,7 @@ class DisclaimerForm extends AppModel {
 		'form_name' => array(
 			'notempty' => array(
 				'rule' => array('notempty'),
-				//'message' => 'Your custom message here',
+				'message' => 'Please browse a Form from the browser. ',
 				//'allowEmpty' => false,
 				//'required' => false,
 				//'last' => false, // Stop validation after this rule

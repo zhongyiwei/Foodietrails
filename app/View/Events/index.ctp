@@ -29,7 +29,8 @@ $this->start('manageRightContent');
                             <!--<th>ID</th>-->
                 <th>Event Name</th>
                 <th>Event Description</th>
-                <th>Event Date</th>
+                <th>Event Date</th>                
+                <th>Event Time</th>
                 <!--<th>event_thumbnail</th>-->
                 <th class="actions"><?php echo __('Actions'); ?></th>
             </tr>
@@ -41,6 +42,8 @@ $this->start('manageRightContent');
                     <td><?php echo h($event['Event']['event_name']); ?>&nbsp;</td>
                     <td><?php echo $this->Text->truncate($event['Event']['event_description'], 20, array('ellipsis' => '...')); ?>&nbsp;</td>
                     <td><?php echo h($event['Event']['event_date']); ?>&nbsp;</td>
+                    <td><?php echo h($event['Event']['event_time']); ?>&nbsp;</td>
+
                     <!--<td><?php echo h($event['Event']['event_thumbnail']); ?>&nbsp;</td>-->
                     <td class="actions">
                         <?php echo $this->Html->link(__('View'), array('action' => 'view', $event['Event']['id'])); ?>

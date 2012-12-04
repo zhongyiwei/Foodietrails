@@ -36,9 +36,19 @@ class Event extends AppModel {
             ),
         ),
         'event_date' => array(
-            'datetime' => array(
-                'rule' => array('datetime'),
-            //'message' => 'Your custom message here',
+            'date' => array(
+                'rule' => array('date'),
+            'message' => 'Please select a date from the calendar.',
+            //'allowEmpty' => false,
+            //'required' => false,
+            //'last' => false, // Stop validation after this rule
+            //'on' => 'create', // Limit validation to 'create' or 'update' operations
+            ),
+        ),
+        'event_time' => array(
+            'time' => array(
+                'rule' => array('time'),
+            'message' => 'Please select a time from the drop down list.',
             //'allowEmpty' => false,
             //'required' => false,
             //'last' => false, // Stop validation after this rule

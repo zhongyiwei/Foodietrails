@@ -65,7 +65,7 @@ class CookingclassOrder extends AppModel {
 		'cooking_class_order_quantity' => array(
 			'numeric' => array(
 				'rule' => array('numeric'),
-				//'message' => 'Your custom message here',
+				'message' => 'Please enter the quantity of order. ',
 				//'allowEmpty' => false,
 				//'required' => false,
 				//'last' => false, // Stop validation after this rule

@@ -30,13 +30,29 @@ $this->end();
 $this->start('manageRightContent');
 ?>
 <div class="tourDates form">
+     <script>
+    $(function() {
+        $( "#datepicker" ).datepicker({
+            	dateFormat : 'dd/mm/yy', altFormat : 'yy-mm-dd' 
+
+        });
+    });
+    </script>
+    
+    
     <?php echo $this->Form->create('TourDate'); ?>
 
     <?php
+    echo $this->Html->css('jquery-ui');
+
+            echo $this->Html->script(array('jquery-1.8.2' , 'jquery-ui'));
+            
     $progressStatus = array('Incomplete' => 'Incomplete', 'Completed' => 'Completed');
     echo $this->Form->input('tour_id', array('type' => 'select', 'options' => $tourName));
     // debug($tours);
-    echo $this->Form->input('tour_date');
+    echo $this -> Form -> input('tour_date', array('id' => 'datepicker' ,'class' => 'datepicker', 'type' => 'text', 'empty' => false, 'label' => array('text' => 'Tour Date'), 'style' => 'align:left'));
+
+   // echo $this->Form->input('tour_date');
     echo $this->Form->input('tour_time');
     echo $this->Form->input('tour_price_per_certificate');
     echo $this->Form->input('tour_progress', array('type' => 'select', 'options' => $progressStatus));

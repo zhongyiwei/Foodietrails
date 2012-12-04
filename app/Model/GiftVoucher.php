@@ -33,7 +33,7 @@ class GiftVoucher extends AppModel {
 		'gift_message' => array(
 			'notempty' => array(
 				'rule' => array('notempty'),
-				//'message' => 'Your custom message here',
+				'message' => 'The Gift message cannot be empty. ',
 				//'allowEmpty' => false,
 				//'required' => false,
 				//'last' => false, // Stop validation after this rule
@@ -43,7 +43,7 @@ class GiftVoucher extends AppModel {
 		'gift_voucher_name' => array(
 			'notempty' => array(
 				'rule' => array('notempty'),
-				//'message' => 'Your custom message here',
+				'message' => 'The Gift Voucher name cannot be empty. ',
 				//'allowEmpty' => false,
 				//'required' => false,
 				//'last' => false, // Stop validation after this rule
@@ -53,12 +53,17 @@ class GiftVoucher extends AppModel {
 		'gift_price' => array(
 			'decimal' => array(
 				'rule' => array('decimal'),
-				//'message' => 'Your custom message here',
+				'message' => 'The Gift price must be numbers only. (e.g. 125.00)',
 				//'allowEmpty' => false,
 				//'required' => false,
 				//'last' => false, // Stop validation after this rule
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
+                    //rule 2 - notempty
+            'rule2' => array(
+                'rule' => array('notEmpty'),
+                'message' => "The Gift price cannot be empty. "
+            ),
 		),
 		'gift_type' => array(
 			'notempty' => array(
