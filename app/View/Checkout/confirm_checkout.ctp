@@ -24,7 +24,7 @@
                 <tr>
                     <td></td>
                     <td><?php echo $SC["cartData$i"]['Tour']['tour_name']; ?></td>
-                    <td><?php echo $SC["cartData$i"]['Tour']['tour_price_per_certificate']; ?> AU$</td>
+                    <td><?php echo $SC["cartData$i"]['TourDate']['tour_price_per_certificate']; ?> AU$</td>
                     <td>
                         <?php echo $SC["cartData$i"]['Qty']; ?>
                     </td>
@@ -35,7 +35,7 @@
                 <tr>
                     <td></td>
                     <td><?php echo $SC["cartData$i"]['Cookingclass']['cooking_class_name']; ?></td>
-                    <td><?php echo $SC["cartData$i"]['Cookingclass']['cooking_class_price']; ?> AU$</td>
+                    <td><?php echo $SC["cartData$i"]['CookingclassDate']['cooking_class_price']; ?> AU$</td>
                     <td>
                         <?php echo $SC["cartData$i"]['Qty']; ?>
 
