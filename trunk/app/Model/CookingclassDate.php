@@ -28,17 +28,22 @@ class CookingclassDate extends AppModel {
         'cookingclass_date' => array(
             'date' => array(
                 'rule' => array('date'),
-            //'message' => 'Your custom message here',
+            'message' => 'Please select a date from the calendar.',
             //'allowEmpty' => false,
             //'required' => false,
             //'last' => false, // Stop validation after this rule
             //'on' => 'create', // Limit validation to 'create' or 'update' operations
             ),
+            //rule 2 - must be not null
+            'rule2' => array(
+                'rule' => array('notEmpty'),
+                'message' => "Please select a date from the calendar."
+            ),
         ),
         'cookingclass_time' => array(
             'time' => array(
                 'rule' => array('time'),
-            //'message' => 'Your custom message here',
+            'message' => 'Please select a time from the drop down list.',
             //'allowEmpty' => false,
             //'required' => false,
             //'last' => false, // Stop validation after this rule
@@ -48,7 +53,7 @@ class CookingclassDate extends AppModel {
         'cooking_class_price' => array(
             'notempty' => array(
                 'rule' => array('notempty'),
-                'message' => 'The Cooking Class Price cannot be Empty',
+                'message' => 'The Cooking Class Price cannot be Empty.',
             //'allowEmpty' => false,
             //'required' => false,
             //'last' => false, // Stop validation after this rule

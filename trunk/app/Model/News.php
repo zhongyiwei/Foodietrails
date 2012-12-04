@@ -16,7 +16,7 @@ class News extends AppModel {
 		'news_title' => array(
 			'notempty' => array(
 				'rule' => array('notempty'),
-				'message' => 'The News Titile Cannot be Empty.',
+				'message' => 'The News Title Cannot be Empty.',
 				//'allowEmpty' => false,
 				//'required' => false,
 				//'last' => false, // Stop validation after this rule

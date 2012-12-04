@@ -37,12 +37,17 @@ class GiftvoucherOrder extends AppModel {
 		'gift_purchase_quantity' => array(
 			'numeric' => array(
 				'rule' => array('numeric'),
-				//'message' => 'Your custom message here',
+				'message' => 'The Purchase quantity must be a number. ',
 				//'allowEmpty' => false,
 				//'required' => false,
 				//'last' => false, // Stop validation after this rule
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
+                    //rule 1 - cannot be empty
+            'rule2' => array(
+                'rule' => array('notEmpty'),
+                'message' => 'The Purchase quantity cannot be empty.'
+            ),
 		),
 		'gift_purchase_date' => array(
 			'datetime' => array(

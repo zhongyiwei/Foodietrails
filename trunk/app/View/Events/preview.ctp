@@ -11,3 +11,5 @@
 <?php echo $event['Event']['event_description']; ?>
 <h2 class="tourParticipantGuide">Date:</h2>
 <p><?php echo $event['Event']['event_date'];?></p>
+
+<p><?php echo $event['Event']['event_time'];?></p>

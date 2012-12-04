@@ -17,7 +17,7 @@ class UserSubscription extends AppModel {
         'user_email' => array(
             'notempty' => array(
                 'rule' => array('notempty'),
-            //'message' => 'Your custom message here',
+            'message' => 'The email address cannot be Blank. ',
             //'allowEmpty' => false,
             //'required' => false,
             //'last' => false, // Stop validation after this rule
@@ -25,7 +25,7 @@ class UserSubscription extends AppModel {
             ),
             'email' => array(
                 'rule' => array('email'),
-                'message' => 'The Email must be valid.',
+                'message' => 'Please enter a valid email address. ',
             //'allowEmpty' => false,
             //'required' => false,
             //'last' => false, // Stop validation after this rule

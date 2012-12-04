@@ -37,12 +37,17 @@ class ProductOrder extends AppModel {
 		'product_purchase_quantity' => array(
 			'numeric' => array(
 				'rule' => array('numeric'),
-				//'message' => 'Your custom message here',
+				'message' => 'The purchase quantity must be a number. ',
 				//'allowEmpty' => false,
 				//'required' => false,
 				//'last' => false, // Stop validation after this rule
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
+                    //rule 2 - cannot be empty
+            'rule2' => array(
+                'rule' => array('notEmpty'),
+                'message' => 'The product quantity cannot be empty. '
+            ),
 		),
 		'product_purchase_date' => array(
 			'datetime' => array(
