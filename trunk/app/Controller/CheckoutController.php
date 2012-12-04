@@ -1,6 +1,7 @@
 <?php
 
 App::uses('AppController', 'Controller');
+require_once ("paypalfunctions.php");
 
 class CheckoutController extends AppController {
 
@@ -291,6 +292,8 @@ class CheckoutController extends AppController {
         $this->set('SC', $this->Cookie->read('Cart'));
     }
 
-}
+    public function expressCheckout() {
+        
+    }
 
-?>
+}
