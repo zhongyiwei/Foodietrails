@@ -1,7 +1,7 @@
 <?php
 
 App::uses('AppController', 'Controller');
-require_once ("paypalfunctions.php");
+App::uses('CakeEmail', 'Network/Email');
 
 class CheckoutController extends AppController {
 
@@ -229,7 +229,7 @@ class CheckoutController extends AppController {
             $currentCart[$i] = $this->Cookie->read("Cart.cartData$i");
         }
 //        debug($currentCart);
-        debug($identifier);
+//        debug($identifier);
         if (count($currentCart) != 1) {
             $redirectLink = "index";
             for ($i = 0; $i < count($currentCart); $i++) {
@@ -292,11 +292,69 @@ class CheckoutController extends AppController {
         $this->set('SC', $this->Cookie->read('Cart'));
     }
 
-    public function expressCheckout() {
-        
+    public function paymentSuccessful() {
+        $SC = $this->Cookie->read('Cart');
+        $currentUser = $this->Auth->user();
+        $currentUserId = $currentUser['id'];
+//        if ($_SESSION["payment_Status"] == 'Pending') {
+        for ($i = 0; $i < count($SC); $i++) {
+            if ($SC["cartData$i"]['Identifier'] == "Tour") {
+                $this->request->data['TourOrder']['tour_id'] = $SC["cartData$i"]['Tour']['id'];
+                $this->request->data['TourOrder']['user_id'] = $currentUserId;
+                $this->request->data['TourOrder']['tour_date_id'] = $SC["cartData$i"]['DateId'];
+                $this->request->data['TourOrder']['tour_purchase_quantity'] = $SC["cartData$i"]['Qty'];
+                $this->request->data['TourOrder']['tour_purchase_date'] = date('Y-m-d H:i:s');
+                $this->TourOrder->save($this->request->data);
+            } else if ($SC["cartData$i"]['Identifier'] == "CookingClass") {
+                $this->request->data['CookingclassOrder']['cooking_class_id'] = $SC["cartData$i"]['Cookingclass']['id'];
+                $this->request->data['CookingclassOrder']['user_id'] = $currentUserId;
+                $this->request->data['CookingclassOrder']['cooking_class_date_id'] = $SC["cartData$i"]['DateId'];
+                $this->request->data['CookingclassOrder']['cooking_class_order_quantity'] = $SC["cartData$i"]['Qty'];
+                $this->request->data['CookingclassOrder']['cooking_class_order_date'] = date('Y-m-d H:i:s');
+                $this->CookingclassOrder->save($this->request->data);
+            } else if ($SC["cartData$i"]['Identifier'] == "Product") {
+                $this->request->data['ProductOrder']['product_id'] = $SC["cartData$i"]['Product']['id'];
+                $this->request->data['ProductOrder']['user_id'] = $currentUserId;
+                $this->request->data['ProductOrder']['cooking_class_date_id'] = $SC["cartData$i"]['DateId'];
+                $this->request->data['ProductOrder']['product_purchase_quantity'] = $SC["cartData$i"]['Qty'];
+                $this->request->data['ProductOrder']['product_purchase_date'] = date('Y-m-d H:i:s');
+                $this->ProductOrder->save($this->request->data);
+            } else if ($SC["cartData$i"]['Identifier'] == "GiftVoucher") {
+//                    echo $SC["cartData$i"]['Qty'];
+                for ($j = 0; $j < $SC["cartData$i"]['Qty']; $j++) {
+                    $this->GiftvoucherOrder->create(false);
+                    $users = $this->User->find("all", array('conditions' => array("User.id" => "$currentUserId")));
+                    $redeemCode = "FT" . $users[0]['User']['user_first_name'] . date('YmdHis') . $j;
+                    $this->request->data['GiftvoucherOrder']['gift_voucher_id'] = $SC["cartData$i"]['GiftVoucher']['id'];
+                    $this->request->data['GiftvoucherOrder']['user_id'] = $currentUserId;
+                    $this->request->data['GiftvoucherOrder']['gift_purchase_date'] = date('Y-m-d H:i:s');
+                    $this->request->data['GiftvoucherOrder']['gift_due_date'] = date('Y-m-d H:i:s', strtotime('+1 year'));
+                    $this->request->data['GiftvoucherOrder']['gift_redeem_code'] = "$redeemCode";
+                    $this->request->data['GiftvoucherOrder']['gift_redeem_status'] = "Not Redeemed";
+                    $this->GiftvoucherOrder->save($this->request->data);
+
+                    $userEmail = $users[0]['User']['user_email'];
+                    $giftMessage = $this->GiftVoucher->find("all", array('conditions' => array("Giftvoucher.id" => $SC["cartData$i"]['GiftVoucher']['id'])));
+                    $email = new CakeEmail();
+                    $email->config('default');
+                    $email->emailFormat('html');
+                    $email->from(array("$this->sender" => "$this->senderTag"));
+                    $email->to("$userEmail");
+                    $email->subject("Your Gift Voucher Code");
+                    $Message = $giftMessage[0]['GiftVoucher']['gift_message'] . "Your Gift Voucher Code are $redeemCode";
+                    $email->send($Message);
+                }
+            }
+        }
+//        }
+
+        for ($i = 0; $i < count($SC); $i++) {
+            $this->Cookie->delete("Cart.cartData$i");
+        }
+        $this->redirect(array('action' => 'paymentSuccessfulLanding'));
     }
 
-    public function paymentSuccessful() {
+    public function paymentSuccessfulLanding() {
         
     }
 

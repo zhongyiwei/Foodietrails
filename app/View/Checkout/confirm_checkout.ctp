@@ -67,6 +67,7 @@
                 <?php
             }
         }
+        $_SESSION["Payment_Amount"] = $total;
         ?>
         <tr>
             <td colspan="6"style="text-align:right;"><p style="font-weight:bold; margin-bottom: 0px;margin: 0px 10px 0px 0px;">Total: <?php echo $total; ?> AU$</p></td>
@@ -77,7 +78,6 @@
             <td>
                 <?php
                 echo $this->Form->create(null, array('url' => '/expresscheckout.php'));
-                $_SESSION["Payment_Amount"] = $total;
                 ?>
                 <input type='image' name='submit' src='https://www.paypal.com/en_US/i/btn/btn_xpressCheckout.gif' border='0' align='top' alt='Check out with PayPal'/>
                 </form>
