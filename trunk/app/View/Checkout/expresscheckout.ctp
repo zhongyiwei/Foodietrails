@@ -26,7 +26,7 @@ $paymentType = "Sale";
 //'
 //' This is set to the value entered on the Integration Assistant 
 //'------------------------------------
-$returnURL = "http://localhost:8080/IEP";
+$returnURL = "http://ie.infotech.monash.edu.au/project35/review4/";
 
 //'------------------------------------
 //' The cancelURL is the location buyers are sent to when they hit the
@@ -34,7 +34,7 @@ $returnURL = "http://localhost:8080/IEP";
 //'
 //' This is set to the value entered on the Integration Assistant 
 //'------------------------------------
-$cancelURL = "http://localhost:8080/IEP";
+$cancelURL = "http://ie.infotech.monash.edu.au/project35/review4/";
 
 //'------------------------------------
 //' Calls the SetExpressCheckout API call

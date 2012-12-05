@@ -53,13 +53,15 @@ $this->start('manageRightContent');
         echo $this->Form->input('tour_weather');
         echo $this->Form->input('tour_spectator');
         echo $this->Form->input('tour_max_num_on_day');
+        echo $this->Form->input('tour_email_notification');
+        echo $this->Form->input('contactInfo');
         echo $this->Form->input('tour_type_id', array('options' => $tourType, 'default' => 'Public'));
         echo $this->Form->input('tour_thumbnail', array('id' => 'xFilePath', 'class' => 'ckeditor', 'style' => 'width:500px'));
         echo $this->Form->button('Browse Server', array('onclick' => 'BrowseServer()', 'type' => 'button', 'style' => 'padding:5px;margin-top:-55px; margin-left:530px'));
         echo $this->Form->input('publish_status', array('options' => $publishStatus, 'default' => 'Private'));
         ?>
     </fieldset>
-    <?php echo $this->Form->end(__('Submit')); ?>
+<?php echo $this->Form->end(__('Submit')); ?>
 </div>
 <script type="text/javascript">
     var ck_newsContent = CKEDITOR.replace( 'tour_description',{
