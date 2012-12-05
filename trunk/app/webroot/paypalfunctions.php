@@ -5,7 +5,7 @@
 	Defines all the global variables and the wrapper functions 
 	********************************************/
 	$PROXY_HOST = '127.0.0.1';
-	$PROXY_PORT = '808';
+	$PROXY_PORT = '80';
 
 	$SandboxFlag = true;
 

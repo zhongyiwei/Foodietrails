@@ -25,7 +25,7 @@ $paymentType = "Sale";
 //'
 //' This is set to the value entered on the Integration Assistant 
 //'------------------------------------
-$returnURL = "http://localhost/checkout/paymentsuccessful#.UL9FrIPz3cB";
+$returnURL = "http://localhost/confirmation.php";
 
 //'------------------------------------
 //' The cancelURL is the location buyers are sent to when they hit the
@@ -33,7 +33,7 @@ $returnURL = "http://localhost/checkout/paymentsuccessful#.UL9FrIPz3cB";
 //'
 //' This is set to the value entered on the Integration Assistant 
 //'------------------------------------
-$cancelURL = "http://localhost/checkout/paymentsuccessful#.UL9FrIPz3cB";
+$cancelURL = "http://localhost/";
 
 //'------------------------------------
 //' Calls the SetExpressCheckout API call
