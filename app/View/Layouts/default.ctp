@@ -183,17 +183,14 @@
                     <table width="920" border="0">
                         <tr>
                             <td style="vertical-align:middle" ><span class="footerRow"><?php echo $this->Html->link(__('About Foodie Trails'), array('controller' => 'About', 'action' => 'aboutCompany')); ?></span>
-                                <span>Tours</span>
-                                <span>Media</span>
-                                <span>Deals</span>
-                                <span>Events</span>
+                                <span class="footerRow"><?php echo $this->Html->link(__('Deal'), array('controller' => 'deals', 'action' => 'deal_detail')); ?></span>
+                                <span class="footerRow"><?php echo $this->Html->link(__('Subscribe'), array('controller' => 'UserSubscriptions', 'action' => 'subscribe')); ?></span>
                                 <span class="footerRow"><?php echo $this->Html->link(__('Sitemap'), array('controller' => 'sitemap', 'action' => 'index')); ?></span>
                             </td>
                             <td style="vertical-align:middle" align="right">
                                 <a href="http://beaconholidays.com.au/"><?php
                 echo $this->Html->image("BH.png", array("alt" => "Beacon Holiday", 'name' => "Beacon Holiday Logo", 'width' => "60"));
                     ?></a>
-
                         </td>
                     </tr>
                 </table>

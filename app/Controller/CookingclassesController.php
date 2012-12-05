@@ -107,7 +107,7 @@ class CookingclassesController extends AppController {
             $cookingclassData = $this->Cookingclass->find("all", array('conditions' => array('Cookingclass.id' => "$id")));
             $Booked = 0;
             for ($j = 0; $j < count($cookingclassOrderData); $j++) {
-                $Booked = $Booked + $cookingclassOrderData[$i]['CookingclassOrder']['cooking_class_order_quantity'];
+                $Booked = $Booked + $cookingclassOrderData[$j]['CookingclassOrder']['cooking_class_order_quantity'];
             }
             $cookingclassDateData[$i]['vacancy'] = $cookingclassData[0]['Cookingclass']['cooking_class_max_num_on_day'] - $Booked;
             if ($cookingclassDateData[$i]['vacancy'] < 0) {

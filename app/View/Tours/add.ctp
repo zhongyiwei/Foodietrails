@@ -47,6 +47,8 @@ $this->start('manageRightContent');
         echo $this->Form->input('tour_weather', array('label' => 'Tour Weather (Desription of weather condition the tour can operate)'));
         echo $this->Form->input('tour_spectator');
         echo $this->Form->input('tour_max_num_on_day');
+        echo $this->Form->input('tour_email_notification');
+        echo $this->Form->input('contactInfo');
         echo $this->Form->input('tour_type_id', array('options' => $tourType));
         echo $this->Form->input('tour_thumbnail', array('id' => 'xFilePath', 'class' => 'ckeditor', 'style' => 'width:500px'));
         echo $this->Form->button('Browse Server', array('onclick' => 'BrowseServer()', 'type' => 'button', 'style' => 'padding:5px;margin-top:-55px; margin-left:530px;float:left'));

@@ -72,9 +72,9 @@ class UsersController extends AppController {
         if ($this->request->is('post')) {
             $this->User->create();
             $customerData = $this->request->data;
-            if ($customerData['User']['user_emailsubscription'] != 'Yes') {
-                $customerData['User']['user_emailsubscription'] = 'No';
-            }
+//            if ($customerData['User']['user_emailsubscription'] != 'Yes') {
+//                $customerData['User']['user_emailsubscription'] = 'No';
+//            }
             if ($this->User->save($this->request->data)) {
                 $this->Session->setFlash(__('The user has been saved'));
                 $this->redirect(array('action' => 'index'));
