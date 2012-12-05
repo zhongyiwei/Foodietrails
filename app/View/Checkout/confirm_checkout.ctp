@@ -67,7 +67,6 @@
                 <?php
             }
         }
-        $_SESSION["Payment_Amount"]=$total;
         ?>
         <tr>
             <td colspan="6"style="text-align:right;"><p style="font-weight:bold; margin-bottom: 0px;margin: 0px 10px 0px 0px;">Total: <?php echo $total; ?> AU$</p></td>
@@ -75,9 +74,14 @@
         <tr>
             <td colspan="5" style="text-align: left; border-bottom:0px">By confirming the check out, you accept the terms and conditions <a href="<?php echo $disclaimerForm[0]['DisclaimerForm']['form_name']; ?>"  target="_blank" style="margin-top:20px;">here</a></td>
             <!--<td colspan="6"style="text-align:right;border-bottom:0px; "><button type="button" title="Confirm Payment" style="margin: 0px 20px 50px 0px; padding: 5px; font-size:14px;" onclick="window.location='<?php echo $this->webroot; ?>users/customerPayment';">Confirm Payment</button></td>-->
-            <td><form action='expresscheckout' METHOD='POST'>
-                    <input type='image' name='submit' src='https://www.paypal.com/en_US/i/btn/btn_xpressCheckout.gif' border='0' align='top' alt='Check out with PayPal'/>
-                </form></td>
+            <td>
+                <?php
+                echo $this->Form->create(null, array('url' => '/expresscheckout.php'));
+                $_SESSION["Payment_Amount"] = $total;
+                ?>
+                <input type='image' name='submit' src='https://www.paypal.com/en_US/i/btn/btn_xpressCheckout.gif' border='0' align='top' alt='Check out with PayPal'/>
+                </form>
+            </td>
     </table>
     <?php
 } else {
