@@ -38,7 +38,8 @@ $this->start('manageRightContent');
                     <td class="actions">
                         <?php echo $this->Html->link(__('View'), array('action' => 'view', $deal['Deal']['id'])); ?>
                         <?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $deal['Deal']['id'])); ?>
-                        <?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $deal['Deal']['id']), null, __('Are you sure you want to delete # %s?', $deal['Deal']['id'])); ?>
+                        <?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $deal['Deal']['id']), null, __('Are you sure you want to delete this deal?')); ?>
+                        <?php echo $this->Html->link(__('Preview'), array('action' => 'preview', $deal['Deal']['id'])); ?>
                     </td>
                 </tr>
             <?php endforeach; ?>

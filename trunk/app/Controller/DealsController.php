@@ -100,7 +100,12 @@ class DealsController extends AppController {
     }
 
     public function deal_detail() {
-        $content = $this->Deal->find('all', array('limits' => 1));
+        $content = $this->Deal->find('all', array('limits' => 1, 'conditions' => array('publish_status' => "Published")));
+        $this->set('content', $content);
+    }
+
+    public function preview($id = null) {
+        $content = $this->Deal->find('all', array('conditions' => array('id' => $id)));
         $this->set('content', $content);
     }
 
