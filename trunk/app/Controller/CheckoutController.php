@@ -296,4 +296,8 @@ class CheckoutController extends AppController {
         
     }
 
+    public function paymentSuccessful() {
+        
+    }
+
 }

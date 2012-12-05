@@ -159,7 +159,7 @@ class ToursController extends AppController {
             $tourOrderData = $this->TourOrder->find('all', array('conditions' => array('TourOrder.tour_date_id' => "$tourDateId", 'TourOrder.tour_id' => "$id")));
             $Booked = 0;
             for ($j = 0; $j < count($tourOrderData); $j++) {
-                $Booked = $Booked + $tourOrderData[$i]['TourOrder']['tour_purchase_quantity'];
+                $Booked = $Booked + $tourOrderData[$j]['TourOrder']['tour_purchase_quantity'];
             }
             $tourDateData[$i]['vacancy'] = $tourData[0]['Tour']['tour_max_num_on_day'] - $Booked;
             if ($tourDateData[$i]['vacancy'] < 0) {
