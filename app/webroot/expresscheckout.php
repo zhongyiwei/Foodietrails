@@ -1,6 +1,8 @@
 <?php
+include("paypalfunctions.php");
+//include ("../view/checkout/confirm_checkout.ctp");
 
-require_once ("paypalfunctions.php");
+
 // ==================================
 // PayPal Express Checkout Module
 // ==================================
@@ -10,7 +12,10 @@ require_once ("paypalfunctions.php");
 //' earlier in a session variable 
 //' by the shopping cart page
 //'------------------------------------
-$paymentAmount = $_SESSION["Payment_Amount"];
+$total  = $_POST['total'];
+$paymentAmount = $total;
+//$paymentAmount =  $_SESSION["Payment_Amount"];
+//print_r (CakeSession::read('Payment_Amount'));
 
 //'------------------------------------
 //' The currencyCodeType and paymentType 

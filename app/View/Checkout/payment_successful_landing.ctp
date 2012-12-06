@@ -1,3 +1,3 @@
 <?php
-        echo "You have successfully purchased your product.";
+        echo "You have successfully purchased your product, click ".$this->Html->link(__('here'), array('controller' => 'home', 'action' => 'index')) . " to return to home page.</p>";
 ?>

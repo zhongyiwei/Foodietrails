@@ -335,14 +335,23 @@ class CheckoutController extends AppController {
 
                     $userEmail = $users[0]['User']['user_email'];
                     $giftMessage = $this->GiftVoucher->find("all", array('conditions' => array("Giftvoucher.id" => $SC["cartData$i"]['GiftVoucher']['id'])));
+                    $termLink = "<a href=" . Router::url("/files/WaiverforFoodieTrailswebsite.pdf", true) . ">T&C's</a> on our website";
+                    $logo = "<img src=" . Router::url("/img/logo.png", true) . " height='50' alt ='Foodie Trails Logo' name ='Foodie Trails Logo'/>";
+                    $msg = str_replace("{first_name}", $users[0]['User']['user_first_name'], $giftMessage[0]['GiftVoucher']['gift_message']);
+                    $msg = str_replace("{expire_date}", date('Y-m-d H:i:s', strtotime('+1 year')), $msg);
+                    $msg = str_replace("{redeem_code}", $redeemCode, $msg);
+                    $msg = str_replace("{term_link}", $termLink, $msg);
+                    $msg = str_replace("{logo}", $logo, $msg);
+                    $msg = "<div style='font-family:Century Gothic;color:#06496e; '>".$msg."</div>";
+
                     $email = new CakeEmail();
                     $email->config('default');
                     $email->emailFormat('html');
                     $email->from(array("$this->sender" => "$this->senderTag"));
                     $email->to("$userEmail");
-                    $email->subject("Your Gift Voucher Code");
-                    $Message = $giftMessage[0]['GiftVoucher']['gift_message'] . "Your Gift Voucher Code are $redeemCode";
-                    $email->send($Message);
+                    $email->subject("Thank you for purchasing the Gift Voucher, here is your Gift Voucher Code");
+
+                    $email->send($msg);
                 }
             }
         }
@@ -350,7 +359,7 @@ class CheckoutController extends AppController {
 
         for ($i = 0; $i < count($SC); $i++) {
             $this->Cookie->delete("Cart.cartData$i");
-        }
+        }        
         $this->redirect(array('action' => 'paymentSuccessfulLanding'));
     }
 

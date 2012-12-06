@@ -1,10 +1,8 @@
 <?php
-
 /* ==================================================================
   PayPal Express Checkout Call
   ===================================================================
  */
-session_start();
 require_once ("paypalfunctions.php");
 $PaymentOption = "PayPal";
 if ($PaymentOption == "PayPal") {
@@ -16,8 +14,8 @@ if ($PaymentOption == "PayPal") {
       ' by the shopping cart page
       '------------------------------------
      */
-
-    $finalPaymentAmount = $_SESSION["Payment_Amount"];
+    $finalPaymentAmount = $_COOKIE["Payment_Amount"];
+//    $finalPaymentAmount = $_SESSION["Payment_Amount"];
 
     /*
       '------------------------------------
@@ -27,7 +25,7 @@ if ($PaymentOption == "PayPal") {
       ' that is included at the top of this file.
       '-------------------------------------------------
      */
-
+    setcookie("payer_id", $_GET["PayerID"]);
     $resArray = ConfirmPayment($finalPaymentAmount);
     $ack = strtoupper($resArray["ACK"]);
     if ($ack == "SUCCESS" || $ack == "SUCCESSWITHWARNING") {
@@ -86,7 +84,11 @@ if ($PaymentOption == "PayPal") {
 
         $reasonCode = $resArray["PAYMENTINFO_0_REASONCODE"];
         $_SESSION["transactionId"] = $transactionId;
-        $_SESSION["payment_Status"] = $paymentStatus;        
+        $_SESSION["payment_Status"] = $paymentStatus;
+        setcookie("payer_id", "", time() - 3600);
+        setcookie("Payment_Amount", "", time() - 3600);
+        setcookie("currencyCodeType", "", time() - 3600);
+        setcookie("PaymentType", "", time() - 3600);
     } else {
         //Display a user friendly Error on the page using any of the following error information returned by PayPal
         $ErrorCode = urldecode($resArray["L_ERRORCODE0"]);
@@ -103,6 +105,6 @@ if ($PaymentOption == "PayPal") {
 }
 ?>
 Please wait for redirecting
- <script language="javascript" type="text/javascript">
-     window.setTimeout('window.location="http://localhost/checkout/paymentsuccessful"; ',200);
- </script>
+<script language="javascript" type="text/javascript">
+    window.setTimeout('window.location="http://localhost/checkout/paymentsuccessful"; ',0);
+</script>
