@@ -47,7 +47,7 @@ class Cookingclass extends AppModel {
         'cooking_class_thumbnail' => array(
             'notempty' => array(
                 'rule' => array('notempty'),
-                'message' => 'Please upload a thumbnail for the Cooking Class.',
+                'message' => 'Please upload an image for the Cooking Class.',
             //'allowEmpty' => false,
             //'required' => false,
             //'last' => false, // Stop validation after this rule

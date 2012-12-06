@@ -43,27 +43,7 @@ class User extends AppModel {
      *
      * @var array
      */
-   public $validate = array(
-        'user_email' => array(
-            'required' => array(
-                'rule' => array('notEmpty'),
-                'message' => 'Email Address cannot be Empty.'
-            )
-        ),
-       'email' => array(
-                'rule' => array('email'),
-                'message' => 'Please enter a valid email address. ',
-            //'allowEmpty' => false,
-            //'required' => false,
-            //'last' => false, // Stop validation after this rule
-            //'on' => 'create', // Limit validation to 'create' or 'update' operations
-            ),
-        'user_password' => array(
-            'required' => array(
-                'rule' => array('notEmpty'),
-                'message' => 'Password cannot be Empty.'
-            )
-        ),
+    public $validate = array(
         'id' => array(
             'blank' => array(
                 'rule' => array('notEmpty'),
@@ -93,31 +73,11 @@ class User extends AppModel {
             //'last' => false, // Stop validation after this rule
             //'on' => 'create', // Limit validation to 'create' or 'update' operations
             ),
-            'alphanumeric' => array(
-                'rule' => array('alphanumeric'),
-                'message' => 'The First Name can only contains letters and numbers',
-            //'allowEmpty' => false,
-            //'required' => false,
-            //'last' => false, // Stop validation after this rule
-            //'on' => 'create', // Limit validation to 'create' or 'update' operations
-            ),
         ),
         'user_surname' => array(
-            'alphanumeric' => array(
-                'rule' => array('alphanumeric'),
-                'message' => 'The Surname cannot be Empty',
-            //'allowEmpty' => false,
-            //'required' => false,
-            //'last' => false, // Stop validation after this rule
-            //'on' => 'create', // Limit validation to 'create' or 'update' operations
-            ),
-            'blank' => array(
+            'user_surname' => array(
                 'rule' => array('notEmpty'),
-                'message' => 'Your Surname Name can only contains letters and numbers',
-            //'allowEmpty' => false,
-            //'required' => false,
-            //'last' => false, // Stop validation after this rule
-            //'on' => 'create', // Limit validation to 'create' or 'update' operations
+                'message' => 'Please enter your surname. '
             ),
         ),
         'user_contacts' => array(
@@ -131,29 +91,41 @@ class User extends AppModel {
             ),
         ),
         'user_email' => array(
-            'email' => array(
+            'notempty' => array(
+                'rule' => array('notempty'),
+                'required' => true,
+                'message' => 'Please enter your Email.'
+            ),
+            'user_email' => array(
                 'rule' => array('email'),
-                'message' => 'The Email must be valid.',
+                'message' => 'Please enter your email correctly.'
+            ),
+            'unique' => array(
+                'rule' => array('isUnique'),
+                'message' => 'The email is already been in used. ')
+        ),
+        'user_password' => array(
+            'blank' => array(
+                'rule' => array('notEmpty'),
+                'message' => 'Please enter a password with numbers and alphabets only. ',
             //'allowEmpty' => false,
             //'required' => false,
             //'last' => false, // Stop validation after this rule
             //'on' => 'create', // Limit validation to 'create' or 'update' operations
             ),
-        ),
-        'user_password' => array(
-            'blank' => array(
-                'rule' => array('notEmpty'),
-                'message' => 'The Password cannot be Empty',
-            //'allowEmpty' => false,
-            //'required' => false,
-            //'last' => false, // Stop validation after this rule
-            //'on' => 'create', // Limit validation to 'create' or 'update' operations
+            'user_password' => array(
+                'rule' => array('minLength', '8'),
+                'message' => 'The password must have at least 8 characters. '
+            ),
+            'nospace'=>array(
+                'rule'=>array('alphaNumeric'),
+                'message' => 'Please enter a password with numbers and alphabets only. ',
             ),
         ),
         'user_address' => array(
             'blank' => array(
                 'rule' => array('notEmpty'),
-                'message' => 'The address cannot be Empty',
+                'message' => 'Please enter your address.',
             //'allowEmpty' => false,
             //'required' => false,
             //'last' => false, // Stop validation after this rule
@@ -163,7 +135,7 @@ class User extends AppModel {
         'country_id' => array(
             'blank' => array(
                 'rule' => array('notEmpty'),
-                'message' => 'The Country cannot be Empty',
+                'message' => 'Please enter a country.',
             //'allowEmpty' => false,
             //'required' => false,
             //'last' => false, // Stop validation after this rule
@@ -187,7 +159,7 @@ class User extends AppModel {
             'fields' => '',
             'order' => ''
         )
-    );            
+    );
 
     /**
      * hasMany associations

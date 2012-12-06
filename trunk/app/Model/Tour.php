@@ -90,15 +90,16 @@ class Tour extends AppModel {
             ),
         ),
         'tour_duration' => array(
-            'notempty' => array(
-                'rule' => array('notempty'),
-                'message' => 'The Tour Duration Cannot be Empty.',
-            //'allowEmpty' => false,
-            //'required' => false,
-            //'last' => false, // Stop validation after this rule
-            //'on' => 'create', // Limit validation to 'create' or 'update' operations
+            'tour_duration' => array(
+                'rule' => array('notEmpty'),
+                'message' => 'The Tour Duration Cannot be Empty. '
+            ),
+             'naturalNumber'=>array(
+              'rule' =>array('naturalNumber'),
+                'message'=>'The maximum duration should be a valid number only.  '
             ),
         ),
+ 
         'tour_weather' => array(
             'notempty' => array(
                 'rule' => array('notempty'),
@@ -128,6 +129,11 @@ class Tour extends AppModel {
             //'last' => false, // Stop validation after this rule
             //'on' => 'create', // Limit validation to 'create' or 'update' operations
             ),
+            'naturalNumber'=>array(
+              'rule' =>array('naturalNumber'),
+                'message'=>'The maximum number should be a valid number only.  '
+            ),
+            
         ),
         'tour_type_id' => array(
             'notempty' => array(
@@ -138,7 +144,7 @@ class Tour extends AppModel {
             //'last' => false, // Stop validation after this rule
             //'on' => 'create', // Limit validation to 'create' or 'update' operations
             ),
-             'numeric' => array(
+            'numeric' => array(
                 'rule' => array('numeric'),
                 'message' => 'Please Set the correct tour type for the tour.',
             //'allowEmpty' => false,
@@ -150,7 +156,7 @@ class Tour extends AppModel {
         'tour_thumbnail' => array(
             'notempty' => array(
                 'rule' => array('notempty'),
-                'message' => 'Please upload a thumbnail for the tour.',
+                'message' => 'Please upload an image for the tour.',
             //'allowEmpty' => false,
             //'required' => false,
             //'last' => false, // Stop validation after this rule

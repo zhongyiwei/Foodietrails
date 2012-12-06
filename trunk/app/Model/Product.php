@@ -45,16 +45,15 @@ class Product extends AppModel {
             //'last' => false, // Stop validation after this rule
             //'on' => 'create', // Limit validation to 'create' or 'update' operations
             ),
-            //rule 2 - must be a number
-            'rule2' => array(
-                'rule' => array('decimal'),
-                'message' => 'The product price must be numbers. (e.g. 125.00)'
+            'naturalNumber' => array(
+                'rule' => array('naturalNumber'),
+                'message' => 'The product price should be a valid number only.  '
             ),
         ),
         'product_thumbnail' => array(
             'notempty' => array(
                 'rule' => array('notempty'),
-                'message' => 'Please upload a thumbnail for the Product.',
+                'message' => 'Please upload an image for the Product.',
             //'allowEmpty' => false,
             //'required' => false,
             //'last' => false, // Stop validation after this rule
