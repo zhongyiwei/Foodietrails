@@ -62,9 +62,9 @@ class CookingclassDate extends AppModel {
             //'last' => false, // Stop validation after this rule
             //'on' => 'create', // Limit validation to 'create' or 'update' operations
             ),
-            'naturalNumber' => array(
-                'rule' => array('naturalNumber'),
-                'message' => 'The price should be a valid number only.  '
+            'decimal' => array(
+                'rule' => array('decimal',2),
+                'message' => 'The Price must be in valid number. (e.g. 125.00) '
             ),
         ),
         'cooking_class_progress' => array(
