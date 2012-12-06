@@ -63,8 +63,8 @@ class GiftVoucher extends AppModel {
             ),
             //rule 2 - notempty
             'number' => array(
-                'rule' => array('naturalNumber'),
-                'message' => 'The Gift price must be numbers only. (e.g. 125)',
+                'rule' => array('decimal',2),
+                'message' => 'The Gift price must be numbers only. (e.g. 125.00)',
             ),
         ),
         'gift_type' => array(

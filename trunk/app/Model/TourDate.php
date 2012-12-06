@@ -56,7 +56,8 @@ class TourDate extends AppModel {
             ),
             //rule 2 - decimal
             'number' => array(
-                'rule' => array('naturalNumber'),
+                'rule' => array('decimal',2),//'^/-?[1-9](/./d*)?$'),//'decimal',2),
+                // /[0-9]+(?:/.[0-9]*)
                 'message' => 'The Tour Price must be in valid number. (e.g. 125.00)'
             ),
         ),

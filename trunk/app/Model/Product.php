@@ -46,8 +46,8 @@ class Product extends AppModel {
             //'on' => 'create', // Limit validation to 'create' or 'update' operations
             ),
             'naturalNumber' => array(
-                'rule' => array('naturalNumber'),
-                'message' => 'The product price should be a valid number only.  '
+                'rule' => array('decimal',2),
+                'message' => 'The product price should be a valid number only (e.g. 125.00).  '
             ),
         ),
         'product_thumbnail' => array(
