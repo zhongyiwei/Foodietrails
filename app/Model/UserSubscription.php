@@ -17,20 +17,16 @@ class UserSubscription extends AppModel {
         'user_email' => array(
             'notempty' => array(
                 'rule' => array('notempty'),
-            'message' => 'The email address cannot be Blank. ',
-            //'allowEmpty' => false,
-            //'required' => false,
-            //'last' => false, // Stop validation after this rule
-            //'on' => 'create', // Limit validation to 'create' or 'update' operations
+                'required' => true,
+                'message' => 'Please enter your Email.'
             ),
-            'email' => array(
+            'user_email' => array(
                 'rule' => array('email'),
-                'message' => 'Please enter a valid email address. ',
-            //'allowEmpty' => false,
-            //'required' => false,
-            //'last' => false, // Stop validation after this rule
-            //'on' => 'create', // Limit validation to 'create' or 'update' operations
+                'message' => 'Please enter your email correctly.'
             ),
+            'unique' => array(
+                'rule' => array('isUnique'),
+                'message' => 'The email is already in subscribe list. ')
         ),
         'subscription_status' => array(
             'notempty' => array(

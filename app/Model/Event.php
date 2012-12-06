@@ -58,7 +58,7 @@ class Event extends AppModel {
         'event_thumbnail' => array(
             'notempty' => array(
                 'rule' => array('notempty'),
-                'message' => 'Please upload a thumbnail for the Event.',
+                'message' => 'Please upload an image for the Event.',
             //'allowEmpty' => false,
             //'required' => false,
             //'last' => false, // Stop validation after this rule

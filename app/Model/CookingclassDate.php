@@ -15,7 +15,7 @@ class CookingclassDate extends AppModel {
      * @var array
      */
     public $validate = array(
-        'cookingclass_id' => array(
+        'cooking_class_id' => array(
             'numeric' => array(
                 'rule' => array('numeric'),
             //'message' => 'Your custom message here',
@@ -25,25 +25,28 @@ class CookingclassDate extends AppModel {
             //'on' => 'create', // Limit validation to 'create' or 'update' operations
             ),
         ),
-        'cookingclass_date' => array(
+        'cooking_class_date' => array(
             'date' => array(
                 'rule' => array('date'),
-            'message' => 'Please select a date from the calendar.',
+            //'message' => 'Your custom message here',
             //'allowEmpty' => false,
             //'required' => false,
             //'last' => false, // Stop validation after this rule
             //'on' => 'create', // Limit validation to 'create' or 'update' operations
             ),
-            //rule 2 - must be not null
-            'rule2' => array(
-                'rule' => array('notEmpty'),
-                'message' => "Please select a date from the calendar."
-            ),
         ),
-        'cookingclass_time' => array(
+        'cooking_class_time' => array(
             'time' => array(
                 'rule' => array('time'),
-            'message' => 'Please select a time from the drop down list.',
+            //'message' => 'Your custom message here',
+            //'allowEmpty' => false,
+            //'required' => false,
+            //'last' => false, // Stop validation after this rule
+            //'on' => 'create', // Limit validation to 'create' or 'update' operations
+            ),
+            'notempty' => array(
+                'rule' => array('notEmpty'),
+                'message' => 'The Cooking Class Time cannot be Empty.',
             //'allowEmpty' => false,
             //'required' => false,
             //'last' => false, // Stop validation after this rule
@@ -53,7 +56,21 @@ class CookingclassDate extends AppModel {
         'cooking_class_price' => array(
             'notempty' => array(
                 'rule' => array('notempty'),
-                'message' => 'The Cooking Class Price cannot be Empty.',
+                'message' => 'The Cooking Class Price cannot be Empty',
+            //'allowEmpty' => false,
+            //'required' => false,
+            //'last' => false, // Stop validation after this rule
+            //'on' => 'create', // Limit validation to 'create' or 'update' operations
+            ),
+            'naturalNumber' => array(
+                'rule' => array('naturalNumber'),
+                'message' => 'The price should be a valid number only.  '
+            ),
+        ),
+        'cooking_class_progress' => array(
+            'notempty' => array(
+                'rule' => array('notempty'),
+                'message' => 'The Cooking Class Progress cannot be Empty.',
             //'allowEmpty' => false,
             //'required' => false,
             //'last' => false, // Stop validation after this rule
