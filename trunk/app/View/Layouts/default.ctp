@@ -182,7 +182,7 @@
                 <div class="footer">
                     <table width="920" border="0">
                         <tr>
-                            <td style="vertical-align:middle" ><span class="footerRow"><?php echo $this->Html->link(__('About Foodie Trails'), array('controller' => 'About', 'action' => 'aboutCompany')); ?></span>
+                            <td style="vertical-align:middle" ><span class="footerRow"><?php echo $this->Html->link(__('About Foodie Trails'), array('controller' => 'aboutuspages', 'action' => 'aboutCompany')); ?></span>
                                 <span class="footerRow"><?php echo $this->Html->link(__('Deal'), array('controller' => 'deals', 'action' => 'deal_detail')); ?></span>
                                 <span class="footerRow"><?php echo $this->Html->link(__('Subscribe'), array('controller' => 'UserSubscriptions', 'action' => 'subscribe')); ?></span>
                                 <span class="footerRow"><?php echo $this->Html->link(__('Sitemap'), array('controller' => 'sitemap', 'action' => 'index')); ?></span>
