@@ -94,8 +94,8 @@ class Tour extends AppModel {
                 'rule' => array('notEmpty'),
                 'message' => 'The Tour Duration Cannot be Empty. '
             ),
-             'naturalNumber'=>array(
-              'rule' =>array('naturalNumber'),
+             'decimal'=>array(
+              'rule' =>array('decimal',2),
                 'message'=>'The maximum duration should be a valid number only.  '
             ),
         ),
