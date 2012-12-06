@@ -30,7 +30,17 @@ $this->start('manageRightContent');
     $publishStatus = array('Private' => 'Private', 'Published' => 'Published');
     $productType = array('Tour' => 'Tour', 'Cooking Class' => 'Cooking Class', 'Mixed' => 'Mixed');
     echo $this->Form->input('gift_voucher_name');
-    echo $this->Form->input('gift_message', array('id' => 'gift_message', 'class' => 'ckeditor'));
+    ?>
+    <div  style="margin-left:0px;">
+        <span style="font-weight:bold">Gift Voucher Email Message</span>
+        <br/>
+        <span class="reminder">Available Variable: {first_name}, {epxire_date},  {redeem_code}, {term_link}, {logo}
+            <br/>Please use these variables to organize ur email message.
+            <br/>The Email Font is Century Gothic, Please do not change the font in text editor if you want to keep the Century Gothic Font. 
+        </span>
+    </div>
+    <?php
+    echo $this->Form->input('gift_message', array('id' => 'gift_message', 'class' => 'ckeditor', 'label' => false));
     echo $this->Form->input('gift_price');
     echo $this->Form->input('gift_type', array('type' => 'select', 'options' => $productType));
     echo $this->Form->input('publish_status', array('options' => $publishStatus, 'default' => 'Private'));

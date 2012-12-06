@@ -42,6 +42,10 @@ class AppController extends Controller {
         ),
         'Cookie',
     );
+    
+    public $helpers = array(
+    'Session'
+);
 //      public function beforeFilter1() {
 //         $this->Auth->allow('index', 'view');
 //     }
