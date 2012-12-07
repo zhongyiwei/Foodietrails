@@ -84,7 +84,7 @@ if ($PaymentOption == "PayPal") {
         $reasonCode = $resArray["PAYMENTINFO_0_REASONCODE"];
         $_SESSION["transactionId"] = $transactionId;
         $_SESSION["payment_Status"] = $paymentStatus;
-        setcookie("payer_id", "", time() - 3600);
+//        setcookie("payer_id", "", time() - 3600);
         setcookie("Payment_Amount", "", time() - 3600);
         setcookie("currencyCodeType", "", time() - 3600);
         setcookie("PaymentType", "", time() - 3600);
@@ -95,15 +95,16 @@ if ($PaymentOption == "PayPal") {
         $ErrorLongMsg = urldecode($resArray["L_LONGMESSAGE0"]);
         $ErrorSeverityCode = urldecode($resArray["L_SEVERITYCODE0"]);
 
-//        echo "GetExpressCheckoutDetails API call failed. ";
-//        echo "Detailed Error Message: " . $ErrorLongMsg;
-//        echo "Short Error Message: " . $ErrorShortMsg;
-//        echo "Error Code: " . $ErrorCode;
-//        echo "Error Severity Code: " . $ErrorSeverityCode;
+        echo "GetExpressCheckoutDetails API call failed. ";
+        echo "Detailed Error Message: " . $ErrorLongMsg;
+        echo "Short Error Message: " . $ErrorShortMsg;
+        echo "Error Code: " . $ErrorCode;
+        echo "Error Severity Code: " . $ErrorSeverityCode;
     }
 }
 ?>
 Please wait for redirecting
 <script language="javascript" type="text/javascript">
-    window.setTimeout('window.location="http://localhost/checkout/paymentsuccessful"; ',0);
+//    window.setTimeout('window.location="http://localhost/paymentsuccessful"; ',0);
+    window.setTimeout('window.location="http://ie.infotech.monash.edu.au/project35/review4/checkout/paymentsuccessful"; ',0);
 </script>

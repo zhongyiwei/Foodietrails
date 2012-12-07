@@ -241,7 +241,7 @@ function ConfirmPayment($FinalPaymentAmt) {
       If the response was an error, display the errors received using APIError.php.
      */
     $ack = strtoupper($resArray["ACK"]);
-
+    setcookie("payer_id", "", time() - 3600);
     return $resArray;
 }
 
