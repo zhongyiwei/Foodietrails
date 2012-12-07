@@ -192,17 +192,17 @@ class CheckoutController extends AppController {
                     if ($currentCart[$i]['Identifier'] == 'Tour') {
                         $postName = $currentCart[$i]['Tour']['id'] . 'TQty';
                         $currentCart[$i]['Qty'] = $this->request->data($postName);
-                        $currentCart[$i]['subTotal'] = $currentCart[$i]['Qty'] * $currentCart[$i]['Tour']['tour_price_per_certificate'];
+                        $currentCart[$i]['subTotal'] = $currentCart[$i]['Qty'] * $currentCart[$i]['TourDate']['tour_price_per_certificate'];
                         $this->Cookie->write("Cart.cartData$i", $currentCart[$i]);
                     } else if ($currentCart[$i]['Identifier'] == 'CookingClass') {
                         $postName = $currentCart[$i]['Cookingclass']['id'] . 'CCQty';
                         $currentCart[$i]['Qty'] = $this->request->data($postName);
-                        $currentCart[$i]['subTotal'] = $currentCart[$i]['Qty'] * $currentCart[$i]['Cookingclass']['cooking_class_price'];
+                        $currentCart[$i]['subTotal'] = $currentCart[$i]['Qty'] * $currentCart[$i]['CookingclassDate']['cooking_class_price'];
                         $this->Cookie->write("Cart.cartData$i", $currentCart[$i]);
                     } else if ($currentCart[$i]['Identifier'] == 'Product') {
                         $postName = $currentCart[$i]['Product']['id'] . 'PQty';
                         $currentCart[$i]['Qty'] = $this->request->data($postName);
-                        $currentCart[$i]['subTotal'] = $currentCart[$i]['Qty'] * $currentCart[$i]['Product']['product_price'];
+                        $currentCart[$i]['subTotal'] = $currentCart[$i]['Qty'] * $currentCart[$i]['ProductDate']['product_price'];
                         $this->Cookie->write("Cart.cartData$i", $currentCart[$i]);
                     } else if ($currentCart[$i]['Identifier'] == 'GiftVoucher') {
                         $postName = $currentCart[$i]['GiftVoucher']['id'] . 'GQty';
