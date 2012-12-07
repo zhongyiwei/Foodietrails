@@ -38,7 +38,7 @@ $returnURL = "http://ie.infotech.monash.edu.au/project35/review4/confirmation.ph
 //'
 //' This is set to the value entered on the Integration Assistant 
 //'------------------------------------
-$cancelURL = "http://ie.infotech.monash.edu.au/project35/review4/localhost/";
+$cancelURL = "http://ie.infotech.monash.edu.au/project35/review4/";
 //$cancelURL = "http://localhost/";
 //'------------------------------------
 //' Calls the SetExpressCheckout API call
