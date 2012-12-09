@@ -61,25 +61,3 @@ $this->start('manageRightContent');
 <?php echo $this->Form->end(__('Submit')); ?>
 </div>
 <?php $this->end(); ?>
-<!--<div class="users form">
-<?php echo $this->Form->create('User'); ?>
-        <fieldset>
-                <legend><?php echo __('Edit User'); ?></legend>
-<?php
-echo $this->Form->input('id');
-echo $this->Form->input('user_role');
-echo $this->Form->input('user_first_name');
-echo $this->Form->input('user_surname');
-echo $this->Form->input('user_contacts');
-echo $this->Form->input('user_email');
-echo $this->Form->input('user_password');
-echo $this->Form->input('user_address');
-echo $this->Form->input('user_dietary_requirement');
-echo $this->Form->input('user_spl_assistance');
-echo $this->Form->input('user_referee');
-//		echo $this->Form->input('user_postcode');
-//		echo $this->Form->input('user_state');
-echo $this->Form->input('country_id');
-?>
-        </fieldset>
-<?php echo $this->Form->end(__('Submit')); ?>

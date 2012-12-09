@@ -38,6 +38,17 @@ class UsersController extends AppController {
         $this->redirect($this->Auth->logout());
     }
 
+    public function homepageLogin() {
+        if ($this->request->is('post')) {
+            if ($this->Auth->login()) {
+                $currentUser = $this->Auth->user();
+                $this->redirect(array('controller' => 'home', 'action' => 'index'));
+            } else {
+                $this->Session->setFlash(__('Invalid email or password, try again'), 'failure-message');
+            }
+        }
+    }
+
     /**
      * index method
      *
@@ -117,6 +128,44 @@ class UsersController extends AppController {
 //        $events = $this->User->Event->find('list');
 //        $news = $this->User->News->find('list');
         $this->set(compact('countries', 'events', 'news'));
+    }
+
+    public function register() {
+        if ($this->request->is('post')) {
+            $this->User->create();
+            $customerData = $this->request->data;
+            $customerData['User']['user_emailsubscription'] = "Customer";
+            if ($this->User->save($this->request->data)) {
+                $this->Session->setFlash(__('The user has been saved'));
+                $this->redirect(array('action' => 'index', 'controller' => 'home'));
+            } else {
+                $this->Session->setFlash(__('The user could not be saved. Please, try again'), 'failure-message');
+            }
+        }
+        $countries = $this->User->Country->find('list', array('fields' => 'country_name'));
+        $this->set(compact('countries', 'events', 'news'));
+    }
+
+    public function customerInfoEdit($id = null) {
+        $this->User->id = $id;
+        if (!$this->User->exists()) {
+            throw new NotFoundException(__('The user could not be saved. Please, try again'));
+        }
+        $currentUser = $this->Auth->user();
+        if ($currentUser['id'] == $id) {
+            if ($this->request->is('post') || $this->request->is('put')) {
+                if ($this->User->save($this->request->data)) {
+                    $this->Session->setFlash(__('The user has been saved'));
+                    $this->redirect(array('action' => 'index', 'controller' => 'home'));
+                } else {
+                    $this->Session->setFlash(__('The user could not be saved. Please, try again', 'failure-message'));
+                }
+            } else {
+                $this->request->data = $this->User->read(null, $id);
+            }
+        }
+        $countries = $this->User->Country->find('list', array('fields' => 'country_name'));
+        $this->set(compact('countries', 'events', 'news', 'id'));
     }
 
     /**
@@ -284,7 +333,7 @@ class UsersController extends AppController {
                 if ($this->User->save($customerData)) {
                     $this->Session->setFlash(__('The user has been saved'));
                     if ($this->Auth->login()) {
-                            $this->redirect(array('controller' => 'giftvouchers', 'action' => "chooseDate?def=$identifier&id=$id"));
+                        $this->redirect(array('controller' => 'giftvouchers', 'action' => "chooseDate?def=$identifier&id=$id"));
                     } else {
                         $this->Session->setFlash(__('Invalid email or password, try again', 'failure-message'));
                     }
@@ -295,7 +344,7 @@ class UsersController extends AppController {
             $countries = $this->User->Country->find('list', array('fields' => 'country_name'));
             $this->set(compact('countries', 'events', 'news'));
         } else {
-                $this->redirect(array('controller' => 'giftvouchers', 'action' => "chooseDate?def=$identifier&id=$id"));
+            $this->redirect(array('controller' => 'giftvouchers', 'action' => "chooseDate?def=$identifier&id=$id"));
         }
     }
 
@@ -304,7 +353,7 @@ class UsersController extends AppController {
         $identifier = $this->params['url']['def'];
         if ($this->request->is('post')) {
             if ($this->Auth->login()) {
-                    $this->redirect(array('controller' => 'giftvouchers', 'action' => "chooseDate?def=$identifier&id=$id"));
+                $this->redirect(array('controller' => 'giftvouchers', 'action' => "chooseDate?def=$identifier&id=$id"));
             } else {
                 $this->Session->setFlash(__('Invalid email or password, try again'), 'failure-message');
             }
@@ -427,4 +476,5 @@ class UsersController extends AppController {
 //        $this->set(compact('data'));
         $this->set('data', $result);
     }
+
 }

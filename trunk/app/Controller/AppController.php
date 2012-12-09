@@ -42,14 +42,13 @@ class AppController extends Controller {
         ),
         'Cookie',
     );
-    
     public $helpers = array(
-    'Session'
-);
+        'Session'
+    );
 //      public function beforeFilter1() {
 //         $this->Auth->allow('index', 'view');
 //     }
-    var $uses = array('Tour', 'Event', 'Cookingclass', 'Product', 'User', 'Feedback', 'News', 'GiftVoucher', 'GiftvoucherOrder', 'TourOrder', 'CookingclassOrder', 'TourDate', 'UserSubscription', 'CookingclassDate', 'TourType','ProductOrder');
+    var $uses = array('Tour', 'Event', 'Cookingclass', 'Product', 'User', 'Feedback', 'News', 'GiftVoucher', 'GiftvoucherOrder', 'TourOrder', 'CookingclassOrder', 'TourDate', 'UserSubscription', 'CookingclassDate', 'TourType', 'ProductOrder');
 
     function beforeFilter() {
         Security::setHash('sha1');
@@ -62,23 +61,23 @@ class AppController extends Controller {
 
         $tourTypeData = $this->TourType->find("all");
         $this->set('tourTypeData', $tourTypeData);
-        $tourMenu=null;
+        $tourMenu = null;
         for ($i = 0; $i < count($tourTypeData); $i++) {
             $tourTypeId = $tourTypeData[$i]['TourType']['id'];
-            $tourMenu[$i] = $this->Tour->find('all', array('fields' => 'id, tour_name', 'conditions' => array('Tour.tour_type_id' => "$tourTypeId",'Tour.publish_status' => "Published")));
+            $tourMenu[$i] = $this->Tour->find('all', array('fields' => 'id, tour_name', 'conditions' => array('Tour.tour_type_id' => "$tourTypeId", 'Tour.publish_status' => "Published")));
 //            print_r($tourMenu);
         }
         $this->set("tourMenu", $tourMenu);
-        $this->Auth->allow('display', 'tourDetail', 'cookingclass_detail', 'aboutCompany', 'contactUs', 'login', 'event_detail', 'checkout', 'logout', 'customerLogin', 'deleteCheckoutItem', 'customerPayment', 'existingCustomerLogin', 'check', 'confirmCheckout', 'sendEmail', 'sendSuccessful', 'news_detail', 'askedsuccessful', 'faq_view', 'redeem', 'redeemLogin', 'loginForRedeem', 'redeem_status', 'product_details', 'subscribe', 'unsubscribe', 'successfulsubscription', 'successfulunsubscription','expressCheckout','paymentSuccessful','deal_detail');
-        $menus2 = $this->Event->find('all', array('fields' => 'id, event_name','conditions' => array('publish_status' => "Published")));
+        $this->Auth->allow('display', 'tourDetail', 'cookingclass_detail', 'aboutCompany', 'contactUs', 'login', 'event_detail', 'checkout', 'logout', 'customerLogin', 'deleteCheckoutItem', 'customerPayment', 'existingCustomerLogin', 'check', 'confirmCheckout', 'sendEmail', 'sendSuccessful', 'news_detail', 'askedsuccessful', 'faq_view', 'redeem', 'redeemLogin', 'loginForRedeem', 'redeem_status', 'product_details', 'subscribe', 'unsubscribe', 'successfulsubscription', 'successfulunsubscription', 'expressCheckout', 'paymentSuccessful', 'deal_detail','homepageLogin','customerInfoEdit','register');
+        $menus2 = $this->Event->find('all', array('fields' => 'id, event_name', 'conditions' => array('publish_status' => "Published")));
         $this->set('menu2', $menus2);
-        $menus3 = $this->Cookingclass->find('all', array('fields' => 'id, cooking_class_name','conditions' => array('publish_status' => "Published")));
+        $menus3 = $this->Cookingclass->find('all', array('fields' => 'id, cooking_class_name', 'conditions' => array('publish_status' => "Published")));
         $this->set('menu3', $menus3);
-        $menus4 = $this->News->find('all', array('fields' => 'id, news_title','conditions' => array('publish_status' => "Published")));
+        $menus4 = $this->News->find('all', array('fields' => 'id, news_title', 'conditions' => array('publish_status' => "Published")));
         $this->set('menu4', $menus4);
-        $menus7 = $this->GiftVoucher->find('all', array('fields' => 'id, gift_voucher_name','conditions' => array('publish_status' => "Published")));
+        $menus7 = $this->GiftVoucher->find('all', array('fields' => 'id, gift_voucher_name', 'conditions' => array('publish_status' => "Published")));
         $this->set('giftVoucher', $menus7);
-        $menus8 = $this->Product->find('all', array('fields' => 'id, product_name','conditions' => array('publish_status' => "Published")));
+        $menus8 = $this->Product->find('all', array('fields' => 'id, product_name', 'conditions' => array('publish_status' => "Published")));
         $this->set('menu8', $menus8);
         $this->Auth->authenticate = array(
             'Form' => array('userModel' => 'User',
@@ -91,8 +90,9 @@ class AppController extends Controller {
         $this->sender = "tours@foodietrails.com.au";
         $this->senderTag = "Foodie Trails";
         $this->recipient = "tours@foodietrails.com.au";
-        $this->set('publicKey',"6Lfn_9cSAAAAACpNz0uOiOlgLpVACvGjFKgmNMYS");
+        $this->set('publicKey', "6Lfn_9cSAAAAACpNz0uOiOlgLpVACvGjFKgmNMYS");
         $this->privateKey = "6Lfn_9cSAAAAAKjnoH1uQM9pU_pZ1_lqL825v10X";
+        $this->set('homePageContact', "(+61) 1800667791");
     }
 
     public function isAuthorized($user) {

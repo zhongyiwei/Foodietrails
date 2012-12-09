@@ -26,17 +26,22 @@
                 echo $this->Html->image("LOGO.jpg", array("alt" => "Foodie Trails Logo", 'name' => "Foodie Trails Logo", 'height' => "90", 'style' => "background: #FFF; display:block; float:left", 'url' => array('controller' => 'Home', 'action' => 'index')));
                 ?>
                 <div class="headerRight">
-                    <?php if ($logged_in == true) { ?>
-                        <p style="color:#3589A1" class="adminLogin">Welcome <?php
+                    <?php if ($logged_in == true) { 
+                    echo ' <p style="color:#3589A1" class="adminLogin">Welcome ';
                     echo $current_user['user_first_name'] . '&nbsp;&nbsp;';
-                    echo $this->Html->link('Logout', array('controller' => 'users', 'action' => 'logout'), array('style' => 'color:#3589A1;'))
-                        ?></p>
-                    <?php }; ?>
-                    <p class="headerRightText <?php
-                    if ($logged_in == true) {
-                        echo "afterLogIn";
-                    }
-                    ?> ">Contact Us: (+61) 1800667791<br/>
+                    $id = $current_user['id'];
+                    echo $this->Html->link('Edit Details', array('controller' => 'users', 'action' => "customerInfoEdit/$id"), array('style' => 'color:#3589A1;'));
+                    echo "&nbsp;&nbsp;";
+                    echo $this->Html->link('Logout', array('controller' => 'users', 'action' => 'logout'), array('style' => 'color:#3589A1;'));
+                    echo "</p>";
+                     } else{
+                        echo '<p style="color:#3589A1" class="adminLogin">';
+                        echo $this->Html->link('Login', array('controller' => 'users', 'action' => 'homepageLogin'), array('style' => 'color:#3589A1;'));
+                        echo "&nbsp;&nbsp;";
+                        echo $this->Html->link('Register', array('controller' => 'users', 'action' => "register"), array('style' => 'color:#3589A1;'));
+                        echo "</p>";                
+                    } ?>
+                    <p class="headerRightText afterLogIn ">Contact Us: <?php echo $homePageContact; ?><br/>
                         Taste the blend of flavours, Experience the culture, Explore the regions</p>
                 </div>
             </div>
