@@ -63,7 +63,7 @@ $this->assign('title', "Foodie Trails - $cookingclassName");
         $id = $cookingclass['Cookingclass']['id'];
         for ($j = 0; $j < count($cookingclassDateData); $j++) {
             $cookingclassDateId = $cookingclassDateData[$j]['CookingclassDate']['id'];
-            $cookingclassDate = $cookingclassDateData[$j]['CookingclassDate']['cookingclass_date("dd/mm/yyyy")'];
+            $cookingclassDate = $cookingclassDateData[$j]['CookingclassDate']['cookingclass_date'];
             $cookingclassTime = $cookingclassDateData[$j]['CookingclassDate']['cookingclass_time'];
             $dateTime = $cookingclassDate . " " . $cookingclassTime;
             $date = date_create_from_format('Y-m-d H:i:s', $dateTime);
