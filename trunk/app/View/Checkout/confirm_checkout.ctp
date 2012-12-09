@@ -68,11 +68,11 @@
                 <?php
             }
         }
+
         //$_SESSION['Payment_Amount'] = $total;
 //        CakeSession::write('Payment_Amount', $total);
         
         
-
         ?>
         <tr>
             <td colspan="6"style="text-align:right;"><p style="font-weight:bold; margin-bottom: 0px;margin: 0px 10px 0px 0px;">Total: <?php echo $total; ?> AU$</p></td>
