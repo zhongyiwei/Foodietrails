@@ -15,8 +15,8 @@
             echo $this->Html->script('craftyslide.js');
             echo $this->Html->script('jquery.roundabout.js');
             ?>
-            <!--<title><?php echo $this->fetch('title'); ?></title>-->
-            <title>Foodie Trails</title>
+            <title><?php echo $this->fetch('title'); ?></title>
+<!--            <title>Foodie Trails</title>-->
     </head>
 
     <body>

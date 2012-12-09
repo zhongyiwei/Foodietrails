@@ -2,6 +2,7 @@
 echo $this->Html->css('admin');
 echo $this->Html->script('jquery.dataTables.min.js');
 echo $this->Html->css('jquery.dataTables.css');
+$this->assign('title', "Foodie Trails Admin Portal");
 ?>
 
 <table width="auto" border="1">
