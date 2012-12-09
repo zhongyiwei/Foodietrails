@@ -86,6 +86,7 @@ class AppController extends Controller {
         );
         $this->set('logged_in', $this->Auth->loggedIn());
         $this->set('current_user', $this->Auth->user());
+        
         $this->set('pathForFinder', "/project35/review3");
         $this->sender = "tours@foodietrails.com.au";
         $this->senderTag = "Foodie Trails";

@@ -11,7 +11,6 @@ echo $this->Form->input('user_dietary_requirement', array('label' => 'Dietary Re
 echo $this->Form->input('user_spl_assistance', array('label' => 'Sql Assistance'));
 echo $this->Form->input('user_referee', array('label' => 'Referee'));
 echo $this->Form->input('country_id', array('type' => 'select', 'options' => $countries));
-echo $this->Form->end(__('Submit'));
 ?>
 <div class="<?php
 if (isset($Error)) {
@@ -26,3 +25,4 @@ if (isset($Error)) {
      }
      ?>
 </div>
+<?php echo $this->Form->end(__('Submit'));?>
