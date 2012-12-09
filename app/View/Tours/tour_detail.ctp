@@ -2,6 +2,8 @@
 echo $this->Html->css('detailPage.css');
 echo $this->Html->css('screen.css');
 echo $this->Html->script('easySlider1.7.js');
+$tourName = $tour['Tour']['tour_name'];
+$this->assign('title', "Foodie Trails - $tourName");
 ?>
 <script type="text/javascript">
     $(document).ready(function(){	

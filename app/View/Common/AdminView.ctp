@@ -1,5 +1,6 @@
 <?php
 echo $this->Html->css('admin');
+$this->assign('title', "Foodie Trails Admin Portal");
 ?>
 <table width="auto" border="1">
     <tr>

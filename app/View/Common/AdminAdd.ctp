@@ -2,6 +2,7 @@
 echo $this->Html->script('ckeditor/ckeditor');
 echo $this->Html->script('ckfinder/ckfinder');
 echo $this->Html->css('admin');
+$this->assign('title', "Foodie Trails Admin Portal");
 ?>
 <table width="auto" border="1">
     <tr>

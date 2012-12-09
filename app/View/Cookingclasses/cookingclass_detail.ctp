@@ -2,6 +2,8 @@
 echo $this->Html->css('detailPage.css');
 echo $this->Html->css('screen.css');
 echo $this->Html->script('easySlider1.7.js');
+$cookingclassName = $cookingclass['Cookingclass']['cooking_class_name'];
+$this->assign('title', "Foodie Trails - $cookingclassName");
 ?>
 <script type="text/javascript">
     $(document).ready(function(){	
