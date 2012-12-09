@@ -132,14 +132,21 @@ class UsersController extends AppController {
 
     public function register() {
         if ($this->request->is('post')) {
-            $this->User->create();
-            $customerData = $this->request->data;
-            $customerData['User']['user_emailsubscription'] = "Customer";
-            if ($this->User->save($this->request->data)) {
-                $this->Session->setFlash(__('The user has been saved'));
-                $this->redirect(array('action' => 'index', 'controller' => 'home'));
+            $resp = recaptcha_check_answer($this->privateKey, $_SERVER["REMOTE_ADDR"], $_POST["recaptcha_challenge_field"], $_POST["recaptcha_response_field"]);
+            if (!$resp->is_valid) {
+                $errorMessage[0] = "Validation code is not valid";
+                $errorMessage[1] = "input text required error";
+                $this->set('Error', $errorMessage);
             } else {
-                $this->Session->setFlash(__('The user could not be saved. Please, try again'), 'failure-message');
+                $this->User->create();
+                $customerData = $this->request->data;
+                $customerData['User']['user_emailsubscription'] = "Customer";
+                if ($this->User->save($this->request->data)) {
+                    $this->Session->setFlash(__('The user has been saved'));
+                    $this->redirect(array('action' => 'index', 'controller' => 'home'));
+                } else {
+                    $this->Session->setFlash(__('The user could not be saved. Please, try again'), 'failure-message');
+                }
             }
         }
         $countries = $this->User->Country->find('list', array('fields' => 'country_name'));
