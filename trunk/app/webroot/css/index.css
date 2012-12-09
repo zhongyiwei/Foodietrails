@@ -459,6 +459,7 @@ a:hover, a:active, a:focus { /* 此组选择器将为键盘导航者提供与鼠
 .tourHeader {
     font-size:35px;
 }
+
 .tourParticipantGuide {
     font-size:15px;
     color:#247cab;
@@ -533,8 +534,12 @@ form .submit input[type="submit"]:hover, table td.actions a:hover {
 input, textarea {
     font-family:arial;
 }
+.sitemapHeader {
+    font-size:40px;
+    margin-left: 20px;
+}
 .indent_sitemap2 {
-    margin-left: 200px;
+    margin-left: 60px;
     list-style-type: square;
 }
 .indent_sitemap {

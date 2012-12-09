@@ -10,7 +10,8 @@ class SitemapController extends AppController {
     }
 
     function index() {
-        
+        $tour = $this->Tour->find('all', array('fields' => 'id,tour_name', 'conditions' => array('publish_status' => "Published")));
+         $this->set('tour', $tour);
     }
 
     /*
