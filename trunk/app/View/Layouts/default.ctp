@@ -15,7 +15,8 @@
             echo $this->Html->script('craftyslide.js');
             echo $this->Html->script('jquery.roundabout.js');
             ?>
-            <title><?php echo $this->fetch('title'); ?></title>
+            <!--<title><?php echo $this->fetch('title'); ?></title>-->
+            <title>Foodie Trails</title>
     </head>
 
     <body>
@@ -74,9 +75,16 @@
                                 <?php } ?>
                             </ul>
                         </li>
-                        <li class='has-sub'><a>Events</a>
+                        <li class='has-sub'><a>Special</a>
                             <div class="menuhorizontal">
                                 <ul>
+                                    <li>
+                                        <?php echo $this->Html->link(__('Deals'), array('controller' => 'deals', 'action' => 'deal_detail')); ?>
+                                    </li>
+                                </ul>
+                                <ul>
+                                    <li class='has-sub2'><a>Events</a>
+                                        <ul>
                                     <?php for ($i = 0; $i < count($menu2); $i++) { ?>
                                         <li> <?php
                                 $eventName = $menu2[$i]['Event']['event_name'];
@@ -84,6 +92,8 @@
                                         ?>
                                         </li>
                                     <?php } ?>
+                                        </ul>
+                                    </li>
                                 </ul>
                             </div>
                             <li><?php echo $this->Html->link(__('Products'), array('controller' => 'Products', 'action' => 'product_details')) ?>
@@ -183,7 +193,7 @@
                     <table width="920" border="0">
                         <tr>
                             <td style="vertical-align:middle" ><span class="footerRow"><?php echo $this->Html->link(__('About Foodie Trails'), array('controller' => 'aboutuspages', 'action' => 'aboutCompany')); ?></span>
-                                <span class="footerRow"><?php echo $this->Html->link(__('Deal'), array('controller' => 'deals', 'action' => 'deal_detail')); ?></span>
+                                <span class="footerRow"><?php echo $this->Html->link(__('Deals'), array('controller' => 'deals', 'action' => 'deal_detail')); ?></span>
                                 <span class="footerRow"><?php echo $this->Html->link(__('Subscribe'), array('controller' => 'UserSubscriptions', 'action' => 'subscribe')); ?></span>
                                 <span class="footerRow"><?php echo $this->Html->link(__('Sitemap'), array('controller' => 'sitemap', 'action' => 'index')); ?></span>
                             </td>
@@ -196,5 +206,15 @@
                 </table>
             </div>
         </div>
+        <script type="text/javascript">
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-15383062-4']);
+            _gaq.push(['_trackPageview']);
+            (function() {
+              var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+              ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+              var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+            })();
+        </script>
     </body>
 </html>

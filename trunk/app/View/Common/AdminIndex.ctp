@@ -40,7 +40,9 @@ echo $this->Html->css('jquery.dataTables.css');
 </table>
 <script>
     $(document).ready(function(){
-        $('#js-datatable').dataTable();
+            $('#js-datatable').dataTable( {
+                "aaSorting": [[ 0, "desc" ]]
+            } );
         document.getElementById('showTable').style.display = 'block';
     });
 </script>

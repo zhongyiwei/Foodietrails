@@ -69,7 +69,7 @@ class AppController extends Controller {
 //            print_r($tourMenu);
         }
         $this->set("tourMenu", $tourMenu);
-        $this->Auth->allow('display', 'tourDetail', 'cookingclass_detail', 'aboutCompany', 'contactUs', 'login', 'event_detail', 'checkout', 'logout', 'customerLogin', 'deleteCheckoutItem', 'customerPayment', 'existingCustomerLogin', 'check', 'confirmCheckout', 'sendEmail', 'sendSuccessful', 'news_detail', 'askedsuccessful', 'faq_view', 'redeem', 'redeemLogin', 'loginForRedeem', 'redeem_status', 'product_details', 'subscribe', 'unsubscribe', 'successfulsubscription', 'successfulunsubscription','expressCheckout','paymentSuccessful');
+        $this->Auth->allow('display', 'tourDetail', 'cookingclass_detail', 'aboutCompany', 'contactUs', 'login', 'event_detail', 'checkout', 'logout', 'customerLogin', 'deleteCheckoutItem', 'customerPayment', 'existingCustomerLogin', 'check', 'confirmCheckout', 'sendEmail', 'sendSuccessful', 'news_detail', 'askedsuccessful', 'faq_view', 'redeem', 'redeemLogin', 'loginForRedeem', 'redeem_status', 'product_details', 'subscribe', 'unsubscribe', 'successfulsubscription', 'successfulunsubscription','expressCheckout','paymentSuccessful','deal_detail');
         $menus2 = $this->Event->find('all', array('fields' => 'id, event_name','conditions' => array('publish_status' => "Published")));
         $this->set('menu2', $menus2);
         $menus3 = $this->Cookingclass->find('all', array('fields' => 'id, cooking_class_name','conditions' => array('publish_status' => "Published")));
@@ -88,9 +88,9 @@ class AppController extends Controller {
         $this->set('logged_in', $this->Auth->loggedIn());
         $this->set('current_user', $this->Auth->user());
         $this->set('pathForFinder', "/project35/review3");
-        $this->sender = "sippoujulian@gmail.com";
-        $this->senderTag = "Foodie Trails.com.au";
-        $this->recipient = "91234@myrp.edu.sg";
+        $this->sender = "tours@foodietrails.com.au";
+        $this->senderTag = "Foodie Trails";
+        $this->recipient = "tours@foodietrails.com.au";
         $this->set('publicKey',"6Lfn_9cSAAAAACpNz0uOiOlgLpVACvGjFKgmNMYS");
         $this->privateKey = "6Lfn_9cSAAAAAKjnoH1uQM9pU_pZ1_lqL825v10X";
     }

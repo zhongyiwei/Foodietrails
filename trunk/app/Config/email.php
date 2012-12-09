@@ -45,10 +45,10 @@
 class EmailConfig {
 
     public $default = array(
-        'host' => 'ssl://smtp.gmail.com',
+        'host' => 'ssl://MELS9-N1S.hosting-services.net.au',
         'port' => 465,
-        'username' => 'sippoujulian@gmail.com',
-        'password' => '87199825',
+        'username' => 'foodietr',
+        'password' => 'h337117m',
         'transport' => 'Smtp'
 //        'transport' => 'Mail',
 //        'from' => 'you@localhost',
