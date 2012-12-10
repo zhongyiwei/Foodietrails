@@ -46,16 +46,12 @@ $this->start('manageRightContent');
 			<?php echo ($event['Event']['event_description']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Event Date'); ?></dt>
+		<dt><?php echo __('Event Date & Time'); ?></dt>
 		<dd>
 			<?php echo h($event['Event']['event_date']); ?>
 			&nbsp;
 		</dd>
-                <dt><?php echo __('Event Time'); ?></dt>
-		<dd>
-			<?php echo h($event['Event']['event_time']); ?>
-			&nbsp;
-		</dd>
+                
 			<dt><?php echo __('Event Image Name'); ?></dt>
 		<dd>
 			<img src="<?php echo ($event['Event']['event_thumbnail']);?>" height="100px">
