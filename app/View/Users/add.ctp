@@ -29,19 +29,20 @@ $this->start('manageRightContent');
 	<fieldset>
 	<?php
                 $roleType=array('Admin'=>'Administrator','Customer'=>'Customer');
-		echo $this->Form->input('user_role',array('options'=>$roleType,'default'=>'User'));
-		echo $this->Form->input('user_first_name');
-		echo $this->Form->input('user_surname');
-		echo $this->Form->input('user_contacts');
-		echo $this->Form->input('user_email');
-		echo $this->Form->input('user_password',array('type'=>'password'));
-		echo $this->Form->input('user_address');
-		echo $this->Form->input('user_dietary_requirement');
-		echo $this->Form->input('user_spl_assistance');
-		echo $this->Form->input('user_referee');
+		echo $this->Form->input('user_role',array('options'=>$roleType,'default'=>'User','label'=>'Role'));
+		echo $this->Form->input('user_first_name',array('label'=>'First Name'));
+		echo $this->Form->input('user_surname',array('label'=>'Surame'));
+		echo $this->Form->input('user_contacts',array('label'=>'Contact No'));
+		echo $this->Form->input('user_email',array('label'=>'Email'));
+		echo $this->Form->input('user_password',array('type'=>'password','label'=>'Password'));
+		echo $this->Form->input('user_address',array('label'=>'Address'));
+                echo $this->Form->input('country_id', array('type'=>'select','options'=>$countries));
+		echo $this->Form->input('user_dietary_requirement',array('label'=>'Dietary Requirements'));
+		echo $this->Form->input('user_spl_assistance',array('label'=>'Special Assistance'));
+		echo $this->Form->input('user_referee',array('label'=>'Referee'));
 //		echo $this->Form->input('user_postcode');
 //		echo $this->Form->input('user_state');
-		echo $this->Form->input('country_id', array('type'=>'select','options'=>$countries));
+		
 //                                    echo $this->Form->checkbox('user_emailsubscription', array( 'value' => 'Yes' )); 
 //		echo $this->Form->input('Event');
 //		echo $this->Form->input('News');

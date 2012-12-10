@@ -13,15 +13,15 @@ echo $this->Session->flash();
             <?php
             echo $this->Form->input('user_first_name', array('label' => 'First Name'));
             echo $this->Form->input('user_surname', array('label' => 'Last Name'));
-            echo $this->Form->input('user_contacts', array('label' => 'Contact Number'));
-            echo $this->Form->input('user_email', array('label' => 'Email Address'));
+            echo $this->Form->input('user_contacts', array('label' => 'Contact No.'));
+            echo $this->Form->input('user_email', array('label' => 'Email'));
             echo $this->Form->input('user_password', array('type' => 'password', 'label' => 'Password'));
             echo $this->Form->input('user_address', array('label' => 'Address'));
-            echo $this->Form->input('user_dietary_requirement', array('label' => 'Dietary Requirement'));
-            echo $this->Form->input('user_spl_assistance', array('label' => 'SQL Assistance'));
-            echo $this->Form->input('user_referee', array('label' => 'Referee'));
-            echo $this->Form->input('user_postcode', array('label' => 'Post code'));
             echo $this->Form->input('country_id', array('type' => 'select', 'options' => $countries));
+            echo $this->Form->input('user_dietary_requirement', array('label' => 'Dietary Requirement'));
+            echo $this->Form->input('user_spl_assistance', array('label' => 'Special Assistance'));
+            echo $this->Form->input('user_referee', array('label' => 'Referee'));
+            
 //		echo $this->Form->input('Event');
 //		echo $this->Form->input('News');
             ?>
