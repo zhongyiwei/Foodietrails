@@ -29,13 +29,17 @@ $paymentType = "Sale";
 //' payment has been succesfully authorized.
 //'
 //' This is set to the value entered on the Integration Assistant 
-$returnURL = "http://localhost:8080/IEP/confirmation.php";
+//'------------------------------------
+$returnURL = "http://ie.infotech.monash.edu.au/project35/review4/confirmation.php";
+//$returnURL = "http://localhost/confirmation.php";
+//'------------------------------------
 //' The cancelURL is the location buyers are sent to when they hit the
 //' cancel button during authorization of payment during the PayPal flow
 //'
 //' This is set to the value entered on the Integration Assistant 
-
-$cancelURL = "http://localhost:8080/IEP/Home";
+//'------------------------------------
+$cancelURL = "http://ie.infotech.monash.edu.au/project35/review4/";
+//$cancelURL = "http://localhost/";
 //'------------------------------------
 //' Calls the SetExpressCheckout API call
 //'
