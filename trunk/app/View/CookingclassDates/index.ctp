@@ -30,8 +30,8 @@ $this->start('manageRightContent');
         <thead>
             <tr>
                 <th>Holding Date</th>
-                <th>Name</th>
-                <th>Time</th>
+                <th>Cooking Class Name</th>
+                <th>Holding Time</th>
                 <th>Price</th>
                 <th>Progress</th>
                 <th class="actions"><?php echo __('Actions'); ?></th>

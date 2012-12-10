@@ -36,10 +36,10 @@ $this->start('manageRightContent');
         <?php
         $publishStatus = array('Private' => 'Private', 'Published' => 'Published');
         echo $this->Form->input('id');
-        echo $this->Form->input('cooking_class_name');
-        echo $this->Form->input('cooking_class_description', array('id' => 'cooking_class_description', 'class' => 'ckeditor'));
+        echo $this->Form->input('cooking_class_name',array('label'=>'Name'));
+        echo $this->Form->input('cooking_class_description', array('id' => 'cooking_class_description', 'class' => 'ckeditor','label'=>'Description'));
 //        echo $this->Form->input('cooking_class_price');
-        echo $this->Form->input('cooking_class_max_num_on_day');
+        echo $this->Form->input('cooking_class_max_num_on_day',array('label'=>'Max No. on day'));
         echo $this->Form->input('contactInfo');
         echo $this->Form->input('cooking_class_thumbnail', array('id' => 'xFilePath', 'class' => 'ckeditor', 'style' => 'width:500px'));
         echo $this->Form->button('Browse Server', array('onclick' => 'BrowseServer()', 'type' => 'button', 'style' => 'padding:5px;margin-top:-55px; margin-left:530px'));

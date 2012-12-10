@@ -38,17 +38,17 @@ $this->start('manageRightContent');
             <?php echo ($giftVoucher['GiftVoucher']['gift_voucher_name']); ?>
             &nbsp;
         </dd>
-        <dt>Gift Message</dt>
+        <dt>Email Message</dt>
         <dd>
             <?php echo ($giftVoucher['GiftVoucher']['gift_message']); ?>
             &nbsp;
         </dd>
-        <dt>Gift Price</dt>
+        <dt>Price</dt>
         <dd>
             <?php echo h($giftVoucher['GiftVoucher']['gift_price']); ?>
             &nbsp;
         </dd>
-        <dt>Gift Type</dt>
+        <dt>Type</dt>
         <dd>
             <?php echo h($giftVoucher['GiftVoucher']['gift_type']); ?>
             &nbsp;

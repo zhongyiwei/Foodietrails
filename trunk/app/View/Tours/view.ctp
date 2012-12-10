@@ -41,52 +41,52 @@ $this->start('manageRightContent');
             <?php echo h($tour['Tour']['id']); ?>
             &nbsp;
         </dd>-->
-        <dt><?php echo __('Tour Name'); ?></dt>
+        <dt><?php echo __('Name'); ?></dt>
         <dd>
             <?php echo h($tour['Tour']['tour_name']); ?>
             &nbsp;
         </dd>
-        <dt><?php echo __('Tour Vendor Name'); ?></dt>
+        <dt><?php echo __('Vendor Name'); ?></dt>
         <dd>
             <?php echo h($tour['Tour']['tour_vendor_name']); ?>
             &nbsp;
         </dd>
-        <dt><?php echo __('Tour Long Description'); ?></dt>
+        <dt><?php echo __('Long Description'); ?></dt>
         <dd>
             <?php echo h($tour['Tour']['tour_long_description']); ?>
             &nbsp;
         </dd>
-        <dt><?php echo __('Tour Notes'); ?></dt>
+        <dt><?php echo __('Notes'); ?></dt>
         <dd>
             <?php echo h($tour['Tour']['tour_notes']); ?>
             &nbsp;
         </dd>
-        <dt><?php echo __('Tour Paricipant Guidlines'); ?></dt>
+        <dt><?php echo __('Paricipant Guidlines'); ?></dt>
         <dd>
             <?php echo h($tour['Tour']['tour_paricipant_guidlines']); ?>
             &nbsp;
         </dd>
-        <dt><?php echo __('Tour Location'); ?></dt>
+        <dt><?php echo __('Location'); ?></dt>
         <dd>
             <?php echo h($tour['Tour']['tour_location']); ?>
             &nbsp;
         </dd>
-        <dt><?php echo __('Tour Duration'); ?></dt>
+        <dt><?php echo __('Duration'); ?></dt>
         <dd>
             <?php echo h($tour['Tour']['tour_duration']); ?>
             &nbsp;
         </dd>
-        <dt><?php echo __('Tour Weather'); ?></dt>
+        <dt><?php echo __('Weather'); ?></dt>
         <dd>
             <?php echo h($tour['Tour']['tour_weather']); ?>
             &nbsp;
         </dd>
-        <dt><?php echo __('Tour Spectator'); ?></dt>
+        <dt><?php echo __('Spectator'); ?></dt>
         <dd>
             <?php echo h($tour['Tour']['tour_spectator']); ?>
             &nbsp;
         </dd>
-        <dt><?php echo __('Tour Max Num On Day'); ?></dt>
+        <dt><?php echo __('Max Num On Day'); ?></dt>
         <dd>
             <?php echo h($tour['Tour']['tour_max_num_on_day']); ?>
             &nbsp;
@@ -96,7 +96,7 @@ $this->start('manageRightContent');
             <?php echo h($tourType[0]['TourType']['tour_type_name']); ?>
             &nbsp;
         </dd>
-        <dt><?php echo __('Tour Description'); ?></dt>
+        <dt><?php echo __('Description'); ?></dt>
         <dd>
             <?php echo ($tour['Tour']['tour_description']); ?>
             &nbsp;

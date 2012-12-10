@@ -31,9 +31,9 @@ $this->start('manageRightContent');
         <thead>
             <tr>
                 <th>Gift Voucher Name</th>
-                <th>Gift Message</th>
-                <th>Gift Price</th>
-                <th>Gift Type</th>
+                <th>Email Message</th>
+                <th>Price</th>
+                <th>Type</th>
                 <th class="actions"><?php echo __('Actions'); ?></th>
             </tr>
         </thead>

@@ -43,12 +43,12 @@ $this->start('manageRightContent');
             <?php echo $this->Html->link($tourOrder['User']['user_email'], array('controller' => 'users', 'action' => 'view', $tourOrder['User']['id'])); ?>
             &nbsp;
         </dd>
-        <dt><?php echo __('Tour Holding Date'); ?></dt>
+        <dt><?php echo __('Holding Date'); ?></dt>
         <dd>
             <?php echo $this->Html->link($tourOrder['TourDate']['tour_date'], array('controller' => 'tourdates', 'action' => 'view', $tourOrder['TourDate']['id'])); ?>
             &nbsp;
         </dd>
-        <dt><?php echo __('Tour Purchase Quantity'); ?></dt>
+        <dt><?php echo __('Purchase Quantity'); ?></dt>
         <dd>
             <?php echo h($tourOrder['TourOrder']['tour_purchase_quantity']); ?>
             &nbsp;

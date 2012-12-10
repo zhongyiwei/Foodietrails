@@ -38,27 +38,27 @@ $this->start('manageRightContent');
 			<?php echo h($cookingclass['Cookingclass']['id']); ?>
 			&nbsp;
 		</dd>-->
-		<dt><?php echo __('Cooking Class Name'); ?></dt>
+		<dt><?php echo __('Name'); ?></dt>
 		<dd>
 			<?php echo h($cookingclass['Cookingclass']['cooking_class_name']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Cooking Class Description'); ?></dt>
+		<dt><?php echo __('Description'); ?></dt>
 		<dd>
 			<?php echo ($cookingclass['Cookingclass']['cooking_class_description']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Cooking Class Price'); ?></dt>
-		<dd>
-			<?php echo h($cookingclass['Cookingclass']['cooking_class_price']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Cooking Class Location'); ?></dt>
+		<dt><?php echo __('Location'); ?></dt>
 		<dd>
 			<?php echo h($cookingclass['Cookingclass']['cooking_class_location']); ?>
 			&nbsp;
 		</dd>
-                		<dt><?php echo __('Cooking Class Maxmium People on Day'); ?></dt>
+                <dt><?php echo __('Contact information'); ?></dt>
+		<dd>
+			<?php echo h($cookingclass['Cookingclass']['contactInfo']); ?>
+			&nbsp;
+		</dd>
+                <dt><?php echo __('Maxmium People on Day'); ?></dt>
 		<dd>
 			<?php echo h($cookingclass['Cookingclass']['cooking_class_max_num_on_day']); ?>
 			&nbsp;

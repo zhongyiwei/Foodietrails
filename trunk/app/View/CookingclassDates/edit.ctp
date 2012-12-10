@@ -52,10 +52,10 @@ $this->start('manageRightContent');
     $progressStatus = array('Incomplete' => 'Incomplete', 'Completed' => 'Completed');
     echo $this->Form->input('cookingclass_id', array('type' => 'select', 'options' => $cookingclassName));
     //echo $this->Form->input('cookingclass_date');
-    			echo $this -> Form -> input('cookingclass_date', array('id' => 'datepicker' ,'class' => 'datepicker', 'type' => 'text', 'empty' => false, 'label' => array('text' => 'Cooking Class Date'), 'style' => 'align:left'));
-    echo $this->Form->input('cookingclass_time');
-    echo $this->Form->input('cooking_class_price');
-    echo $this->Form->input('cookingclass_progress', array('type' => 'select', 'options' => $progressStatus));
+    			echo $this -> Form -> input('cookingclass_date', array('id' => 'datepicker' ,'class' => 'datepicker', 'type' => 'text', 'empty' => false, 'label' => array('text' => 'Cooking Class Date'), 'style' => 'align:left','label'=>'Date'));
+    echo $this->Form->input('cookingclass_time',array('label'=>'Time'));
+    echo $this->Form->input('cooking_class_price',array('label'=>'Price'));
+    echo $this->Form->input('cookingclass_progress', array('type' => 'select', 'options' => $progressStatus,'label'=>'Progress'));
     ?>
     <?php echo $this->Form->end(__('Submit')); ?>
 </div>

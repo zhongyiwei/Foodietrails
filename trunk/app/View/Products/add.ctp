@@ -30,8 +30,8 @@ $this->start('manageRightContent');
         <?php
         $publishStatus = array('Private' => 'Private', 'Published' => 'Published');
         echo $this->Form->input('product_name');
-        echo $this->Form->input('product_description', array('id' => 'product_description', 'class' => 'ckeditor'));
-        echo $this->Form->input('product_price', array('type' => 'number'));
+        echo $this->Form->input('product_description', array('id' => 'product_description', 'class' => 'ckeditor', 'label'=>'Description'));
+        echo $this->Form->input('product_price', array('type' => 'number', 'label'=>'Price'));
         echo $this->Form->input('product_thumbnail', array('id' => 'xFilePath', 'class' => 'ckeditor', 'style' => 'width:500px'));
         echo $this->Form->button('Browse Server', array('onclick' => 'BrowseServer()', 'type' => 'button', 'style' => 'padding:5px;margin-top:-55px; margin-left:530px;float:left'));
         echo $this->Form->input('publish_status', array('options' => $publishStatus, 'default' => 'Private'));

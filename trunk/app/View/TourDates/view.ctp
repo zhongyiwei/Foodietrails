@@ -31,22 +31,22 @@ $this->start('manageRightContent');
 ?>
 <div class="tourDates view">
     <dl>
-        <dt><?php echo __('Tour Name'); ?></dt>
+        <dt><?php echo __('Name'); ?></dt>
         <dd>
             <?php echo $this->Html->link($tourDate['Tour']['tour_name'], array('controller' => 'tours', 'action' => 'view', $tourDate['Tour']['id'])); ?>
             &nbsp;
         </dd>
-        <dt><?php echo __('Tour Holding Date'); ?></dt>
+        <dt><?php echo __('Holding Date'); ?></dt>
         <dd>
             <?php echo h($tourDate['TourDate']['tour_date']); ?>
             &nbsp;
         </dd>
-        <dt><?php echo __('Tour Holding Time'); ?></dt>
+        <dt><?php echo __('Holding Time'); ?></dt>
         <dd>
             <?php echo h($tourDate['TourDate']['tour_time']); ?>
             &nbsp;
         </dd>
-       <dt><?php echo __('Tour Progress'); ?></dt>
+       <dt><?php echo __('Progress'); ?></dt>
         <dd>
             <?php echo h($tourDate['TourDate']['tour_progress']); ?>
             &nbsp;
