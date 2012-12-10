@@ -38,64 +38,39 @@ $this->start('manageRightContent');
         <?php echo h($user['User']['id']); ?>
                     &nbsp;
             </dd>-->
-        <dt><?php echo __('User Role'); ?></dt>
+        <dt><?php echo __('Role'); ?></dt>
         <dd>
             <?php echo h($user['User']['user_role']); ?>
             &nbsp;
         </dd>
-        <dt><?php echo __('User First Name'); ?></dt>
+        <dt><?php echo __('First Name'); ?></dt>
         <dd>
             <?php echo h($user['User']['user_first_name']); ?>
             &nbsp;
         </dd>
-        <dt><?php echo __('User Surname'); ?></dt>
+        <dt><?php echo __('Surname'); ?></dt>
         <dd>
             <?php echo h($user['User']['user_surname']); ?>
             &nbsp;
         </dd>
-        <dt><?php echo __('User Contacts'); ?></dt>
+        <dt><?php echo __('Contact No.'); ?></dt>
         <dd>
             <?php echo h($user['User']['user_contacts']); ?>
             &nbsp;
         </dd>
-        <dt><?php echo __('User Email'); ?></dt>
+        <dt><?php echo __('Email'); ?></dt>
         <dd>
             <?php echo h($user['User']['user_email']); ?>
             &nbsp;
         </dd>
-<!--		<dt><?php echo __('User Password'); ?></dt>-->
+<!--		<dt><?php echo __('Password'); ?></dt>-->
         <!--		<dd>
         <?php echo h($user['User']['user_password']); ?>
                                 &nbsp;
                         </dd>-->
-        <dt><?php echo __('User Address'); ?></dt>
+        <dt><?php echo __('Address'); ?></dt>
         <dd>
             <?php echo h($user['User']['user_address']); ?>
-            &nbsp;
-        </dd>
-        <dt><?php echo __('User Dietary Requirement'); ?></dt>
-        <dd>
-            <?php echo h($user['User']['user_dietary_requirement']); ?>
-            &nbsp;
-        </dd>
-        <dt><?php echo __('User Spl Assistance'); ?></dt>
-        <dd>
-            <?php echo h($user['User']['user_spl_assistance']); ?>
-            &nbsp;
-        </dd>
-        <dt><?php echo __('User Referee'); ?></dt>
-        <dd>
-            <?php echo h($user['User']['user_referee']); ?>
-            &nbsp;
-        </dd>
-        <dt><?php echo __('User Postcode'); ?></dt>
-        <dd>
-            <?php echo h($user['User']['user_postcode']); ?>
-            &nbsp;
-        </dd>
-        <dt><?php echo __('User State'); ?></dt>
-        <dd>
-            <?php echo h($user['User']['user_state']); ?>
             &nbsp;
         </dd>
         <dt><?php echo __('Country'); ?></dt>
@@ -103,6 +78,23 @@ $this->start('manageRightContent');
             <?php echo $this->Html->link($user['Country']['country_name'], array('controller' => 'countries', 'action' => 'view', $user['Country']['id'])); ?>
             &nbsp;
         </dd>
+        <dt><?php echo __('Dietary Requirement'); ?></dt>
+        <dd>
+            <?php echo h($user['User']['user_dietary_requirement']); ?>
+            &nbsp;
+        </dd>
+        <dt><?php echo __('Special Assistance'); ?></dt>
+        <dd>
+            <?php echo h($user['User']['user_spl_assistance']); ?>
+            &nbsp;
+        </dd>
+        <dt><?php echo __('Referee'); ?></dt>
+        <dd>
+            <?php echo h($user['User']['user_referee']); ?>
+            &nbsp;
+        </dd>
+       
+    
     </dl>
 </div>
 <?php $this->end(); ?>

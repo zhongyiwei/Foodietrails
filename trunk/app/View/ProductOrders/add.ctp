@@ -29,7 +29,7 @@ $this->start('manageRightContent');
     <?php
     echo $this->Form->input('product_id',array('type' => 'select', 'options' => $productName));
     echo $this->Form->input('user_id', array('type' => 'select', 'options' => $userEmail));
-    echo $this->Form->input('product_purchase_quantity');
+    echo $this->Form->input('product_purchase_quantity',array('label'=>'Purchase Qty'));
 //    echo $this->Form->input('product_purchase_date');
     ?>
     <?php echo $this->Form->end(__('Submit')); ?>

@@ -32,7 +32,7 @@ $this->start('manageRightContent');
             <tr>
                 <th>Product Name</th>
                 <th>User Email</th>
-                <th>Purchase Quantity</th>
+                <th>Quantity</th>
                 <th>Purchase Date</th>
                 <th class="actions"><?php echo __('Actions'); ?></th>
             </tr>
