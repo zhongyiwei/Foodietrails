@@ -19,6 +19,9 @@ $this->assign('title', "Foodie Trails Admin Portal");
                     <li class="<?php echo $this->fetch('LeftEvent'); ?>"><?php echo $this->Html->link(__('Events Management'), array('controller' => 'events', 'action' => 'index')); ?></li>  
                     <li class="<?php echo $this->fetch('LeftFaq'); ?>"><?php echo $this->Html->link(__('FAQ Management'), array('controller' => 'Faqs', 'action' => 'index')); ?></li>  
                     <li class="<?php echo $this->fetch('LeftWebsite'); ?>"><?php echo $this->Html->link(__('Website Management'), array('controller' => 'disclaimerforms', 'action' => 'index')); ?></li>
+                    <li class="<?php echo $this->fetch('LeftDeal'); ?>"><?php echo $this->Html->link(__('Deal Management'), array('controller' => 'deals', 'action' => 'index')); ?></li>
+                    <li class="<?php echo $this->fetch('LeftExport'); ?>"><?php echo $this->Html->link(__('Export Management'), array('controller' => 'exports', 'action' => 'index')); ?></li>
+
                 </ul>
             </div>
         </td>
