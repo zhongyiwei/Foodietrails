@@ -31,8 +31,8 @@ $this->start('manageRightContent');
             <tr>
             <!--<th>ID</th>-->
                 <th>Product Name</th>
-                <th>Product Description</th>
-                <th>Product Price</th>
+                <th>Description</th>
+                <th>Price</th>
                 <th class="actions"><?php echo __('Actions'); ?></th>
             </tr>
         </thead>

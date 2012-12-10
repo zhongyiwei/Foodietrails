@@ -30,11 +30,11 @@ $this->start('manageRightContent');
     <table cellpadding="0" cellspacing="0" id="js-datatable">
         <thead>
             <tr>
+                <th>Holding Date</th>
                 <th>Tour Name</th>
                 <th>User Email</th>
-                <th>Tour Holding Date</th>
                 <th>Quantity</th>
-                <th>Tour Purchase Date</th>
+                <th>Purchase Date</th>
                 <th class="actions"><?php echo __('Actions'); ?></th>
             </tr>
         </thead>

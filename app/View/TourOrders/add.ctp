@@ -29,8 +29,8 @@ $this->start('manageRightContent');
     <?php
     echo $this->Form->input('tour_id', array('type' => 'select', 'options' => $tourName));
     echo $this->Form->input('user_id', array('type' => 'select', 'options' => $userEmail));
-    echo $this->Form->input('tour_date_id', array('type' => 'select', 'options' => $tourHoldingDate));
-    echo $this->Form->input('tour_purchase_quantity');
+    echo $this->Form->input('tour_date_id', array('type' => 'select', 'options' => $tourHoldingDate,'label'=>'Date'));
+    echo $this->Form->input('tour_purchase_quantity',array('label'=>'Purchase Qty'));
     ?>
     <?php echo $this->Form->end(__('Submit')); ?>
 </div>

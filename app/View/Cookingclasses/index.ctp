@@ -29,10 +29,10 @@ $this->start('manageRightContent');
         <thead>
             <tr>
                             <!--<th>id</th>-->
-                <th>Cooking Class Name</th>
-                <th>Cooking Class Description</th>
+                <th>Name</th>
+                <th>Description</th>
                 <!--<th>Cooking Class Price</th>-->
-                <th>Cooking Class Location</th>
+                <th>Location</th>
                 <th class="actions"><?php echo __('Actions'); ?></th>
             </tr>
         </thead>

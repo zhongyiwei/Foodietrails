@@ -29,8 +29,8 @@ $this->start('manageRightContent');
     <?php
     echo $this->Form->input('cooking_class_id', array('type' => 'select', 'options' => $cookingclassName));
     echo $this->Form->input('user_id', array('type' => 'select', 'options' => $userEmail));
-    echo $this->Form->input('cooking_class_date_id', array('type' => 'select', 'options' => $cookingclassDate));
-    echo $this->Form->input('cooking_class_order_quantity');
+    echo $this->Form->input('cooking_class_date_id', array('type' => 'select', 'options' => $cookingclassDate,'label'=>'Date'));
+    echo $this->Form->input('cooking_class_order_quantity',array('label'=>'Order Qty'));
 //    echo $this->Form->input('cooking_class_order_date', array('label' => 'Cooking Class Purchase Date'));
     ?>
     <?php echo $this->Form->end(__('Submit')); ?>

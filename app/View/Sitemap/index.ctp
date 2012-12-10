@@ -31,9 +31,11 @@
                         <?php } ?>
                         <p />
                     </ul>
-                    <ul><li class="parent_sitemap">Events</li>
+                    <ul><li class="parent_sitemap">Special</li>
+                        <ul><li class="indent_sitemap"><?php echo $this->Html->link(__('Deals'), array('controller' => 'Deals', 'action' => 'deal_detail')); ?></li></ul>
                         <?php for ($i = 0; $i < count($menu2); $i++) { ?>
-                            <ul><li class="indent_sitemap"> <?php
+                            <ul><li class="indent_sitemap"> Events
+                                <ul><li class="indent_sitemap2"><?php
                         $eventName = $menu2[$i]['Event']['event_name'];
                         echo $this->Html->link(__($eventName), array('controller' => 'Events', 'action' => 'event_detail', $menu2[$i]['Event']['id']));
                             ?></li></ul>

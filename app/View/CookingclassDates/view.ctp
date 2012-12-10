@@ -32,22 +32,22 @@ $this->start('manageRightContent');
 ?>
 <div class="cookingclassDates view">
     <dl>
-        <dt><?php echo __('Cooking Class Name'); ?></dt>
+        <dt><?php echo __('Name'); ?></dt>
         <dd>
             <?php echo $this->Html->link($cookingclassDate['Cookingclass']['cooking_class_name'], array('controller' => 'cooking_classes', 'action' => 'view', $cookingclassDate['Cookingclass']['id'])); ?>
             &nbsp;
         </dd>
-        <dt><?php echo __('Cooking Class Holding Date'); ?></dt>
+        <dt><?php echo __('Holding Date'); ?></dt>
         <dd>
             <?php echo h($cookingclassDate['CookingclassDate']['cookingclass_date']); ?>
             &nbsp;
         </dd>
-        <dt><?php echo __('Cooking Class Holding Time'); ?></dt>
+        <dt><?php echo __('Holding Time'); ?></dt>
         <dd>
             <?php echo h($cookingclassDate['CookingclassDate']['cookingclass_time']); ?>
             &nbsp;
         </dd>
-        <dt><?php echo __('Cooking Class Progress'); ?></dt>
+        <dt><?php echo __('Progress'); ?></dt>
         <dd>
             <?php echo h($cookingclassDate['CookingclassDate']['cookingclass_progress']); ?>
             &nbsp;

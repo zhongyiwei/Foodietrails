@@ -46,9 +46,9 @@ echo $this->Form->input('gift_voucher_name');
         </span>
     </div>
 <?php
-echo $this->Form->input('gift_message', array('id' => 'gift_message', 'class' => 'ckeditor', 'label' => false));
-echo $this->Form->input('gift_price');
-echo $this->Form->input('gift_type', array('type' => 'select', 'options' => $productType));
+echo $this->Form->input('gift_message', array('id' => 'gift_message', 'class' => 'ckeditor', 'label' => 'Email Message'));
+echo $this->Form->input('gift_price',array('label'=>'Price'));
+echo $this->Form->input('gift_type', array('type' => 'select', 'options' => $productType,'label'=>'Type'));
 echo $this->Form->input('publish_status', array('options' => $publishStatus, 'default' => 'Private'));
     ?>
     <?php echo $this->Form->end(__('Submit')); ?>
