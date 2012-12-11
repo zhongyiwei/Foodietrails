@@ -1,4 +1,4 @@
-
+<?php $this->assign('title', 'Foodie Trails - Food Tours Melbourne, Gourmet Walking Tour, Walking Food Tour, Walking Tours Melbourne ');?>
 <h1 class="tourHeader">Products</h1>
 <table width="400" border="1">
     <?php foreach ($products as $product): ?>

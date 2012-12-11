@@ -1,3 +1,7 @@
+<?php 
+$productName = $product['Product']['product_name'];
+$this->assign('title', "Foodie Trails - $productName");
+?>
 <?php
 //print_r($feedback);
 /*

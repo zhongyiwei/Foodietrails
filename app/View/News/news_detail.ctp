@@ -1,4 +1,8 @@
+
 <?php
+$newsName = $news['News']['news_title'];
+$this->assign('title', "Foodie Trails - $newsName");
+
 //print_r($event);
 /*
  * To change this template, choose Tools | Templates

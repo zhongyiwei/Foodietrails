@@ -1,3 +1,5 @@
+<?php $this->assign('title', 'Foodie Trails - Food Tours Melbourne, Gourmet Walking Tour, Walking Food Tour, Walking Tours Melbourne ');?>
+
 <!--<h1 class="contactHeading">Himanshi</h1>
 <img src="<?php echo $this->webroot; ?>img/ContactUsP1.png" align="right" height="300px" style="margin: -50px 50px;"/>
 <p class="contactP">P O Box 8634, Armadale VIC 3143</p>
