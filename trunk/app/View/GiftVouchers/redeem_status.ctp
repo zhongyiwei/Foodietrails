@@ -1,3 +1,5 @@
+<?php $this->assign('title', 'Foodie Trails - Food Tours Melbourne, Gourmet Walking Tour, Walking Food Tour, Walking Tours Melbourne ');?>
+
 <div>
     <table width="200" border="0" style=" margin-top:50px; margin-bottom: 20px">
         <tr>

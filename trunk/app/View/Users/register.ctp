@@ -1,3 +1,4 @@
+<?php $this->assign('title', 'Foodie Trails - Food Tours Melbourne, Gourmet Walking Tour, Walking Food Tour, Walking Tours Melbourne ');?>
 
 <?php
 echo $this->Form->create('User');

@@ -1,3 +1,5 @@
+<?php $this->assign('title', 'Foodie Trails - Food Tours Melbourne, Gourmet Walking Tour, Walking Food Tour, Walking Tours Melbourne ');?>
+
 <?php
 echo $this->Html->css('loginPage.css');
 echo $this->Session->flash();

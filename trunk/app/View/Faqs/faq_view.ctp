@@ -1,3 +1,5 @@
+<?php $this->assign('title', 'Foodie Trails - Food Tours Melbourne, Gourmet Walking Tour, Walking Food Tour, Walking Tours Melbourne ');?>
+
 <h1 class="tourHeader">Frequently Asked Questions</h1>
 <h2 class="tourParticipantGuide">Question and Answer</h2>
 <p><?php foreach ($faqs as $faq): ?>
