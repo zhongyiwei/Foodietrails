@@ -1,6 +1,7 @@
 <?php
 //print_r($SC);
 ?>
+<?php echo $this->Session->flash(); ?>
 <table width="200" border="1">
     <?php
     if (count($SC)!= 0) {
