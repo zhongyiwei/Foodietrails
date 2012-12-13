@@ -1,17 +1,18 @@
 <?php
-$this->extend('/Common/AdminAdd');
-$this->assign('LeftProduct', 'LeftMenuActions');
+$this->extend('/Common/AdminEdit');
+$this->assign('LeftProduct', '');
 $this->assign('LeftOrder', '');
 $this->assign('LeftCustomer', '');
 $this->assign('LeftNews', '');
 $this->assign('LeftDeal', 'LeftMenuActions');
+$this->start('LeftEditMenu');
+?>
+<li><?php echo $this->Html->link(__('View Deal'), array('action' => 'view', $this->Form->value('Deal.id'))); ?></li>
+<li><?php echo $this->Form->postLink(__('Delete Deal'), array('action' => 'delete', $this->Form->value('Deal.id')), null, __('Are you sure you want to delete # %s?', $this->Form->value('Deal.id'))); ?></li>
+<?php
+$this->end();
 $this->start('manageRightMenu');
 ?>
-<div class="manageRightMenu" >
-    <ul>
-        <li class='active '><?php echo $this->Html->link(__('Deal'), array('action' => 'index')); ?></li>
-    </ul>
-</div>
 <div class="mangeRightSubMenu"> 
     <div class="unselected"><?php echo $this->Html->link(__('Deal List'), array('action' => 'index')); ?></div>
     <div class="unselected"><?php echo $this->Html->link(__('Add Deal'), array('action' => 'add')); ?></div>

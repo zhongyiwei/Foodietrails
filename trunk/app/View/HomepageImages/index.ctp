@@ -10,10 +10,10 @@ $this->start('manageRightMenu');
 ?>
 <div class="manageRightMenu" >
     <ul>
-        <li><?php echo $this->Html->link(__('Disclaimer Form'), array('controller' => 'disclaimerforms', 'action' => 'index')); ?></li>
-        <li class='active '><?php echo $this->Html->link(__('Home Page Image'), array('controller' => 'homepageimages', 'action' => 'index')); ?></li>
-        <li><?php echo $this->Html->link(__('Home Page List'), array('controller' => 'homepagelists', 'action' => 'index')); ?></li>
-        <li><?php echo $this->Html->link(__('About Us'), array('controller' => 'aboutuspages', 'action' => 'index')); ?></li>
+        <li><?php echo $this->Html->link(__('Disclaimer Form'), array('controller' => 'disclaimerForms', 'action' => 'index')); ?></li>
+        <li class='active '><?php echo $this->Html->link(__('Home Page Image'), array('controller' => 'homePageImages', 'action' => 'index')); ?></li>
+        <li><?php echo $this->Html->link(__('Home Page List'), array('controller' => 'homepageLists', 'action' => 'index')); ?></li>
+        <li><?php echo $this->Html->link(__('About Us'), array('controller' => 'aboutusPages', 'action' => 'index')); ?></li>
     </ul>
 </div>
 
@@ -38,16 +38,16 @@ $this->start('manageRightContent');
             </tr>
         </thead>
         <tbody>
-            <?php foreach ($homepageImages as $homepageImage): ?>
+            <?php foreach ($HomePageImages as $homePageImage): ?>
                 <tr>
-                    <!--<td><?php echo h($homepageImage['HomepageImage']['id']); ?>&nbsp;</td>-->
-                    <td><?php echo h($homepageImage['HomepageImage']['image_name']); ?>&nbsp;</td>
-                    <td><?php echo h($homepageImage['HomepageImage']['publish_status']); ?>&nbsp;</td>
-                    <td><?php echo h($homepageImage['HomepageImage']['image_description']); ?>&nbsp;</td>
+                    <!--<td><?php echo h($homePageImage['HomePageImage']['id']); ?>&nbsp;</td>-->
+                    <td><?php echo h($homePageImage['HomePageImage']['image_name']); ?>&nbsp;</td>
+                    <td><?php echo h($homePageImage['HomePageImage']['publish_status']); ?>&nbsp;</td>
+                    <td><?php echo h($homePageImage['HomePageImage']['image_description']); ?>&nbsp;</td>
                     <td class="actions">
-                        <?php echo $this->Html->link(__('View'), array('action' => 'view', $homepageImage['HomepageImage']['id'])); ?>
-                        <?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $homepageImage['HomepageImage']['id'])); ?>
-                        <?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $homepageImage['HomepageImage']['id']), null, __('Are you sure you want to delete this image?')); ?>
+                        <?php echo $this->Html->link(__('View'), array('action' => 'view', $homePageImage['HomePageImage']['id'])); ?>
+                        <?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $homePageImage['HomePageImage']['id'])); ?>
+                        <?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $homePageImage['HomePageImage']['id']), null, __('Are you sure you want to delete this image?')); ?>
                     </td>
                 </tr>
             <?php endforeach; ?>

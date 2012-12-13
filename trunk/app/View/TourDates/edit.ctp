@@ -16,8 +16,8 @@ $this->start('manageRightMenu');
 ?>
 <div class="manageRightMenu" >
     <ul>
-        <li class='active '><?php echo $this->Html->link(__('Tour Date'), array('controller' => 'tourdates', 'action' => 'index')); ?></li>
-        <li><?php echo $this->Html->link(__('Cooking Class Date'), array('controller' => 'cookingclassdates', 'action' => 'index')); ?></li>
+        <li class='active '><?php echo $this->Html->link(__('Tour Date'), array('controller' => 'tourDates', 'action' => 'index')); ?></li>
+        <li><?php echo $this->Html->link(__('Cooking Class Date'), array('controller' => 'cookingclassDates', 'action' => 'index')); ?></li>
     </ul>
 </div>
 <div class="mangeRightSubMenu"> 
@@ -31,27 +31,27 @@ $this->start('manageRightContent');
 ?>
 <div class="tourDates form">
      <script>
-    $(function() {
-        $( "#datepicker" ).datepicker({
-            	dateFormat : 'dd/mm/yy', altFormat : 'yy-mm-dd' 
+  //  $(function() {
+  //      $( "#datepicker" ).datepicker({
+   //         	dateFormat : 'dd/mm/yy', altFormat : 'yy-mm-dd' 
 
-        });
-    });
+  //      });
+   // });
     </script>
     
     
     <?php echo $this->Form->create('TourDate'); ?>
 
     <?php
-    echo $this->Html->css('jquery-ui');
+  //  echo $this->Html->css('jquery-ui');
 
-            echo $this->Html->script(array('jquery-1.8.2' , 'jquery-ui'));
+     //       echo $this->Html->script(array('jquery-1.8.2' , 'jquery-ui'));
             
     $progressStatus = array('Incomplete' => 'Incomplete', 'Completed' => 'Completed');
     echo $this->Form->input('tour_id', array('type' => 'select', 'options' => $tourName));
     // debug($tours);
-    echo $this -> Form -> input('tour_date', array('id' => 'datepicker' ,'class' => 'datepicker', 'type' => 'text', 'empty' => false, 'label' => array('text' => 'Tour Date'), 'style' => 'align:left','label'=>'Date'));
-
+   // echo $this -> Form -> input('tour_date', array('id' => 'datepicker' ,'class' => 'datepicker', 'type' => 'text', 'empty' => false, 'label' => array('text' => 'Tour Date'), 'style' => 'align:left','label'=>'Date'));
+echo $this -> Form -> input('tour_date');
    // echo $this->Form->input('tour_date');
     echo $this->Form->input('tour_time',array('label'=>'Time'));
     echo $this->Form->input('tour_price_per_certificate',array('label'=>'Price'));
@@ -60,5 +60,3 @@ $this->start('manageRightContent');
     <?php echo $this->Form->end(__('Submit')); ?>
 </div>
 <?php $this->end(); ?>
-
-

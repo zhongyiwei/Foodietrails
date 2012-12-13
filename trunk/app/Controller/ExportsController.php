@@ -8,8 +8,8 @@ class ExportsController extends AppController {
         $tourDates = $this->TourDate->find('list', array('fields' => array('tour_date'), 'conditions' => array('TourDate.tour_date >=' => date('Y-m-d H:i:s'))));
         $tour = $this->Tour->find('list');
         $tourDatesPre = $this->TourDate->find('list', array('fields' => array('tour_date'), 'conditions' => array('TourDate.tour_date <' => date('Y-m-d H:i:s'))));
-        $cookingClassDates = $this->CookingclassDate->find('list', array('fields' => array('cookingclass_date'), 'conditions' => array('CookingClassDate.cookingclass_date >=' => date('Y-m-d H:i:s'))));
-        $cookingClassDatesPre = $this->CookingclassDate->find('list', array('fields' => array('cookingclass_date'), 'conditions' => array('CookingClassDate.cookingclass_date <' => date('Y-m-d H:i:s'))));
+        $cookingClassDates = $this->CookingclassDate->find('list', array('fields' => array('cookingclass_date'), 'conditions' => array('CookingclassDate.cookingclass_date >=' => date('Y-m-d H:i:s'))));
+        $cookingClassDatesPre = $this->CookingclassDate->find('list', array('fields' => array('cookingclass_date'), 'conditions' => array('CookingclassDate.cookingclass_date <' => date('Y-m-d H:i:s'))));
         $this->set(compact('tourDates', 'tour', 'tourDatesPre', 'cookingClassDates', 'cookingClassDatesPre'));
     }
 
@@ -67,7 +67,7 @@ class ExportsController extends AppController {
     public function exportCookingClass() {
         ini_set('max_execution_time', 6000);
         $cookingClassDateId = $this->request->data['exports']['cookingclass_date_id'];
-        $cookingClassDates = $this->CookingclassDate->find('all', array('conditions' => array('CookingClassDate.id' => $cookingClassDateId)));
+        $cookingClassDates = $this->CookingclassDate->find('all', array('conditions' => array('CookingclassDate.id' => $cookingClassDateId)));
         $cookingClassOrders = $this->CookingclassOrder->find('all', array('conditions' => array('CookingclassOrder.cooking_class_date_id' => $cookingClassDateId)));
 
         $this->autoRender = false;
@@ -407,7 +407,6 @@ class ExportsController extends AppController {
             $this->redirect("index");
         }
     }
-
 }
 
 ?>

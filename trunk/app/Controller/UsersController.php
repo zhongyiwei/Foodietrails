@@ -1,7 +1,7 @@
 <?php
 
 App::uses('AppController', 'Controller');
-
+require_once('recaptchalib.php');
 /**
  * Users Controller
  *
@@ -360,7 +360,7 @@ class UsersController extends AppController {
         $identifier = $this->params['url']['def'];
         if ($this->request->is('post')) {
             if ($this->Auth->login()) {
-                $this->redirect(array('controller' => 'giftvouchers', 'action' => "chooseDate?def=$identifier&id=$id"));
+                $this->redirect(array('controller' => 'giftVouchers', 'action' => "chooseDate?def=$identifier&id=$id"));
             } else {
                 $this->Session->setFlash(__('Invalid email or password, try again'), 'failure-message');
             }
@@ -372,88 +372,8 @@ class UsersController extends AppController {
     }
 
     public function export() {
-//          $header_row = array(
-//            'User' => array(
-//                'id' => 'User ID',
-//                'user_role' => 'Role',
-//                'user_first_name' => 'First Name',
-//                'user_surname' => 'Surname',
-//                'user_contacts' => 'Contact Details (Phone)',
-//                'user_email' => 'Email',
-//                'user_password' => 'Password',
-//                'user_dietary_requirement' => 'Dietary Requirements',
-//                'user_spl_assistance' => 'SPL Assistance',
-//                'user_referee' => 'Referee',
-//                'user_postcode' => 'Post Code',
-//                'user_state' => 'State',
-//                'country_id' => 'Country'
-//            )
-//        );
         ini_set('max_execution_time', 600);
-//        $filename = "User_Detail_Export_" . date("Y.m.d") . ".csv";
-//        $csv_file = fopen('php://output', 'w');
-//        header('Content-type: application/csv');
-//        header('Content-Disposition: attachment; filename="' . $filename . '"');
-//        $result = $this->User->find("all", array('fields' => array('user_role','user_first_name',
-//                'user_surname',
-//                'user_contacts',
-//                'user_email',
-//                'user_dietary_requirement',
-//                'user_spl_assistance',
-//                'user_referee',
-//                'user_postcode',
-//                'user_state')));
-//        $header_row = array(
-//            'User' => array(
-//                'Role',
-//                'First Name',
-//                'Surname',
-//                'Contact Details (Phone)',
-//                'Email',
-//                'Dietary Requirements',
-//                'SPL Assistance',
-//                'Referee',
-//                'Post Code',
-//                'State',
-//            )
-//        );
-//        $header_row = array(
-//            'User' => array(
-//                'user_role' => 'Role',
-//                'user_first_name' => 'First Name',
-//                'user_surname' => 'Surname',
-//                'user_contacts' => 'Contact Details (Phone)',
-//                'user_email' => 'Email',
-//                'user_password' => 'Password',
-//                'user_dietary_requirement' => 'Dietary Requirements',
-//                'user_spl_assistance' => 'SPL Assistance',
-//                'user_referee' => 'Referee',
-//                'user_postcode' => 'Post Code',
-//                'user_state' => 'State',
-//            )
-//        );
-//        print_r($result);
-//        fputcsv($csv_file, $header_row, ',', '"');
-//        foreach ($result as $result) {
-//            // Array indexes correspond to the field names in your db table(s)
-//            $row = array(
-//                $result['User']['user_role'],
-//                $result['User']['user_first_name'],
-//                $result['User']['user_surname'],
-//                $result['User']['user_contacts'],
-//                $result['User']['user_email'],
-//                $result['User']['user_dietary_requirement'],
-//                $result['User']['user_spl_assistance'],
-//                $result['User']['user_referee'],
-//                $result['User']['user_postcode'],
-//                $result['User']['user_state'],
-//            );
-//            fputcsv($csv_file, $row, ',', '"');
-////                    print_r($row);
-//        }
-//        fclose($csv_file);
-//        $this->redirect(array('action' => "/index/"));
-        Configure::write('debug', 0);
+
         $result = $this->User->find("all", array('fields' => array(
                 'id',
                 'user_role',
@@ -464,24 +384,40 @@ class UsersController extends AppController {
                 'user_dietary_requirement',
                 'user_spl_assistance',
             ),
-            'contain' => false));
+            ));
 //        print_r($result);
         $header_row = array(
-            'User' => array(
-                'id' => 'ID',
-                'user_role' => 'Role',
-                'user_first_name' => 'First Name',
-                'user_surname' => 'Surname',
-                'user_contacts' => 'Contact Details (Phone)',
-                'user_email' => 'Email',
-                'user_dietary_requirement' => 'Dietary Requirements',
-                'user_spl_assistance' => 'SPL Assistance',
-            )
+                'Role',
+                'First Name',
+                'Surname',
+                'Contact Details (Phone)',
+                'Email',
+                'Dietary Requirements',
+                'SPL Assistance',
         );
-        array_unshift($result, $header_row);
-//        print_r($result);
-//        $this->set(compact('data'));
-        $this->set('data', $result);
+        //array_unshift($result, $header_row);
+        $currentDate = date('Y-m-d');
+        $filename  = "User_Details_On_$currentDate.csv";
+        $csv_file = fopen('php://output', 'w');
+        $this->autoRender = false;
+        
+        header('Content-type: application/csv');
+        header('Content-Disposition: attachment; filename="' . $filename . '"');
+        
+        fputcsv($csv_file, $header_row, ',', '"');
+        foreach ($result as $result) {
+                $row = array(
+                    $result['User']['user_role'],
+                    $result['User']['user_first_name'],
+                    $result['User']['user_surname'],
+                    $result['User']['user_contacts'],
+                    $result['User']['user_email'],
+                    $result['User']['user_dietary_requirement'],
+                    $result['User']['user_spl_assistance'],
+                );
+                fputcsv($csv_file, $row, ',', '"');
+            }
+        fclose($csv_file);
     }
 
 }

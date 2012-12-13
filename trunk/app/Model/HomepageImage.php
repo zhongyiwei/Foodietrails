@@ -4,7 +4,7 @@ App::uses('AppModel', 'Model');
  * HomepageImage Model
  *
  */
-class HomepageImage extends AppModel {
+class HomePageImage extends AppModel {
 
 /**
  * Validation rules

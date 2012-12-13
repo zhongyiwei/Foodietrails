@@ -9,10 +9,10 @@ $this->start('manageRightMenu');
 ?>
 <div class="manageRightMenu" >
     <ul>
-        <li><?php echo $this->Html->link(__('Tour Order'), array('controller' => 'tourorders', 'action' => 'index')); ?></li>
+        <li><?php echo $this->Html->link(__('Tour Order'), array('controller' => 'tourOrders', 'action' => 'index')); ?></li>
         <li><?php echo $this->Html->link(__('Product Order'), array('controller' => 'productorders', 'action' => 'index')); ?></li>
-        <li class='active '><?php echo $this->Html->link(__('Cooking Class Order'), array('controller' => 'cookingclassorders', 'action' => 'index')); ?></li>
-        <li><?php echo $this->Html->link(__('Gift Voucher Order'), array('controller' => 'giftvoucherorders', 'action' => 'index')); ?></li>
+        <li class='active '><?php echo $this->Html->link(__('Cooking Class Order'), array('controller' => 'cookingclassOrders', 'action' => 'index')); ?></li>
+        <li><?php echo $this->Html->link(__('Gift Voucher Order'), array('controller' => 'giftvoucherOrders', 'action' => 'index')); ?></li>
     </ul>
 </div>
 <div class="mangeRightSubMenu"> 

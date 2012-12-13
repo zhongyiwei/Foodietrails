@@ -55,7 +55,7 @@ class HomepageListsController extends AppController {
 
         if ($all[0]['HomepageList']['list_type'] == 'Tour') {
             $tourId = $all[0]['HomepageList']['product_id'];
-            $temp = $this->Tour->find('all', array('fields' => 'tour_name', 'conditions' => array('id' => "$tourId")));
+            $temp = $this->Tour->find('all', array('fields' => 'tour_name', 'conditions' => array('Tour.id' => "$tourId")));
             $productName = $temp[0]['Tour']['tour_name'];
         } else if ($all[0]['HomepageList']['list_type'] == 'Cooking Class') {
             $cookingClassId = $all[0]['HomepageList']['product_id'];
