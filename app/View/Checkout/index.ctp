@@ -3,9 +3,11 @@
 ?>
 <table width="200" border="1">
     <?php
-    if (isset($SC)) {
+    if (count($SC)!= 0) {
         $ar_keys = array_keys($SC);
         rsort($ar_keys);
+        //debug($SC);
+        //debug(count($SC));
         ?>
         <tr>
             <td>&nbsp;</td>

@@ -18,8 +18,8 @@ $this->start('manageRightMenu');
 ?>
 <div class="manageRightMenu" >
     <ul>
-        <li class='active '><?php echo $this->Html->link(__('Tour Date'), array('controller' => 'tourdates', 'action' => 'index')); ?></li>
-        <li><?php echo $this->Html->link(__('Cooking Class Date'), array('controller' => 'cookingclassdates', 'action' => 'index')); ?></li>
+        <li><?php echo $this->Html->link(__('Tour Date'), array('controller' => 'tourDates', 'action' => 'index')); ?></li>
+        <li class='active'><?php echo $this->Html->link(__('Cooking Class Date'), array('controller' => 'cookingclassDates', 'action' => 'index')); ?></li>
     </ul>
 </div>
 <div class="mangeRightSubMenu"> 
@@ -60,4 +60,3 @@ $this->start('manageRightContent');
     <?php echo $this->Form->end(__('Submit')); ?>
 </div>
 <?php $this->end(); ?>
-

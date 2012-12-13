@@ -18,7 +18,7 @@ $this->start('manageRightMenu');
 <div class="mangeRightSubMenu"> 
     <div class="selected"><?php echo $this->Html->link(__('User List'), array('action' => 'index')); ?></div>
     <div class="unselected"><?php echo $this->Html->link(__('Add User'), array('action' => 'add')); ?></div>
-    <div class="unselected"><?php echo $this->Html->link(__('Download User Details'), array('action' => '/export/User_Details_On_' . date("Ymd") . '.csv')); ?>
+    <div class="unselected"><?php echo $this->Html->link(__('Download User Details'), array('action' => '/export')); ?>
     </div>
 </div>
 <?php
@@ -41,6 +41,8 @@ $this->start('manageRightContent');
                 <!--<th>user_dietary_requirement</th>
                 <th>user_spl_assistance</th>
                 <th>user_referee</th> -->
+<!--			<th>Postcode</th>
+                <th>State</th>-->
                 <!-- <th><?php echo $this->Paginator->sort('country_id'); ?></th> -->
                 <th class="actions"><?php echo __('Actions'); ?></th>
             </tr>

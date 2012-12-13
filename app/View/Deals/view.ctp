@@ -1,10 +1,16 @@
 <?php
-$this->extend('/Common/AdminAdd');
-$this->assign('LeftProduct', 'LeftMenuActions');
+$this->extend('/Common/AdminView');
+$this->assign('LeftProduct', '');
 $this->assign('LeftOrder', '');
 $this->assign('LeftCustomer', '');
 $this->assign('LeftNews', '');
 $this->assign('LeftDeal', 'LeftMenuActions');
+$this->start('LeftEditMenu');
+?>
+<li><?php echo $this->Html->link(__('Edit Deal'), array('action' => 'edit', $deal['Deal']['id'])); ?> </li>
+<li><?php echo $this->Form->postLink(__('Delete Deal'), array('action' => 'delete', $deal['Deal']['id']), null, __('Are you sure you want to delete this deal?')); ?> </li>
+<?php
+$this->end();
 $this->start('manageRightMenu');
 ?>
 <div class="manageRightMenu" >

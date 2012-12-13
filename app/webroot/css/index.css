@@ -482,10 +482,10 @@ a:hover, a:active, a:focus { /* 此组选择器将为键盘导航者提供与鼠
     margin-top: -180px;
     height:69px;
     width: 149px;
-    background: url('../img/FeedBack.png');
+    background: url('../img/Feedback.png');
 }
 .feedback:hover {
-    background: url('../img/Feedbackhover.png');
+    background: url('../img/FeedbackHover.png');
 }
 .aboutUsHeading {
     font-weight:bold;

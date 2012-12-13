@@ -8,7 +8,7 @@ $this->assign('LeftEvent', '');
 $this->assign('LeftWebsite', 'LeftMenuActions');
 $this->start('LeftEditMenu');
 ?>
-<li><?php echo $this->Html->link(__('View this Image'), array('action' => 'view', $this->Form->value('HomepageImage.id'))); ?></li>
+<li><?php echo $this->Html->link(__('View this Image'), array('action' => 'view', $this->Form->value('HomePageImage.id'))); ?></li>
 <li><?php echo $this->Form->postLink(__('Delete this Image'), array('action' => 'delete', $this->Form->value('HomepageImages.id')), null, __('Are you sure you want to delete this image?')); ?></li>
 <?php
 $this->end();
@@ -16,10 +16,10 @@ $this->start('manageRightMenu');
 ?>
 <div class="manageRightMenu" >
     <ul>
-        <li><?php echo $this->Html->link(__('Disclaimer Form'), array('controller' => 'disclaimerforms', 'action' => 'index')); ?></li>
-        <li class='active '><?php echo $this->Html->link(__('Home Page Image'), array('controller' => 'homepageimages', 'action' => 'index')); ?></li>
-        <li><?php echo $this->Html->link(__('Home Page List'), array('controller' => 'homepagelists', 'action' => 'index')); ?></li>
-        <li><?php echo $this->Html->link(__('About Us'), array('controller' => 'aboutuspages', 'action' => 'index')); ?></li>
+        <li><?php echo $this->Html->link(__('Disclaimer Form'), array('controller' => 'disclaimerForms', 'action' => 'index')); ?></li>
+        <li class='active '><?php echo $this->Html->link(__('Home Page Image'), array('controller' => 'homePageImages', 'action' => 'index')); ?></li>
+        <li><?php echo $this->Html->link(__('Home Page List'), array('controller' => 'homepageLists', 'action' => 'index')); ?></li>
+        <li><?php echo $this->Html->link(__('About Us'), array('controller' => 'aboutusPages', 'action' => 'index')); ?></li>
     </ul>
 </div>
 
@@ -34,7 +34,7 @@ $this->end();
 $this->start('manageRightContent');
 ?>
 <div class="homepageImages form">
-    <?php echo $this->Form->create('HomepageImage'); ?>
+    <?php echo $this->Form->create('HomePageImage'); ?>
     <?php
     $statusType = array('Show' => 'Show', 'Hide' => 'Hide');
 

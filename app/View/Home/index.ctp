@@ -1,5 +1,3 @@
-<?php $this->assign('title', 'Foodie Trails - Food Tours Melbourne, Gourmet Walking Tour, Walking Food Tour, Walking Tours Melbourne ');?>
-
 <div id="fb-root"></div>
 <script>(function(d, s, id) {
     var js, fjs = d.getElementsByTagName(s)[0];
@@ -66,7 +64,7 @@
                     </div>
                     <div class="fbstyle"><div class="fb-activity facebookstyle" data-site="http://www.foodietrails.com.au/" data-width="240" data-height="200" data-header="true" data-linktarget="_parent" data-border-color="#ccc" data-font="segoe ui" data-recommendations="false"></div></div>
                     <a class="twitter-timeline" width="240px" height="150px" href="https://twitter.com/foodietrails" data-widget-id="270879491256098816">Tweets by @foodietrails</a>
-                    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
                 </div>
             </div>
         </td>
@@ -159,8 +157,8 @@
                     </div>
                     <div class="price"><span style="font-size: 16px;">from </span><br>
                         AU$ <?php
-                        $last = count($cookingClassData[$i]['CookingClassDate']) - 1;
-                        echo $cookingClassData[$i]['CookingClassDate'][$last]['cooking_class_price'];
+                        $last = count($cookingClassData[$i]['CookingclassDate']) - 1;
+                        echo $cookingClassData[$i]['CookingclassDate'][$last]['cooking_class_price'];
         ?><br>
                         <br>
                     </div>

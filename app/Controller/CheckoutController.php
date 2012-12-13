@@ -21,9 +21,9 @@ class CheckoutController extends AppController {
 
         if ($identifier == 'Tour') {
             $dateId = $this->params['url']['dateId'];
-            if ($this->Cookie->read('Cart') != null) {
-                for ($i = 0; $i < count($this->Cookie->read('Cart')); $i++) {
-                    $currentCart[$i] = $this->Cookie->read("Cart.cartData$i");
+            if ($this->Session->read('Cart') != null) {
+                for ($i = 0; $i < count($this->Session->read('Cart')); $i++) {
+                    $currentCart[$i] = $this->Session->read("Cart.cartData$i");
                 }
             } else {
                 $currentCart[0] = null;
@@ -39,9 +39,9 @@ class CheckoutController extends AppController {
                 $currentProduct['DateId'] = $dateId;
                 $currentProduct['Date'] = $currentTourDate[0]['TourDate']['tour_date'];
                 $currentProduct['subTotal'] = $currentProduct['Qty'] * $currentTourDate[0]['TourDate']['tour_price_per_certificate'];
-                $this->Cookie->write('Cart.cartData0', $currentProduct);
+                $this->Session->write('Cart.cartData0', $currentProduct);
             } else if ($currentCart[0] != null && $id != null) {
-                $maxArrayKeyId = count($this->Cookie->read('Cart'));
+                $maxArrayKeyId = count($this->Session->read('Cart'));
                 $insertStatus = true;
                 for ($i = 0; $i < $maxArrayKeyId; $i++) {
                     if ($currentCart[$i]['Identifier'] == 'Tour') {
@@ -59,15 +59,15 @@ class CheckoutController extends AppController {
                     $currentProduct['DateId'] = $dateId;
                     $currentProduct['Date'] = $currentTourDate[0]['TourDate']['tour_date'];
                     $currentProduct['subTotal'] = $currentProduct['Qty'] * $currentTourDate[0]['TourDate']['tour_price_per_certificate'];
-                    $this->Cookie->write("Cart.cartData$maxArrayKeyId", $currentProduct);
+                    $this->Session->write("Cart.cartData$maxArrayKeyId", $currentProduct);
                 }
             }
-            //debug($this->Cookie->read('Cart.cartData0'));
+            //debug($this->Session->read('Cart.cartData0'));
         } else if ($identifier == 'CookingClass') {
             $dateId = $this->params['url']['dateId'];
-            if ($this->Cookie->read('Cart') != null) {
-                for ($i = 0; $i < count($this->Cookie->read('Cart')); $i++) {
-                    $currentCart[$i] = $this->Cookie->read("Cart.cartData$i");
+            if ($this->Session->read('Cart') != null) {
+                for ($i = 0; $i < count($this->Session->read('Cart')); $i++) {
+                    $currentCart[$i] = $this->Session->read("Cart.cartData$i");
                 }
             } else {
                 $currentCart[0] = null;
@@ -84,9 +84,9 @@ class CheckoutController extends AppController {
                 $currentProduct['DateId'] = $dateId;
                 $currentProduct['Date'] = $currentTourDate[0]['CookingclassDate']['cookingclass_date'];
                 $currentProduct['subTotal'] = $currentProduct['Qty'] * $currentTourDate[0]['CookingclassDate']['cooking_class_price'];
-                $this->Cookie->write('Cart.cartData0', $currentProduct);
+                $this->Session->write('Cart.cartData0', $currentProduct);
             } else if ($currentCart[0] != null && $id != null) {
-                $maxArrayKeyId = count($this->Cookie->read('Cart'));
+                $maxArrayKeyId = count($this->Session->read('Cart'));
                 $insertStatus = true;
                 for ($i = 0; $i < $maxArrayKeyId; $i++) {
                     if ($currentCart[$i]['Identifier'] == 'CookingClass') {
@@ -104,13 +104,13 @@ class CheckoutController extends AppController {
                     $currentProduct['DateId'] = $dateId;
                     $currentProduct['Date'] = $currentTourDate[0]['CookingclassDate']['cookingclass_date'];
                     $currentProduct['subTotal'] = $currentProduct['Qty'] * $currentTourDate[0]['CookingclassDate']['cooking_class_price'];
-                    $this->Cookie->write("Cart.cartData$maxArrayKeyId", $currentProduct);
+                    $this->Session->write("Cart.cartData$maxArrayKeyId", $currentProduct);
                 }
             }
         } else if ($identifier == 'Product') {
-            if ($this->Cookie->read('Cart') != null) {
-                for ($i = 0; $i < count($this->Cookie->read('Cart')); $i++) {
-                    $currentCart[$i] = $this->Cookie->read("Cart.cartData$i");
+            if ($this->Session->read('Cart') != null) {
+                for ($i = 0; $i < count($this->Session->read('Cart')); $i++) {
+                    $currentCart[$i] = $this->Session->read("Cart.cartData$i");
                 }
             } else {
                 $currentCart[0] = null;
@@ -123,9 +123,9 @@ class CheckoutController extends AppController {
                 $currentProduct['Product']['product_price'] = $currentTour['Product']['product_price'];
                 $currentProduct['Qty'] = 1;
                 $currentProduct['subTotal'] = $currentProduct['Qty'] * $currentProduct['Product']['product_price'];
-                $this->Cookie->write('Cart.cartData0', $currentProduct);
+                $this->Session->write('Cart.cartData0', $currentProduct);
             } else if ($currentCart[0] != null && $id != null) {
-                $maxArrayKeyId = count($this->Cookie->read('Cart'));
+                $maxArrayKeyId = count($this->Session->read('Cart'));
                 $insertStatus = true;
                 for ($i = 0; $i < $maxArrayKeyId; $i++) {
                     if ($currentCart[$i]['Identifier'] == 'Product') {
@@ -141,13 +141,13 @@ class CheckoutController extends AppController {
                     $currentProduct['Product']['product_price'] = $currentTour['Product']['product_price'];
                     $currentProduct['Qty'] = 1;
                     $currentProduct['subTotal'] = $currentProduct['Qty'] * $currentProduct['Product']['product_price'];
-                    $this->Cookie->write("Cart.cartData$maxArrayKeyId", $currentProduct);
+                    $this->Session->write("Cart.cartData$maxArrayKeyId", $currentProduct);
                 }
             }
         } else if ($identifier == 'GiftVoucher') {
-            if ($this->Cookie->read('Cart') != null) {
-                for ($i = 0; $i < count($this->Cookie->read('Cart')); $i++) {
-                    $currentCart[$i] = $this->Cookie->read("Cart.cartData$i");
+            if ($this->Session->read('Cart') != null) {
+                for ($i = 0; $i < count($this->Session->read('Cart')); $i++) {
+                    $currentCart[$i] = $this->Session->read("Cart.cartData$i");
                 }
             } else {
                 $currentCart[0] = null;
@@ -160,9 +160,9 @@ class CheckoutController extends AppController {
                 $currentProduct['GiftVoucher']['gift_price'] = $currentGiftVoucher['GiftVoucher']['gift_price'];
                 $currentProduct['Qty'] = 1;
                 $currentProduct['subTotal'] = $currentProduct['Qty'] * $currentProduct['GiftVoucher']['gift_price'];
-                $this->Cookie->write('Cart.cartData0', $currentProduct);
+                $this->Session->write('Cart.cartData0', $currentProduct);
             } else if ($currentCart[0] != null && $id != null) {
-                $maxArrayKeyId = count($this->Cookie->read('Cart'));
+                $maxArrayKeyId = count($this->Session->read('Cart'));
                 $insertStatus = true;
                 for ($i = 0; $i < $maxArrayKeyId; $i++) {
                     if ($currentCart[$i]['Identifier'] == 'GiftVoucher') {
@@ -178,42 +178,42 @@ class CheckoutController extends AppController {
                     $currentProduct['GiftVoucher']['gift_price'] = $currentGiftVoucher['GiftVoucher']['gift_price'];
                     $currentProduct['Qty'] = 1;
                     $currentProduct['subTotal'] = $currentProduct['Qty'] * $currentProduct['GiftVoucher']['gift_price'];
-                    $this->Cookie->write("Cart.cartData$maxArrayKeyId", $currentProduct);
+                    $this->Session->write("Cart.cartData$maxArrayKeyId", $currentProduct);
                 }
             }
         }
-        $this->set('SC', $this->Cookie->read("Cart"));
+        $this->set('SC', $this->Session->read("Cart"));
         if ($this->request->is('post')) {
             if ($identifier == 'Update') {
-                for ($i = 0; $i < count($this->Cookie->read('Cart')); $i++) {
-                    $currentCart[$i] = $this->Cookie->read("Cart.cartData$i");
+                for ($i = 0; $i < count($this->Session->read('Cart')); $i++) {
+                    $currentCart[$i] = $this->Session->read("Cart.cartData$i");
                 }
                 for ($i = 0; $i < count($currentCart); $i++) {
                     if ($currentCart[$i]['Identifier'] == 'Tour') {
                         $postName = $currentCart[$i]['Tour']['id'] . 'TQty';
                         $currentCart[$i]['Qty'] = $this->request->data($postName);
                         $currentCart[$i]['subTotal'] = $currentCart[$i]['Qty'] * $currentCart[$i]['TourDate']['tour_price_per_certificate'];
-                        $this->Cookie->write("Cart.cartData$i", $currentCart[$i]);
+                        $this->Session->write("Cart.cartData$i", $currentCart[$i]);
                     } else if ($currentCart[$i]['Identifier'] == 'CookingClass') {
                         $postName = $currentCart[$i]['Cookingclass']['id'] . 'CCQty';
                         $currentCart[$i]['Qty'] = $this->request->data($postName);
                         $currentCart[$i]['subTotal'] = $currentCart[$i]['Qty'] * $currentCart[$i]['CookingclassDate']['cooking_class_price'];
-                        $this->Cookie->write("Cart.cartData$i", $currentCart[$i]);
+                        $this->Session->write("Cart.cartData$i", $currentCart[$i]);
                     } else if ($currentCart[$i]['Identifier'] == 'Product') {
                         $postName = $currentCart[$i]['Product']['id'] . 'PQty';
                         $currentCart[$i]['Qty'] = $this->request->data($postName);
                         $currentCart[$i]['subTotal'] = $currentCart[$i]['Qty'] * $currentCart[$i]['ProductDate']['product_price'];
-                        $this->Cookie->write("Cart.cartData$i", $currentCart[$i]);
+                        $this->Session->write("Cart.cartData$i", $currentCart[$i]);
                     } else if ($currentCart[$i]['Identifier'] == 'GiftVoucher') {
                         $postName = $currentCart[$i]['GiftVoucher']['id'] . 'GQty';
                         $currentCart[$i]['Qty'] = $this->request->data($postName);
                         $currentCart[$i]['subTotal'] = $currentCart[$i]['Qty'] * $currentCart[$i]['GiftVoucher']['gift_price'];
-                        $this->Cookie->write("Cart.cartData$i", $currentCart[$i]);
+                        $this->Session->write("Cart.cartData$i", $currentCart[$i]);
                     }
                 }
             }
         }
-        $this->set('SC', $this->Cookie->read('Cart'));
+        $this->set('SC', $this->Session->read('Cart'));
     }
 
     public function deleteCheckoutItem($id = null) {
@@ -225,15 +225,15 @@ class CheckoutController extends AppController {
             $id = null;
         }
 
-        for ($i = 0; $i < count($this->Cookie->read('Cart')); $i++) {
-            $currentCart[$i] = $this->Cookie->read("Cart.cartData$i");
+        for ($i = 0; $i < count($this->Session->read('Cart')); $i++) {
+            $currentCart[$i] = $this->Session->read("Cart.cartData$i");
         }
 //        debug($currentCart);
 //        debug($identifier);
         if (count($currentCart) != 1) {
             $redirectLink = "index";
             for ($i = 0; $i < count($currentCart); $i++) {
-                $this->Cookie->delete("Cart.cartData$i");
+                $this->Session->delete("Cart.cartData$i");
             }
             if ($identifier == 'Tour') {
                 for ($i = 0; $i < count($currentCart); $i++) {
@@ -272,15 +272,15 @@ class CheckoutController extends AppController {
                 }
             }
             array_splice($currentCart, count($currentCart), 1);
-            debug($currentCart);
+            //debug($currentCart);
             for ($i = 0; $i < count($currentCart); $i++) {
-                $this->Cookie->write("Cart.cartData$i", $currentCart[$i]);
+                $this->Session->write("Cart.cartData$i", $currentCart[$i]);
             }
-            debug($this->Cookie->read('Cart'));
+            //debug($this->Session->read('Cart'));
             $this->redirect(array('action' => $redirectLink));
         } else {
             $redirectLink = "index";
-            $this->Cookie->delete("Cart.cartData0");
+            $this->Session->delete("Cart.cartData0");
             $this->redirect(array('action' => $redirectLink));
         }
     }
@@ -289,11 +289,12 @@ class CheckoutController extends AppController {
 
     public function confirmCheckout() {
         $this->set('disclaimerForm', $this->DisclaimerForm->find('all', array('limit' => 1)));
-        $this->set('SC', $this->Cookie->read('Cart'));
+        $this->set('SC', $this->Session->read('Cart'));
+         echo $this->Session->read('User.role');
     }
 
     public function paymentSuccessful() {
-        $SC = $this->Cookie->read('Cart');
+        $SC = $this->Session->read('Cart');
         $currentUser = $this->Auth->user();
         $currentUserId = $currentUser['id'];
 //        if ($_SESSION["payment_Status"] == 'Pending') {
@@ -358,7 +359,7 @@ class CheckoutController extends AppController {
 //        }
 
         for ($i = 0; $i < count($SC); $i++) {
-            $this->Cookie->delete("Cart.cartData$i");
+            $this->Session->delete("Cart.cartData$i");
         }        
         $this->redirect(array('action' => 'paymentSuccessfulLanding'));
     }

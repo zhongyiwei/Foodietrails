@@ -19,8 +19,8 @@ $this->start('manageRightMenu');
 <div class="mangeRightSubMenu"> 
     <div class="unselected"><?php echo $this->Html->link(__('Tour List'), array('controller' => 'tours', 'action' => 'index')); ?></div>
     <div class="unselected"><?php echo $this->Html->link(__('Add Tour'), array('controller' => 'tours', 'action' => 'add')); ?></div>
-    <div class="unselected"><?php echo $this->Html->link(__('Tour Type List'), array('controller' => 'tourtypes', 'action' => 'index')); ?></div>
-    <div class="selected"><?php echo $this->Html->link(__('Add Tour Type'), array('controller' => 'tourtypes', 'action' => 'add')); ?></div>
+    <div class="unselected"><?php echo $this->Html->link(__('Tour Type List'), array('controller' => 'tourTypes', 'action' => 'index')); ?></div>
+    <div class="selected"><?php echo $this->Html->link(__('Add Tour Type'), array('controller' => 'tourTypes', 'action' => 'add')); ?></div>
 </div>
 
 <div class="tourTypes form">

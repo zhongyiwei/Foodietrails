@@ -181,7 +181,7 @@ class ToursController extends AppController {
             $this->redirect(array('controller' => 'home', 'action' => 'display'));
         }
         $this->set('tour', $tour[0]);
-        $this->set('feedbacks', $this->Feedback->find('all', array('conditions' => array('AND' => array('feedback.page_id' => $id), 'feedback.feedback_type' => "Tour", 'feedback_status' => "show"))));
+        $this->set('feedbacks', $this->Feedback->find('all', array('conditions' => array('AND' => array('Feedback.page_id' => $id), 'Feedback.feedback_type' => "Tour", 'Feedback_status' => "show"))));
     }
 
         public function preview($id = null) {

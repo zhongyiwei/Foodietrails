@@ -56,8 +56,8 @@ class Cookingclass extends AppModel {
         ),
     );
     public $hasMany = array(
-        'CookingClassDate' => array(
-            'className' => 'CookingClassDate',
+        'CookingclassDate' => array(
+            'className' => 'CookingclassDate',
             'foreignKey' => 'cookingclass_id',
             'dependent' => false,
             'conditions' => '',

@@ -74,7 +74,7 @@
                                 <?php for ($i = 0; $i < count($menu3); $i++) { ?>
                                     <li> <?php
                             $cookingClassName = $menu3[$i]['Cookingclass']['cooking_class_name'];
-                            echo $this->Html->link(__($cookingClassName), array('controller' => 'CookingClasses', 'action' => 'cookingclass_detail', $menu3[$i]['Cookingclass']['id']));
+                          echo $this->Html->link(__($cookingClassName), array('controller' => 'Cookingclasses', 'action' => 'cookingclass_detail', $menu3[$i]['Cookingclass']['id']));
                                     ?>
                                     </li>
                                 <?php } ?>
@@ -151,7 +151,7 @@
                                     <li><a href='#'><span>Feedbacks</span></a></li>-->
                                     <li><?php echo $this->Html->link(__('Contact Us'), array('controller' => 'About', 'action' => 'contactUs')); ?></li>
                                     <li><a href="http://foodietrails.com.au/blogweb/index.php">Blogs</a></li>
-                                    <li><?php echo $this->Html->link(__('About Foodie Trails Inc.'), array('controller' => 'aboutuspages', 'action' => 'aboutCompany')); ?></li>
+                                   <li><?php echo $this->Html->link(__('About Foodie Trails Inc.'), array('controller' => 'aboutusPages', 'action' => 'aboutCompany')); ?></li>
                                     <li><?php echo $this->Html->link(__('FAQs.'), array('controller' => 'Faqs', 'action' => 'faq_view')); ?></li>
                                 </ul>
                             </li>
@@ -197,7 +197,7 @@
                 <div class="footer">
                     <table width="920" border="0">
                         <tr>
-                            <td style="vertical-align:middle" ><span class="footerRow"><?php echo $this->Html->link(__('About Foodie Trails'), array('controller' => 'aboutuspages', 'action' => 'aboutCompany')); ?></span>
+                                             <td style="vertical-align:middle" ><span class="footerRow"><?php echo $this->Html->link(__('About Foodie Trails'), array('controller' => 'aboutusPages', 'action' => 'aboutCompany')); ?></span>
                                 <span class="footerRow"><?php echo $this->Html->link(__('Deals'), array('controller' => 'deals', 'action' => 'deal_detail')); ?></span>
                                 <span class="footerRow"><?php echo $this->Html->link(__('Subscribe'), array('controller' => 'UserSubscriptions', 'action' => 'subscribe')); ?></span>
                                 <span class="footerRow"><?php echo $this->Html->link(__('Sitemap'), array('controller' => 'sitemap', 'action' => 'index')); ?></span>
