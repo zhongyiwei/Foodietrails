@@ -191,24 +191,44 @@ class CheckoutController extends AppController {
                 for ($i = 0; $i < count($currentCart); $i++) {
                     if ($currentCart[$i]['Identifier'] == 'Tour') {
                         $postName = $currentCart[$i]['Tour']['id'] . 'TQty';
-                        $currentCart[$i]['Qty'] = $this->request->data($postName);
-                        $currentCart[$i]['subTotal'] = $currentCart[$i]['Qty'] * $currentCart[$i]['TourDate']['tour_price_per_certificate'];
-                        $this->Session->write("Cart.cartData$i", $currentCart[$i]);
+                        $num = intval($this->request->data($postName));
+                        if (is_int($num) == true && $num > 0) {
+                            $currentCart[$i]['Qty'] = $num;
+                            $currentCart[$i]['subTotal'] = $currentCart[$i]['Qty'] * $currentCart[$i]['TourDate']['tour_price_per_certificate'];
+                            $this->Session->write("Cart.cartData$i", $currentCart[$i]);
+                        } else {
+                            $this->Session->setFlash(__('Please enter your number correctly.'), 'failure-message');
+                        }
                     } else if ($currentCart[$i]['Identifier'] == 'CookingClass') {
                         $postName = $currentCart[$i]['Cookingclass']['id'] . 'CCQty';
-                        $currentCart[$i]['Qty'] = $this->request->data($postName);
-                        $currentCart[$i]['subTotal'] = $currentCart[$i]['Qty'] * $currentCart[$i]['CookingclassDate']['cooking_class_price'];
-                        $this->Session->write("Cart.cartData$i", $currentCart[$i]);
+                        $num = intval($this->request->data($postName));
+                        if (is_int($num) == true && $num > 0) {
+                            $currentCart[$i]['Qty'] = $num;
+                            $currentCart[$i]['subTotal'] = $currentCart[$i]['Qty'] * $currentCart[$i]['CookingclassDate']['cooking_class_price'];
+                            $this->Session->write("Cart.cartData$i", $currentCart[$i]);
+                        } else {
+                            $this->Session->setFlash(__('Please enter your number correctly.'), 'failure-message');
+                        }
                     } else if ($currentCart[$i]['Identifier'] == 'Product') {
                         $postName = $currentCart[$i]['Product']['id'] . 'PQty';
-                        $currentCart[$i]['Qty'] = $this->request->data($postName);
-                        $currentCart[$i]['subTotal'] = $currentCart[$i]['Qty'] * $currentCart[$i]['ProductDate']['product_price'];
-                        $this->Session->write("Cart.cartData$i", $currentCart[$i]);
+                        $num = intval($this->request->data($postName));
+                        if (is_int($num) == true && $num > 0) {
+                            $currentCart[$i]['Qty'] = $num;
+                            $currentCart[$i]['subTotal'] = $currentCart[$i]['Qty'] * $currentCart[$i]['ProductDate']['product_price'];
+                            $this->Session->write("Cart.cartData$i", $currentCart[$i]);
+                        } else {
+                            $this->Session->setFlash(__('Please enter your number correctly.'), 'failure-message');
+                        }
                     } else if ($currentCart[$i]['Identifier'] == 'GiftVoucher') {
                         $postName = $currentCart[$i]['GiftVoucher']['id'] . 'GQty';
-                        $currentCart[$i]['Qty'] = $this->request->data($postName);
-                        $currentCart[$i]['subTotal'] = $currentCart[$i]['Qty'] * $currentCart[$i]['GiftVoucher']['gift_price'];
-                        $this->Session->write("Cart.cartData$i", $currentCart[$i]);
+                        $num = intval($this->request->data($postName));
+                        if (is_int($num) == true && $num > 0) {
+                            $currentCart[$i]['Qty'] = $num;
+                            $currentCart[$i]['subTotal'] = $currentCart[$i]['Qty'] * $currentCart[$i]['GiftVoucher']['gift_price'];
+                            $this->Session->write("Cart.cartData$i", $currentCart[$i]);
+                        } else {
+                            $this->Session->setFlash(__('Please enter your number correctly.'), 'failure-message');
+                        }
                     }
                 }
             }
@@ -290,7 +310,7 @@ class CheckoutController extends AppController {
     public function confirmCheckout() {
         $this->set('disclaimerForm', $this->DisclaimerForm->find('all', array('limit' => 1)));
         $this->set('SC', $this->Session->read('Cart'));
-         echo $this->Session->read('User.role');
+        echo $this->Session->read('User.role');
     }
 
     public function paymentSuccessful() {
@@ -343,7 +363,7 @@ class CheckoutController extends AppController {
                     $msg = str_replace("{redeem_code}", $redeemCode, $msg);
                     $msg = str_replace("{term_link}", $termLink, $msg);
                     $msg = str_replace("{logo}", $logo, $msg);
-                    $msg = "<div style='font-family:Century Gothic;color:#06496e; '>".$msg."</div>";
+                    $msg = "<div style='font-family:Century Gothic;color:#06496e; '>" . $msg . "</div>";
 
                     $email = new CakeEmail();
                     $email->config('default');
@@ -360,7 +380,7 @@ class CheckoutController extends AppController {
 
         for ($i = 0; $i < count($SC); $i++) {
             $this->Session->delete("Cart.cartData$i");
-        }        
+        }
         $this->redirect(array('action' => 'paymentSuccessfulLanding'));
     }
 
