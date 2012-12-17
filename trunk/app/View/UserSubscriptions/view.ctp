@@ -37,12 +37,12 @@ $this->start('manageRightContent');
 			<?php echo h($userSubscription['UserSubscription']['id']); ?>
 			&nbsp;
 		</dd>-->
-		<dt><?php echo __('User Email'); ?></dt>
+		<dt><?php echo __('Email'); ?></dt>
 		<dd>
 			<?php echo h($userSubscription['UserSubscription']['user_email']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Subscription Status'); ?></dt>
+		<dt><?php echo __('Status'); ?></dt>
 		<dd>
 			<?php echo h($userSubscription['UserSubscription']['subscription_status']); ?>
 			&nbsp;

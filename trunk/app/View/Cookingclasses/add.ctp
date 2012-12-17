@@ -35,9 +35,9 @@ $this->start('manageRightContent');
         echo $this->Form->input('cooking_class_location',array('label'=>'Location'));
         echo $this->Form->input('cooking_class_max_num_on_day',array('label'=>'Max No. on day'));
         echo $this->Form->input('contactInfo');
-        echo $this->Form->input('cooking_class_thumbnail', array('id' => 'xFilePath', 'class' => 'ckeditor', 'style' => 'width:500px'));
+        echo $this->Form->input('cooking_class_thumbnail', array('id' => 'xFilePath', 'class' => 'ckeditor', 'style' => 'width:500px','label'=>'Thumbnail'));
         echo $this->Form->button('Browse Server', array('onclick' => 'BrowseServer()', 'type' => 'button', 'style' => 'padding:5px;margin-top:-55px; margin-left:530px;float:left'));
-        echo $this->Form->input('publish_status', array('options' => $publishStatus, 'default' => 'Private'));
+        echo $this->Form->input('publish_status', array('options' => $publishStatus, 'default' => 'Private','label'=>'Status'));
         ?>
     </fieldset>
     <?php echo $this->Form->end(__('Submit')); ?>

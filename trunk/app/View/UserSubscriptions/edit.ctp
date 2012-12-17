@@ -34,8 +34,8 @@ $this->start('manageRightContent');
 <?php echo $this->Form->create('UserSubscription'); ?>
 	<fieldset>
 	<?php
-		echo $this->Form->input('user_email');
-		echo $this->Form->input('subscription_status');
+		echo $this->Form->input('user_email',array('label'=>'Email'));
+		echo $this->Form->input('subscription_status',array('label'=>'Status'));
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Submit')); ?>

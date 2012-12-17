@@ -30,9 +30,9 @@ $this->start('manageRightContent');
     <table cellpadding="0" cellspacing="0"  id="js-datatable">
         <thead>
             <tr>
+                <th>Due Date</th>
                 <th>Gifter Email</th>
                 <th>Gift Voucher</th>
-                <th>Due Date</th>
                 <th>Redeem Status</th>
                 <th class="actions"><?php echo __('Actions'); ?></th>
             </tr>
@@ -40,13 +40,13 @@ $this->start('manageRightContent');
         <tbody>
             <?php foreach ($giftvoucherOrders as $giftvoucherOrder): ?>
                 <tr>
+                    <td><?php echo h($giftvoucherOrder['GiftvoucherOrder']['gift_due_date']); ?>&nbsp;</td>
                     <td>
                         <?php echo $this->Html->link($giftvoucherOrder['User']['user_email'], array('controller' => 'users', 'action' => 'view', $giftvoucherOrder['User']['id'])); ?>
                     </td>
                     <td>
                         <?php echo $this->Html->link($giftvoucherOrder['GiftVoucher']['gift_voucher_name'], array('controller' => 'gift_vouchers', 'action' => 'view', $giftvoucherOrder['GiftVoucher']['id'])); ?>
                     </td>
-                    <td><?php echo h($giftvoucherOrder['GiftvoucherOrder']['gift_due_date']); ?>&nbsp;</td>
                     <td><?php echo h($giftvoucherOrder['GiftvoucherOrder']['gift_redeem_status']); ?>&nbsp;</td>
                     <td class="actions">
                         <?php echo $this->Html->link(__('View'), array('action' => 'view', $giftvoucherOrder['GiftvoucherOrder']['id'])); ?>

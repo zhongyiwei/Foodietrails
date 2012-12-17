@@ -29,8 +29,8 @@ $this->start('manageRightContent');
 	<fieldset>
 	<?php
             $status1=array('Yes'=>'Yes','No'=>'No');
-		echo $this->Form->input('user_email');
-		echo $this->Form->input('subscription_status',array('options'=>$status1,'default'=>'Yes'));
+		echo $this->Form->input('user_email',array('label'=>'Email'));
+		echo $this->Form->input('subscription_status',array('options'=>$status1,'default'=>'Yes','label'=>'Status'));
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Submit')); ?>

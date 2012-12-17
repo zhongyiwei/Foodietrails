@@ -28,8 +28,8 @@ $this->start('manageRightContent');
     <table cellpadding="0" cellspacing="0" id="js-datatable">
         <thead>
             <tr>
-                <th>email</th>	
-                <th>status</th>
+                <th>Email</th>	
+                <th>Status</th>
                 <th class="actions"><?php echo __('Actions'); ?></th>
             </tr>
         </thead>

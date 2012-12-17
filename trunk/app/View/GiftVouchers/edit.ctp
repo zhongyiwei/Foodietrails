@@ -22,8 +22,8 @@ $this->start('manageRightMenu');
     </ul>
 </div>
 <div class="mangeRightSubMenu"> 
-    <div class="unselected"><?php echo $this->Html->link(__('Gift Vourcher List'), array('action' => 'index')); ?></div>
-    <div class="unselected"><?php echo $this->Html->link(__('Add Gift Vourcher'), array('action' => 'add')); ?></div>
+    <div class="unselected"><?php echo $this->Html->link(__('Gift Voucher List'), array('action' => 'index')); ?></div>
+    <div class="unselected"><?php echo $this->Html->link(__('Add Gift Voucher'), array('action' => 'add')); ?></div>
 </div>
 <?php
 $this->end();
@@ -49,7 +49,7 @@ echo $this->Form->input('gift_voucher_name');
 echo $this->Form->input('gift_message', array('id' => 'gift_message', 'class' => 'ckeditor', 'label' => 'Email Message'));
 echo $this->Form->input('gift_price',array('label'=>'Price'));
 echo $this->Form->input('gift_type', array('type' => 'select', 'options' => $productType,'label'=>'Type'));
-echo $this->Form->input('publish_status', array('options' => $publishStatus, 'default' => 'Private'));
+echo $this->Form->input('publish_status', array('options' => $publishStatus, 'default' => 'Private','label'=>'Status'));
     ?>
     <?php echo $this->Form->end(__('Submit')); ?>
 </div>

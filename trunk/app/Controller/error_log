@@ -1,0 +1,2 @@
+[12-Dec-2012 01:04:01 UTC] PHP Fatal error:  Class 'App' not found in /home/foodietr/public_html/web2.0/app/Controller/TourDatesController.php on line 3
+[12-Dec-2012 01:07:45 UTC] PHP Fatal error:  Class 'App' not found in /home/foodietr/public_html/web2.0/app/Controller/TourDatesController.php on line 3

@@ -7,8 +7,8 @@ $this->assign('LeftNews', '');
 $this->assign('LeftEvent', '');
 $this->start('LeftEditMenu');
 ?>
-<li><?php echo $this->Html->link(__('Edit This Vourcher'), array('action' => 'edit', $giftVoucher['GiftVoucher']['id'])); ?> </li>
-<li><?php echo $this->Form->postLink(__('Delete This Vourcher'), array('action' => 'delete', $giftVoucher['GiftVoucher']['id']), null, __('Are you sure you want to delete # %s?', $giftVoucher['GiftVoucher']['gift_voucher_name'])); ?> </li>
+<li><?php echo $this->Html->link(__('Edit This Voucher'), array('action' => 'edit', $giftVoucher['GiftVoucher']['id'])); ?> </li>
+<li><?php echo $this->Form->postLink(__('Delete This Voucher'), array('action' => 'delete', $giftVoucher['GiftVoucher']['id']), null, __('Are you sure you want to delete # %s?', $giftVoucher['GiftVoucher']['gift_voucher_name'])); ?> </li>
 <?php
 $this->end();
 $this->start('manageRightMenu');
@@ -22,8 +22,8 @@ $this->start('manageRightMenu');
     </ul>
 </div>
 <div class="mangeRightSubMenu"> 
-    <div class="unselected"><?php echo $this->Html->link(__('Gift Vourcher List'), array('action' => 'index')); ?></div>
-    <div class="unselected"><?php echo $this->Html->link(__('Add Gift Vourcher'), array('action' => 'add')); ?></div>
+    <div class="unselected"><?php echo $this->Html->link(__('Gift Voucher List'), array('action' => 'index')); ?></div>
+    <div class="unselected"><?php echo $this->Html->link(__('Add Gift Voucher'), array('action' => 'add')); ?></div>
 </div>
 <?php
 $this->end();

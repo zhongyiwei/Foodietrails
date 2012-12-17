@@ -18,8 +18,6 @@ $this->start('manageRightMenu');
 <div class="mangeRightSubMenu"> 
     <div class="unselected"><?php echo $this->Html->link(__('User List'), array('action' => 'index')); ?></div>
     <div class="selected"><?php echo $this->Html->link(__('Add User'), array('action' => 'add')); ?></div>
-        <div class="unselected"><?php echo $this->Html->link(__('Download User Details'), array('action' => '/export/User_Details_On_' . date("Ymd") . '.csv')); ?>
-
 </div>
 <?php
 $this->end();
@@ -33,7 +31,7 @@ $this->start('manageRightContent');
                 $roleType=array('Admin'=>'Administrator','Customer'=>'Customer');
 		echo $this->Form->input('user_role',array('options'=>$roleType,'default'=>'User','label'=>'Role'));
 		echo $this->Form->input('user_first_name',array('label'=>'First Name'));
-		echo $this->Form->input('user_surname',array('label'=>'Surame'));
+		echo $this->Form->input('user_surname',array('label'=>'Surname'));
 		echo $this->Form->input('user_contacts',array('label'=>'Contact No'));
 		echo $this->Form->input('user_email',array('label'=>'Email'));
 		echo $this->Form->input('user_password',array('type'=>'password','label'=>'Password'));

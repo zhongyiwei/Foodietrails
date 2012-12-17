@@ -2,6 +2,7 @@
 //print_r($SC);
 
 ?>
+<?php $this->assign('title', "Foodie Trails - Confirm Check Out");?>
 <table width="200" border="1">
     <?php
     if (count($SC != 0)) {

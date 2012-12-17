@@ -30,7 +30,7 @@ $paymentType = "Sale";
 //'
 //' This is set to the value entered on the Integration Assistant 
 //'------------------------------------
-$returnURL = "http://ie.infotech.monash.edu.au/project35/review4/confirmation.php";
+$returnURL = "http://www.foodietrails.com.au/web2.0/confirmation.php";
 //$returnURL = "http://localhost/confirmation.php";
 //'------------------------------------
 //' The cancelURL is the location buyers are sent to when they hit the
@@ -38,7 +38,7 @@ $returnURL = "http://ie.infotech.monash.edu.au/project35/review4/confirmation.ph
 //'
 //' This is set to the value entered on the Integration Assistant 
 //'------------------------------------
-$cancelURL = "http://ie.infotech.monash.edu.au/project35/review4/";
+$cancelURL = "http://www.foodietrails.com.au/web2.0/";
 //$cancelURL = "http://localhost/";
 //'------------------------------------
 //' Calls the SetExpressCheckout API call

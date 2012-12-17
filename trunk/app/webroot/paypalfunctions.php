@@ -1,6 +1,6 @@
 <?php
 
-include ("../view/checkout/confirm_checkout.ctp");
+//include ("../webroot/confirm_checkout.ctp");
 /* * ******************************************
   PayPal API Module
 
@@ -17,9 +17,6 @@ $SandboxFlag = false;
 //' Replace <API_PASSWORD> with your API Password
 //' Replace <API_SIGNATURE> with your Signature
 //'------------------------------------
-//$API_UserName="tours_api1.foodietrails.com.au";
-//$API_Password="879Y2YJZNB46GK7B";
-//$API_Signature="AFcWxV21C7fd0v3bYYYRCpSSRI31AF6030ROUhGr7GLAyr632FMBqI64";
 
 //$API_UserName = "sippoujulian_1354598939_biz_api1.gmail.com";
 //$API_Password = "1354598955";

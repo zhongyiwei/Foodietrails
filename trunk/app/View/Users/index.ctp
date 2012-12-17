@@ -39,10 +39,8 @@ $this->start('manageRightContent');
                 <!--<th>user_password</th> -->
                 <th>Address</th>
                 <!--<th>user_dietary_requirement</th>
-                <th>user_spl_assistance</th>
-                <th>user_referee</th> -->
-<!--			<th>Postcode</th>
-                <th>State</th>-->
+                <th>special Assistance</th>
+                <th>Referee</th> -->
                 <!-- <th><?php echo $this->Paginator->sort('country_id'); ?></th> -->
                 <th class="actions"><?php echo __('Actions'); ?></th>
             </tr>

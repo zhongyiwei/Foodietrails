@@ -32,7 +32,7 @@ $this->start('manageRightContent');
     echo $this->Form->input('gift_voucher_name');
     ?>
     <div  style="margin-left:0px;">
-        <span style="font-weight:bold">Gift Voucher Email Message</span>
+        <span style="font-weight:bold">Email Message</span>
         <br/>
         <span class="reminder">Available Variable: {first_name}, {epxire_date},  {redeem_code}, {term_link}, {logo}
             <br/>Please use these variables to organize ur email message.
@@ -43,7 +43,7 @@ $this->start('manageRightContent');
     echo $this->Form->input('gift_message', array('id' => 'gift_message', 'class' => 'ckeditor', 'label' => 'Email Message'));
     echo $this->Form->input('gift_price',array('label'=>'Price'));
     echo $this->Form->input('gift_type', array('type' => 'select', 'options' => $productType,'label'=>'Type'));
-    echo $this->Form->input('publish_status', array('options' => $publishStatus, 'default' => 'Private'));
+    echo $this->Form->input('publish_status', array('options' => $publishStatus, 'default' => 'Private','label'=>'Status'));
     ?>
     <?php echo $this->Form->end(__('Submit')); ?>
 </div>

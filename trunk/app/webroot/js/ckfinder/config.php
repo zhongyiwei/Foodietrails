@@ -60,7 +60,7 @@ Examples:
 
 ATTENTION: The trailing slash is required.
 */
-$baseUrl = '/app/webroot/uploads/';
+$baseUrl = '/Uploads/';
 
 /*
 $baseDir : the path to the local directory (in the server) which points to the
@@ -79,7 +79,8 @@ Examples:
 
 ATTENTION: The trailing slash is required.
 */
-$baseDir = resolveUrl($baseUrl);
+//$baseDir = resolveUrl($baseUrl);
+$baseDir = '/home/foodietr/public_html/Uploads/';
 /*$baseDir = 'E:/Note2/FIT3047 Industrial Experience Project/IEProject/app/webroot/uploads';*/
 
 /*

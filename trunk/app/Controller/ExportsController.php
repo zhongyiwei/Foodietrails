@@ -343,7 +343,7 @@ class ExportsController extends AppController {
         $beginDate = implode($beginDate, '-');
         $endDate = implode($endDate, '-');
         if ($beginDate < $endDate) {
-            $cookingClassDates = $this->CookingclassDate->find('all', array('conditions' => array('CookingClassDate.cookingclass_date BETWEEN ? AND ?' => array($beginDate, $endDate))));
+            $cookingClassDates = $this->CookingclassDate->find('all', array('conditions' => array('CookingclassDate.cookingclass_date BETWEEN ? AND ?' => array($beginDate, $endDate))));
             $cookingClassOrders = null;
 
             for ($i = 0; $i < count($cookingClassDates); $i++) {
