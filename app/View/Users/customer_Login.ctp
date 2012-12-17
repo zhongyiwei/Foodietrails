@@ -18,6 +18,8 @@
             echo $this->Form->input('user_contacts',array('label'=>'Contact No.'));
             echo $this->Form->input('user_email',array('label'=>'Email'));
             echo $this->Form->input('user_password', array('type' => 'password','label'=>'Password'));
+            echo $this->Form->input('passwd_confirm', array('type' => 'password', 'value' => '', 'label' => 'Confirm Password'));
+
             echo $this->Form->input('user_address',array('label'=>'Address'));
             echo $this->Form->input('country_id', array('type' => 'select', 'options' => $countries));
             echo $this->Form->input('user_dietary_requirement',array('label'=>'Dietary Requirements'));
@@ -32,15 +34,7 @@
         </td>
         <td>
             <?php echo $this->Html->link(__('Existing Customer? Login here'), array('action' => 'login')); ?>
-<!--            <form action="<?php echo $this->webroot; ?>users/login" method="post" >
-            <?php // echo $this->Form->create('User'); ?>
-                <legend style="font-weight:normal;">Existing Customer? Login here ↓</legend>
-            <?php
-            echo $this->Form->input('user_email');
-            echo $this->Form->input('user_password', array('type' => 'password'));
-            echo $this->Form->end(__('Login', array('class' => 'login')));
-            ?>
-            </form>-->
+		    <div style="margin-top:20px"><?php echo $this->Html->link(__('Forgot Password?'), array('controller' => 'users', 'action' => 'forgotten_password')); ?></div>
         </td>
     </tr>
 </table>

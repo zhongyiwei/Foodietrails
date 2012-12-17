@@ -106,5 +106,5 @@ if ($PaymentOption == "PayPal") {
 Please wait for redirecting
 <script language="javascript" type="text/javascript">
 //    window.setTimeout('window.location="http://localhost/paymentsuccessful"; ',0);
-    window.setTimeout('window.location="http://ie.infotech.monash.edu.au/project35/review4/checkout/paymentsuccessful"; ',0);
+    window.setTimeout('window.location="http://www.foodietrails.com.au/web2.0/checkout/paymentsuccessful"; ',0);
 </script>

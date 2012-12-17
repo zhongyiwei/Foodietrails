@@ -1,10 +1,9 @@
-<?php $this->assign('title', 'Foodie Trails - Food Tours Melbourne, Gourmet Walking Tour, Walking Food Tour, Walking Tours Melbourne ');?>
-
+<?php $this->assign('title', "Foodie Trails - Unsubscription"); ?>
 <?php echo $this->Session->flash(); ?>
 <?php echo $this->Form->create('UserSubscription'); ?>
 <fieldset>
     <?php
-    echo $this->Form->input('user_email');
+    echo $this->Form->input('user_email',array('label'=>'Email'));
     ?>
     <div class="<?php
     if (isset($Error)) {

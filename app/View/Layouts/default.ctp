@@ -6,6 +6,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
             <?php
+	    echo $this->Html->meta('icon', $this->Html->url('/favicon.ico'));
             echo $this->Html->css('reset');
             echo $this->Html->css('cake.generic.css');
             echo $this->Html->css('index');
@@ -150,7 +151,7 @@
         <!--                            <li><a href='#'><span>FAQ</span></a></li>
                                     <li><a href='#'><span>Feedbacks</span></a></li>-->
                                     <li><?php echo $this->Html->link(__('Contact Us'), array('controller' => 'About', 'action' => 'contactUs')); ?></li>
-                                    <li><a href="http://foodietrails.com.au/blogweb/index.php">Blogs</a></li>
+                                    <li><a href="<?php echo $blogLink?>">Blogs</a></li>
                                    <li><?php echo $this->Html->link(__('About Foodie Trails Inc.'), array('controller' => 'aboutusPages', 'action' => 'aboutCompany')); ?></li>
                                     <li><?php echo $this->Html->link(__('FAQs.'), array('controller' => 'Faqs', 'action' => 'faq_view')); ?></li>
                                 </ul>

@@ -37,12 +37,12 @@ $this->start('manageRightContent');
         <?php
         $publishStatus = array('Private' => 'Private', 'Published' => 'Published');
         echo $this->Form->input('id');
-        echo $this->Form->input('product_name');
-        echo $this->Form->input('product_description', array('id' => 'product_description', 'class' => 'ckeditor'));
-        echo $this->Form->input('product_price');
-        echo $this->Form->input('product_thumbnail', array('id' => 'xFilePath', 'class' => 'ckeditor', 'style' => 'width:500px'));
+        echo $this->Form->input('product_name',array('label'=>'Name'));
+        echo $this->Form->input('product_description', array('id' => 'product_description', 'class' => 'ckeditor','label'=>'Description'));
+        echo $this->Form->input('product_price',array('label'=>'Price'));
+        echo $this->Form->input('product_thumbnail', array('id' => 'xFilePath', 'class' => 'ckeditor', 'style' => 'width:500px','label'=>'Thumbnail'));
         echo $this->Form->button('Browse Server', array('onclick' => 'BrowseServer()', 'type' => 'button', 'style' => 'padding:5px;margin-top:-55px; margin-left:530px'));
-        echo $this->Form->input('publish_status', array('options' => $publishStatus, 'default' => 'Private'));
+        echo $this->Form->input('publish_status', array('options' => $publishStatus, 'default' => 'Private','label'=>'Status'));
         ?>
     </fieldset>
     <?php echo $this->Form->end(__('Submit')); ?>

@@ -93,8 +93,6 @@ $this->start('manageRightContent');
             <?php echo h($user['User']['user_referee']); ?>
             &nbsp;
         </dd>
-       
-    
     </dl>
 </div>
 <?php $this->end(); ?>

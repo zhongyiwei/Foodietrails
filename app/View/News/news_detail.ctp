@@ -1,8 +1,8 @@
+<?php 
+$nt =  $news['News']['news_title'];
+$this->assign('title', "Foodie Trails - $nt"); ?>
 
 <?php
-$newsName = $news['News']['news_title'];
-$this->assign('title', "Foodie Trails - $newsName");
-
 //print_r($event);
 /*
  * To change this template, choose Tools | Templates
@@ -13,4 +13,3 @@ $this->assign('title', "Foodie Trails - $newsName");
 <?php echo $news['News']['news_title']?>
 </h1>
 <?php echo $news['News']['news_description']; ?>
-

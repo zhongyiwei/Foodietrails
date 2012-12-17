@@ -19,11 +19,23 @@ App::uses('AuthComponent', 'Controller/Component');
 class User extends AppModel {
 
     public $name = 'User';
-
+    
+    public function validatePasswdConfirm($data)
+  {
+    if ($this->data['User']['user_password'] !== $data['passwd_confirm'])
+    {
+      return false;
+    }
+    return true;
+  }
     public function beforeSave($options = array()) {
         if (isset($this->data[$this->alias]['user_password'])) {
             $this->data[$this->alias]['user_password'] = AuthComponent::password($this->data[$this->alias]['user_password']);
         }
+         if (isset($this->data['User']['passwd_confirm']))
+    {
+      unset($this->data['User']['passwd_confirm']);
+    }
         return true;
     }
 
@@ -91,7 +103,7 @@ class User extends AppModel {
             ),
         ),
         'user_email' => array(
-            'notempty' => array(
+            'user_email' => array(
                 'rule' => array('notempty'),
                 'required' => true,
                 'message' => 'Please enter your Email.'
@@ -100,7 +112,7 @@ class User extends AppModel {
                 'rule' => array('email'),
                 'message' => 'Please enter your email correctly.'
             ),
-            'unique' => array(
+            'user_email' => array(
                 'rule' => array('isUnique'),
                 'message' => 'The email is already been in used. ')
         ),
@@ -122,6 +134,12 @@ class User extends AppModel {
                 'message' => 'Please enter a password with numbers and alphabets only. ',
             ),
         ),
+       'passwd_confirm' => array(
+     	    'match'=>array(
+      	          'rule' => 'validatePasswdConfirm',
+                  'message' => 'These passwords do not match. Try again?'
+      )
+    ),
         'user_address' => array(
             'blank' => array(
                 'rule' => array('notEmpty'),
@@ -243,5 +261,21 @@ class User extends AppModel {
             'insertQuery' => ''
         ),
     );
-
+    
+            
+        function createTempPassword($len) { 
+        $pass = ''; 
+        $lchar = 0; 
+        $char = 0; 
+        for($i = 0; $i < $len; $i++) { 
+                while($char == $lchar) { 
+                        $char = rand(48, 109); 
+                        if($char > 57) $char += 7; 
+                        if($char > 90) $char += 6; 
+                } 
+                $pass .= chr($char); 
+                $lchar = $char; 
+        } 
+        return $pass; 
+        } 
 }

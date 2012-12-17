@@ -1,8 +1,6 @@
-<?php 
-$productName = $product['Product']['product_name'];
-$this->assign('title', "Foodie Trails - $productName");
-?>
 <?php
+$productName = $product['Product']['product_name'];
+$this->assign('title', "Foodie Trails - $product");
 //print_r($feedback);
 /*
  * To change this template, choose Tools | Templates

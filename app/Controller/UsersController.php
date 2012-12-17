@@ -1,6 +1,7 @@
 <?php
 
 App::uses('AppController', 'Controller');
+App::uses('CakeEmail', 'Network/Email');
 require_once('recaptchalib.php');
 /**
  * Users Controller
@@ -360,7 +361,7 @@ class UsersController extends AppController {
         $identifier = $this->params['url']['def'];
         if ($this->request->is('post')) {
             if ($this->Auth->login()) {
-                $this->redirect(array('controller' => 'giftVouchers', 'action' => "chooseDate?def=$identifier&id=$id"));
+                $this->redirect(array('controller' => 'giftvouchers', 'action' => "chooseDate?def=$identifier&id=$id"));
             } else {
                 $this->Session->setFlash(__('Invalid email or password, try again'), 'failure-message');
             }
@@ -419,5 +420,46 @@ class UsersController extends AppController {
             }
         fclose($csv_file);
     }
+     public function forgotten_password() {
+        if ($this->request->is('post')) {
+            $user_email = $this->request->data['User']['forget'];
+            $user = $this->User->find('all', array('conditions' => array('User.user_email' => $user_email)));
+           
+            if (count($user) != 0) {
+                $tempPassword = $this->User->createTempPassword(8);
+                $userFirstName = $user[0]['User']['user_first_name'];
+                $data = array('id' => $user[0]['User']['id'], 'user_password' => $tempPassword);
+
+                if ($this->User->save($data)) {
+                    $email = new CakeEmail();
+                    $email->config('default');
+                    $email->emailFormat('html');
+                    $email->from(array("$this->sender" => "$this->senderTag"));
+                    $email->to("$user_email");
+                    $email->subject("Your New Password - Foodie Trails");
+                    $logo = "<img src=" . Router::url("/img/logo.png", true) . " height='50' alt ='Foodie Trails Logo' name ='Foodie Trails Logo'/>";
+                    $body = "
+	                <div style='font-family:Century Gothic; color:#06496e; width:620px;'><p>Dear $userFirstName,</p>
+	                <p>Your new password is:</p>
+	                <p style='font-weight:bold'>$tempPassword </p>
+	                <p>Please Visit <a href='http://www.foodietrails.com.au/web2.0/users/homepageLogin'>Link</a> Here to Login.</p>
+	                $logo
+	                <p style='color: #ff7003; font-weight:bold; font-size:13px;'>Did you know that Foodie trails is part of a fully licenced travel company? Let us help you plan your next customized holiday at the right price and great service!</p>
+	                <p style='font-size:13px'><a href='www.foodietrails.com.au'style='font-size:13px'>FoodieTrails.com.au</a></p>
+	                <p style='font-size:13px'>Follow Us on <a href='www.facebook.com/foodietrails' style='font-size:13px'>Facebook</a></p>
+	                <p style='font-size:13px'>Follow Us on <a href=' www.twitter.com/foodietrails'style='font-size:13px' >Twitter</a></p>
+	                </div>
+	                ";
+                    $email->send($body);
+                    $this->redirect(array('controller' => 'users', 'action' => "changeSuccessful"));
+                }
+            } else {
+                $this->Session->setFlash('No user was found with the submitted email address.', 'failure-message');
+            }
+        }
+    }
+            	public function changeSuccessful() {
+        	//$this->set('psd', $this->params['url']['psd']);
+        	}
 
 }

@@ -1,3 +1,4 @@
+<?php $this->assign('title', "Foodie Trails"); ?>
 <div id="fb-root"></div>
 <script>(function(d, s, id) {
     var js, fjs = d.getElementsByTagName(s)[0];
@@ -63,9 +64,15 @@
                         </ul>
                     </div>
                     <div class="fbstyle"><div class="fb-activity facebookstyle" data-site="http://www.foodietrails.com.au/" data-width="240" data-height="200" data-header="true" data-linktarget="_parent" data-border-color="#ccc" data-font="segoe ui" data-recommendations="false"></div></div>
-                    <a class="twitter-timeline" width="240px" height="150px" href="https://twitter.com/foodietrails" data-widget-id="270879491256098816">Tweets by @foodietrails</a>
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
                 </div>
+
+
+<a class="twitter-timeline" width="240px" data-dnt=true href="https://twitter.com/foodietrails" data-widget-id="270879491256098816"></a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>   
+
+<a class="twitter-timeline"  width="240px" href="https://twitter.com/foodietrails" data-widget-id="280631368294207488"></a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
             </div>
         </td>
     </tr>

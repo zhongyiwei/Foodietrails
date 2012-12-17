@@ -73,9 +73,9 @@
                             <p />
                         </ul>
                         <ul><li class="parent_sitemap">About Us</li>
-                            <ul><li class="indent_sitemap"><?php echo $this->Html->link(__('Contact Us'), array('controller' => 'About', 'action' => 'contactUs')); ?></li></ul>
+                            <ul><li class="indent_sitemap"><?php echo $this->Html->link(__('Contact Us'), array('controller' => 'about/contactUs', 'action' => '')); ?></li></ul>
                             <ul><li class="indent_sitemap"><a href="http://foodietrails.com.au/blogweb/index.php">Blogs</a></li></ul>
-                            <ul><li class="indent_sitemap"><?php echo $this->Html->link(__('About Foodie Trails Inc.'), array('controller' => 'About', 'action' => 'aboutCompany')); ?></li></ul>
+                            <ul><li class="indent_sitemap"><?php echo $this->Html->link(__('About Foodie Trails Inc.'), array('controller' => 'aboutusPages/aboutCompany', 'action' => '')); ?></li></ul>
                             <ul><li class="indent_sitemap"><?php echo $this->Html->link(__('FAQs.'), array('controller' => 'Faqs', 'action' => 'faq_view')); ?></li></ul>
                         </ul>
 
@@ -84,4 +84,3 @@
                     </td>
                     </tr>
                     </table>
-

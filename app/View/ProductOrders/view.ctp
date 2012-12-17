@@ -42,12 +42,12 @@ $this->start('manageRightContent');
             <?php echo $this->Html->link($productOrder['User']['user_email'], array('controller' => 'users', 'action' => 'view', $productOrder['User']['id'])); ?>
             &nbsp;
         </dd>
-        <dt><?php echo __('Purchase Quantity'); ?></dt>
+        <dt><?php echo __('Product Purchase Quantity'); ?></dt>
         <dd>
             <?php echo h($productOrder['ProductOrder']['product_purchase_quantity']); ?>
             &nbsp;
         </dd>
-        <dt><?php echo __('Purchase Date'); ?></dt>
+        <dt><?php echo __('Product Purchase Date'); ?></dt>
         <dd>
             <?php echo h($productOrder['ProductOrder']['product_purchase_date']); ?>
             &nbsp;

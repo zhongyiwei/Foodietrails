@@ -1,5 +1,3 @@
-<?php $this->assign('title', 'Foodie Trails - Food Tours Melbourne, Gourmet Walking Tour, Walking Food Tour, Walking Tours Melbourne ');?>
-
 <!--<h1 class="contactHeading">Himanshi</h1>
 <img src="<?php echo $this->webroot; ?>img/ContactUsP1.png" align="right" height="300px" style="margin: -50px 50px;"/>
 <p class="contactP">P O Box 8634, Armadale VIC 3143</p>
@@ -7,7 +5,7 @@
 <p class="contactP">Fax: 1800 667 824</p>
 <p class="contactP">Email:<a href="mailto:tours@foodietrails.com<h1 class="contactHeading">Himanshi</h1>
 .au" style="font-weight: normal;margin-left:10px;">tours@foodietrails.com.au</a></p>-->
-
+<?php $this->assign('title', "Foodie Trails - Contact Us");?>
 <form method="post" action="<?php echo $this->webroot; ?>about/contactUs/">
     <table width="200" border="1">
         <tr>

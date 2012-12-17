@@ -68,7 +68,7 @@ class AppController extends Controller {
 //            print_r($tourMenu);
         }
         $this->set("tourMenu", $tourMenu);
-        $this->Auth->allow('display', 'tourDetail', 'cookingclass_detail', 'aboutCompany', 'contactUs', 'login', 'event_detail', 'checkout', 'logout', 'customerLogin', 'deleteCheckoutItem', 'customerPayment', 'existingCustomerLogin', 'check', 'confirmCheckout', 'sendEmail', 'sendSuccessful', 'news_detail', 'askedsuccessful', 'faq_view', 'redeem', 'redeemLogin', 'loginForRedeem', 'redeem_status', 'product_details', 'subscribe', 'unsubscribe', 'successfulsubscription', 'successfulunsubscription', 'expressCheckout', 'paymentSuccessful', 'deal_detail','homepageLogin','customerInfoEdit','register','more_detail');
+        $this->Auth->allow('display', 'tourDetail', 'cookingclass_detail', 'aboutCompany', 'contactUs', 'login', 'event_detail', 'checkout', 'logout', 'customerLogin', 'deleteCheckoutItem', 'customerPayment', 'existingCustomerLogin', 'check', 'confirmCheckout', 'sendEmail', 'sendSuccessful', 'news_detail', 'askedsuccessful', 'faq_view', 'redeem', 'redeemLogin', 'loginForRedeem', 'redeem_status', 'product_details', 'subscribe', 'unsubscribe', 'successfulsubscription', 'successfulunsubscription', 'expressCheckout', 'paymentSuccessful', 'deal_detail','homepageLogin','customerInfoEdit','register','more_detail','forgotten_password','changeSuccessful');
         $menus2 = $this->Event->find('all', array('fields' => 'id, event_name', 'conditions' => array('publish_status' => "Published")));
         
         $this->set('menu2', $menus2);
@@ -92,6 +92,7 @@ class AppController extends Controller {
         $this->sender = "tours@foodietrails.com.au";
         $this->senderTag = "Foodie Trails";
         $this->recipient = "tours@foodietrails.com.au";
+        $this->set('blogLink', "http://foodietrails.com.au/blogweb/index.php");
         $this->set('publicKey', "6Ldl-dcSAAAAAMbIoqOIHftTglcPfeRWnRirosk6");
         $this->privateKey = "6Ldl-dcSAAAAACS36YCZNyjag4luQ171Ty1KJeni";
         $this->set('homePageContact', "(+61) 1800667791");

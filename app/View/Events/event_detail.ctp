@@ -1,4 +1,6 @@
 <?php
+$eventName = $event['Event']['event_name'];
+$this->assign('title', "Foodie Trails - $eventName ");
 //print_r($event);
 /*
  * To change this template, choose Tools | Templates

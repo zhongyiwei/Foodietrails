@@ -31,7 +31,6 @@ $this->end();
 $this->start('manageRightContent');
 ?>
 <div class="products view">
-<h2><?php  echo __('Product'); ?></h2>
 	<dl>
 <!--		<dt><?php echo __('Id'); ?></dt>
 		<dd>
@@ -43,17 +42,17 @@ $this->start('manageRightContent');
 			<?php echo h($product['Product']['product_name']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Product Description'); ?></dt>
+		<dt><?php echo __('Description'); ?></dt>
 		<dd>
 			<?php echo ($product['Product']['product_description']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Product Price'); ?></dt>
+		<dt><?php echo __('Price'); ?></dt>
 		<dd>
 			<?php echo h($product['Product']['product_price']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Product Thumbnail'); ?></dt>
+		<dt><?php echo __('Thumbnail'); ?></dt>
         <dd>
             <img src="<?php echo ($product['Product']['product_thumbnail']);?>" height="100px">
             &nbsp;

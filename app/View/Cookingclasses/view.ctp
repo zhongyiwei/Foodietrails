@@ -63,7 +63,7 @@ $this->start('manageRightContent');
 			<?php echo h($cookingclass['Cookingclass']['cooking_class_max_num_on_day']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Cooking Class Thumbnail'); ?></dt>
+		<dt><?php echo __('Thumbnail'); ?></dt>
         <dd>
             <img src="<?php echo ($cookingclass['Cookingclass']['cooking_class_thumbnail']);?>" height="100px">
             &nbsp;
