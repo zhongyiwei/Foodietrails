@@ -1,3 +1,4 @@
+<?php $this->assign('title', "Foodie Trails - Password Change Successful"); ?>
 <div >
     <table width="200" border="0" style="margin-bottom: 90px; margin-top:50px;">
         <tr>
