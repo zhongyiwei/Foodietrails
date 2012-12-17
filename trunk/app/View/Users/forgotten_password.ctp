@@ -1,3 +1,4 @@
+<?php $this->assign('title', "Foodie Trails - Forgot Password"); ?>
 <div >
     <?php echo $this->Session->flash(); ?>
     <?php echo $this->Form->create('User',array('action'=>'forgotten_password')); ?>
